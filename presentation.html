@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>打破沉默的爪印：動物輔助治療對思覺失調症負性症狀之療效與轉譯</title>
+  <style>
+    :root {
+      --primary: #0d9488;
+      --primary-dark: #0f766e;
+      --primary-light: #ccfbf1;
+      --secondary: #f59e0b;
+      --bg: #0f172a;
+      --card-bg: rgba(30, 41, 59, 0.85);
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: rgba(148, 163, 184, 0.15);
+      --accent: #38bdf8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      background: radial-gradient(circle at top right, #1e293b, #0f172a 70%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Top Navigation / Progress Bar */
+    .progress-bar-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      z-index: 100;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transition: width 0.3s ease;
+    }
+
+    header {
+      position: fixed;
+      top: 5px;
+      left: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 90;
+      backdrop-filter: blur(8px);
+    }
+
+    .badge {
+      background: var(--primary-dark);
+      color: var(--primary-light);
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      border: 1px solid var(--border);
+    }
+
+    .wiki-back-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .wiki-back-link:hover {
+      color: #7dd3fc;
+    }
+
+    /* Slide Deck Container */
+    .deck-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5rem 2rem 6rem;
+      position: relative;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      max-width: 1000px;
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      padding: 3rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.99);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Slide Typography */
+    .slide-tag {
+      color: var(--secondary);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    h1.slide-title {
+      font-size: 2.3rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(135deg, #ffffff, #cbd5e1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.slide-lead {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: #e2e8f0;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Content Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .info-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.35rem;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .info-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .info-card h3 {
+      font-size: 1.15rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* Highlight Callouts */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(13, 148, 136, 0.15), rgba(56, 189, 248, 0.08));
+      border-left: 4px solid var(--primary);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .highlight-box strong {
+      color: #5eead4;
+    }
+
+    .stat-number {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--secondary);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Navigation Controls */
+    .controls {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      background: rgba(30, 41, 59, 0.85);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1.25rem;
+      border-radius: 9999px;
+      backdrop-filter: blur(12px);
+      z-index: 95;
+    }
+
+    .nav-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .nav-btn:hover:not(:disabled) {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .slide-indicator {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      min-width: 4rem;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .slide {
+        padding: 1.75rem;
+        border-radius: 1rem;
+      }
+      h1.slide-title {
+        font-size: 1.6rem;
+      }
+      p.slide-lead {
+        font-size: 1rem;
+      }
+      .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+      }
+      header {
+        padding: 0.75rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div class="progress-bar-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="badge">LLM Wiki 教學簡報成果</div>
+    <a href="index.html" class="wiki-back-link">
+      <span>📚 回到 Wiki 總首頁</span>
+    </a>
+  </header>
+
+  <!-- Slide Deck Container -->
+  <div class="deck-container">
+
+    <!-- Slide 1: 封面 -->
+    <div class="slide active">
+      <span class="slide-tag">教學模組 • 概念啟蒙</span>
+      <h1 class="slide-title">打破沉默的爪印 🐾</h1>
+      <p class="slide-lead">動物輔助治療（AAT）如何走入思覺失調個案的日常，融化難解的「負性症狀」冰層？</p>
+      
+      <div class="highlight-box">
+        <strong>💡 本簡報導覽核心：</strong>
+        基於 6 篇國際前沿醫學文獻與 2026 最新統合分析，為完全零背景的讀者解密：為什麼精神藥物難以改善的「冷漠與孤立」，能在毛茸茸的陪伴下重現生機？
+      </div>
+
+      <div class="grid-3" style="margin-top: 2rem;">
+        <div class="info-card">
+          <h3>🩺 破除社會污名</h3>
+          <p>看懂什麼是真正困擾病友的「負性症狀」，撕下「懶惰、不長進」的標籤。</p>
+        </div>
+        <div class="info-card">
+          <h3>📊 循證醫學實證</h3>
+          <p>2026 最新統合分析證實：動物介入對負性症狀具有中等程度實質改善。</p>
+        </div>
+        <div class="info-card">
+          <h3>🤝 臨床生活轉譯</h3>
+          <p>了解犬類與馬匹的不同優勢，掌握家屬守護與雙向福祉（One Welfare）原則。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2: 什麼是負性症狀 -->
+    <div class="slide">
+      <span class="slide-tag">認識病理 • 破除迷思</span>
+      <h1 class="slide-title">被偷走的生活色彩：什麼是「負性症狀」？</h1>
+      <p class="slide-lead">大眾常以為思覺失調症只有「幻聽與妄想」（正性症狀），但真正阻礙個案回歸社會的，卻是那些「被偷走的能力」。</p>
+
+      <div class="grid-2">
+        <div class="info-card">
+          <h3>🛑 動機缺乏 (Avolition)</h3>
+          <p>大腦目標導向行為的「引擎熄火」。連起床、洗臉、換衣服都顯得千斤沉重，整日靜坐發呆，常被家屬誤會為「怠惰不振」。</p>
+        </div>
+        <div class="info-card">
+          <h3>😶 情感平淡 (Blunted Affect)</h3>
+          <p>內心感受猶在，但「喇叭線被剪斷了」。眼神空洞、面部僵硬無笑容、語調單一平板，無法向身邊親友傳遞情感。</p>
+        </div>
+        <div class="info-card">
+          <h3>🚪 社交退縮 (Asociality)</h3>
+          <p>害怕人際互動中的評判與壓力，缺乏社交主動性，逐步斷絕與外界的聯繫，陷入深層孤立。</p>
+        </div>
+        <div class="info-card">
+          <h3>🍂 無快感症 (Anhedonia)</h3>
+          <p>大腦失去感知快樂的能力。過去熱愛的興趣變得索然無味，對未來的愉悅喪失期待感。</p>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <strong>📌 關鍵認知：</strong>
+        抗精神病藥物能有效平息大腦中的風暴（幻覺妄想），但對於重新點燃熄火的動機引擎，常規藥物往往顯得蒼白無力。
+      </div>
+    </div>
+
+    <!-- Slide 3: 2026 Meta-analysis -->
+    <div class="slide">
+      <span class="slide-tag">循證醫學 • 權威數據</span>
+      <h1 class="slide-title">2026 最新統合分析：AAT 不是娛樂，是醫學介入</h1>
+      <p class="slide-lead">Peraile-Huerta et al. (2026) 發表於國際期刊 <em>Complementary Therapies in Medicine</em>，統合 12 項研究、408 位個案的臨床數據。</p>
+
+      <div class="grid-2" style="align-items: center;">
+        <div>
+          <div class="info-card" style="margin-bottom: 1rem; border-left: 4px solid var(--secondary);">
+            <div class="stat-number">SMD = -0.51</div>
+            <div class="stat-label">負性症狀改善達統計顯著 (p < 0.05, 95% CI [-0.95, -0.07])</div>
+            <p style="margin-top: 0.5rem;">在隨機對照試驗中，動物輔助治療展現出穩健的中等改善效應，打破過去實證未定的保守局面。</p>
+          </div>
+          <div class="info-card" style="border-left: 4px solid var(--primary);">
+            <div class="stat-number">犬類主導</div>
+            <div class="stat-label">敏感度分析：排除馬匹後，犬類效果依然穩固顯著</div>
+            <p style="margin-top: 0.5rem;">證實治療犬在近身接觸與破除社交冷漠上，具有高度的特異性優勢。</p>
+          </div>
+        </div>
+
+        <div class="info-card" style="height: 100%;">
+          <h3>🔬 統合分析給我們的核心啟示</h3>
+          <ul style="padding-left: 1.25rem; line-height: 1.8; color: #cbd5e1; font-size: 0.95rem;">
+            <li><strong>擊中藥物死角</strong>：對負性症狀顯著有效，而正性症狀則主要維持由基礎藥物控制。</li>
+            <li><strong>情緒焦慮同步減輕</strong>：多項 RCT 證實個案在動物陪伴下自覺焦慮顯著緩解。</li>
+            <li><strong>5 週喚醒愉悅感</strong>：Nathans-Barel 研究顯示，介入 5 週後快感缺乏即獲得顯著修復。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4: 神經生理機轉 -->
+    <div class="slide">
+      <span class="slide-tag">身心機轉 • 為什麼有效</span>
+      <h1 class="slide-title">動物為何做得到？身體不會說謊的療癒機轉</h1>
+      <p class="slide-lead">為什麼人類治療師苦口婆心無效，一隻狗狗卻能讓人打開心扉？答案深藏在神經生物學與生理反應中。</p>
+
+      <div class="grid-3">
+        <div class="info-card">
+          <h3>🧬 催產素凝視循環</h3>
+          <p><strong>「愛的荷爾蒙釋放」</strong><br>人犬互望與撫摸會激發中樞釋放催產素 (Oxytocin)，下調恐懼中樞杏仁核，給予大腦生物級的「安全感與信任」。</p>
+        </div>
+        <div class="info-card">
+          <h3>🩸 皮質醇實質下降</h3>
+          <p><strong>「壓力防空警報解除」</strong><br>西班牙 RCT (Calvo 2016) 檢驗唾液發現，與狗互動 1 小時後，壓力荷爾蒙皮質醇 (Cortisol) 顯著下降，身體真正放鬆。</p>
+        </div>
+        <div class="info-card">
+          <h3>🐾 非批判性空間</h3>
+          <p><strong>「沒有被審視的壓力」</strong><br>狗狗不在乎個案說話是否流暢、是否有社會成就。這種「全然接納」是打破人際防禦的最強破冰斧。</p>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <strong>🩺 醫學白話轉譯：</strong>
+        面對人類，個案常處於高度防衛的戰鬥狀態；當一隻溫暖柔軟的狗狗把頭擱在膝蓋上時，大腦警報器按下了靜音鍵，身心才能重新通電。
+      </div>
+    </div>
+
+    <!-- Slide 5: 台灣在地實證 -->
+    <div class="slide">
+      <span class="slide-tag">本土經驗 • 臨床典範</span>
+      <h1 class="slide-title">台灣長庚／台大實證：四階社交鷹架與零脫落率</h1>
+      <p class="slide-lead">Chen et al. (2021) 針對高雄長庚 40 位平均發病逾 15 年的中老年慢性病友，建立 12 週標準化犬類介入模式。</p>
+
+      <div class="grid-2">
+        <div class="info-card">
+          <h3>🏆 令人振奮的臨床成果</h3>
+          <div class="stat-number" style="font-size: 2.2rem; color: #34d399;">0% 脫落率</div>
+          <p style="margin-bottom: 0.75rem;"><strong>40 位中老年個案全勤完成！</strong> 展現犬類介入對改善動機缺乏具有無與倫比的吸引力。</p>
+          <div class="stat-number" style="font-size: 2.2rem; color: #60a5fa;">SRD = 0.50</div>
+          <p>PANSS 負性次量表呈現<strong>大效應值改善 (p < 0.001)</strong>，分數中位數降低 3.0 分（跨越臨床有感門檻）。</p>
+        </div>
+
+        <div class="info-card">
+          <h3>🪜 職能治療四階社交鷹架</h3>
+          <ol style="padding-left: 1.25rem; line-height: 1.7; font-size: 0.95rem; color: #cbd5e1;">
+            <li><strong>第一階：感官正向情緒</strong>（撫摸、梳毛，先感受純粹安全）</li>
+            <li><strong>第二階：認知指令發起</strong>（對犬隻下達坐下、等待，重拾掌控感）</li>
+            <li><strong>第三階：生活體能任務</strong>（牽繩散步、餵食穿配件，鍛鍊精細動作）</li>
+            <li><strong>第四階：群體人際泛化</strong>（向身邊病友稱讚自己的狗，重啟社交）</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <strong>🐕 台灣黃金陣容：</strong>
+        柯基、拉布拉多、馬爾濟斯、柴犬共同出勤！由動輔師、精神科職能治療師與指導手跨專業協作，將摸狗昇華為精密的生活復健。
+      </div>
+    </div>
+
+    <!-- Slide 6: 犬類 vs 馬匹 -->
+    <div class="slide">
+      <span class="slide-tag">媒介抉擇 • 跨研究比較</span>
+      <h1 class="slide-title">狗狗 vs 馬匹：如何為個案挑選適合的動物？</h1>
+      <p class="slide-lead">不同的動物具有不同的身心特質。根據知識庫橫向對照，犬類與馬匹在精神復健中各司其職。</p>
+
+      <div class="grid-2">
+        <div class="info-card" style="border-top: 4px solid var(--primary);">
+          <h3>🐕 犬類輔助治療 (Canine-AAT)</h3>
+          <p><strong>最佳適應症：重度退縮、毫無動機、情感平淡</strong></p>
+          <ul style="padding-left: 1.25rem; line-height: 1.7; font-size: 0.95rem; color: #cbd5e1; margin-top: 0.5rem;">
+            <li><strong>優勢</strong>：中小型犬可近身貼抱、撫摸毛皮，刺激催產素。</li>
+            <li><strong>環境</strong>：室內安靜教室即可進行，門檻極低。</li>
+            <li><strong>臨床代表</strong>：Chen 2021 負性症狀大改善 ($SRD = 0.50$)。</li>
+          </ul>
+        </div>
+
+        <div class="info-card" style="border-top: 4px solid var(--secondary);">
+          <h3>🐎 馬匹輔助治療 (Equine-AAT)</h3>
+          <p><strong>最佳適應症：深層自卑、極度孤獨、缺乏生活目標</strong></p>
+          <ul style="padding-left: 1.25rem; line-height: 1.7; font-size: 0.95rem; color: #cbd5e1; margin-top: 0.5rem;">
+            <li><strong>優勢</strong>：馬背視野拔高，感覺統合與尊嚴駕馭感。</li>
+            <li><strong>成效</strong>：Öztürk 2025 證實孤獨感大幅消融 ($d = 0.99$)、生活品質飛躍性提升 ($d = 1.93$)。</li>
+            <li><strong>特點</strong>：對負性量表反應較慢，但重塑自尊極其震撼。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <strong>🎯 臨床處方思維：</strong>
+        若個案生活如冰封、動彈不得，首選<strong>犬類破冰</strong>；若個案已穩定但深感人生無望、被世界拋棄，首選<strong>馬術重塑尊嚴</strong>！
+      </div>
+    </div>
+
+    <!-- Slide 7: 去污名化與家屬指南 -->
+    <div class="slide">
+      <span class="slide-tag">大眾關懷 • 去污名化</span>
+      <h1 class="slide-title">走出象牙塔：給家屬與社會的溫暖處方</h1>
+      <p class="slide-lead">科學實證的最終目的，是為黑暗中的家庭帶來理解的燈火。面對負性症狀，我們能做些什麼？</p>
+
+      <div class="grid-3">
+        <div class="info-card">
+          <h3>❤️ 撕下「懶惰」標籤</h3>
+          <p>理解個案不是故意不合作，而是大腦動機系統生病了。給予耐心與安全感，停止無效的言語催促。</p>
+        </div>
+        <div class="info-card">
+          <h3>🛡️ 養寵物 ≠ 專業治療</h3>
+          <p>愛丁堡大學 (Hawkins 2019) 提醒：貿然自養可能加重照顧負擔。專業動輔是由醫療團隊守護的目標導向介入。</p>
+        </div>
+        <div class="info-card">
+          <h3>🕊️ 雙向福祉 (One Welfare)</h3>
+          <p>療癒不是單向索取。合格治療犬享有嚴格的工時與情緒健康評估。尊重動物，個案才能學會溫柔自愛。</p>
+        </div>
+      </div>
+
+      <div class="highlight-box" style="text-align: center; font-size: 1.15rem; line-height: 1.8;">
+        <em>「即使患病三十年，當面對純真的生命時，個案展現出的溫柔與愛心與我們毫無二致。<br>動物輔助治療最大的價值，是為那些被遺忘在角落的人們，重新點亮一盞回家的溫暖燈火。」</em>
+      </div>
+    </div>
+
+    <!-- Slide 8: 結語與反思 -->
+    <div class="slide">
+      <span class="slide-tag">知識庫總結 • 未來展望</span>
+      <h1 class="slide-title">知識複利的成果：LLM Wiki 作為研究夥伴</h1>
+      <p class="slide-lead">本份教學簡報完全萃取自我們剛建立的「動物輔助治療 × 思覺失調負性症狀」LLM Wiki 知識庫。</p>
+
+      <div class="grid-2">
+        <div class="info-card">
+          <h3>📚 Persistent Compounding Wiki</h3>
+          <ul style="padding-left: 1.25rem; line-height: 1.7; font-size: 0.95rem; color: #cbd5e1;">
+            <li><strong>6 篇國際前沿文獻</strong>（含 2026 最新 Meta、台灣/西班牙/土耳其 RCT）。</li>
+            <li><strong>四大概念網絡全面鏈結</strong>（症狀、介入、量表、機轉）。</li>
+            <li><strong>專題矛盾拆解矩陣</strong>（剖析對照組與動物媒介分歧）。</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h3>🔄 Loop & Graph 實踐</h3>
+          <ul style="padding-left: 1.25rem; line-height: 1.7; font-size: 0.95rem; color: #cbd5e1;">
+            <li><strong>人機協作 Ingest</strong>：兩階段提案確認，杜絕未經查核的幻覺。</li>
+            <li><strong>大眾轉譯強制項</strong>：讓高深醫學統計走出象牙塔，轉化為大眾教學簡報。</li>
+            <li><strong>即時反思優化</strong>：將檢查點前移至提案階段，確保知識庫持續健康。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="index.html" style="display: inline-block; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; padding: 0.85rem 2rem; border-radius: 9999px; text-decoration: none; font-weight: 700; box-shadow: 0 10px 15px -3px rgba(13, 148, 136, 0.4);">
+          進入 Wiki 總首頁探索完整知識圖譜 ➔
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Navigation Controls -->
+  <div class="controls">
+    <button class="nav-btn" id="prevBtn" title="上一頁 (←)">‹</button>
+    <div class="slide-indicator" id="slideIndicator">1 / 8</div>
+    <button class="nav-btn" id="nextBtn" title="下一頁 (→ 或 Space)">›</button>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const slideIndicator = document.getElementById('slideIndicator');
+    const progressBar = document.getElementById('progressBar');
+
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+
+    function updateSlide(index) {
+      if (index < 0 || index >= totalSlides) return;
+
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+
+      currentSlide = index;
+      slideIndicator.textContent = `${currentSlide + 1} / ${totalSlides}`;
+      progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === totalSlides - 1;
+    }
+
+    prevBtn.addEventListener('click', () => updateSlide(currentSlide - 1));
+    nextBtn.addEventListener('click', () => updateSlide(currentSlide + 1));
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        updateSlide(currentSlide + 1);
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        updateSlide(currentSlide - 1);
+      } else if (e.key === 'Home') {
+        updateSlide(0);
+      } else if (e.key === 'End') {
+        updateSlide(totalSlides - 1);
+      }
+    });
+
+    // Touch swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    document.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, false);
+
+    document.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      if (touchEndX < touchStartX - 50) {
+        updateSlide(currentSlide + 1);
+      }
+      if (touchEndX > touchStartX + 50) {
+        updateSlide(currentSlide - 1);
+      }
+    }, false);
+
+    // Initial state
+    updateSlide(0);
+  </script>
+</body>
+</html>

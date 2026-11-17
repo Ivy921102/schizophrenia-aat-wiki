@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>動物輔助治療 × 思覺失調症負性症狀：LLM Wiki 與教學展示系統</title>
+  <!-- Mermaid.js for Rendering Diagrams -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({ startOnLoad: true, theme: 'dark' });</script>
+  <style>
+    :root {
+      --primary: #0d9488;
+      --primary-hover: #0f766e;
+      --primary-light: #ccfbf1;
+      --secondary: #f59e0b;
+      --bg: #0f172a;
+      --card-bg: rgba(30, 41, 59, 0.85);
+      --card-border: rgba(148, 163, 184, 0.15);
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
+      background: radial-gradient(circle at top right, #1e293b, #0f172a 75%);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.65;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .pill {
+      display: inline-block;
+      background: var(--primary-hover);
+      color: var(--primary-light);
+      padding: 0.35rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+      border: 1px solid var(--card-border);
+    }
+
+    h1.hero-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ffffff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Tab Switcher */
+    .tab-bar {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tab-btn:hover {
+      color: var(--text);
+      border-color: var(--primary);
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 4px 14px rgba(13, 148, 136, 0.4);
+    }
+
+    /* Tab Contents */
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Cards & Layout */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 1.25rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+
+    h2.section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 0.75rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .cta-card {
+      background: linear-gradient(135deg, rgba(13, 148, 136, 0.2), rgba(56, 189, 248, 0.1));
+      border: 1px solid var(--primary);
+      border-radius: 1.25rem;
+      padding: 2.25rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+      color: #fff;
+      padding: 0.85rem 2rem;
+      border-radius: 9999px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(13, 148, 136, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(13, 148, 136, 0.6);
+    }
+
+    /* Table styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.25rem 0;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--card-border);
+      text-align: left;
+    }
+
+    th {
+      background: rgba(15, 23, 42, 0.75);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Code & Callout */
+    pre, code {
+      font-family: Consolas, Monaco, "Andale Mono", monospace;
+    }
+
+    .mermaid {
+      background: rgba(15, 23, 42, 0.8);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      overflow-x: auto;
+    }
+
+    .callout {
+      background: rgba(15, 23, 42, 0.6);
+      border-left: 4px solid var(--secondary);
+      border-radius: 0.5rem;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+    }
+
+    .callout strong { color: var(--secondary); }
+
+    /* File Link pills */
+    .file-badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent);
+      padding: 0.2rem 0.6rem;
+      border-radius: 0.4rem;
+      font-size: 0.85rem;
+      font-family: monospace;
+      margin: 0.2rem 0;
+    }
+
+    @media (max-width: 768px) {
+      h1.hero-title { font-size: 1.85rem; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .card { padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="pill">生成式 AI 第十週作業成果專區</div>
+      <h1 class="hero-title">動物輔助治療 × 思覺失調症負性症狀</h1>
+      <p class="hero-subtitle">基於 Andrej Karpathy LLM Wiki 模式建立之持久複利型知識庫、教學簡報與反思報告</p>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab('presentation-tab')">🎓 教學型 HTML 簡報</button>
+      <button class="tab-btn" onclick="switchTab('wiki-tab')">📚 LLM Wiki 知識庫總覽</button>
+      <button class="tab-btn" onclick="switchTab('loop-tab')">🔄 Loop / Graph 設計說明</button>
+      <button class="tab-btn" onclick="switchTab('reflection-tab')">📝 執行紀錄與深度反思</button>
+    </div>
+
+    <!-- TAB 1: 教學型簡報入口 -->
+    <div id="presentation-tab" class="tab-content active">
+      <div class="cta-card">
+        <h2 style="font-size: 2rem; margin-bottom: 0.75rem; color: #fff;">🐾 《打破沉默的爪印》教學簡報</h2>
+        <p style="font-size: 1.15rem; color: var(--text-muted); margin-bottom: 1.75rem; max-width: 750px; margin-left: auto; margin-right: auto;">
+          本簡報專為初學者與社會大眾設計，將艱澀的精神醫學量表與神經生物學，轉化為有溫度的故事。支援鍵盤左右鍵（← / →）及手機滑動瀏覽。
+        </p>
+        <a href="presentation.html" class="btn-primary" target="_blank">
+          <span>🚀 點此開啟「全螢幕教學簡報」 (presentation.html)</span>
+        </a>
+      </div>
+
+      <div class="card">
+        <h2 class="section-title">📖 簡報核心教學大綱</h2>
+        <div class="grid-3">
+          <div style="background: rgba(15,23,42,0.5); padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--card-border);">
+            <h3 style="color: var(--secondary); margin-bottom: 0.5rem;">第一單元：認識隱形枷鎖</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              破解大眾對思覺失調「只有幻覺妄想」的迷思。深入淺出解析什麼是偷走生活動力的「負性症狀」（動機缺乏、情感平淡、社交退縮、無快感症）。
+            </p>
+          </div>
+          <div style="background: rgba(15,23,42,0.5); padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--card-border);">
+            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">第二單元：科學實證與機轉</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              解讀 2026 最新統合分析（SMD = -0.51 顯著療效）。揭開身體不會說謊的生理機轉：催產素注視循環、唾液皮質醇壓力下降與非評判性安全感。
+            </p>
+          </div>
+          <div style="background: rgba(15,23,42,0.5); padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--card-border);">
+            <h3 style="color: var(--accent); margin-bottom: 0.5rem;">第三單元：臨床抉擇與關懷</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              犬類（破冰動機）vs 馬匹（消融孤獨重塑尊嚴）之臨床對比。給家屬的溫暖處方：撕下懶惰標籤，落實雙向福祉（One Welfare）。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: LLM Wiki 知識庫總覽 -->
+    <div id="wiki-tab" class="tab-content">
+      <div class="card">
+        <h2 class="section-title">📂 LLM Wiki 檔案結構與成果清冊</h2>
+        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+          本知識庫嚴格遵守 Karpathy LLM Wiki 模式，將不可變的原始論文（<code>raw/</code>）提煉為持續複利的實體網絡（<code>wiki/</code>），並由 <code>AGENTS.md</code> 系統憲法統籌維護。
+        </p>
+
+        <div class="grid-2">
+          <div>
+            <h3 style="color: var(--accent); margin-bottom: 0.75rem;">📚 原始文獻庫 (Raw Sources, n=6)</h3>
+            <ul style="list-style: none; line-height: 1.8; font-size: 0.9rem;">
+              <li><span class="file-badge">raw/2026-peraile-huerta-aat-psychosis-meta.pdf</span> (2026 最新統合分析)</li>
+              <li><span class="file-badge">raw/2025-ozturk-equine-aat-rct.pdf</span> (土耳其 2025 馬術 RCT)</li>
+              <li><span class="file-badge">raw/2023-tyssedal-dog-assisted-review.pdf</span> (挪威犬類介入系統性回顧)</li>
+              <li><span class="file-badge">raw/2021-chen-dog-aat-taiwan-rct.pdf</span> (台灣長庚/台大犬類 RCT)</li>
+              <li><span class="file-badge">raw/2019-hawkins-aat-schizophrenia-review.pdf</span> (愛丁堡大學早期回顧)</li>
+              <li><span class="file-badge">raw/2016-calvo-dog-aat-rehab-rct.pdf</span> (西班牙長週期皮質醇檢測 RCT)</li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="color: var(--secondary); margin-bottom: 0.75rem;">🧠 核心概念與實體頁 (Concepts)</h3>
+            <ul style="list-style: none; line-height: 1.8; font-size: 0.9rem;">
+              <li><span class="file-badge">wiki/concepts/symptoms/avolition.md</span> (動機缺乏)</li>
+              <li><span class="file-badge">wiki/concepts/symptoms/asociality.md</span> (社交退縮)</li>
+              <li><span class="file-badge">wiki/concepts/symptoms/blunted-affect.md</span> (情感平淡)</li>
+              <li><span class="file-badge">wiki/concepts/symptoms/anhedonia.md</span> (無快感症)</li>
+              <li><span class="file-badge">wiki/concepts/interventions/canine-aat.md</span> (犬類輔助治療)</li>
+              <li><span class="file-badge">wiki/concepts/interventions/equine-aat.md</span> (馬匹輔助治療)</li>
+              <li><span class="file-badge">wiki/concepts/mechanisms/oxytocin.md</span> (催產素神經迴路)</li>
+              <li><span class="file-badge">wiki/concepts/mechanisms/cortisol-hpa.md</span> (皮質醇壓力調節)</li>
+              <li><span class="file-badge">wiki/concepts/mechanisms/social-scaffolding.md</span> (社交鷹架理論)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.5rem;">
+          <h3 style="color: #34d399; margin-bottom: 0.75rem;">⚖️ 專案比較、綜述與方法學分析</h3>
+          <div class="grid-3" style="font-size: 0.9rem;">
+            <div>
+              <strong>比較矩陣 (Comparisons)</strong>
+              <ul style="list-style: none; margin-top: 0.5rem; line-height: 1.6;">
+                <li><span class="file-badge">negative-symptoms-meta-comparison.md</span></li>
+                <li><span class="file-badge">canine-vs-equine.md</span></li>
+              </ul>
+            </div>
+            <div>
+              <strong>大眾綜述 (Syntheses)</strong>
+              <ul style="list-style: none; margin-top: 0.5rem; line-height: 1.6;">
+                <li><span class="file-badge">from-isolation-to-connection.md</span></li>
+              </ul>
+            </div>
+            <div>
+              <strong>方法學評估 (Methodology)</strong>
+              <ul style="list-style: none; margin-top: 0.5rem; line-height: 1.6;">
+                <li><span class="file-badge">active-control-challenges.md</span></li>
+                <li><span class="file-badge">blind-assessment-limitations.md</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: Loop / Graph 設計說明 -->
+    <div id="loop-tab" class="tab-content">
+      <div class="card">
+        <h2 class="section-title">🔄 Loop / Graph 流程圖架構 (作業步驟三)</h2>
+        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+          以下為本系統中，資訊如何從「原始文獻取得 $\rightarrow$ 結構化提案 $\rightarrow$ 人機確認 $\rightarrow$ Wiki 複利 $\rightarrow$ 健康檢查 $\rightarrow$ 教學簡報生成」的完整資訊流動圖譜：
+        </p>
+
+        <div class="mermaid">
+graph TD
+    A[原始文獻匯入 raw/] --> B[Ingest 研讀與提案階段]
+    B --> C{人機審核門檻<br>Proposal Review}
+    
+    C -- 需調整/補充 --> B
+    C -- 確認核准 (Confirm) --> D[Commit 寫入 Wiki 網絡]
+    
+    subgraph Wiki_Compounding [Wiki 知識複利循環]
+        D --> D1[生成 sources/ 論文專頁]
+        D --> D2[更新 concepts/ 實體與矛盾專區]
+        D --> D3[更新 comparisons/ 對比矩陣]
+        D --> D4[追加 log.md & 更新 index.md]
+    end
+
+    Wiki_Compounding --> E[Lint 知識庫健康檢查 Loop]
+    E --> E1{檢查拓撲/矛盾/大眾轉譯?}
+    E1 -- 發現缺口或孤立節點 --> D
+    E1 -- 通過健檢 --> F[Query 檢索與教學轉譯]
+
+    F --> G[生成旗艦大眾科普綜述<br>from-isolation-to-connection.md]
+    G --> H[產出互動式教學 HTML 簡報<br>presentation.html]
+
+    style C fill:#f59e0b,stroke:#b45309,color:#000,font-weight:bold
+    style E1 fill:#0d9488,stroke:#0f766e,color:#fff,font-weight:bold
+    style H fill:#38bdf8,stroke:#0284c7,color:#000,font-weight:bold
+        </div>
+
+        <h3 style="color: var(--accent); margin: 1.5rem 0 0.75rem;">⚙️ 流程機制的深度解析：</h3>
+        <ol style="padding-left: 1.25rem; line-height: 1.8; color: #cbd5e1;">
+          <li><strong>哪些步驟會重複執行 (Repetitive Loops)？</strong>
+            <br>• <strong>文獻匯入循環 (Ingest Loop)</strong>：每加入一篇新論文，系統便重複執行「提報亮點 $\rightarrow$ 人機對齊 $\rightarrow$ 寫入 Source $\rightarrow$ 拓撲更新概念頁」的完整循環。
+            <br>• <strong>健檢修復循環 (Lint Loop)</strong>：定期掃描有無未建頁的高頻詞、死鏈結或未包含「大眾轉譯」章節的頁面，觸發自動補齊。
+          </li>
+          <li><strong>哪些地方需要檢查或重新生成 (Checkpoints & Re-generation)？</strong>
+            <br>• <strong>提案審核節點 (Proposal Gate)</strong>：在寫入檔案前，由使用者檢查文獻基本數據、第一作者格式是否合規。
+            <br>• <strong>跨文獻矛盾比對點 (Contradiction Check)</strong>：當新文獻（如馬匹研究）與舊文獻（如犬類研究）結論分歧時，強制重新生成 <code>comparisons/</code> 對比矩陣。
+          </li>
+          <li><strong>為什麼這樣設計 (Design Rationales)？</strong>
+            <br>• <strong>防止 LLM 知識幻覺</strong>：杜絕 Agent 默默寫入錯誤數據，確保 <code>raw/</code> 永遠是唯一真實來源。
+            <br>• <strong>實踐 Karpathy 的複利原則</strong>：知識不因對話結束而消散，每次提問與比對都沉澱為 Wiki 永久資產。
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- TAB 4: 執行紀錄與反思 -->
+    <div id="reflection-tab" class="tab-content">
+      <div class="card">
+        <h2 class="section-title">📝 執行紀錄與深度反思 (作業步驟四)</h2>
+
+        <div class="callout">
+          <strong>📋 一次實際執行的結果與檢查紀錄：</strong>
+          <br>以本次 <code>2021-chen-dog-aat-taiwan-rct.pdf</code> 匯入為例：
+          系統研讀後先向使用者提報結構化數據（40 位中老年個案、0% 脫落率、PANSS 負性症狀大效應值 SRD=0.50）。使用者於審核節點發出修正指示：<em>「第一作者名字請用英文就好」</em>。系統即時修正為 <code>Tzu-Ting Chen et al.</code> 後才正式 Commit 寫入專頁並同步建立 <code>social-scaffolding.md</code> 與 <code>canine-vs-equine.md</code>。
+        </div>
+
+        <h3 style="color: var(--secondary); margin: 1.75rem 0 0.75rem;">🤔 關鍵反思一：哪一個節點最常出錯？</h3>
+        <p style="color: #cbd5e1; line-height: 1.75;">
+          在整個人機協作實務中，<strong>最容易出錯且最常被忽略的節點是「文獻研讀後的初次萃取與格式對齊節點」以及「概念預設假設節點」</strong>。
+          例如：
+          <br>1. AI 容易自作主張將第一作者姓名翻譯為中文，或是將研究結論泛化（抹平對照組差異）；
+          <br>2. 在初期設計 Wiki 架構時，AI 容易忽略「目標讀者是誰」以及「是否包含大眾轉譯」等核心哲學問題，導致生成的內容容易淪為只有專業人士看得懂的枯燥數據堆疊。
+        </p>
+
+        <h3 style="color: var(--primary); margin: 1.75rem 0 0.75rem;">🔍 關鍵反思二：發現問題後，把檢查往前移到了哪一個步驟？</h3>
+        <p style="color: #cbd5e1; line-height: 1.75;">
+          我們將所有的關鍵檢查<strong>「全面大幅度前移（Shift-Left）」</strong>：
+          <br>• <strong>將架構檢查前移到「提問釐清期」</strong>：在碰觸任何檔案之前，透過 5~6 個選擇題，先行確認讀者定位、矛盾處理四維度與大眾轉譯強制項。
+          <br>• <strong>將資料查驗前移到「兩階段 Ingest 的提案期 (Proposal Phase)」</strong>：在 Agent 碰觸 Wiki 檔案層之前，強制在對話中吐出結構化提案。唯有在此門檻檢查過作者英文拼寫、量表數據與轉譯觀點後，才允許寫入磁碟，徹底杜絕了髒資料污染知識庫。
+        </p>
+
+        <h3 style="color: var(--accent); margin: 1.75rem 0 0.75rem;">🛠️ 關鍵反思三：有沒有因此修改 Workflow / Graph？為什麼？</h3>
+        <p style="color: #cbd5e1; line-height: 1.75;">
+          <strong>有，且進行了重大的架構迭代！</strong>
+          <br>我們在 <code>AGENTS.md</code> 中修改了兩大工作流規範：
+          <br>1. <strong>將「Lint 巡檢規範」追加了強制項</strong>：原本 Lint 只檢查「死鏈結與孤立頁面」，修改後強制要求 Lint 必須逐頁巡檢「是否包含合格的【大眾生活功能意涵】專題」，確保科普轉譯的初心不被稀釋。
+          <br>2. <strong>在 Graph 中新增「矛盾拆解分歧閥 (Divergence Resolution Valve)」</strong>：當遇到馬匹研究與犬類研究結果衝突時，不再只是客觀並列，而是強制從「劑量、對照組性質、樣本量、量表敏感度」四維度進行交叉分析，使圖譜具備自我辯證與進化的能力。
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+      event.currentTarget.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
+</body>
+</html>
