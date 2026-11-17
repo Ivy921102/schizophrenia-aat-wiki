@@ -1,4 +1,4 @@
----
+﻿---
 title: "Animal-Assisted Therapy in Middle-Aged and Older Patients With Schizophrenia: A Randomized Controlled Trial"
 authors: "Tzu-Ting Chen et al."
 year: 2021
@@ -17,7 +17,7 @@ date_ingested: 2026-11-17
 - **完整引註**：Chen, T.-T., Hsieh, T.-L., Chen, M.-L., Tseng, W.-T., Hung, C.-F., & Chen, C.-R. (2021). Animal-Assisted Therapy in Middle-Aged and Older Patients With Schizophrenia: A Randomized Controlled Trial. *Frontiers in Psychiatry*, 12, 713623. https://doi.org/10.3389/fpsyt.2021.713623
 - **研究背景與對象**：
   - 台灣高雄長庚紀念醫院精神科與台灣大學職能治療學系團隊執行。
-  - 招募 40 位年齡 $\ge 40$ 歲之慢性思覺失調個案（平均年齡 54.7 歲；日間病房與復健病房個案），採分層隨機分配為 AAT 組 ($n=20$) 與控制組 ($n=20$)。
+  - 招募 40 位年齡 ≥ 40 歲之慢性思覺失調個案（平均年齡 54.7 歲；日間病房與復健病房個案），採分層隨機分配為 AAT 組 (n=20) 與控制組 (n=20)。
   - **研究特色**：脫落率 0%（全數 40 位個案完成試驗，展現極高可行性）。
 
 ---
@@ -44,16 +44,16 @@ date_ingested: 2026-11-17
 ## 2. 核心實證發現 (Key Empirical Findings)
 
 ### 2.1 負性症狀呈現大效應值改善（核心突破）
-- 在 [[panss-negative]] 評估上，AAT 組負性症狀改善幅度顯著優於對照組（$p < 0.001$）。
-- 成功率差異（Success Rate Difference, SRD）達 **$SRD = 0.50$（統計上定義之大效應值 Large Effect Size）**。
+- 在 [[panss-negative]] 評估上，AAT 組負性症狀改善幅度顯著優於對照組（p < 0.001）。
+- 成功率差異（Success Rate Difference, SRD）達 **SRD = 0.50（統計上定義之大效應值 Large Effect Size）**。
 - AAT 組中位數降低 3.0 分（達到臨床最小重要差異 MCID），對照組中位數改變為 0 分。
 - 顯著改善的負性維度包括：[[blunted-affect|情感平淡]]、[[asociality|社交退縮]]、缺乏自發性與會話流暢度、關係建立困難。
 
 ### 2.2 正性症狀、一般精神病理與壓力顯著減輕
-- **正性症狀**：PANSS 正性次量表組間差異達顯著（$p < 0.001, SRD = 0.15$）。研究指出課堂中治療師持續進行「現實導向 (Reality orientation)」，使精神症狀更穩定。
-- **一般精神病理**：PANSS 一般病理顯著改善（$p < 0.001, SRD = 0.20$）。
-- **壓力減輕 (DASS-Stress)**：AAT 組自覺壓力顯著低於對照組（$p = 0.012, SRD = 0.15$），且焦慮與憂鬱分數呈現穩定下降趨勢。
-- **幸福感 (CHI)**：中文幸福感量表組間未達統計顯著（$p = 0.461$），但 AAT 組分數有正向提升趨勢。
+- **正性症狀**：PANSS 正性次量表組間差異達顯著（p < 0.001, SRD = 0.15）。研究指出課堂中治療師持續進行「現實導向 (Reality orientation)」，使精神症狀更穩定。
+- **一般精神病理**：PANSS 一般病理顯著改善（p < 0.001, SRD = 0.20）。
+- **壓力減輕 (DASS-Stress)**：AAT 組自覺壓力顯著低於對照組（p = 0.012, SRD = 0.15），且焦慮與憂鬱分數呈現穩定下降趨勢。
+- **幸福感 (CHI)**：中文幸福感量表組間未達統計顯著（p = 0.461），但 AAT 組分數有正向提升趨勢。
 
 ---
 
@@ -69,7 +69,7 @@ date_ingested: 2026-11-17
 
 - **支持與貢獻**：
   - 提供了 [[2026-peraile-huerta-aat-psychosis-meta]] 統合分析中重要的正向數據來源。
-  - 深化了 [[canine-aat]] 改善 [[avolition]] 的證據鏈，並以 $SRD = 0.50$ 大效應值展現比早期西班牙研究 [[2016-calvo-dog-aat-rehab-rct]] 更強勁的組間顯著性。
+  - 深化了 [[canine-aat]] 改善 [[avolition]] 的證據鏈，並以 SRD = 0.50 大效應值展現比早期西班牙研究 [[2016-calvo-dog-aat-rehab-rct]] 更強勁的組間顯著性。
 - **跨動物分歧**：
   - 對比土耳其馬匹研究 [[2025-ozturk-equine-aat-rct]]（馬匹介入負性症狀無顯著差異），本研究顯示中小型犬隻（如柯基、馬爾濟斯）的高親近感、觸覺撫摸與室內活動，對打破慢性冷漠具有特異優勢。
 

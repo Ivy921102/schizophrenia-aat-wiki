@@ -1,4 +1,4 @@
----
+﻿---
 title: 社交退縮 (Asociality)
 category: symptom
 tags: [concept, symptom, negative-symptom, asociality, social-withdrawal]
@@ -23,8 +23,8 @@ last_updated: 2026-11-17
 
 ## 2. 動物輔助治療之實證總結
 - **犬類介入的破冰實證**：
-  - [[2021-chen-dog-aat-taiwan-rct]]：台灣 12 週 RCT 證實，犬類介入組在 PANSS N4 被動冷漠社交退縮與社交主動性上顯著優於對照組（$p < 0.001, SRD = 0.50$）。該團隊於後續追蹤研究（Chen et al., 2022）進一步發現，AAT 組在 ACIS 溝通與互動技能評分顯著高於控制組（$p < 0.001$）。
-  - [[2026-peraile-huerta-aat-psychosis-meta]]：統合分析確立 AAT 能顯著減輕整體負性社交退縮（$SMD = -0.51$）。
+  - [[2021-chen-dog-aat-taiwan-rct]]：台灣 12 週 RCT 證實，犬類介入組在 PANSS N4 被動冷漠社交退縮與社交主動性上顯著優於對照組（p < 0.001, SRD = 0.50）。該團隊於後續追蹤研究（Chen et al., 2022）進一步發現，AAT 組在 ACIS 溝通與互動技能評分顯著高於控制組（p < 0.001）。
+  - [[2026-peraile-huerta-aat-psychosis-meta]]：統合分析確立 AAT 能顯著減輕整體負性社交退縮（SMD = -0.51）。
   - [[2016-calvo-dog-aat-rehab-rct]]：證實個案在陪伴犬介入下的出席率高達 92.9%，展現突破社交退縮的自發性動力。
 
 ---

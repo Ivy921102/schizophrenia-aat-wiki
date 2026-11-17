@@ -1,4 +1,4 @@
----
+﻿---
 title: "Dog-assisted interventions for adults diagnosed with schizophrenia and related disorders: a systematic review"
 authors: "Malene Kalsnes Tyssedal et al."
 year: 2023
@@ -26,11 +26,11 @@ date_ingested: 2026-11-17
 
 ### 1.1 正性症狀改善最為一致，負性症狀呈現分歧
 - **正性症狀 (Positive Symptoms)**：多數研究（如 [[2021-chen-dog-aat-taiwan-rct]]、Monfort 2022、Chu 2009）一致報告犬類組呈現統計顯著改善，推論可能與治療師在現場提供的「現實導向」與感官專注有關。
-- **負性症狀 (Negative Symptoms)**：呈現分歧（Diverging results）。大樣本 RCT（如 Chen et al. 2021, $n=40$）展現顯著改善；但數項小型試驗（如 [[2016-calvo-dog-aat-rehab-rct]] $n=22$、Villalta-Gil 2009 $n=18$）則僅在組內顯著，組間差異未達統計顯著。
+- **負性症狀 (Negative Symptoms)**：呈現分歧（Diverging results）。大樣本 RCT（如 Chen et al. 2021, n=40）展現顯著改善；但數項小型試驗（如 [[2016-calvo-dog-aat-rehab-rct]] n=22、Villalta-Gil 2009 n=18）則僅在組內顯著，組間差異未達統計顯著。
 
 ### 1.2 溝通技能、自尊與生活技能之擴展收穫
-- **溝通與互動技能 (ACIS)**：Chen et al. (2022) 證實犬隻介入顯著改善個案的人際交流與肢體表達（$p < 0.001$）。
-- **生活技能 (Living Skills)**：Monfort et al. (2022) 證實提升了居住復健個案的生活技能量表分數（LSP-20, $p = 0.001$）。
+- **溝通與互動技能 (ACIS)**：Chen et al. (2022) 證實犬隻介入顯著改善個案的人際交流與肢體表達（p < 0.001）。
+- **生活技能 (Living Skills)**：Monfort et al. (2022) 證實提升了居住復健個案的生活技能量表分數（LSP-20, p = 0.001）。
 - **非個人社交行為惡化警訊**：Villalta-Gil et al. (2009) 報告介入組在「非人際社交行為（如對公共物品之破壞性衝動）」出現顯著退步，提醒臨床方案若未針對特定行為進行目標設定，可能引發非預期反應。
 
 ---

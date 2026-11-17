@@ -1,9 +1,16 @@
-# 知識庫變更日誌 (Knowledge Base Log)
+﻿# 知識庫變更日誌 (Knowledge Base Log)
 
 > 本日誌為唯增（Append-Only）的時間軸紀錄，記錄所有重要操作（`ingest`、`query`、`lint`、`init`）。
 > 遵循 Karpathy 規範，每筆開頭使用標準標籤格式以利檢索。
 
 ---
+
+## [2026-11-17] refactor | 知識庫標題與呈現優化
+- **動作**：
+  - 更新知識庫主標題為「動物輔助治療對思覺失調症及相關譜系障礙負性症狀的療效」。
+  - 聚焦首頁介紹於負性症狀臨床困境與動物輔助治療之核心實證，精簡結構清單。
+  - 全面優化統計數據與符號呈現（全面轉換為乾淨純文字與 Unicode，修復 GitHub 渲染問題）。
+- **影響範圍**：`README.md`、`wiki/index.md`、`wiki/sources/*.md`、`wiki/concepts/**/*.md`、`wiki/comparisons/*.md`、`wiki/methodology/*.md`、`wiki/syntheses/*.md`。
 
 ## [2026-11-17] init | 建立知識庫架構與 AGENTS.md 系統規範
 - **動作**：初始化 Wiki 檔案結構與核心系統規範。
@@ -23,7 +30,7 @@
   - 新建/更新概念頁：[[avolition]]（動機缺乏）、[[anhedonia]]（無快感症）、[[canine-aat]]（犬類輔助治療）、[[panss-negative]]（PANSS 負性次量表）、[[oxytocin]]（催產素假說）
   - 新建比較表：[[negative-symptoms-meta-comparison]]（6 項 RCT 負性症狀效應值對照）
   - 更新索引目錄：[[index|wiki/index.md]]
-- **核心實證定錨**：確立了 AAT 改善思覺失調症負性症狀具備中等統計顯著效應值（$\text{SMD} = -0.51, p < 0.05$），打破過去認為實證不確定的保守觀點，並全數落實大眾生活轉譯章節。
+- **核心實證定錨**：確立了 AAT 改善思覺失調症負性症狀具備中等統計顯著效應值（SMD = -0.51, p < 0.05），打破過去認為實證不確定的保守觀點，並全數落實大眾生活轉譯章節。
 
 
 ## [2026-11-17] ingest | 2021-chen-dog-aat-taiwan-rct
@@ -35,7 +42,7 @@
   - 新建概念頁：[[asociality]]（社交退縮）、[[blunted-affect]]（情感平淡）、[[social-scaffolding]]（社交鷹架理論）
   - 新建比較表：[[canine-vs-equine]]（犬類 Chen 2021 vs 馬匹 Öztürk 2025 在負性症狀與孤獨感上的機制分歧剖析）
   - 更新索引目錄：[[index|wiki/index.md]]
-- **核心實證定錨**：確立了 12 週犬類介入對中老年慢性思覺失調個案負性症狀的大效應改善（$SRD = 0.50, p < 0.001$）、0% 脫落率之高度可行性，以及跨專業（職能治療＋動輔師）四階社交鷹架操作模型。
+- **核心實證定錨**：確立了 12 週犬類介入對中老年慢性思覺失調個案負性症狀的大效應改善（SRD = 0.50, p < 0.001）、0% 脫落率之高度可行性，以及跨專業（職能治療＋動輔師）四階社交鷹架操作模型。
 
 
 ## [2026-11-17] ingest | 2025-ozturk-equine-aat-rct
@@ -44,7 +51,7 @@
 - **影響範圍**：
   - 新建文獻頁：[[2025-ozturk-equine-aat-rct]]
   - 新建概念頁：[[equine-aat]]（馬術與馬匹輔助治療）
-  - 核心實證定錨：揭示馬匹介入對孤獨感消融（$d=0.99$）與生活品質提升（$d=1.93$）具備爆發性效果，但對負性量表無顯著差異之機轉解析。
+  - 核心實證定錨：揭示馬匹介入對孤獨感消融（d=0.99）與生活品質提升（d=1.93）具備爆發性效果，但對負性量表無顯著差異之機轉解析。
 
 ## [2026-11-17] ingest | 2016-calvo-dog-aat-rehab-rct
 - **文獻**：Calvo et al. (2016) *Frontiers in Psychology*

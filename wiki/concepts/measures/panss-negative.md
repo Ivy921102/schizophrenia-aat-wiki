@@ -1,4 +1,4 @@
----
+﻿---
 title: 正性與負性症狀量表—負性次量表 (PANSS Negative Subscale)
 category: measure
 tags: [concept, measure, scale, panss, negative-symptoms]
@@ -26,10 +26,10 @@ PANSS 負性次量表總分範圍為 7 至 49 分，評估以下 7 項核心症�
 
 ## 2. 動物輔助治療的量表成效實證
 - **統合分析實證 (Meta-Analytic Evidence)**：
-  - [[2026-peraile-huerta-aat-psychosis-meta]] 彙整多項 RCT 數據，證實動物輔助治療能顯著降低 PANSS 負性次量表評分（$\text{SMD} = -0.51, 95\% \text{ CI: } [-0.95, -0.07], p < 0.05$）。
+  - [[2026-peraile-huerta-aat-psychosis-meta]] 彙整多項 RCT 數據，證實動物輔助治療能顯著降低 PANSS 負性次量表評分（SMD = -0.51, 95%  CI:  [-0.95, -0.07], p < 0.05）。
 - **臨床重要差異 (MCID)**：
   - 文獻指出 PANSS 負性次量表的最小臨床顯著差異值（MCID）約為 2.4~3.0 分。
-  - 在台灣 RCT 研究 [[2021-chen-dog-aat-taiwan-rct]] 中，犬類組前後測負性次量表分數中位數降低達 3.0 分（$p < 0.001, SRD = 0.50$），達到明確的臨床實質意義。
+  - 在台灣 RCT 研究 [[2021-chen-dog-aat-taiwan-rct]] 中，犬類組前後測負性次量表分數中位數降低達 3.0 分（p < 0.001, SRD = 0.50），達到明確的臨床實質意義。
 
 ---
 

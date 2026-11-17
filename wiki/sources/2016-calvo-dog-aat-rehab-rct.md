@@ -1,4 +1,4 @@
----
+﻿---
 title: "Animal Assisted Therapy (AAT) Program As a Useful Adjunct to Conventional Psychosocial Rehabilitation for Patients with Schizophrenia: Results of a Small-scale Randomized Controlled Trial"
 authors: "Paula Calvo et al."
 year: 2016
@@ -17,7 +17,7 @@ date_ingested: 2026-11-17
 - **完整引註**：Calvo, P., Fortuny, J. R., Guzmán, S., Macías, C., Bowen, J., García, M. L., Orejas, O., Molins, F., Tvarijonaviciute, A., Cerón, J. J., Bulbena, A., & Fatjó, J. (2016). Animal Assisted Therapy (AAT) Program As a Useful Adjunct to Conventional Psychosocial Rehabilitation for Patients with Schizophrenia: Results of a Small-scale Randomized Controlled Trial. *Frontiers in Psychology*, 7, 631. https://doi.org/10.3389/fpsyg.2016.00631
 - **研究背景與對象**：
   - 西班牙巴塞隆納自治大學與親和基金會（Affinity Foundation）合作，於公立精神專科醫院中長期病房（MILLE 單元）執行。
-  - 納入 24 位長期住院慢性思覺失調患者（平均年齡 47.8 歲，平均發病年齡 20.5 歲），隨機分為 AAT 介入組 ($n = 16$) 與功能復健控制組 ($n = 8$)，最終 22 位完成 6 個月試驗。
+  - 納入 24 位長期住院慢性思覺失調患者（平均年齡 47.8 歲，平均發病年齡 20.5 歲），隨機分為 AAT 介入組 (n = 16) 與功能復健控制組 (n = 8)，最終 22 位完成 6 個月試驗。
 
 ---
 
@@ -32,24 +32,24 @@ date_ingested: 2026-11-17
   2. *散步訓練*：前期於大型自然公園散步，後期帶至城市街道，模擬真實社會遛狗情境。
   3. *指令服從與遊戲*：學習使用正向增強技術（Positive reinforcement）訓練犬隻。
 - **控制組設計**：接受等時數之醫院常規功能性活動（美術治療、團體體能、動態心理刺激或體操）。
-- **客觀生化標記採集**：於最後 4 次課程進行前後測唾液檢體採集（採樣器置入唾液 1 分鐘），冷凍檢測**皮質醇 (Salivary Cortisol)** 與 **$\alpha$-澱粉酶 (Salivary Alpha-Amylase)**。
+- **客觀生化標記採集**：於最後 4 次課程進行前後測唾液檢體採集（採樣器置入唾液 1 分鐘），冷凍檢測**皮質醇 (Salivary Cortisol)** 與 **α-澱粉酶 (Salivary Alpha-Amylase)**。
 
 ---
 
 ## 2. 核心實證發現 (Key Empirical Findings)
 
 ### 2.1 負性症狀組內顯著改善，但組間差異受限於樣本量
-- **組內顯著改善**：AAT 組在 6 個月後，PANSS 負性次量表分數從 25.3 分顯著降至 19.6 分（配對 t 檢定 $p = 0.022$）；而控制組負性次量表前後測無統計顯著差異（$p = 0.167$）。
-- **組間統計差異未達顯著**：因控制組樣本偏小（$n = 8$），兩組終點改變量組間對比未達顯著（$p = 0.33$），但為後續 2026 統合分析 [[2026-peraile-huerta-aat-psychosis-meta]] 提供了重要的效應值數據來源。
+- **組內顯著改善**：AAT 組在 6 個月後，PANSS 負性次量表分數從 25.3 分顯著降至 19.6 分（配對 t 檢定 p = 0.022）；而控制組負性次量表前後測無統計顯著差異（p = 0.167）。
+- **組間統計差異未達顯著**：因控制組樣本偏小（n = 8），兩組終點改變量組間對比未達顯著（p = 0.33），但為後續 2026 統合分析 [[2026-peraile-huerta-aat-psychosis-meta]] 提供了重要的效應值數據來源。
 
 ### 2.2 🌟 復健出席率（Adherence）呈現壓倒性優勢
-- AAT 介入組之整體活動出席率高達 **$92.9\% \pm 4.7\%$**；
-- 控制組常規功能活動出席率僅為 **$61.2\% \pm 24.8\%$**；
-- 兩組出席率差異具極高統計顯著性（$t(20) = 4.7, p = 0.0001$）。顯著優於美術治療（$p = 0.01$）與體操活動（$p = 0.01$）。
+- AAT 介入組之整體活動出席率高達 **92.9% \pm 4.7%**；
+- 控制組常規功能活動出席率僅為 **61.2% \pm 24.8%**；
+- 兩組出席率差異具極高統計顯著性（t(20) = 4.7, p = 0.0001）。顯著優於美術治療（p = 0.01）與體操活動（p = 0.01）。
 
 ### 2.3 🌟 唾液皮質醇（壓力指標）在課堂後顯著下降
-- 48 對有效唾液配對樣本分析顯示，**在與治療犬互動 1 小時後，個案之唾液皮質醇水準呈現統計顯著下降**（Wilcoxon 檢定 $p < 0.05$），生理層面證實犬隻具備客觀鎮靜與抗壓效果。
-- 唾液 $\alpha$-澱粉酶在課堂後呈現上升趨勢（$p = 0.059$），反映出愉悅、投入的正向交感神經刺激。
+- 48 對有效唾液配對樣本分析顯示，**在與治療犬互動 1 小時後，個案之唾液皮質醇水準呈現統計顯著下降**（Wilcoxon 檢定 p < 0.05），生理層面證實犬隻具備客觀鎮靜與抗壓效果。
+- 唾液 α-澱粉酶在課堂後呈現上升趨勢（p = 0.059），反映出愉悅、投入的正向交感神經刺激。
 
 ---
 

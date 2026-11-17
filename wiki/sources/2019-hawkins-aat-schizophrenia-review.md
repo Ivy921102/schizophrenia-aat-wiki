@@ -1,4 +1,4 @@
----
+﻿---
 title: "Animal-assisted therapy for schizophrenia and related disorders: A systematic review"
 authors: "Emma L. Hawkins et al."
 year: 2019
@@ -38,8 +38,8 @@ date_ingested: 2026-11-17
 ## 2. 與既有文獻之演進對照 (Historical Context)
 
 - **從「未定論」到「確證顯著」的時代轉折**：
-  - 本篇 2019 年綜述受限於當時多數研究樣本量極小（$n < 25$）、介入不標準，得出了「證據仍不足以支持常規政策採用」的謹慎結論。
-  - 此結論促使後續研究（如台灣 [[2021-chen-dog-aat-taiwan-rct]]、土耳其 [[2025-ozturk-equine-aat-rct]]）在研究設計上大幅精進（落實分層隨機、認證治療犬、跨專業團隊），最終在 [[2026-peraile-huerta-aat-psychosis-meta]] 統合分析中確立了負性症狀的實質療效（$SMD = -0.51$）。
+  - 本篇 2019 年綜述受限於當時多數研究樣本量極小（n < 25）、介入不標準，得出了「證據仍不足以支持常規政策採用」的謹慎結論。
+  - 此結論促使後續研究（如台灣 [[2021-chen-dog-aat-taiwan-rct]]、土耳其 [[2025-ozturk-equine-aat-rct]]）在研究設計上大幅精進（落實分層隨機、認證治療犬、跨專業團隊），最終在 [[2026-peraile-huerta-aat-psychosis-meta]] 統合分析中確立了負性症狀的實質療效（SMD = -0.51）。
 
 ---
 

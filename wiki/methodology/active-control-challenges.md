@@ -1,4 +1,4 @@
----
+﻿---
 title: 積極對照組設置難題：休閒活動 vs 動物特異性療效之區分限制
 category: methodology
 tags: [methodology, control-group, active-control, tau, study-design, bias]
@@ -30,11 +30,11 @@ flowchart TD
 ## 2. 跨文獻實證對比 (Literature Evidence)
 
 1. **純 TAU 對照組研究**：
-   - Chu et al. (2009)：對照常規治療，AAT 組負性症狀改善達 $\text{SMD} = -1.74$。
+   - Chu et al. (2009)：對照常規治療，AAT 組負性症狀改善達 SMD = -1.74。
 2. **高標準積極對照組研究**：
-   - [[2021-chen-dog-aat-taiwan-rct]]：對照組每週額外接受 1 小時護理與職能治療，成功在嚴格條件下證明犬類介入具備超越常規復健的特異效應（$SRD = 0.50, p < 0.001$）。
+   - [[2021-chen-dog-aat-taiwan-rct]]：對照組每週額外接受 1 小時護理與職能治療，成功在嚴格條件下證明犬類介入具備超越常規復健的特異效應（SRD = 0.50, p < 0.001）。
    - [[2016-calvo-dog-aat-rehab-rct]]：對照組接受等時數之美術、體操活動，兩組在正性與一般病理均有改善，使組間在 PANSS 總分上未達統計顯著。
-   - [[2026-peraile-huerta-aat-psychosis-meta]] 統合分析：指出研究間的對照組異質性是導致統計異質性（$I^2$）上升的主要來源。
+   - [[2026-peraile-huerta-aat-psychosis-meta]] 統合分析：指出研究間的對照組異質性是導致統計異質性（I²）上升的主要來源。
 
 ---
 
