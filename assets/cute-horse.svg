@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <radialGradient id="horseCheek" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fb7185" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#fb7185" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softShadowH" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Tail -->
+  <path d="M 42 135 C 20 125 15 150 25 168 C 32 178 40 165 42 148" fill="#fef08a" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Body -->
+  <ellipse cx="100" cy="142" rx="46" ry="38" fill="#d97706" stroke="#b45309" stroke-width="3.5" filter="url(#softShadowH)"/>
+
+  <!-- Saddle / Pad -->
+  <path d="M 75 125 Q 100 118 125 125 Q 128 145 122 152 Q 100 155 78 152 Z" fill="#6366f1" stroke="#4f46e5" stroke-width="2.5"/>
+  <circle cx="100" cy="138" r="5" fill="#fde047"/>
+
+  <!-- Front Legs / Hooves -->
+  <path d="M 75 165 L 75 180" stroke="#b45309" stroke-width="12" stroke-linecap="round"/>
+  <path d="M 75 180 L 75 184" stroke="#451a03" stroke-width="14" stroke-linecap="round"/>
+
+  <path d="M 125 165 L 125 180" stroke="#b45309" stroke-width="12" stroke-linecap="round"/>
+  <path d="M 125 180 L 125 184" stroke="#451a03" stroke-width="14" stroke-linecap="round"/>
+
+  <!-- Mane Behind Neck -->
+  <path d="M 65 65 C 50 85 55 120 70 135 C 75 125 72 90 78 75 Z" fill="#fef08a" stroke="#ca8a04" stroke-width="2.5"/>
+
+  <!-- Ears -->
+  <path d="M 68 38 L 80 62 L 60 58 Z" fill="#d97706" stroke="#b45309" stroke-width="3"/>
+  <path d="M 67 43 L 74 58 L 63 56 Z" fill="#fbcfe8"/>
+
+  <path d="M 132 38 L 140 58 L 120 62 Z" fill="#d97706" stroke="#b45309" stroke-width="3"/>
+  <path d="M 133 43 L 137 56 L 126 58 Z" fill="#fbcfe8"/>
+
+  <!-- Head -->
+  <path d="M 70 65 C 65 95 72 108 85 112 C 100 116 115 116 130 112 C 143 108 148 95 145 65 C 142 50 72 50 70 65 Z" fill="#d97706" stroke="#b45309" stroke-width="3.5" filter="url(#softShadowH)"/>
+
+  <!-- Fluffy Mane on Top & Forelock -->
+  <path d="M 85 45 C 92 35 108 35 115 45 C 122 40 128 48 122 58 C 112 65 88 65 78 58 C 72 48 78 40 85 45 Z" fill="#fef08a" stroke="#ca8a04" stroke-width="2.5"/>
+  <!-- Little flower in mane -->
+  <circle cx="122" cy="48" r="6" fill="#f43f5e"/>
+  <circle cx="122" cy="48" r="2.5" fill="#fef08a"/>
+
+  <!-- Big Eyes -->
+  <ellipse cx="82" cy="74" rx="7" ry="9" fill="#1e1b4b"/>
+  <ellipse cx="118" cy="74" rx="7" ry="9" fill="#1e1b4b"/>
+  <!-- Sparkles -->
+  <circle cx="80" cy="71" r="3" fill="#ffffff"/>
+  <circle cx="85" cy="76" r="1.5" fill="#ffffff"/>
+  <circle cx="116" cy="71" r="3" fill="#ffffff"/>
+  <circle cx="121" cy="76" r="1.5" fill="#ffffff"/>
+  <!-- Cute Eyelashes -->
+  <path d="M 76 68 L 72 65 M 78 66 L 76 62" stroke="#1e1b4b" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M 124 68 L 128 65 M 122 66 L 124 62" stroke="#1e1b4b" stroke-width="1.8" stroke-linecap="round"/>
+
+  <!-- Cheeks -->
+  <circle cx="74" cy="88" r="9" fill="url(#horseCheek)"/>
+  <circle cx="126" cy="88" r="9" fill="url(#horseCheek)"/>
+
+  <!-- Snout / Muzzle Area -->
+  <path d="M 82 92 C 82 86 118 86 118 92 C 122 102 120 115 100 115 C 80 115 78 102 82 92 Z" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+
+  <!-- Cute Halter Straps -->
+  <path d="M 80 92 L 120 92" stroke="#ec4899" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 100 92 L 100 114" stroke="#ec4899" stroke-width="2.5"/>
+
+  <!-- Nostrils -->
+  <ellipse cx="92" cy="102" rx="2.5" ry="3.5" fill="#92400e"/>
+  <ellipse cx="108" cy="102" rx="2.5" ry="3.5" fill="#92400e"/>
+
+  <!-- Sweet Gentle Smile -->
+  <path d="M 96 109 Q 100 112 104 109" stroke="#92400e" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Little Stars Floating -->
+  <path d="M 152 40 L 154 45 L 159 45 L 155 48 L 157 53 L 152 50 L 147 53 L 149 48 L 145 45 L 150 45 Z" fill="#fbbf24"/>
+  <path d="M 45 60 L 46 63 L 49 63 L 47 65 L 48 68 L 45 66 L 42 68 L 43 65 L 41 63 L 44 63 Z" fill="#fbbf24"/>
+</svg>

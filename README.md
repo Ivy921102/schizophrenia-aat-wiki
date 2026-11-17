@@ -1,4 +1,19 @@
+<div align="center">
+
+<img src="assets/cute-dog.svg" width="110" alt="Q版治療犬" />
+&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="assets/cute-horse.svg" width="110" alt="Q版治療馬" />
+
 # 動物輔助治療對思覺失調症及相關譜系障礙負性症狀的療效
+
+<p>
+  <img src="https://img.shields.io/badge/介入媒介-犬類輔助治療_(Canine--AAT)-0d9488?style=flat-square" />
+  <img src="https://img.shields.io/badge/介入媒介-馬匹輔助治療_(Equine--AAT)-d97706?style=flat-square" />
+  <img src="https://img.shields.io/badge/核心實證-PRISMA_統合分析_+_RCT-6366f1?style=flat-square" />
+  <img src="https://img.shields.io/badge/目標症狀-負性症狀改善_(Negative_Symptoms)-ec4899?style=flat-square" />
+</p>
+
+</div>
 
 思覺失調症及相關譜系障礙（Schizophrenia Spectrum Disorders）的負性症狀——涵蓋動機缺乏（Avolition）、社交退縮（Asociality）、情感平淡（Blunted Affect）與無快感症（Anhedonia）——長期以來為臨床精神醫療與常規抗精神病藥物反應最有限的核心挑戰。
 
@@ -6,7 +21,7 @@
 
 ---
 
-## 單篇文獻萃取庫 (`wiki/sources/`)
+## 單篇文獻萃取庫
 每篇文獻均包含：研究參數、統計數據、偏誤評估、跨文獻矛盾比對與大眾生活轉譯。
 
 - 📄 [2026-peraile-huerta-aat-psychosis-meta.md](wiki/sources/2026-peraile-huerta-aat-psychosis-meta.md)：
@@ -30,7 +45,7 @@
 
 ---
 
-## 核心實體與概念網絡 (`wiki/concepts/`)
+## 核心實體與概念網絡
 
 ### 負性症狀細項 (Symptoms)：
 - 🧠 [avolition.md](wiki/concepts/symptoms/avolition.md)（動機缺乏）：解讀行為「引擎熄火」本質，動物作為外接啟動馬達。
@@ -62,10 +77,3 @@
 
 ## 🌟 大眾科普與去污名化旗艦綜述
 - 📖 [from-isolation-to-connection.md](wiki/syntheses/from-isolation-to-connection.md)：《從封閉孤立到溫柔破冰：動物如何走入思覺失調個案的日常》。
-
----
-
-## 導覽目錄與系統日誌
-- 📑 [全域雙向鏈結總索引 (wiki/index.md)](wiki/index.md)：分類導覽所有文獻、概念、比較矩陣與機轉頁面。
-- 📝 [變更日誌 (wiki/log.md)](wiki/log.md)：完整記錄文獻 Ingest、Synthesis 與維護歷程。
-- 📜 [系統架構規範 (AGENTS.md)](AGENTS.md)：LLM Wiki 規範與操作 SOP。
