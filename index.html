@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
@@ -34,7 +34,7 @@
       --text-soft: #78716c;
       --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
       --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
-      --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.12);
     }
 
     body {
@@ -48,19 +48,18 @@
       padding-bottom: 5rem;
     }
 
-    /* 頂部裝飾條 */
     .top-bar {
       height: 8px;
       background: linear-gradient(90deg, #0d9488, #d97706, #f43f5e, #6366f1);
     }
 
     .container {
-      max-width: 1160px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 2.5rem 1.5rem;
     }
 
-    /* Hero Header 區塊 */
+    /* Hero Header */
     header.hero {
       background: linear-gradient(180deg, #ffffff 0%, #fffdfa 100%);
       border: 2px solid #f5ede2;
@@ -72,7 +71,6 @@
       position: relative;
     }
 
-    /* 豐富的 Q 版動物群 */
     .hero-animals {
       display: flex;
       justify-content: center;
@@ -139,7 +137,7 @@
     .badge-rose { background: var(--rose-light); color: var(--rose); border: 1px solid #fecdd3; }
     .badge-indigo { background: var(--indigo-light); color: var(--indigo); border: 1px solid #c7d2fe; }
 
-    /* 通用區塊卡片 */
+    /* 通用卡片 */
     .section-card {
       background: var(--card-bg);
       border: 1.5px solid var(--card-border);
@@ -185,17 +183,10 @@
       height: 48px;
     }
 
-    /* 網格系統 */
     .grid-2 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(490px, 1fr));
       gap: 1.75rem;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
     }
 
     /* 文獻卡片 */
@@ -231,10 +222,6 @@
       transform: translateY(-4px);
       box-shadow: var(--shadow-md);
       border-color: #cbd5e1;
-    }
-
-    .paper-header {
-      margin-bottom: 0.75rem;
     }
 
     .paper-tags-row {
@@ -300,41 +287,51 @@
       color: #b45309;
     }
 
-    /* 學術深入閱讀鏈結按鈕 */
-    .academic-link-btn {
+    /* 點擊展開按鈕 */
+    .btn-read-deep {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
-      background: #f8fafc;
-      border: 1.5px solid #cbd5e1;
-      color: #0369a1;
-      padding: 0.65rem 1.25rem;
-      border-radius: 10px;
-      font-size: 0.95rem;
-      font-weight: bold;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      cursor: pointer;
-    }
-
-    .academic-link-btn:hover {
-      background: #0284c7;
+      width: 100%;
+      background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
       color: #ffffff;
-      border-color: #0284c7;
-      box-shadow: 0 3px 10px rgba(2, 132, 199, 0.3);
+      padding: 0.8rem 1.2rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(13, 148, 136, 0.25);
+      transition: all 0.2s ease;
     }
 
-    /* 概念網絡小卡片 */
+    .btn-read-deep:hover {
+      background: linear-gradient(135deg, #115e59 0%, #0f766e 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(13, 148, 136, 0.35);
+    }
+
+    .btn-read-deep.amber-btn {
+      background: linear-gradient(135deg, #b45309 0%, #d97706 100%);
+      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);
+    }
+
+    .btn-read-deep.amber-btn:hover {
+      background: linear-gradient(135deg, #92400e 0%, #b45309 100%);
+      box-shadow: 0 6px 16px rgba(217, 119, 6, 0.35);
+    }
+
+    /* 概念小卡片 */
     .concept-box {
       background: #fdfbf7;
       border: 1.5px solid #ebd5c1;
       border-radius: 18px;
       padding: 1.5rem;
-      transition: all 0.2s ease;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: all 0.2s ease;
     }
 
     .concept-box:hover {
@@ -357,10 +354,34 @@
       font-size: 0.98rem;
       color: var(--text-muted);
       line-height: 1.75;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
     }
 
-    /* 比較表格 */
+    .concept-btns-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-concept-tag {
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      color: #0369a1;
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .btn-concept-tag:hover {
+      background: #0284c7;
+      color: #ffffff;
+      border-color: #0284c7;
+    }
+
+    /* 表格樣式 */
     .table-wrapper {
       overflow-x: auto;
       margin: 1rem 0;
@@ -416,6 +437,91 @@
       margin: 1.25rem 0;
     }
 
+    /* 模態閱讀視窗 (Modal Reader) */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+    }
+
+    .modal-box {
+      background: #ffffff;
+      width: 100%;
+      max-width: 960px;
+      max-height: 90vh;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid #cbd5e1;
+      animation: modalFadeIn 0.25s ease-out;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.96) translateY(10px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .modal-header {
+      padding: 1.25rem 1.75rem;
+      background: #f8fafc;
+      border-bottom: 1.5px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .modal-header-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .modal-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .modal-btn-close {
+      background: #e2e8f0;
+      color: #475569;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
+    }
+
+    .modal-btn-close:hover {
+      background: #f43f5e;
+      color: #ffffff;
+    }
+
+    .modal-body {
+      padding: 2.5rem;
+      overflow-y: auto;
+      flex: 1;
+      line-height: 1.85;
+      font-size: 1.05rem;
+    }
+
     /* 頁尾 */
     footer {
       text-align: center;
@@ -433,14 +539,6 @@
       gap: 1.5rem;
       margin-bottom: 1rem;
     }
-
-    @media (max-width: 768px) {
-      .hero-title { font-size: 1.85rem; }
-      .grid-2 { grid-template-columns: 1fr; }
-      .grid-3 { grid-template-columns: 1fr; }
-      .hero-animals { gap: 0.75rem; }
-      .animal-avatar { width: 70px; height: 70px; }
-    }
   </style>
 </head>
 <body>
@@ -449,9 +547,8 @@
 
   <div class="container">
 
-    <!-- 主頁 Hero Header -->
+    <!-- Hero Header -->
     <header class="hero">
-      <!-- 豐富多彩的 Q 版動物家族 -->
       <div class="hero-animals">
         <img class="animal-avatar" src="assets/cute-dog.svg" title="治癒金毛治療犬" alt="治療犬" />
         <img class="animal-avatar" src="assets/cute-horse.svg" title="溫柔哈芙林格小馬" alt="治療馬" />
@@ -513,136 +610,136 @@
       </div>
 
       <div class="grid-2">
-        <!-- Paper 1 -->
+        <!-- Paper 1: Chen et al. 2021 (台灣長庚/台大，如您截圖所示) -->
+        <div class="paper-card">
+          <div class="paper-header">
+            <div class="paper-tags-row">
+              <span class="paper-tag paper-tag-canine">隨機對照試驗 (RCT)</span>
+              <span style="font-size: 0.88rem; color: #0f766e; font-weight: bold;">n = 40 (0% 脫落率)</span>
+            </div>
+            <h3 class="paper-title">Chen et al. (2021) 台灣長庚與台大職能治療團隊</h3>
+            <p class="paper-meta">Psychiatry Research｜12 週四階跨專業犬類復健介入</p>
+          </div>
+          <div class="paper-highlight">
+            <strong>核心數據</strong>：負性症狀達成大效應值改善（SRD = 0.50, p &lt; 0.001）、中位數降低 3.0 分（達 MCID）。4 隻合格治療犬（柯基、拉布拉多、馬爾濟斯、柴犬）全程參與。
+          </div>
+          <div class="paper-public">
+            <div class="public-label">🌟 大眾生活解讀</div>
+            「發病二三十年、五十幾歲的家人真的還能改變嗎？」研究證實動物能穿透歲月沉積的冷漠，摸狗與梳毛更是最高級的日常生活自理復健。
+          </div>
+          <button class="btn-read-deep" onclick="openArticleModal('chen2021')">
+            📖 點此點開查看完整文獻內容（同截圖五大章節） &rarr;
+          </button>
+        </div>
+
+        <!-- Paper 2: Peraile-Huerta et al. 2026 -->
         <div class="paper-card">
           <div class="paper-header">
             <div class="paper-tags-row">
               <span class="paper-tag paper-tag-canine">PRISMA 統合分析</span>
-              <span style="font-size: 0.85rem; color: #64748b;">n = 408</span>
+              <span style="font-size: 0.88rem; color: #64748b; font-weight: bold;">n = 408 (12 篇研究)</span>
             </div>
-            <h3 class="paper-title">Peraile-Huerta et al. (2026)</h3>
-            <p class="paper-meta">Complementary Therapies in Medicine｜12 篇研究統合分析</p>
+            <h3 class="paper-title">Peraile-Huerta et al. (2026) 最新統合分析</h3>
+            <p class="paper-meta">Complementary Therapies in Medicine｜全球最新統合實證標竿</p>
           </div>
           <div class="paper-highlight">
-            <strong>核心數據</strong>：AAT 對改善負性症狀具顯著中等效應值（SMD = -0.51, 95% CI: [-0.95, -0.07], p &lt; 0.05）。排除馬匹後犬類效果更穩健；正性症狀與一般病理則無組間顯著差異。
+            <strong>核心數據</strong>：AAT 對負性症狀改善具中等效應值（SMD = -0.51, 95% CI: [-0.95, -0.07], p &lt; 0.05）。正性症狀與一般病理無組間差異，突顯動物對負性症狀特異療效。
           </div>
           <div class="paper-public">
             <div class="public-label">🌟 大眾生活解讀</div>
-            證實動物不是玄學安慰劑，而是能實質敲開緊閉心門的醫學復健媒介，尤其對常規藥物束手無策的「退縮與冷漠」有獨特療效。
+            證實動物不是玄學安慰劑，而是能實質敲開緊閉心門的醫學復健媒介，為行為啟動注入關鍵動機。
           </div>
-          <a href="wiki/sources/2026-peraile-huerta-aat-psychosis-meta.md" target="_blank" class="academic-link-btn">
-            📄 查閱 2026 統合分析完整論文萃取筆記 &rarr;
-          </a>
+          <button class="btn-read-deep" onclick="openArticleModal('peraile2026')">
+            📖 點此點開查看 2026 統合分析完整論文筆記 &rarr;
+          </button>
         </div>
 
-        <!-- Paper 2 -->
+        <!-- Paper 3: Öztürk et al. 2025 -->
         <div class="paper-card equine">
           <div class="paper-header">
             <div class="paper-tags-row">
               <span class="paper-tag paper-tag-equine">隨機對照試驗 (RCT)</span>
-              <span style="font-size: 0.85rem; color: #b45309;">n = 61</span>
+              <span style="font-size: 0.88rem; color: #b45309; font-weight: bold;">n = 61 (馬術治療)</span>
             </div>
-            <h3 class="paper-title">Öztürk et al. (2025)</h3>
-            <p class="paper-meta">Perspectives in Psychiatric Care｜土耳其馬術 RCT</p>
+            <h3 class="paper-title">Öztürk et al. (2025) 土耳其馬術 RCT</h3>
+            <p class="paper-meta">Perspectives in Psychiatric Care｜哈芙林格馬 8 週介入</p>
           </div>
           <div class="paper-highlight">
-            <strong>核心數據</strong>：8 週馬匹介入顯著降低孤獨感（d = 0.99, p &lt; 0.001）與提升生活品質（d = 1.93, p &lt; 0.001）；PANSS 負性次量表無顯著組間差異（p = 0.610）。
+            <strong>核心數據</strong>：顯著降低孤獨感（d = 0.99, p &lt; 0.001）與提升生活品質（d = 1.93, p &lt; 0.001）；PANSS 負性量表無顯著組間差異（p = 0.610）。
           </div>
           <div class="paper-public">
             <div class="public-label">🌟 大眾生活解讀</div>
-            騎在幾百公斤的大馬背上，個案俯瞰世界的視野被徹底翻轉，重拾尊嚴感與掌控力，能大幅消融常年籠罩的深層孤獨。
+            騎在幾百公斤的大馬背上，俯瞰世界的視野被徹底翻轉，重拾尊嚴感與掌控力，大幅消融深層孤獨。
           </div>
-          <a href="wiki/sources/2025-ozturk-equine-aat-rct.md" target="_blank" class="academic-link-btn">
-            🐴 查閱 2025 土耳其馬術 RCT 完整論文筆記 &rarr;
-          </a>
+          <button class="btn-read-deep amber-btn" onclick="openArticleModal('ozturk2025')">
+            🐴 點此點開查看 2025 土耳其馬術 RCT 完整筆記 &rarr;
+          </button>
         </div>
 
-        <!-- Paper 3 -->
+        <!-- Paper 4: Tyssedal et al. 2023 -->
         <div class="paper-card">
           <div class="paper-header">
             <div class="paper-tags-row">
               <span class="paper-tag paper-tag-canine">系統性回顧</span>
-              <span style="font-size: 0.85rem; color: #64748b;">11 篇研究</span>
+              <span style="font-size: 0.88rem; color: #64748b; font-weight: bold;">11 篇研究 (RoB2 評估)</span>
             </div>
-            <h3 class="paper-title">Tyssedal et al. (2023)</h3>
-            <p class="paper-meta">Nordic Journal of Psychiatry｜挪威犬類介入系統回顧</p>
+            <h3 class="paper-title">Tyssedal et al. (2023) 挪威犬類介入系統回顧</h3>
+            <p class="paper-meta">Nordic Journal of Psychiatry｜GRADE & RoB2 實證評估</p>
           </div>
           <div class="paper-highlight">
-            <strong>核心數據</strong>：以 RoB2 與 GRADE 嚴格梳理文獻，指出當對照組為純常規治療（TAU）時負性症狀顯著改善；但對照組若為桌遊或休閒活動時，效應值常被沖淡。
+            <strong>核心數據</strong>：梳理各研究偏誤風險，指出對照組為純 TAU 時負性症狀顯著改善；對照組若為等時數積極活動時動物特異效應被部分沖淡。
           </div>
           <div class="paper-public">
             <div class="public-label">🌟 大眾生活解讀</div>
-            點出治療關鍵不單是「狗狗可愛」，更在於「結構化人際活動」的催化。動物是讓個案願意主動走向活動的最佳引路人。
+            點出治療關鍵不單是「狗狗可愛」，更在於「結構化人際活動」的催化。動物是讓個案主動邁步的最佳引路人。
           </div>
-          <a href="wiki/sources/2023-tyssedal-dog-assisted-review.md" target="_blank" class="academic-link-btn">
-            🔍 查閱 2023 挪威系統性回顧完整筆記 &rarr;
-          </a>
+          <button class="btn-read-deep" onclick="openArticleModal('tyssedal2023')">
+            🔍 點此點開查看 2023 挪威系統性回顧完整筆記 &rarr;
+          </button>
         </div>
 
-        <!-- Paper 4 -->
-        <div class="paper-card">
-          <div class="paper-header">
-            <div class="paper-tags-row">
-              <span class="paper-tag paper-tag-canine">隨機對照試驗 (RCT)</span>
-              <span style="font-size: 0.85rem; color: #0f766e;">n = 40 (0% 脫落)</span>
-            </div>
-            <h3 class="paper-title">Chen et al. (2021)</h3>
-            <p class="paper-meta">Psychiatry Research｜台灣高雄長庚與台大職能治療團隊</p>
-          </div>
-          <div class="paper-highlight">
-            <strong>核心數據</strong>：12 週犬類介入負性症狀達大效應值改善（SRD = 0.50, p &lt; 0.001）、達成 0% 脫落率。建立感官到任務四階標準職能流程。
-          </div>
-          <div class="paper-public">
-            <div class="public-label">🌟 大眾生活解讀</div>
-            在中老年慢性思覺失調個案中創造 100% 全程出席奇蹟！從梳毛、握手到指令練習，讓病人重新在群體中找回成就感。
-          </div>
-          <a href="wiki/sources/2021-chen-dog-aat-taiwan-rct.md" target="_blank" class="academic-link-btn">
-            🇹🇼 查閱 2021 台灣長庚與台大團隊 RCT 筆記 &rarr;
-          </a>
-        </div>
-
-        <!-- Paper 5 -->
+        <!-- Paper 5: Hawkins et al. 2019 -->
         <div class="paper-card">
           <div class="paper-header">
             <div class="paper-tags-row">
               <span class="paper-tag paper-tag-canine">早期系統性回顧</span>
-              <span style="font-size: 0.85rem; color: #64748b;">7 項 RCT</span>
+              <span style="font-size: 0.88rem; color: #64748b; font-weight: bold;">7 項 RCT</span>
             </div>
-            <h3 class="paper-title">Hawkins et al. (2019)</h3>
-            <p class="paper-meta">BMC Psychiatry｜英國愛丁堡大學系統性回顧</p>
+            <h3 class="paper-title">Hawkins et al. (2019) 英國愛丁堡大學系統回顧</h3>
+            <p class="paper-meta">BMC Psychiatry｜早期臨床實證基線與動物福祉倡議</p>
           </div>
           <div class="paper-highlight">
-            <strong>核心數據</strong>：奠定早期臨床實證基線，跨物種探討犬、馬、貓療效。率先倡議遵循 IAHAIO 與 One Welfare 動物福祉標準，避免工作犬過勞。
+            <strong>核心數據</strong>：奠定早期實證基線，率先倡議遵循 IAHAIO 與 One Welfare 動物福祉標準，強調療癒過程中對治療動物的保護。
           </div>
           <div class="paper-public">
             <div class="public-label">🌟 大眾生活解讀</div>
-            提醒我們人與動物的療癒是「雙向尊重」。唯有在確保治療犬開心、被關愛的狀態下，所傳遞出的撫慰能量才是最純粹真實的。
+            提醒我們人與動物的療癒是「雙向尊重」。在確保治療犬開心、被關愛的狀態下，所傳遞的撫慰能量最真實純粹。
           </div>
-          <a href="wiki/sources/2019-hawkins-aat-schizophrenia-review.md" target="_blank" class="academic-link-btn">
-            🇬🇧 查閱 2019 英國愛丁堡大學回顧筆記 &rarr;
-          </a>
+          <button class="btn-read-deep" onclick="openArticleModal('hawkins2019')">
+            🇬🇧 點此點開查看 2019 英國愛丁堡回顧完整筆記 &rarr;
+          </button>
         </div>
 
-        <!-- Paper 6 -->
+        <!-- Paper 6: Calvo et al. 2016 -->
         <div class="paper-card">
           <div class="paper-header">
             <div class="paper-tags-row">
               <span class="paper-tag paper-tag-canine">隨機對照試驗 (RCT)</span>
-              <span style="font-size: 0.85rem; color: #64748b;">n = 24</span>
+              <span style="font-size: 0.88rem; color: #64748b; font-weight: bold;">n = 24 (6 個月長週期)</span>
             </div>
-            <h3 class="paper-title">Calvo et al. (2016)</h3>
-            <p class="paper-meta">Frontiers in Psychology｜西班牙 6 個月長週期 RCT</p>
+            <h3 class="paper-title">Calvo et al. (2016) 西班牙長週期 RCT</h3>
+            <p class="paper-meta">Frontiers in Psychology｜唾液皮質醇生化指標檢測</p>
           </div>
           <div class="paper-highlight">
             <strong>核心數據</strong>：接觸犬隻 1 小時後唾液皮質醇（壓力荷爾蒙）顯著下降（p &lt; 0.05）；介入組復健出席率達 92.9%（常規組僅 61.2%）。
           </div>
           <div class="paper-public">
             <div class="public-label">🌟 大眾生活解讀</div>
-            用客觀口水化驗打破質疑！摸摸狗能迅速熄滅大腦緊繃的防空警報，讓長期緊繃防備的心靈得以真正喘息放鬆。
+            用客觀口水化驗打破質疑！摸摸狗能迅速熄滅大腦緊繃防空警報，讓長期防備的心靈得以真正喘息放鬆。
           </div>
-          <a href="wiki/sources/2016-calvo-dog-aat-rehab-rct.md" target="_blank" class="academic-link-btn">
-            🇪🇸 查閱 2016 西班牙長週期 RCT 筆記 &rarr;
-          </a>
+          <button class="btn-read-deep" onclick="openArticleModal('calvo2016')">
+            🇪🇸 點此點開查看 2016 西班牙長週期 RCT 筆記 &rarr;
+          </button>
         </div>
       </div>
     </section>
@@ -658,21 +755,19 @@
       </div>
 
       <div class="grid-2">
-        <!-- 症狀細項 -->
+        <!-- 負性症狀 -->
         <div class="concept-box">
           <div>
             <div class="concept-title">🧠 負性症狀細項 (Negative Symptoms)</div>
-            <ul style="padding-left: 1.25rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 1rem;">
-              <li><strong><a href="wiki/concepts/symptoms/avolition.md" style="color: #0369a1; text-decoration: underline;">動機缺乏 (Avolition)</a></strong>：行為啟動引擎熄火，動物作為外接啟動馬達。</li>
-              <li><strong><a href="wiki/concepts/symptoms/asociality.md" style="color: #0369a1; text-decoration: underline;">社交退縮 (Asociality)</a></strong>：治療犬作為安全第三者，打破人際溝通防線。</li>
-              <li><strong><a href="wiki/concepts/symptoms/blunted-affect.md" style="color: #0369a1; text-decoration: underline;">情感平淡 (Blunted Affect)</a></strong>：觸摸毛皮刺激鏡像神經元，重啟微表情肌肉。</li>
-              <li><strong><a href="wiki/concepts/symptoms/anhedonia.md" style="color: #0369a1; text-decoration: underline;">無快感症 (Anhedonia)</a></strong>：多感官愉悅刺激，研究證實 5 週快感感受力顯著回升。</li>
-            </ul>
+            <p class="concept-desc">
+              點擊下方任一按鈕，可直接展開該症狀之病理本質、評估量表、跨研究衝突分析與大眾生活轉譯：
+            </p>
           </div>
-          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-            <a href="wiki/concepts/symptoms/avolition.md" target="_blank" class="academic-link-btn" style="padding: 0.4rem 0.8rem; font-size: 0.88rem;">動機缺乏專頁</a>
-            <a href="wiki/concepts/symptoms/asociality.md" target="_blank" class="academic-link-btn" style="padding: 0.4rem 0.8rem; font-size: 0.88rem;">社交退縮專頁</a>
-            <a href="wiki/concepts/symptoms/blunted-affect.md" target="_blank" class="academic-link-btn" style="padding: 0.4rem 0.8rem; font-size: 0.88rem;">情感平淡專頁</a>
+          <div class="concept-btns-row">
+            <button class="btn-concept-tag" onclick="openArticleModal('avolition')">📖 動機缺乏 (Avolition) 專頁</button>
+            <button class="btn-concept-tag" onclick="openArticleModal('asociality')">📖 社交退縮 (Asociality) 專頁</button>
+            <button class="btn-concept-tag" onclick="openArticleModal('blunted')">📖 情感平淡 (Blunted Affect) 專頁</button>
+            <button class="btn-concept-tag" onclick="openArticleModal('anhedonia')">📖 無快感症 (Anhedonia) 專頁</button>
           </div>
         </div>
 
@@ -680,15 +775,13 @@
         <div class="concept-box">
           <div>
             <div class="concept-title">🐾 介入模式與媒介 (Interventions)</div>
-            <ul style="padding-left: 1.25rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 1rem;">
-              <li><strong><a href="wiki/concepts/interventions/canine-aat.md" style="color: #0d9488; text-decoration: underline;">犬類輔助治療 (Canine-AAT)</a></strong>：負性症狀破冰主力，近身撫摸與職能生活任務。</li>
-              <li><strong><a href="wiki/concepts/interventions/equine-aat.md" style="color: #d97706; text-decoration: underline;">馬術與馬匹治療 (Equine-AAT)</a></strong>：全身律動平衡、視野提升、尊嚴重建與消融孤獨。</li>
-              <li><strong>團體 vs 個別介入</strong>：團體建立安全微型社會，個別維持專屬情感基地。</li>
-            </ul>
+            <p class="concept-desc">
+              詳細探討犬類近身撫摸職能方案與馬匹全身律動自尊修復之媒介特異性：
+            </p>
           </div>
-          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-            <a href="wiki/concepts/interventions/canine-aat.md" target="_blank" class="academic-link-btn" style="padding: 0.4rem 0.8rem; font-size: 0.88rem;">犬類 AAT 專頁</a>
-            <a href="wiki/concepts/interventions/equine-aat.md" target="_blank" class="academic-link-btn" style="padding: 0.4rem 0.8rem; font-size: 0.88rem;">馬匹 AAT 專頁</a>
+          <div class="concept-btns-row">
+            <button class="btn-concept-tag" onclick="openArticleModal('canine')">🐕 犬類輔助治療 (Canine-AAT) 專頁</button>
+            <button class="btn-concept-tag" onclick="openArticleModal('equine')">🐴 馬匹輔助治療 (Equine-AAT) 專頁</button>
           </div>
         </div>
 
@@ -696,29 +789,27 @@
         <div class="concept-box">
           <div>
             <div class="concept-title">📊 評估量表與指標 (Outcome Measures)</div>
-            <ul style="padding-left: 1.25rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 1rem;">
-              <li><strong><a href="wiki/concepts/measures/panss-negative.md" style="color: #0369a1; text-decoration: underline;">PANSS 負性次量表</a></strong>：涵蓋情感平淡、社交退縮、抽象思考困難等 7 項向度。</li>
-              <li><strong>SANS / BNSS 量表</strong>：現代臨床更精準捕捉表達與動機雙向度的新標準工具。</li>
-              <li><strong>臨床微改變轉譯</strong>：將抽象量表分數下降 3 分轉譯為現實中的主動打招呼與梳洗。</li>
-            </ul>
+            <p class="concept-desc">
+              深入拆解 PANSS 負性次量表 7 大向度，將「分數下降 3 分」具體化為日常生活中的抬頭微笑：
+            </p>
           </div>
-          <a href="wiki/concepts/measures/panss-negative.md" target="_blank" class="academic-link-btn" style="padding: 0.4rem 0.8rem; font-size: 0.88rem;">查閱 PANSS 量表剖析</a>
+          <div class="concept-btns-row">
+            <button class="btn-concept-tag" onclick="openArticleModal('panss')">📊 PANSS 負性量表完整剖析專頁</button>
+          </div>
         </div>
 
-        <!-- 生理心理機轉 -->
+        <!-- 神經機轉 -->
         <div class="concept-box">
           <div>
             <div class="concept-title">🧬 神經與心理機轉 (Mechanisms)</div>
-            <ul style="padding-left: 1.25rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 1rem;">
-              <li><strong><a href="wiki/concepts/mechanisms/oxytocin.md" style="color: #0369a1; text-decoration: underline;">催產素神經迴路 (Oxytocin)</a></strong>：人犬凝視循環觸發哺乳類生物級信任與安全感。</li>
-              <li><strong><a href="wiki/concepts/mechanisms/cortisol-hpa.md" style="color: #0369a1; text-decoration: underline;">皮質醇壓力調節 (HPA Axis)</a></strong>：唾液客觀指標證實接觸後壓力荷爾蒙顯著下降。</li>
-              <li><strong><a href="wiki/concepts/mechanisms/social-scaffolding.md" style="color: #0369a1; text-decoration: underline;">社交鷹架理論 (Social Scaffolding)</a></strong>：感官接觸 → 認知指令 → 日常任務 → 社會泛化。</li>
-            </ul>
+            <p class="concept-desc">
+              結合催產素凝視循環、HPA 軸皮質醇抗壓抑制與四階漸進式職能社交鷹架：
+            </p>
           </div>
-          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-            <a href="wiki/concepts/mechanisms/oxytocin.md" target="_blank" class="academic-link-btn" style="padding: 0.4rem 0.8rem; font-size: 0.88rem;">催產素假說</a>
-            <a href="wiki/concepts/mechanisms/cortisol-hpa.md" target="_blank" class="academic-link-btn" style="padding: 0.4rem 0.8rem; font-size: 0.88rem;">皮質醇調節</a>
-            <a href="wiki/concepts/mechanisms/social-scaffolding.md" target="_blank" class="academic-link-btn" style="padding: 0.4rem 0.8rem; font-size: 0.88rem;">社交鷹架理論</a>
+          <div class="concept-btns-row">
+            <button class="btn-concept-tag" onclick="openArticleModal('oxytocin')">🧬 催產素迴路專頁</button>
+            <button class="btn-concept-tag" onclick="openArticleModal('cortisol')">🩸 皮質醇調節專頁</button>
+            <button class="btn-concept-tag" onclick="openArticleModal('scaffolding')">🪜 社交鷹架專頁</button>
           </div>
         </div>
       </div>
@@ -797,20 +888,14 @@
         </table>
       </div>
 
-      <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-        <a href="wiki/comparisons/negative-symptoms-meta-comparison.md" target="_blank" class="academic-link-btn">
-          ⚖️ 查閱負性症狀跨研究效應值完整對照表 &rarr;
-        </a>
-        <a href="wiki/comparisons/canine-vs-equine.md" target="_blank" class="academic-link-btn">
-          🐕🐴 查閱犬類 vs 馬匹介入成效分歧分析 &rarr;
-        </a>
-        <a href="wiki/methodology/active-control-challenges.md" target="_blank" class="academic-link-btn">
-          🔬 查閱積極對照組設置挑戰專案 &rarr;
-        </a>
+      <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <button class="btn-concept-tag" onclick="openArticleModal('meta_comp')">⚖️ 查看 6 項 RCT 橫向矩陣全文專題</button>
+        <button class="btn-concept-tag" onclick="openArticleModal('canine_vs_equine')">🐕🐴 查看犬類 vs 馬匹機制分歧全文專題</button>
+        <button class="btn-concept-tag" onclick="openArticleModal('active_control')">🔬 查看積極對照組設置挑戰全文專題</button>
       </div>
     </section>
 
-    <!-- 旗艦科普與去污名化專題 -->
+    <!-- 旗艦科普專題 -->
     <section class="section-card synthesis-banner">
       <div class="section-header" style="border-bottom-color: #fde68a;">
         <div class="section-title-wrap">
@@ -829,13 +914,9 @@
         動物不會用異樣的眼光打量生病的人。當狗狗依偎在個案身旁、把下巴靠在膝蓋上時，無條件的接納打破了長年的自責與封閉。為了帶狗狗散步、為了給小馬梳毛，個案重新站了起來，找回了生活被需要的意義。」
       </div>
 
-      <p style="color: #78350f; line-height: 1.8; font-size: 1rem; margin-bottom: 1.25rem;">
-        本知識庫不僅整理學術硬核數據，更致力於推動社會大眾對思覺失調譜系負性症狀的理解與去污名化。動物輔助治療展現了醫學、心理與生命教育跨界融合的溫柔力量。
-      </p>
-
-      <a href="wiki/syntheses/from-isolation-to-connection.md" target="_blank" class="academic-link-btn" style="background: #ffffff; border-color: #f59e0b; color: #92400e;">
-        📖 閱讀去污名化大眾科普旗艦專題全文 &rarr;
-      </a>
+      <button class="btn-read-deep" style="background: #ffffff; border: 1.5px solid #f59e0b; color: #92400e; width: auto;" onclick="openArticleModal('synthesis')">
+        📖 點此點開查看大眾科普旗艦專文完整全文 &rarr;
+      </button>
     </section>
 
     <!-- 頁尾 -->
@@ -853,6 +934,57 @@
     </footer>
 
   </div>
+
+  <!-- 互動閱讀模態視窗 (Modal Reader) -->
+  <div class="modal-backdrop" id="articleModal" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div>
+          <div class="modal-header-title" id="modalTitle">文章標題</div>
+          <span style="font-size: 0.85rem; color: #64748b;" id="modalPath"></span>
+        </div>
+        <div class="modal-header-actions">
+          <a id="modalGitHubLink" href="#" target="_blank" style="font-size: 0.9rem; color: #0284c7; text-decoration: underline; font-weight: bold;">在 GitHub 查看</a>
+          <button class="modal-btn-close" onclick="closeModal()">✕</button>
+        </div>
+      </div>
+      <div class="modal-body markdown-body" id="modalContent"></div>
+    </div>
+  </div>
+
+  <script>
+    const articlesData = {"canine_vs_equine":{"Title":"犬類 vs 馬匹 介入成效分歧深度分析","Path":"wiki/comparisons/canine-vs-equine.md","Content":"---\r\ntitle: 犬類 vs 馬匹輔助介入在思覺失調症不同症狀維度之成效比較 (Canine vs Equine AAT)\r\ncategory: comparison\r\ntags: [comparison, canine, equine, negative-symptoms, rct]\r\nlast_updated: 2026-11-17\r\n---\r\n\r\n# 犬類 vs 馬匹輔助介入在思覺失調症不同症狀維度之成效比較\r\n\r\n\u003e 本專題對比分析兩大主流動物輔助媒介——**犬類輔助治療 (Canine-AAT)** 與 **馬匹輔助治療 (Equine-AAT / Hippotherapy)**，在面對思覺失調症不同病理維度（特別是負性症狀 vs 正性症狀/生活品質）上的實證分歧與臨床機制差異。\r\n\r\n---\r\n\r\n## 1. 跨媒介指標性 RCT 對照總表\r\n\r\n| 比較維度 | 犬類輔助治療 (Canine-AAT)\u003cbr\u003e以 **Chen et al. (2021)** [[2021-chen-dog-aat-taiwan-rct]] 為代表 | 馬匹輔助治療 (Equine-AAT)\u003cbr\u003e以 **Öztürk et al. (2025)** [[2025-ozturk-equine-aat-rct]] 為代表 |\r\n| :--- | :--- | :--- |\r\n| **動物媒介** | 認證治療犬 4 隻（柯基、拉布拉多、馬爾濟斯、柴犬） | 哈芙林格馬 (Haflinger horses)，性情穩定 |\r\n| **樣本與環境** | n = 40（中老年個案，平均 54.7 歲）\u003cbr\u003e醫院安靜教室、分小組室內環境 | n = 61（社區復健個案，平均 40.6 歲）\u003cbr\u003e封閉式馬術練習場、戶外馬場 |\r\n| **介入週期** | 12 週、每週 1 次、每次 60~65 分鐘 | 8 週、每週 2 次、每次 40 分鐘（20 分騎乘 + 20 分照護） |\r\n| **負性症狀成效** | 🌟 **組間顯著大效應改善**\u003cbr\u003ePANSS Negative (p \u003c 0.001, SRD = 0.50)\u003cbr\u003eAAT 組分數中位數降低 3.0 分 | ⚠️ **組間無統計顯著差異**\u003cbr\u003ePANSS Negative (p = 0.610, d = 0.13)\u003cbr\u003e介入組與控制組分數變化均微弱 |\r\n| **正性症狀成效** | 顯著改善 (p \u003c 0.001, SRD = 0.15)\u003cbr\u003e治療師於活動中強調現實導向 | 顯著改善 (p = 0.013, d = 0.66)\u003cbr\u003e騎乘注意力高度集中促成精神症狀穩定 |\r\n| **心理與生活品質** | 壓力顯著減輕 (p = 0.012)\u003cbr\u003e幸福感量表 CHI 無顯著差異 (p = 0.461) | 🌟 **孤獨感與生活品質大幅改善**\u003cbr\u003eUCLA 孤獨感大效應降低 (p \u003c 0.001, d = 0.99)\u003cbr\u003eQLS 生活品質飛躍性改善 (p \u003c 0.001, d = 1.93) |\r\n| **出席率與可行性** | 0% 脫落率（全勤完成） | 9 位脫落（5 位介入組、4 位對照組），脫落率 12.8% |\r\n\r\n---\r\n\r\n## 2. 四維度矛盾與分歧機制剖析 (Why the Divergence?)\r\n\r\n為什麼犬類介入能強烈改善「負性症狀」，而馬匹介入卻在「孤獨感與生活品質」上展現極大優勢、負性症狀卻無顯著變化？\r\n\r\n### 2.1 肢體距離與親和接觸深度 (Physical Proximity \u0026 Touch)\r\n- **犬類優勢**：中小型犬可直接趴在個案膝蓋上，允許持續、沉浸的**雙手撫摸、擁抱與近距離凝視**。這種直接的感官反饋能極速刺激內源性 [[oxytocin]] 釋放，直接打破 [[blunted-affect|情感平淡]] 與 [[avolition|動機缺乏]]。\r\n- **馬匹特質**：馬匹體型龐大，互動多以側身刷毛、餵蘿蔔與騎乘為主，互動帶有敬畏與規矩感，較少持續的親暱觸摸。\r\n\r\n### 2.2 認知專注度與本體感覺激發 (Proprioception vs Social Interaction)\r\n- **馬匹優勢**：馬匹騎乘（騎馬）需要骨盆規律律動、肌肉對稱維持與高度平衡感。這種全身性的「感覺統合刺激」能強烈壓制雜念、提升專注度，從而顯著降低焦慮、壓制正性幻覺妄想，並帶來巨大的自我效能感（「我竟然能駕馭一匹高大的馬」），直接推升了生活品質評分（d = 1.93）。\r\n- **犬類特質**：以人際互動、輪流稱讚、合作遊戲等社會功能訓練為主，對運動本體感覺的刺激較馬術緩和。\r\n\r\n### 2.3 空間環境與門檻效應 (Setting \u0026 Accessibility)\r\n- 犬類可在熟悉的日間病房或室內活動室進行，環境安全封閉，適合重度社交退縮個案。\r\n- 馬術介入需前往特定馬場，交通成本較高，對個案的體能與環境適應門檻較嚴格。\r\n\r\n---\r\n\r\n## 3. 🌟 臨床實務與大眾生活選擇指引 (Clinical \u0026 Public Takeaway)\r\n\r\n\u003e **大眾與家屬視角解讀**：\r\n\u003e 「如果我的家人患有思覺失調症，我該讓他去摸狗，還是去學騎馬？」\r\n\u003e \r\n\u003e 這份科學對比給出了一個非常清楚的藍圖：\r\n\u003e - **如果個案的主要困境是「極度退縮、整天面無表情、不說話也不動（嚴重的負性症狀）」**：\r\n\u003e   👉 **首選【犬類輔助治療】**。狗狗柔軟、無壓力的親近，是融化重度冷漠與社交退縮的最佳破冰工具。\r\n\u003e - **如果個案的急性精神症狀已穩定，但「極度自卑、覺得自己孤單無用、生活缺乏目標與成就感」**：\r\n\u003e   👉 **首選【馬匹輔助治療】**。跨上馬背時的視野轉換、學會駕馭龐大動物所獲得的自信心，能帶來無與倫比的心靈震撼，快速驅散孤獨感，重塑生活品質。\r\n"},"ozturk2025":{"Title":"Öztürk et al. (2025) 土耳其馬術 RCT 完整論文筆記","Path":"wiki/sources/2025-ozturk-equine-aat-rct.md","Content":"---\r\ntitle: \"Investigating the Effects of Equine-Assisted Therapy in Individuals With Schizophrenia: A Randomized Controlled Trial\"\r\nauthors: \"Zeynep Öztürk et al.\"\r\nyear: 2025\r\nstudy_type: \"Randomized Controlled Trial (RCT)\"\r\nsample_size: 61\r\nintervention_type: \"Equine-AAT\"\r\ntarget_symptoms: [\"negative-symptoms\", \"positive-symptoms\", \"anxiety\", \"loneliness\", \"quality-of-life\"]\r\noutcome_measures: [\"PANSS\", \"TAI\", \"UCLA-LS\", \"QLS\"]\r\ntags: [source, equine, rct, turkey, outpatient, loneliness, quality-of-life]\r\ndate_ingested: 2026-11-17\r\n---\r\n\r\n# 馬匹輔助治療對思覺失調症患者療效之隨機對照試驗 (Öztürk et al., 2025)\r\n\r\n- **原始文獻出處**：[[raw/2025-ozturk-equine-aat-rct.pdf]]\r\n- **完整引註**：Öztürk, Z., Tozoğlu, E. Ö., Eymır, M., Karakurt, N., \u0026 Ulusoy, S. (2025). Investigating the Effects of Equine-Assisted Therapy in Individuals With Schizophrenia: A Randomized Controlled Trial. *Journal of Psychosocial Nursing and Mental Health Services*, online ahead of print. https://doi.org/10.3928/02793695-20250415-05\r\n- **研究背景與對象**：\r\n  - 土耳其埃爾祖魯姆技術大學（Erzurum Technical University）與阿塔圖克大學馬術訓練中心合作。\r\n  - 招募 61 位社區心理衛生中心註冊之思覺失調個案（平均年齡約 40.6 歲，處於穩定期），隨機分為 EAT 介入組 (n = 30) 與控制組 (n = 31)。\r\n\r\n---\r\n\r\n## 1. 介入參數與專業執行架構 (Intervention Protocol)\r\n\r\n- **介入劑量**：8 週、每週 2 次、每次約 40 分鐘。\r\n- **單次結構 (40 分鐘)**：\r\n  - 20 分鐘馬背騎乘訓練（包含直走、轉向、身體伸展與平衡協調練習）。\r\n  - 20 分鐘地面照護與親和互動（梳毛、撫摸、餵食、配戴防護裝備）。\r\n- **馬匹選用**：選用以溫馴、冷靜著稱之**哈芙林格馬 (Haflinger horses)**，於配備防護地板之封閉馬場進行。\r\n- **多專業醫療團隊**：精神科專科醫師、精神衛生護理師、專業馬術教練、物理治療師共同帶領。\r\n- **對照組設置**：參與社區心理衛生中心之常規復健服務（包含心理衛教、運動、音樂與職能治療）。\r\n\r\n---\r\n\r\n## 2. 核心實證發現 (Key Empirical Findings)\r\n\r\n### 2.1 負性症狀無顯著差異（核心分歧點）\r\n- 在 [[panss-negative]] 評估上，介入組與控制組後測**無統計顯著差異**（p = 0.610, d = 0.13），且介入組前後測亦未達顯著（p = 0.305, d = 0.22）。\r\n- 顯示 8 週的中短期馬匹輔助治療，對於頑固的意志動機缺乏與言語冷漠，未展現出與犬類同等之顯著療效。\r\n\r\n### 2.2 正性症狀、孤獨感與生活品質呈現飛躍性改善\r\n- **正性症狀減退**：PANSS 正性次量表組間差異顯著（p = 0.013, d = 0.66），騎乘時高度集中的身體控制與定向感有助於抑制混亂思維。\r\n- **特質焦慮減輕 (TAI)**：焦慮評分顯著低於對照組（p = 0.017, d = 0.63）。\r\n- 🌟 **孤獨感大幅驅散 (UCLA-LS)**：UCLA 孤獨感量表呈現大效應值降低（p \u003c 0.001, d = 0.99），從感到被社會遺棄轉為感受到深刻陪伴。\r\n- 🌟 **生活品質爆發性提升 (QLS)**：思覺失調生活品質量表呈現極大效應值改善（p \u003c 0.001, d = 1.93），在人際關係、心理狀態與日常物件運用上全面躍升。\r\n\r\n---\r\n\r\n## 3. 方法學限制與偏誤評估 (Methodology \u0026 Limitations)\r\n\r\n1. **脫落率 (Attrition)**：研究期間介入組脫落 5 人、控制組脫落 4 人（總脫落率約 12.8%），原因包括交通障礙與時間衝突。\r\n2. **缺乏長期追蹤**：未追蹤停止騎乘後，孤獨感與生活品質的改善能維持多久。\r\n3. **都市環境可及性與成本**：馬場多位於郊區，介入成本較高，難以在一般基層社區全面普及。\r\n\r\n---\r\n\r\n## 4. 與既有文獻之關聯 (Cross-References \u0026 Debates)\r\n\r\n- **橫向分歧對照**：\r\n  - 與台灣犬類研究 [[2021-chen-dog-aat-taiwan-rct]] 形成互補：犬類強在 [[avolition|動機缺乏]] 破冰（SRD = 0.50）；馬匹則強在**重塑自尊、消融孤獨感與提升生活品質（d = 1.93）**。詳細對比見 [[canine-vs-equine]]。\r\n- **支持文獻**：\r\n  - 支持了 Jormfeldt \u0026 Carlsson (2018) 關於馬術治療能顯著增進思覺失調患者自尊與自我效能的系統性回顧結論。\r\n\r\n---\r\n\r\n## 5. 🌟 臨床實務與日常生活／大眾生活功能意涵 (Public \u0026 Daily Life Meaning)\r\n\r\n\u003e **大眾與家屬視角解讀**：\r\n\u003e 「一個連出門都會發抖、觉得自己一事無成的病友，怎麼可能去騎馬？」\r\n\u003e \r\n\u003e 許多家屬起初聽到馬術治療時，往往充滿恐懼。但這篇研究揭示了震撼的心理轉變：\r\n\u003e 1. **馬背上的視野轉換**：長年處於社會邊緣的病友，平時習慣低著頭、承受別人的眼光。當他跨上一匹五百公斤重的高大駿馬時，視野瞬間拔高至兩公尺。這種生理與心理上的「昂首闊步」，徹底粉碎了深層的自卑感。\r\n\u003e 2. **孤獨感的終結**：馬匹是極度敏感的動物，牠能感知騎乘者的心跳與緊張。為了讓馬平靜，個案必須學會調整自己的呼吸與體態。這種人與龐大生命之間無聲的「共振與信任」，讓個案深刻體會到「我不是孤獨的，有這樣一個巨大的生命在與我同心協力」。\r\n\u003e 3. **生活品質評分躍升（d = 1.93）的背後**：意味著回家後，個案開始主動整理儀容、願意主動談論「我在馬場的經歷」，重新找回了身為獨立生命的自信與驕傲。\r\n"},"avolition":{"Title":"動機缺乏 (Avolition) 臨床概念與動輔介入專頁","Path":"wiki/concepts/symptoms/avolition.md","Content":"---\r\ntitle: 動機缺乏 (Avolition)\r\ncategory: symptom\r\ntags: [concept, symptom, negative-symptom, motivation]\r\nlast_updated: 2026-11-17\r\n---\r\n\r\n# 動機缺乏 (Avolition)\r\n\r\n\u003e [!SUMMARY] 一句話精華\r\n\u003e 思覺失調症最難以傳統抗精神病藥物改善的核心負性症狀之一，表現在自主啟動、維持與完成目標導向活動（如個人衛生、社交、就業）的能力顯著低下。\r\n\r\n---\r\n\r\n## 1. 概念與臨床評估\r\n- **定義**：Avolition 泛指內在驅動力（Intrinsic Motivation）與意志行為的喪失。在 DSM-5 與 ICD-11 中，動機缺乏與情感平淡 ([[blunted-affect]])、社交退縮 ([[asociality]]) 常共同構成慢性失能的主因。\r\n- **臨床評估工具**：\r\n  - [[panss-negative]]：項目 N2（情感退縮）、N4（被動/冷漠社交退縮）。\r\n  - [[sans]]：Avolition-Apathy 次量表（包含梳洗、工作/學業堅持度、體能活動力）。\r\n  - [[bnss]] 與 [[cains]]：針對動機/快感向度（MAP subscale）提供更細緻的行為發起評估。\r\n\r\n---\r\n\r\n## 2. 動物輔助治療之實證總結\r\n- **統合分析實證支持**：\r\n  - [[2026-peraile-huerta-aat-psychosis-meta]] 彙整 12 項研究（408 位個案），證實以犬類為主的動物輔助治療能顯著改善總體負性症狀（SMD = -0.51, p \u003c 0.05），其中個案在活動中自發性參與與行為啟動改善最為明顯。\r\n- **臨床單篇支持**：\r\n  - [[2021-chen-dog-aat-taiwan-rct]]：台灣 12 週 RCT 發現，犬隻介入組的負性次量表改善幅度達到大效應值（SRD = 0.50, p \u003c 0.001），個案展現高度的課堂出席率與自發性互動意願。\r\n  - [[2016-calvo-dog-aat-rehab-rct]]：西班牙 6 個月研究中，動物組展現高達 92.9% 的復健出席率，顯著高於非動物控制組的 61.2%（p = 0.0001），顯示動物具備打破動機僵局的吸引力。\r\n\r\n---\r\n\r\n## 3. 爭議與分歧解析 (Contradictions \u0026 Divergent Findings)\r\n\r\n| 支持顯著療效之研究 | 顯示無顯著差異之研究 | 四維度方法學分歧拆解（劑量/對照組/樣本/量表） |\r\n| :--- | :--- | :--- |\r\n| [[2026-peraile-huerta-aat-psychosis-meta]]\u003cbr\u003e[[2021-chen-dog-aat-taiwan-rct]] | [[2025-ozturk-equine-aat-rct]]\u003cbr\u003e[[2019-hawkins-aat-schizophrenia-review]] | 1. **動物種類與互動形式**：犬類介入強調肢體撫摸、餵食與近距離目光接觸，對啟動行為反應極快；馬匹介入（如騎乘）則側重感覺統合與自尊，對動機缺乏的特異性反應較慢。\u003cbr\u003e2. **對照組性質**：對照 TAU 時差異極顯著，但若對照組為高趣味性桌遊/園藝時，組間差異會被部分抵銷。\u003cbr\u003e3. **量表敏感度**：舊型 PANSS 負性次量表混合了認知抽象思考題，不如專門針對動機的量表敏感。 |\r\n\r\n---\r\n\r\n## 4. 作用機轉與假說\r\n- **神經內分泌假說**：撫摸與互動誘發 [[oxytocin]]（催產素）釋放，降低社交威脅感，活化中腦多巴胺獎勵系統，修復「預期性獎勵（Anticipatory Pleasure）」受損。\r\n- **心理社會鷹架 (Social Scaffolding)**：動物扮演無條件接納的非評判性角色，個案不需擔心「表現不好被責備」，大幅降低行為啟動的心理門檻。\r\n\r\n---\r\n\r\n## 5. 🌟 臨床實務與日常生活／大眾生活功能意涵 (Public \u0026 Daily Life Meaning)\r\n\r\n\u003e **大眾與家屬視角解讀**：\r\n\u003e 當思覺失調個案整天躺在床上、連換衣服、刷牙或出門倒垃圾都顯得千斤重時，身邊的親友往往忍不住責怪：「你就是太懶了、沒有意志力！多出門走走不就好了？」\r\n\u003e \r\n\u003e 事實上，這不是性格缺陷，而是大腦動機系統的「引擎熄火（Avolition）」。個案的大腦在評估「做這件事有什麼意義」時，感受不到任何驅動信號。\r\n\u003e \r\n\u003e 動物輔助治療的魔力在於：**牠不是催促個案「為自己努力」，而是喚醒個案「想為動物做點什麼」的原始本能**。看到狗狗渴望被撫摸、期待吃點心的眼神，個案會自發伸出手、站起身、甚至主動牽起牽繩。動物就像外接的啟動馬達，溫柔地把熄火的動機重新點燃，這是任何口語說教或常規藥物都難以替代的生活力量。\r\n"},"asociality":{"Title":"社交退縮 (Asociality) 臨床概念與動輔介入專頁","Path":"wiki/concepts/symptoms/asociality.md","Content":"---\r\ntitle: 社交退縮 (Asociality)\r\ncategory: symptom\r\ntags: [concept, symptom, negative-symptom, asociality, social-withdrawal]\r\nlast_updated: 2026-11-17\r\n---\r\n\r\n# 社交退縮 (Asociality)\r\n\r\n\u003e [!SUMMARY] 一句話精華\r\n\u003e 思覺失調症核心負性症狀之一，表現在主動尋求、建立與維持社交人際互動的意願顯著低落，常導致嚴重的社會隔離與孤立。\r\n\r\n---\r\n\r\n## 1. 概念與臨床評估\r\n- **定義**：Asociality 指個案缺乏與他人建立社會連結的內在動機，並非單純因為害羞或社交焦慮，而是對人際交往缺乏興趣與價值感。常與 [[avolition|動機缺乏]] 共同歸類為動機/快感缺陷向度（MAP subscale）。\r\n- **臨床評估指標**：\r\n  - [[panss-negative]]：項目 N4（被動/冷漠社交退縮）、N3（融洽關係困難）。\r\n  - [[sans]]：Asociality-Anhedonia 次量表（包含朋友互動、休閒同伴關係）。\r\n  - 溝通與互動技能評估量表（Assessment of Communication and Interaction Skills, ACIS）。\r\n\r\n---\r\n\r\n## 2. 動物輔助治療之實證總結\r\n- **犬類介入的破冰實證**：\r\n  - [[2021-chen-dog-aat-taiwan-rct]]：台灣 12 週 RCT 證實，犬類介入組在 PANSS N4 被動冷漠社交退縮與社交主動性上顯著優於對照組（p \u003c 0.001, SRD = 0.50）。該團隊於後續追蹤研究（Chen et al., 2022）進一步發現，AAT 組在 ACIS 溝通與互動技能評分顯著高於控制組（p \u003c 0.001）。\r\n  - [[2026-peraile-huerta-aat-psychosis-meta]]：統合分析確立 AAT 能顯著減輕整體負性社交退縮（SMD = -0.51）。\r\n  - [[2016-calvo-dog-aat-rehab-rct]]：證實個案在陪伴犬介入下的出席率高達 92.9%，展現突破社交退縮的自發性動力。\r\n\r\n---\r\n\r\n## 3. 爭議與分歧解析 (Contradictions \u0026 Divergent Findings)\r\n\r\n| 正向社交改善實證 | 顯示改善侷限或潛在疑慮之研究 | 方法學分歧剖析 |\r\n| :--- | :--- | :--- |\r\n| [[2021-chen-dog-aat-taiwan-rct]]\u003cbr\u003e[[2026-peraile-huerta-aat-psychosis-meta]] | Villalta-Gil et al. (2009)\u003cbr\u003e[[2019-hawkins-aat-schizophrenia-review]] | 1. **社交對象泛化難題 (Generalization)**：個案對動物展現親密，是否能自動轉換為對「人類（家人、醫護、社會）」的社交？Villalta-Gil (2009) 曾報告個案非人際行為（如公共物品破壞）並未改善甚至有惡化風險。\u003cbr\u003e2. **團隊引導架構**：單純讓狗在病房走動（AAA）無法提升社交，必須如 Chen et al. (2021) 透過職能治療師引導「向他人介紹犬隻、輪流合作遊戲」，才能搭建社交橋樑。 |\r\n\r\n---\r\n\r\n## 4. 作用機轉與假說\r\n- **社交催化劑 (Social Catalyst)**：治療犬成為人際情境中安全的「第三者話題」，降低直接面對陌生人或權威（醫師/治療師）的威脅感。\r\n- **神經生物學支持**：接觸動物誘發 [[oxytocin]] 釋放，下調社交恐懼神經網絡。\r\n- **社交鷹架機制 ([[social-scaffolding]])**：個案透過對狗發號施令與讚美，在無風險情境下重新演練基礎人際互動技能。\r\n\r\n---\r\n\r\n## 5. 🌟 臨床實務與日常生活／大眾生活功能意涵 (Public \u0026 Daily Life Meaning)\r\n\r\n\u003e **大眾與家屬視角解讀**：\r\n\u003e 「整天把自己關在房間裡、家裡來客人就躲起來、連去巷口買便當都不敢」——家屬常誤以為個案「討厭大家、性格古怪」。\r\n\u003e \r\n\u003e 但這往往不是個案的心態問題，而是長年患病後大腦對「人際訊號」感到極端疲憊與恐懼，進而啟動的自我保護機制。面對人類，個案擔心自己說錯話、擔心別人異樣的眼光。\r\n\u003e \r\n\u003e 動物輔助治療最神奇的改變在於：**狗是一座不會給人壓力的安全橋樑**。\r\n\u003e 當兩位長年互不理睬的病友坐在一起時，一隻搖著尾巴的小狗跑了過來。其中一位摸著狗說：「牠毛好軟喔」，另一位接著說：「對啊，牠剛才一直看我的手」。人與人之間的冷漠冰層，就在這一瞬間被融化了。這種從「和狗說話」自然過渡到「和身邊的人說話」的過程，就是社交功能回歸最美的一步。\r\n"},"panss":{"Title":"PANSS 負性次量表 評估指標專頁","Path":"wiki/concepts/measures/panss-negative.md","Content":"---\r\ntitle: 正性與負性症狀量表—負性次量表 (PANSS Negative Subscale)\r\ncategory: measure\r\ntags: [concept, measure, scale, panss, negative-symptoms]\r\nlast_updated: 2026-11-17\r\n---\r\n\r\n# 正性與負性症狀量表—負性次量表 (PANSS Negative Subscale)\r\n\r\n\u003e [!SUMMARY] 一句話精華\r\n\u003e 精神醫學臨床試驗評估思覺失調症負性症狀嚴重度的黃金標準評估工具之一，由 7 個特定行為與情緒向度組成。\r\n\r\n---\r\n\r\n## 1. 量表結構與評估項目\r\nPANSS 負性次量表總分範圍為 7 至 49 分，評估以下 7 項核心症狀（每項 1~7 分，分數愈高代表症狀愈嚴重）：\r\n1. **N1 情感平淡 (Blunted Affect)**：面部表情、眼神接觸、語調與身體語言的遲鈍與缺乏。\r\n2. **N2 情感退縮 (Emotional Withdrawal)**：缺乏對生活事件與人際關係的情感投入與興趣。\r\n3. **N3 融洽關係困難 (Poor Rapport)**：缺乏同理心、無法與訪談者建立開放溫暖的人際連結。\r\n4. **N4 被動/冷漠社交退縮 (Passive/Apathetic Social Withdrawal)**：缺乏社交動機、整日退縮靜坐、缺乏主動性（即 [[avolition]] 的具體呈現）。\r\n5. **N5 抽象思考困難 (Difficulty in Abstract Thinking)**：概念形成與隱喻理解能力受損。\r\n6. **N6 缺乏自發性與會話流暢性 (Lack of Spontaneity and Flow of Conversation)**：對話被動、言語簡短貧乏（即 [[alogia]]）。\r\n7. **N7 刻板思維 (Stereotyped Thinking)**：思維內容單一、重複、僵化。\r\n\r\n---\r\n\r\n## 2. 動物輔助治療的量表成效實證\r\n- **統合分析實證 (Meta-Analytic Evidence)**：\r\n  - [[2026-peraile-huerta-aat-psychosis-meta]] 彙整多項 RCT 數據，證實動物輔助治療能顯著降低 PANSS 負性次量表評分（SMD = -0.51, 95%  CI:  [-0.95, -0.07], p \u003c 0.05）。\r\n- **臨床重要差異 (MCID)**：\r\n  - 文獻指出 PANSS 負性次量表的最小臨床顯著差異值（MCID）約為 2.4~3.0 分。\r\n  - 在台灣 RCT 研究 [[2021-chen-dog-aat-taiwan-rct]] 中，犬類組前後測負性次量表分數中位數降低達 3.0 分（p \u003c 0.001, SRD = 0.50），達到明確的臨床實質意義。\r\n\r\n---\r\n\r\n## 3. 量表限制與現代學術爭議\r\n1. **項目混雜性**：項目 N5（抽象思考）與 N7（刻板思維）實質上偏向「神經認知功能 (Cognition)」，而非純粹的情緒動機負性症狀。\r\n2. **新一代量表競爭**：近年精神醫學界發展出專門區分「表達缺陷 (Expressive Deficit)」與「動機/快感缺陷 (Avolition/Apathy)」的量表（如 [[bnss]] 與 [[cains]]），能更精準捕捉動物介入帶來的具體生活改善。\r\n\r\n---\r\n\r\n## 4. 🌟 臨床實務與日常生活／大眾生活功能意涵 (Public \u0026 Daily Life Meaning)\r\n\r\n\u003e **大眾與家屬視角解讀**：\r\n\u003e 當醫師或評估表上寫著「PANSS 負性分數下降 3 分」時，對個案的真實生活到底代表什麼？\r\n\u003e \r\n\u003e 這 3 分的差距，在日常生活中具體表現為：\r\n\u003e - 過去整天面無表情、眼睛只盯著地板看的個案，現在**看到人進門時，嘴角會露出一絲微笑、眼神會抬起來打招呼**（N1、N2 的改善）。\r\n\u003e - 過去叫他吃飯、洗澡要三催四請甚至發生爭執，現在**能自己站起來走向餐桌，甚至主動幫忙倒杯水**（N4 被動冷漠的改善）。\r\n\u003e - 過去問一句答半句（「好」、「不知道」），現在**會主動分享『今天那隻大黃狗好乖，有把球叼給我』**（N3、N6 社交對話流暢度的改善）。\r\n\u003e \r\n\u003e 這些微小的 3 分，正是讓一個家庭從「令人窒息的長年冰封」，轉變為「重新看見生活生機」的真實跨步。\r\n"},"peraile2026":{"Title":"Peraile-Huerta et al. (2026) PRISMA 統合分析完整論文筆記","Path":"wiki/sources/2026-peraile-huerta-aat-psychosis-meta.md","Content":"---\r\ntitle: \"Animal-assisted therapy in patients with psychotic disorders: A systematic review and meta-analysis\"\r\nauthors: \"Ana María Peraile-Huerta et al.\"\r\nyear: 2026\r\nstudy_type: \"Systematic Review and Meta-Analysis\"\r\nsample_size: 408\r\nintervention_type: \"Canine-AAT / Equine-AAT\"\r\ntarget_symptoms: [\"negative-symptoms\", \"positive-symptoms\", \"anhedonia\", \"anxiety\", \"general-psychopathology\"]\r\noutcome_measures: [\"PANSS-Negative\", \"PANSS-Positive\", \"PANSS-General\", \"SANS\", \"STAI\", \"SHAPS\", \"MoCA\"]\r\ntags: [source, meta-analysis, systematic-review, canine, equine, negative-symptoms]\r\ndate_ingested: 2026-11-17\r\n---\r\n\r\n# 動物輔助治療對精神病性疾患患者之療效：系統性回顧與統合分析 (Peraile-Huerta et al., 2026)\r\n\r\n- **原始文獻出處**：[[raw/2026-peraile-huerta-aat-psychosis-meta.pdf]]\r\n- **完整引註**：Peraile-Huerta, A. M., Jiménez-López, E., Díaz-Goñi, V., Martins-de-Passos, T. O., Peral-Martínez, F., Herráiz-Garrote, S., Pérez-Moreno, A., Mesas, A. E., \u0026 Bizzozero-Peroni, B. (2026). Animal-assisted therapy in patients with psychotic disorders: A systematic review and meta-analysis. *Complementary Therapies in Medicine*, 96, 103322. https://doi.org/10.1016/j.ctim.2026.103322\r\n- **研究設計與規模**：\r\n  - 符合 PRISMA 規範之系統性回顧與隨機效果統合分析（Random-effects Meta-Analysis，檢索至 2025 年 6 月）。\r\n  - 納入 12 項研究（10 篇 RCT、1 篇準實驗、1 篇前後測），共涵蓋 408 位思覺失調症譜系與精神病性疾患個案（平均年齡 37.0~55.3 歲，女性佔 32.6%）。\r\n  - 介入媒介：9 項研究為犬類輔助治療（Canine-AAT）、2 項為馬匹輔助治療（Equine-AAT）、1 項為犬馬混合。介入時長自單次 30 分鐘至每週 1 小時持續 104 週不等。\r\n\r\n---\r\n\r\n## 1. 核心實證發現 (Key Meta-Analytic Findings)\r\n\r\n### 1.1 負性症狀顯著改善（核心實證標竿）\r\n- 在納入的 6 項隨機對照組比較中（n=171），動物輔助治療組在改善負性症狀上呈現**統計顯著的中等效應值**：\r\n  \u003e **SMD = -0.51, 95% CI: [-0.95, -0.07], I² = 45.2%, p \u003c 0.05**\r\n- **敏感度分析（排除馬匹介入）**：僅保留犬類輔助介入（Dog-assisted interventions）時，效果依然穩健顯著（效應量相近），證實犬類互動對負性症狀具備穩定改善效果。\r\n\r\n### 1.2 正性症狀與一般精神病理無統計顯著差異\r\n- **正性症狀（Positive Symptoms）**：統合 6 項比較未達統計顯著（SMD = -0.68, 95%  CI:  [-1.68, 0.32], I² = 83.8%）。研究間異質性極高，多數研究顯示正性症狀的減輕主要歸因於基礎精神藥物治療。\r\n- **一般精神病理（General Symptoms）**：統合 4 項比較無顯著組間差異（SMD = -0.08, 95%  CI:  [-0.86, 0.69], I² = 72.5%）。\r\n\r\n### 1.3 特定症狀維度之觀察\r\n- **無快感症 ([[anhedonia]])**：引述 Nathans-Barel et al. (2005) 研究，指出犬隻介入 5 週後個案的愉悅感受力（Hedonic tone）顯著提升。\r\n- **焦慮與壓力減輕**：4 篇評估焦慮的研究（如 Lang et al. 2010、Öztürk et al. 2025、Chen et al. 2021）一致觀察到與動物互動後焦慮評分顯著下降。\r\n- **認知功能**：Chen et al. (2022) 評估 MoCA 認知評分，未發現顯著組間改善。\r\n\r\n---\r\n\r\n## 2. 方法學限制與偏誤評估 (Methodology \u0026 Risk of Bias)\r\n\r\n1. **對照組異質性高 (Heterogeneity in Control Groups)**：\r\n   - 部分研究對照純「常規治療 (TAU)」，此時 AAT 呈現壓倒性優勢；\r\n   - 另有部分研究對照「等時數之非動物積極活動（如藝術治療、桌遊休閒）」，兩組症狀均有改善，動物特異性效果在統計上相對不易凸顯。\r\n2. **盲法與偏誤風險 (Blinding Issues \u0026 RoB2)**：\r\n   - 由於動物存在的實體性，受試者與操作者無法盲法。在 RoB2 評估中，多數 RCT 在介入實施偏誤上被評為「有疑慮 (Some concerns)」或「高風險 (High risk)」；僅少數研究落實評估員盲法（Blinded raters）。\r\n3. **樣本特徵限制**：\r\n   - 女性受試者比例偏低（僅 32.6%），缺乏性別亞組分析。\r\n   - 缺乏介入結束後 6 個月以上之長期追蹤（Long-term follow-up）數據，無法確知負性症狀改善是否具備長期可持續性。\r\n\r\n---\r\n\r\n## 3. 與既有文獻之關聯 (Cross-References \u0026 Debates)\r\n\r\n- **支持論點**：\r\n  - 強化了 [[2021-chen-dog-aat-taiwan-rct]] 與 [[2016-calvo-dog-aat-rehab-rct]] 的實證基礎，將過去零散單中心小樣本的研究提升為具備循證等級的 Meta 證據。\r\n- **化解過去爭端**：\r\n  - 修正了早期 [[2019-hawkins-aat-schizophrenia-review]] 認為「實證薄弱、結論未定」的觀點。本篇納入 2021~2025 年多項新型高品質 RCT 後，正式確立了 AAT 改善負性症狀的統計顯著性。\r\n- **引發新分歧**：\r\n  - 對比 [[2025-ozturk-equine-aat-rct]]（馬匹介入顯示正性症狀改善但負性症狀無差異），本統合分析指出犬類輔助治療在緩解社交冷漠與退縮上似乎具備更高的特異性。\r\n\r\n---\r\n\r\n## 4. 🌟 臨床實務與日常生活／大眾生活功能意涵 (Public \u0026 Daily Life Meaning)\r\n\r\n\u003e **大眾與家屬視角解讀**：\r\n\u003e 精神醫學界長期面對的殘酷現實是：**現代抗精神病藥物能有效消除幻聽與妄想，但對於讓個案「重燃生活動力、願意開口說話、踏出房門」等負性症狀，常常無能為力**。在日常生活中，個案整日靜坐、情感冷漠，往往被家人或鄰里誤解為「不思進取、無藥可救的懶散」，引發沉重的家庭自責與社會孤立。\r\n\u003e \r\n\u003e 這篇 2026 年的最新統合分析（Meta-analysis）為社會大眾提供了強而有力的科學解答：\r\n\u003e 1. **它不是單純的娛樂，而是具備醫療實證的輔助介入**：統合數據證實動物輔助治療對負性症狀具備中等程度的實質改善（SMD = -0.51）。\r\n\u003e 2. **動物的「非評判性接納」重啟動機**：狗狗不需要複雜的社交語言，也不會用異樣眼光審視個案。個案在撫摸、牽引、梳毛的過程中，大腦中的社交與獎勵神經迴路被溫柔喚醒。\r\n\u003e 3. **打破復健僵局的敲門磚**：這份實證說明了，當傳統口語復健遇到瓶頸時，引入治療犬能成為最溫暖的催化劑，幫助個案從封閉的自我世界，邁出重回人群的第一步。\r\n"},"equine":{"Title":"馬匹輔助治療 (Equine-AAT) 介入方案專頁","Path":"wiki/concepts/interventions/equine-aat.md","Content":"---\r\ntitle: 馬術與馬匹輔助治療 (Equine-Assisted Therapy)\r\ncategory: intervention\r\ntags: [concept, intervention, equine, horse, hippotherapy, aat]\r\nlast_updated: 2026-11-17\r\n---\r\n\r\n# 馬術與馬匹輔助治療 (Equine-Assisted Therapy)\r\n\r\n\u003e [!SUMMARY] 一句話精華\r\n\u003e 利用馬匹獨特的三維律動步態與龐大溫和的生命特質，在專業跨領域團隊協同下，促進思覺失調個案之感覺統合、自尊重建、孤獨感消融與生活品質提升之輔助治療模式。\r\n\r\n---\r\n\r\n## 1. 核心定義與次分類\r\n- **物理馬術治療 (Hippotherapy)**：側重神經肌肉與肢體平衡復健，個案坐在馬背上被動接受馬匹漫步時傳遞的三維骨盆律動（每分鐘約 100 次骨盆立體擺動）。\r\n- **心理與心理社會馬術治療 (Equine-Assisted Psychotherapy, EAP / EAT)**：範疇更廣，結合**地面照護活動（刷毛、蹄部清理、餵食、牽引）**與**主動騎乘操控（轉向、指令傳達、平衡伸展）**，針對認知、情緒調節、自尊與人際信任進行全面介入。\r\n\r\n---\r\n\r\n## 2. 實證療效總結（特點與限制）\r\n- **生活品質與孤獨感的爆發性改善**：\r\n  - [[2025-ozturk-equine-aat-rct]]：土耳其 8 週 RCT 證實，馬匹介入在思覺失調生活品質量表呈現極大效應改善（d = 1.93, p \u003c 0.001），UCLA 孤獨感量表顯著大幅下降（d = 0.99, p \u003c 0.001），焦慮與正性症狀亦同步改善。\r\n  - Nurenberg et al. (2014)：美國長期住院精神病患研究顯示，馬匹輔助心理治療顯著降低了病房內暴力攻擊事件報告。\r\n- ⚠️ **對負性症狀（動機缺乏、言語冷漠）的特異性有限**：\r\n  - [[2025-ozturk-equine-aat-rct]] 顯示 PANSS 負性次量表組間無統計顯著差異（p = 0.610）。\r\n  - [[2026-peraile-huerta-aat-psychosis-meta]] 統合分析指出，AAT 改善負性症狀的主力依然來自犬類介入。詳細機制對照見 [[canine-vs-equine]]。\r\n\r\n---\r\n\r\n## 3. 作用機轉與神經生理\r\n1. **前庭與本體感覺強烈刺激 (Vestibular \u0026 Proprioceptive Input)**：馬背上的律動重塑大腦感覺統合，強迫大腦專注於身體平衡與空間定向，從而壓制雜亂思維與幻覺。\r\n2. **力量與自我掌控感 (Empowerment \u0026 Mastery)**：個案必須克服對龐大動物的恐懼，學會透過韁繩引導重達五百公斤的馬匹。當成功驅策馬匹時，個案獲得極大的「自我效能（Self-Efficacy）」。\r\n3. **無聲的生物共振 (Bio-feedback Connection)**：馬匹心率與呼吸極易反映騎士的緊張情緒，要求個案學會呼吸調節與情緒自我平撫。\r\n\r\n---\r\n\r\n## 4. 🌟 臨床實務與日常生活／大眾生活功能意涵 (Public \u0026 Daily Life Meaning)\r\n\r\n\u003e **大眾與家屬視角解讀**：\r\n\u003e 「為什麼面對退縮封閉的個案，我們有時需要『馬』這麼大的動物？」\r\n\u003e \r\n\u003e 狗狗是貼心、柔軟的朋友；而馬，則是一位威嚴卻溫柔的「人生教練」。\r\n\u003e \r\n\u003e 長期患病的思覺失調個案，日常生活中幾乎處於「完全失控」與「被照顧者」的弱勢地位：吃什麼藥由醫師決定、幾點洗澡由家人叮嚀，內心充滿習得性無助。\r\n\u003e \r\n\u003e 但當個案站在馬匹身旁，手握韁繩並騎上馬鞍時，整個權力結構改變了：\r\n\u003e - **他不再是個只能接受指令的病人，而是一名必須挺直腰桿、為馬匹指引方向的騎士**。\r\n\u003e - 在馬背上的視野，是個案多年來第一次「居高臨下」俯瞰世界。\r\n\u003e 這種自尊與榮譽感的復甦，是消滅內心深層孤獨感（d = 0.99）最震撼的良方。當個案下馬時，原本彎曲駝背的肩膀挺直了，眼裡重新燃起了想要好好生活的尊嚴。\r\n"},"oxytocin":{"Title":"催產素神經迴路假說 (Oxytocin) 生理機轉專頁","Path":"wiki/concepts/mechanisms/oxytocin.md","Content":"---\ntitle: 催產素神經迴路假說 (Oxytocin Hypothesis)\ncategory: mechanism\ntags: [concept, mechanism, neurobiology, oxytocin, social-attachment]\nlast_updated: 2026-11-17\n---\n\n# 催產素神經迴路假說 (Oxytocin Hypothesis)\n\n\u003e [!SUMMARY] 一句話精華\n\u003e 解釋人與動物親和互動如何改善思覺失調症社交退縮與情感冷漠的核心神經生物學假說：動物接觸誘發中樞催產素釋放，緩解社交恐懼並重塑大腦的獎勵預測迴路。\n\n---\n\n## 1. 生理機制與神經迴路\n- **催產素（Oxytocin, OXT）的角色**：\n  - 由下視丘視上核與室旁核合成的神經胜肽，在哺乳動物中主管「社交依附 (Social Attachment)」、「信任感 (Interpersonal Trust)」與「同理心」。\n  - 抑制杏仁核（Amygdala）的過度活躍，降低個案在面對人際情境時感受到的威脅感與焦慮（下調 HPA 軸皮質醇反應）。\n- **人犬互動的正向回饋迴路 (Oxytocin-Gaze Loop)**：\n  - Nagasawa et al. (2015) 發表於 *Science* 的里程碑研究證實：人類與犬隻進行溫柔的**眼神接觸 (Eye Gaze)** 與撫摸時，雙方體內的催產素水準會同步顯著上升，形成生物學上的共鳴與連結。\n\n---\n\n## 2. 在思覺失調症負性症狀中的意義\n- **思覺失調症的催產素缺陷**：\n  - 臨床研究發現慢性思覺失調症患者血漿中的催產素水準常顯著偏低，且其低下程度與 [[avolition|動機缺乏]]、[[asociality|社交退縮]] 及心智理論（Theory of Mind）功能受損呈正相關。\n- **文獻實證支持**：\n  - [[2026-peraile-huerta-aat-psychosis-meta]] 將催產素分泌列為動物介入促成社交改善的關鍵生物機轉。\n  - 許多外源性噴鼻催產素臨床試驗成效不一，但與動物進行**自然、沉浸式的肢體互動與觸摸**，被認為能更持久且生理性地活化內源性催產素脈衝。\n\n---\n\n## 3. 爭議與待解問題 (Open Questions)\n- **直接生物標記測量不足**：多數 AAT 臨床試驗（如 [[2021-chen-dog-aat-taiwan-rct]]、[[2016-calvo-dog-aat-rehab-rct]]）測量了唾液皮質醇（Cortisol）或心理量表，但極少在精神病房直接連續採樣血液或唾液中的催產素濃度。\n- **因果關係驗證**：催產素上升是行為改善的「原因」，還是只是身心放鬆後的「伴隨結果」？仍需更多基礎神經影像學（fMRI）進一步佐證。\n\n---\n\n## 4. 🌟 臨床實務與日常生活／大眾生活功能意涵 (Public \u0026 Daily Life Meaning)\n\n\u003e **大眾與家屬視角解讀**：\n\u003e 催產素常被科普界稱為「愛的荷爾蒙」或「抱抱荷爾蒙」。它不是什麼神秘的魔法，而是大腦中讓人感到「我是安全的、我可以信任對方」的化學開關。\n\u003e \n\u003e 思覺失調症個案的大腦往往處在極度警戒的狀態，即使面對至親家人，也可能因害怕被批評、或大腦解讀社交訊號困難，而緊緊閉鎖心門。\n\u003e \n\u003e 當個案把手埋進狗狗厚實溫暖的毛皮裡、當狗狗溫馴地把頭擱在個案膝蓋上時，個案的大腦深處就開始悄悄釋放催產素。這種生物層級的安全感，解除了長年緊繃的防衛警報。不需要任何語言，個案就能體會到被完全接納的安定，這種化學變化正是讓他們願意重新伸手擁抱人群的生理基石。\n"},"calvo2016":{"Title":"Calvo et al. (2016) 西班牙長週期 RCT 完整論文筆記","Path":"wiki/sources/2016-calvo-dog-aat-rehab-rct.md","Content":"---\r\ntitle: \"Animal Assisted Therapy (AAT) Program As a Useful Adjunct to Conventional Psychosocial Rehabilitation for Patients with Schizophrenia: Results of a Small-scale Randomized Controlled Trial\"\r\nauthors: \"Paula Calvo et al.\"\r\nyear: 2016\r\nstudy_type: \"Randomized Controlled Trial (RCT)\"\r\nsample_size: 24\r\nintervention_type: \"Canine-AAT\"\r\ntarget_symptoms: [\"negative-symptoms\", \"positive-symptoms\", \"stress-cortisol\", \"adherence\", \"quality-of-life\"]\r\noutcome_measures: [\"PANSS\", \"EQ-5D\", \"Salivary-Cortisol\", \"Salivary-Alpha-Amylase\", \"Adherence-Rate\"]\r\ntags: [source, canine, rct, spain, inpatient, cortisol, adherence, biomarker]\r\ndate_ingested: 2026-11-17\r\n---\r\n\r\n# 犬類輔助治療作為思覺失調常規心理社會復健之輔助介入：小型隨機對照試驗 (Calvo et al., 2016)\r\n\r\n- **原始文獻出處**：[[raw/2016-calvo-dog-aat-rehab-rct.pdf]]\r\n- **完整引註**：Calvo, P., Fortuny, J. R., Guzmán, S., Macías, C., Bowen, J., García, M. L., Orejas, O., Molins, F., Tvarijonaviciute, A., Cerón, J. J., Bulbena, A., \u0026 Fatjó, J. (2016). Animal Assisted Therapy (AAT) Program As a Useful Adjunct to Conventional Psychosocial Rehabilitation for Patients with Schizophrenia: Results of a Small-scale Randomized Controlled Trial. *Frontiers in Psychology*, 7, 631. https://doi.org/10.3389/fpsyg.2016.00631\r\n- **研究背景與對象**：\r\n  - 西班牙巴塞隆納自治大學與親和基金會（Affinity Foundation）合作，於公立精神專科醫院中長期病房（MILLE 單元）執行。\r\n  - 納入 24 位長期住院慢性思覺失調患者（平均年齡 47.8 歲，平均發病年齡 20.5 歲），隨機分為 AAT 介入組 (n = 16) 與功能復健控制組 (n = 8)，最終 22 位完成 6 個月試驗。\r\n\r\n---\r\n\r\n## 1. 介入設計與生理生化評測 (Intervention Protocol)\r\n\r\n- **介入劑量**：長達 6 個月、每週 2 次、每次 60 分鐘，共計 40 次療程。\r\n- **認證治療犬陣容與福祉維護**：\r\n  - 5 隻具備豐富動輔經驗之成犬，經國際標準 Ethotest 性向測驗與 C-BARQ 行為量表嚴格評測，確保面對高壓與混亂情境維持冷靜。\r\n  - 課程前、中、後均由三位獸醫行為專科醫師嚴格評估犬隻福祉，並向個案衛教動物福利。\r\n- **三階段循環課程模組**：\r\n  1. *情感連結建立*：學習正確照護與撫摸犬隻。\r\n  2. *散步訓練*：前期於大型自然公園散步，後期帶至城市街道，模擬真實社會遛狗情境。\r\n  3. *指令服從與遊戲*：學習使用正向增強技術（Positive reinforcement）訓練犬隻。\r\n- **控制組設計**：接受等時數之醫院常規功能性活動（美術治療、團體體能、動態心理刺激或體操）。\r\n- **客觀生化標記採集**：於最後 4 次課程進行前後測唾液檢體採集（採樣器置入唾液 1 分鐘），冷凍檢測**皮質醇 (Salivary Cortisol)** 與 **α-澱粉酶 (Salivary Alpha-Amylase)**。\r\n\r\n---\r\n\r\n## 2. 核心實證發現 (Key Empirical Findings)\r\n\r\n### 2.1 負性症狀組內顯著改善，但組間差異受限於樣本量\r\n- **組內顯著改善**：AAT 組在 6 個月後，PANSS 負性次量表分數從 25.3 分顯著降至 19.6 分（配對 t 檢定 p = 0.022）；而控制組負性次量表前後測無統計顯著差異（p = 0.167）。\r\n- **組間統計差異未達顯著**：因控制組樣本偏小（n = 8），兩組終點改變量組間對比未達顯著（p = 0.33），但為後續 2026 統合分析 [[2026-peraile-huerta-aat-psychosis-meta]] 提供了重要的效應值數據來源。\r\n\r\n### 2.2 🌟 復健出席率（Adherence）呈現壓倒性優勢\r\n- AAT 介入組之整體活動出席率高達 **92.9% \\pm 4.7%**；\r\n- 控制組常規功能活動出席率僅為 **61.2% \\pm 24.8%**；\r\n- 兩組出席率差異具極高統計顯著性（t(20) = 4.7, p = 0.0001）。顯著優於美術治療（p = 0.01）與體操活動（p = 0.01）。\r\n\r\n### 2.3 🌟 唾液皮質醇（壓力指標）在課堂後顯著下降\r\n- 48 對有效唾液配對樣本分析顯示，**在與治療犬互動 1 小時後，個案之唾液皮質醇水準呈現統計顯著下降**（Wilcoxon 檢定 p \u003c 0.05），生理層面證實犬隻具備客觀鎮靜與抗壓效果。\r\n- 唾液 α-澱粉酶在課堂後呈現上升趨勢（p = 0.059），反映出愉悅、投入的正向交感神經刺激。\r\n\r\n---\r\n\r\n## 3. 方法學限制與偏誤評估 (Methodology \u0026 Limitations)\r\n\r\n1. **樣本規模偏小**：納入分析僅 22 人（介入 14 vs 控制 8），統計檢定力（Power）不足以在 PANSS 總分上檢出組間微小差異。\r\n2. **個案退出安全考量**：介入組有 1 位個案因展現出可能危及犬隻福祉的行為而被依倫理協議中止參與，突顯出動物介入對個案挑選與風險控管的必要性。\r\n3. **唾液採樣受吸菸與口腔衛生干擾**：慢性精神患者多數有吸菸習慣且抗精神病藥物易抑制唾液分泌，導致約 17% 唾液檢體因量不足而作廢。\r\n\r\n---\r\n\r\n## 4. 與既有文獻之關聯 (Cross-References \u0026 Debates)\r\n\r\n- **支持與驗證**：\r\n  - 提供了支持 [[cortisol-hpa]]（皮質醇/HPA 軸調節假說）最關鍵的直接生化實證。\r\n  - 其 92.9% 的超高出席率，有力呼應了台灣研究 [[2021-chen-dog-aat-taiwan-rct]] 的 0% 脫落率，共同確立治療犬在克服 [[avolition|動機缺乏]] 與治療脫落上的強大黏著力。\r\n\r\n---\r\n\r\n## 5. 🌟 臨床實務與日常生活／大眾生活功能意涵 (Public \u0026 Daily Life Meaning)\r\n\r\n\u003e **大眾與家屬視角解讀**：\r\n\u003e 「每次叫他去復健中心，他總是找藉口不去，我們真的不知道該怎麼辦……」\r\n\u003e \r\n\u003e 復健出席率低下（60% 上下），是精神復健機構最頭痛的現實。病友並不是故意作對，而是面對冷冰冰的職能訓練，內心感受不到任何樂趣與安全感，反而承受著壓力。\r\n\u003e \r\n\u003e 這篇西班牙研究給出了兩個極具說服力的科學答案：\r\n\u003e 1. **93% 的全勤渴望**：當活動室裡有一隻狗狗在等他時，個案的出席率直接從 61% 飆升至 93%。一位個案說：「如果不去，狗狗會想我。」這種「被期待、被依賴」的責任感，是任何說教都無法比擬的。\r\n\u003e 2. **身體不會說謊的平靜（Cortisol 下降）**：思覺失調個案長期處於無形的焦慮與神經緊繃中。檢驗唾液發現，只要摸摸狗、牽著狗散步一個小時，體內的壓力荷爾蒙皮質醇就顯著下降。狗狗的平靜氣場直接傳導給了個案，讓大腦從防衛緊繃中鬆弛下來。\r\n"},"chen2021":{"Title":"Chen et al. (2021) 台灣高雄長庚與台大職能治療 RCT 完整論文筆記","Path":"wiki/sources/2021-chen-dog-aat-taiwan-rct.md","Content":"---\r\ntitle: \"Animal-Assisted Therapy in Middle-Aged and Older Patients With Schizophrenia: A Randomized Controlled Trial\"\r\nauthors: \"Tzu-Ting Chen et al.\"\r\nyear: 2021\r\nstudy_type: \"Randomized Controlled Trial (RCT)\"\r\nsample_size: 40\r\nintervention_type: \"Canine-AAT\"\r\ntarget_symptoms: [\"negative-symptoms\", \"positive-symptoms\", \"stress\", \"general-psychopathology\", \"well-being\"]\r\noutcome_measures: [\"PANSS\", \"DASS-21\", \"CHI\"]\r\ntags: [source, canine, rct, taiwan, inpatient, day-care, negative-symptoms, transdisciplinary]\r\ndate_ingested: 2026-11-17\r\n---\r\n\r\n# 犬類輔助治療對中老年思覺失調症患者之隨機對照試驗 (Chen et al., 2021)\r\n\r\n- **原始文獻出處**：[[raw/2021-chen-dog-aat-taiwan-rct.pdf]]\r\n- **完整引註**：Chen, T.-T., Hsieh, T.-L., Chen, M.-L., Tseng, W.-T., Hung, C.-F., \u0026 Chen, C.-R. (2021). Animal-Assisted Therapy in Middle-Aged and Older Patients With Schizophrenia: A Randomized Controlled Trial. *Frontiers in Psychiatry*, 12, 713623. https://doi.org/10.3389/fpsyt.2021.713623\r\n- **研究背景與對象**：\r\n  - 台灣高雄長庚紀念醫院精神科與台灣大學職能治療學系團隊執行。\r\n  - 招募 40 位年齡 ≥ 40 歲之慢性思覺失調個案（平均年齡 54.7 歲；日間病房與復健病房個案），採分層隨機分配為 AAT 組 (n=20) 與控制組 (n=20)。\r\n  - **研究特色**：脫落率 0%（全數 40 位個案完成試驗，展現極高可行性）。\r\n\r\n---\r\n\r\n## 1. 介入參數與跨專業團隊設計 (Intervention Protocol)\r\n\r\n- **介入劑量**：共 12 週、每週 1 次、每次 60~65 分鐘。AAT 組再細分為 A、B 兩小組（每組 10 人）以確保品質與安全。\r\n- **跨專業黃金三角團隊 (Transdisciplinary Team)**：\r\n  - **動輔師 (AAT Therapist)**：主導課程流程與人犬互動架構。\r\n  - **精神科職能治療師 (Occupational Therapist)**：擔任共同領導者，評估個案功能、鼓勵參與並即時調整活動難度。\r\n  - **犬隻指導手 (Dog-Handler/Breeder)**：專注指令傳達，維護犬隻心理狀態與現場安全。\r\n- **認證治療犬陣容**：\r\n  - 4 隻經「台灣動物輔助治療專業發展協會」評測合格之治療犬，涵蓋不同體型與性格特質：**柯基犬 (Corgi)、拉布拉多犬 (Labrador Retriever)、馬爾濟斯犬 (Maltese)、柴犬 (Shiba Inu)**。\r\n- **結構化四大活動模組 (45 分鐘核心)**：\r\n  1. *正向情緒活動*：撫摸、抱狗、梳毛、按摩、丟球遊戲、圓點藝術創作 (Dot Art)。\r\n  2. *社交活動*：輪流介紹自己、向犬隻打招呼、讚美、道謝、目光與肢體接觸、小組合作遊戲。\r\n  3. *認知活動*：問答互動、下達基本訓練指令、活動內容定向、記憶卡與拼圖遊戲、學習單書寫。\r\n  4. *體能活動*：牽繩散步、抱犬、餵食、替犬隻穿戴配件、與犬隻一同進行伸展操。\r\n- **積極對照組設計 (Active Control)**：\r\n  - 控制組除常規治療外，每週額外接受 1 小時由護理與職能治療師帶領之非動物復健活動，平衡總治療時數與人際互動關注度。\r\n\r\n---\r\n\r\n## 2. 核心實證發現 (Key Empirical Findings)\r\n\r\n### 2.1 負性症狀呈現大效應值改善（核心突破）\r\n- 在 [[panss-negative]] 評估上，AAT 組負性症狀改善幅度顯著優於對照組（p \u003c 0.001）。\r\n- 成功率差異（Success Rate Difference, SRD）達 **SRD = 0.50（統計上定義之大效應值 Large Effect Size）**。\r\n- AAT 組中位數降低 3.0 分（達到臨床最小重要差異 MCID），對照組中位數改變為 0 分。\r\n- 顯著改善的負性維度包括：[[blunted-affect|情感平淡]]、[[asociality|社交退縮]]、缺乏自發性與會話流暢度、關係建立困難。\r\n\r\n### 2.2 正性症狀、一般精神病理與壓力顯著減輕\r\n- **正性症狀**：PANSS 正性次量表組間差異達顯著（p \u003c 0.001, SRD = 0.15）。研究指出課堂中治療師持續進行「現實導向 (Reality orientation)」，使精神症狀更穩定。\r\n- **一般精神病理**：PANSS 一般病理顯著改善（p \u003c 0.001, SRD = 0.20）。\r\n- **壓力減輕 (DASS-Stress)**：AAT 組自覺壓力顯著低於對照組（p = 0.012, SRD = 0.15），且焦慮與憂鬱分數呈現穩定下降趨勢。\r\n- **幸福感 (CHI)**：中文幸福感量表組間未達統計顯著（p = 0.461），但 AAT 組分數有正向提升趨勢。\r\n\r\n---\r\n\r\n## 3. 方法學限制與偏誤評估 (Methodology \u0026 Limitations)\r\n\r\n1. **盲法限制**：個案與治療執行者無法盲法，但成果評量由外部精神科醫師與職能治療師獨立評估（Single-blind）。\r\n2. **缺乏長期追蹤**：僅測量 12 週結束當下，未追蹤 6 個月後之維持期效果。\r\n3. **未採集客觀生理標記**：未同步檢測唾液皮質醇或催產素等生化指標。\r\n\r\n---\r\n\r\n## 4. 與既有文獻之關聯 (Cross-References \u0026 Debates)\r\n\r\n- **支持與貢獻**：\r\n  - 提供了 [[2026-peraile-huerta-aat-psychosis-meta]] 統合分析中重要的正向數據來源。\r\n  - 深化了 [[canine-aat]] 改善 [[avolition]] 的證據鏈，並以 SRD = 0.50 大效應值展現比早期西班牙研究 [[2016-calvo-dog-aat-rehab-rct]] 更強勁的組間顯著性。\r\n- **跨動物分歧**：\r\n  - 對比土耳其馬匹研究 [[2025-ozturk-equine-aat-rct]]（馬匹介入負性症狀無顯著差異），本研究顯示中小型犬隻（如柯基、馬爾濟斯）的高親近感、觸覺撫摸與室內活動，對打破慢性冷漠具有特異優勢。\r\n\r\n---\r\n\r\n## 5. 🌟 臨床實務與日常生活／大眾生活功能意涵 (Public \u0026 Daily Life Meaning)\r\n\r\n\u003e **大眾與家屬視角解讀**：\r\n\u003e 「發病二三十年、已經五十幾歲的家人，整天待在病房或客廳動也不動，真的還能改變嗎？」\r\n\u003e \r\n\u003e 這是許多長期照顧者內心最深沉的嘆息。慢性思覺失調患者常伴隨「機構化生活」——日復一日遵從指令，卻喪失了主動生活的能力與表情。\r\n\u003e \r\n\u003e 這篇台灣在地研究帶給社會最重要的啟發在於：\r\n\u003e 1. **動物能穿透歲月沉積的冷漠**：即使是平均發病超過 15 年的中老年病友，在看到搖著短尾巴的柯基犬、溫和貼心的拉布拉多時，內心深處的柔軟與活力依然能被喚醒。\r\n\u003e 2. **摸狗不只是玩，是最高級的生活復健**：當個案拿著梳子小心翼翼幫狗梳毛時，訓練的是日常生活自理（穿衣梳洗的手部動作）；當個案牽著狗散步時，鍛鍊的是身體平衡與自信；當個案和其他病友討論「狗狗喜歡吃什麼」時，重新建立起人際交往的能力。\r\n\u003e 3. **40 位個案 0 脫落的真諦**：在精神復健中，「全勤」是極其罕見的奇蹟。這證明只要給予溫暖、無評判壓力的環境，慢性個案比誰都更渴望被愛、被需要，並願意為了毛朋友重新振作生活。\r\n"},"canine":{"Title":"犬類輔助治療 (Canine-AAT) 介入方案專頁","Path":"wiki/concepts/interventions/canine-aat.md","Content":"---\r\ntitle: 犬類輔助治療 (Canine-Assisted Therapy)\r\ncategory: intervention\r\ntags: [concept, intervention, canine, therapy-dog, aat]\r\nlast_updated: 2026-11-17\r\n---\r\n\r\n# 犬類輔助治療 (Canine-Assisted Therapy)\r\n\r\n\u003e [!SUMMARY] 一句話精華\r\n\u003e 動物輔助治療中最常見、實證最充分的介入模式，利用經嚴格性向與服從訓練之合格治療犬，在專業醫療與動輔團隊引導下，針對思覺失調症患者進行目標導向的身心復健。\r\n\r\n---\r\n\r\n## 1. 介入形式與標準流程\r\n- **專業團隊配置（跨專業合作）**：\r\n  - 標準團隊由「精神科專科醫師/職能治療師」、「合格動物輔助治療師 (AAT Therapist)」與「治療犬及其指導手 (Handler/Breeder)」三方協作。\r\n- **典型活動模組**：\r\n  - **正向情緒與感官連結**：撫摸、梳毛、按摩犬隻、身體擁抱。\r\n  - **社交與人際互動**：帶領犬隻走動、向其他學員介紹愛犬、合作遊戲。\r\n  - **認知與意志執行**：下達基本服從指令（坐下、握手、等待）、訓練犬隻跨越障礙。\r\n  - **生活與體能鍛鍊**：牽繩散步、餵食、配戴胸背帶等手部精細與粗大動作訓練。\r\n\r\n---\r\n\r\n## 2. 實證療效總結（聚焦負性症狀）\r\n- **統合分析核心結論**：\r\n  - [[2026-peraile-huerta-aat-psychosis-meta]] 統合分析中，9 項研究以犬類為介入主體。敏感度分析顯示，排除馬匹介入後，**犬類輔助治療對思覺失調症負性症狀的改善依然維持顯著的中等效應值（SMD ≈ -0.51, p \u003c 0.05）**，確立了犬類作為負性症狀改善的核心有效媒介。\r\n- **臨床指標研究**：\r\n  - [[2021-chen-dog-aat-taiwan-rct]]：台灣 12 週研究，採用柯基、拉布拉多、馬爾濟斯與柴犬等經認證治療犬，負性症狀達顯著大效應改善（SRD = 0.50）。\r\n  - [[2016-calvo-dog-aat-rehab-rct]]：西班牙 6 個月研究，顯著提升復健出席率至 92.9%，並證實課堂後個案唾液皮質醇顯著下降。\r\n\r\n---\r\n\r\n## 3. 爭議與分歧解析 (Contradictions \u0026 Divergent Findings)\r\n\r\n| 正向實證支持 | 中立或分歧觀點 | 方法學與實務分歧剖析 |\r\n| :--- | :--- | :--- |\r\n| [[2026-peraile-huerta-aat-psychosis-meta]]\u003cbr\u003e[[2021-chen-dog-aat-taiwan-rct]] | [[2019-hawkins-aat-schizophrenia-review]] | 1. **劑量與頻率**：單次短時間（如 30 分鐘會談）僅能短暫緩解焦慮；要促成動機與社交功能之神經適應，通常需要每週 1~2 次、持續 10~12 週以上之結構化課程。\u003cbr\u003e2. **犬隻福祉與安全評估**：早期研究未嚴格考量動物壓力，個案若有攻擊性衝動可能中斷計畫；現代規範強制落實動物評測（如 Ethotest/C-BARQ）。 |\r\n\r\n---\r\n\r\n## 4. 作用機轉與神經生理\r\n- **催產素雙向循環 (Oxytocin Positive Loop)**：人犬互望（Eye Gaze）與輕撫可促使人犬雙方釋放 [[oxytocin]]，顯著平撫交感神經亢奮。\r\n- **社交潤滑劑 (Social Catalyst)**：治療犬成為個案與治療師、其他病友之間的破冰話題，消除人際防禦心理。\r\n\r\n---\r\n\r\n## 5. 🌟 臨床實務與日常生活／大眾生活功能意涵 (Public \u0026 Daily Life Meaning)\r\n\r\n\u003e **大眾與家屬視角解讀**：\r\n\u003e 為什麼在所有動物中，狗狗是最常被選為治療夥伴的？\r\n\u003e \r\n\u003e 因為狗狗演化出了無可取代的「社交超能力」——牠們會主動凝視人類的雙眼、會搖著尾巴迎上前、且完全不在乎眼前的個案是否外表整潔、說話是否流暢、有沒有社會成就。\r\n\u003e \r\n\u003e 在醫院或社區復健中心，我們常看見長年沉默的個案，在牽起治療犬的牽繩時，眼神從渙散轉為專注，開始對著狗說：「好乖，我們慢慢走」。這種在遛狗過程中所展現的主動引導、照顧他人、以及在公共場合被一般民眾投以友善目光的經驗，讓個案重新感受到身為人的尊嚴與社會連結。\r\n"},"meta_comp":{"Title":"6 項 RCT 負性症狀效應值橫向比較矩陣","Path":"wiki/comparisons/negative-symptoms-meta-comparison.md","Content":"---\r\ntitle: 動物輔助治療對負性症狀改善之橫向比較矩陣 (跨研究統合數據分析)\r\ncategory: comparison\r\ntags: [comparison, negative-symptoms, meta-analysis, effect-size, rct]\r\nlast_updated: 2026-11-17\r\n---\r\n\r\n# 動物輔助治療對負性症狀改善之橫向比較矩陣\r\n\r\n\u003e 本矩陣彙整自 [[2026-peraile-huerta-aat-psychosis-meta]] 統合分析所納入之核心隨機對照試驗（RCT），從介入參數、動物媒介、對照組性質與統計效應值進行多維度橫向對比。\r\n\r\n---\r\n\r\n## 1. 跨研究橫向對照總表\r\n\r\n| 研究出處 | 動物媒介 | 樣本規模 (n) | 介入週期與頻率 | 對照組性質 | 負性症狀評估工具 | 標準化效應值 (SMD / 95% CI) | 統計顯著性 |\r\n| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\r\n| **Calvo et al. (2016)**\u003cbr\u003e[[2016-calvo-dog-aat-rehab-rct]] | 治療犬 (5 隻) | 24 (14 介入 vs 8 對照) | 26 週 (6 個月)\u003cbr\u003e每週 2 次、每次 60 分 | 積極控制組\u003cbr\u003e(等時數藝術/體能復健) | PANSS 負性次量表 | SMD = -0.55\u003cbr\u003e[-1.43, 0.34] | 組內顯著改善 (p=0.022)\u003cbr\u003e組間無顯著差異 |\r\n| **Chu et al. (2009)** | 陪伴犬 (2 隻) | 27 (12 介入 vs 15 對照) | 8 週\u003cbr\u003e每週 1 次、每次 50 分 | 常規治療 (TAU)\u003cbr\u003e無積極動物介入 | 自行編制精神症狀問卷\u003cbr\u003e(含負性向度) | SMD = -1.74\u003cbr\u003e[-2.68, -0.81] | 組間顯著改善 (p \u003c 0.05)\u003cbr\u003e大效應值 |\r\n| **Monfort et al. (2022)** | 治療犬 (1 隻) | 23 (13 介入 vs 10 對照) | 12 週 (10 次)\u003cbr\u003e每週 1 次、每次 45 分 | 常規治療 (TAU)\u003cbr\u003e雙重診斷個案復健 | PANSS 負性次量表 | SMD = -0.53\u003cbr\u003e[-1.37, 0.31] | 介入後組間無顯著差異\u003cbr\u003e(基線存在差異) |\r\n| **Nathans-Barel et al. (2005)** | 陪伴犬 (1 隻) | 20 (10 介入 vs 10 對照) | 10 週\u003cbr\u003e每週 1 次、每次 60 分 | 積極控制組\u003cbr\u003e(照顧動物知識/散步討論) | SANS 陰性量表 | SMD = -0.02\u003cbr\u003e[-0.89, 0.86] | 組間無顯著差異\u003cbr\u003e(但快感缺乏 SHAPS 顯著改善) |\r\n| **Öztürk et al. (2025)**\u003cbr\u003e[[2025-ozturk-equine-aat-rct]] | 馬匹 (哈芙林格馬) | 61 (30 介入 vs 31 對照) | 8 週\u003cbr\u003e每週 2 次、每次 40 分 | 常規社區復健\u003cbr\u003e(職能、運動、音樂治療) | PANSS 負性次量表 | SMD = -0.29\u003cbr\u003e[-0.80, 0.21] | 組間無顯著差異 (p=0.610)\u003cbr\u003e(正性症狀與生活品質顯著) |\r\n| **Villalta-Gil et al. (2009)** | 認證治療犬 (1 隻) | 18 (11 介入 vs 7 對照) | 12.5 週\u003cbr\u003e每週 2 次、每次 45 分 | 積極控制組\u003cbr\u003e(整合心理治療 IPT) | PANSS 負性次量表 | SMD = -0.15\u003cbr\u003e[-1.10, 0.80] | 組內顯著改善 (p \u003c 0.01)\u003cbr\u003e組間無顯著差異 |\r\n| **統合效果 Pooled** | **各類動物 (犬類為主)** | **總計 171 人** | **8~26 週不等** | **混合對照組** | **PANSS / SANS** | **SMD = -0.51**\u003cbr\u003e**[-0.95, -0.07]** | **統計顯著 (p \u003c 0.05)**\u003cbr\u003e**I² = 45.2% (中度異質)** |\r\n\r\n---\r\n\r\n## 2. 關鍵方法學發現與臨床啟示\r\n\r\n1. **對照組設置對效應值的決定性影響 (Active Control vs TAU)**：\r\n   - 當對照組為**純常規治療 (TAU)** 時（如 Chu et al. 2009），動物介入展現出極大優勢（SMD = -1.74）。\r\n   - 當對照組為**具備社交與娛樂性質的積極復健活動**時（如 Calvo et al. 2016、Villalta-Gil et al. 2009），兩組均有改善，動物特異性效應縮減至中等至無顯著差異。這意味著：動物輔助治療的療效中，有一部分來自於「高參與度的結構化人際活動」。\r\n2. **犬類 vs 馬匹的症狀反應特異性**：\r\n   - 犬類介入（Canine-AAT）在多數研究中直接促進了觸摸與近身互動，其敏感度分析穩健支持負性症狀改善。\r\n   - 馬匹介入（如 Öztürk et al. 2025）則主要改善了正性症狀、焦慮與孤獨感，對負性症狀未展現顯著統計效益。這提示未來臨床應根據個案的核心需求進行動物媒介適配。\r\n3. **高出席率與動機突破 (Adherence)**：\r\n   - 儘管在某些研究中組間評分未達顯著，但幾乎所有犬類研究均記錄到個案極高的出席率（Adherence \u003e 90%），顯示動物能有效解決精神障礙個案「因動機缺乏而退出治療」的常見臨床難題。\r\n"},"cortisol":{"Title":"皮質醇與壓力調節 (HPA Axis) 生理機轉專頁","Path":"wiki/concepts/mechanisms/cortisol-hpa.md","Content":"---\r\ntitle: 皮質醇與壓力反應調節 (HPA Axis Regulation)\r\ncategory: mechanism\r\ntags: [concept, mechanism, neurobiology, cortisol, hpa-axis, stress]\r\nlast_updated: 2026-11-17\r\n---\r\n\r\n# 皮質醇與壓力反應調節 (HPA Axis Regulation)\r\n\r\n\u003e [!SUMMARY] 一句話精華\r\n\u003e 解釋動物接觸如何透過下調下視丘-腦下垂體-腎上腺軸（HPA 軸）之過度激活，使個案唾液皮質醇水準下降，從生理層面解除慢性恐懼與神經緊繃。\r\n\r\n---\r\n\r\n## 1. 生理機制與神經內分泌\r\n- **HPA 軸與思覺失調的慢性壓力狀態**：\r\n  - 思覺失調症患者常處於神經內分泌失調狀態，中樞對壓力反應過度敏感，基礎皮質醇（Cortisol）濃度偏高。這種長期皮質醇浸潤會損害海馬迴神經元，惡化認知與負性退縮症狀。\r\n- **人與動物接觸之生理調節效應**：\r\n  - 與溫血動物（如犬隻）的撫摸、擁抱與溫和目光接觸，能透過神經迷走神經張力上升與 [[oxytocin]] 釋放，直接抑制促腎上腺皮質激素釋放激素（CRH）的分泌，促成副交感神經優位，使心率、血壓下降，血液與唾液中的游離皮質醇快速回落至平靜水準。\r\n\r\n---\r\n\r\n## 2. 臨床直接生化證據\r\n- **唾液皮質醇顯著下降實證**：\r\n  - [[2016-calvo-dog-aat-rehab-rct]]：西班牙巴塞隆納自治大學團隊在 22 位長期住院思覺失調患者中，連續於最後 4 次動輔課程前後採集唾液。48 對有效樣本分析顯示，**在與治療犬互動 1 小時後，個案的唾液皮質醇水準呈現統計顯著下降**（p \u003c 0.05），提供客觀生化佐證。\r\n- **自覺壓力評分降低**：\r\n  - [[2021-chen-dog-aat-taiwan-rct]]：台灣 12 週 RCT 發現，犬類 AAT 組在 DASS-Stress 壓力次量表上的改善顯著優於積極控制組（p = 0.012, SRD = 0.15），與生理皮質醇下降趨勢相互呼應。\r\n\r\n---\r\n\r\n## 3. 限制與未來方向\r\n- 唾液採樣在精神病房常受抗精神病藥物（導致口乾）與吸菸習慣干擾，檢體採集不易。\r\n- 未來需要更多大型試驗結合連續性生物監測（如穿戴式心率變異度 HRV 與唾液皮質醇晝夜節律曲線）。\r\n\r\n---\r\n\r\n## 4. 🌟 臨床實務與日常生活／大眾生活功能意涵 (Public \u0026 Daily Life Meaning)\r\n\r\n\u003e **大眾與家屬視角解讀**：\r\n\u003e 「為什麼個案動不動就情緒緊繃、發脾氣，或整個人縮在那裡一句話都不說？」\r\n\u003e \r\n\u003e 人類身處壓力時，體內會大量分泌「皮質醇（壓力荷爾蒙）」，啟動戰鬥或逃跑反應。\r\n\u003e 很多思覺失調病友的大腦警報器是「失靈的」，常年卡在警報狀態，體內皮質醇居高不下。對他們而言，待在人群中就像站在刺耳的防空警報下，自然會想要逃避或退縮。\r\n\u003e \r\n\u003e 狗狗就像天然的「靜音鍵」與「降壓閥」：\r\n\u003e 當個案靜靜坐著，手掌貼在狗狗規律起伏的背上，感受著牠溫熱的呼吸與柔軟的毛髮時，大腦中的防空警報終於按下了關閉鈕。\r\n\u003e 西班牙這篇唾液檢驗證實了：**這不是心理暗示，而是身體裡真正的壓力荷爾蒙確確實實降了下來**。當生理上的緊繃警報解除了，個案才能鬆開拳頭，重新用平靜的心情面對身邊的家人與生活。\r\n"},"blunted":{"Title":"情感平淡 (Blunted Affect) 臨床概念與動輔介入專頁","Path":"wiki/concepts/symptoms/blunted-affect.md","Content":"---\ntitle: 情感平淡 (Blunted Affect)\ncategory: symptom\ntags: [concept, symptom, negative-symptom, blunted-affect, emotional-expression]\nlast_updated: 2026-11-17\n---\n\n# 情感平淡 (Blunted Affect)\n\n\u003e [!SUMMARY] 一句話精華\n\u003e 思覺失調症最典型的外顯負性特徵之一，表現在情緒表達強度的嚴重縮減，包含面部表情僵硬、眼神接觸缺乏、語調單一平板與肢體語言匱乏。\n\n---\n\n## 1. 概念與臨床評估\n- **定義**：Blunted Affect（亦稱情感遲鈍或情感扁平 Affective Flattening）屬於負性症狀中的「表達缺陷向度 (Expressive Deficit)」。值得注意的是，臨床研究發現個案**「內在的情緒感受（Subjective Feeling）」往往並未完全消失，只是在「外在表達管道（Motor/Facial Output）」受到嚴重阻斷**。\n- **評估指標**：\n  - [[panss-negative]]：項目 N1（情感平淡：觀察訪談過程中的笑容、語氣起伏、身體手勢）。\n  - [[sans]]：Affective Flattening 次量表（評估無表情的面孔、自發性動作減少、缺乏表現性手勢、眼神呆滯、情感不相稱）。\n\n---\n\n## 2. 動物輔助治療之實證總結\n- **犬類介入的面部情緒活化實證**：\n  - [[2021-chen-dog-aat-taiwan-rct]]：台灣 12 週 RCT 透過結構化「正向情緒活動」（如撫摸犬隻、唱歌、按摩犬隻、圓點藝術創作），讓個案直接對犬隻展現微笑與溫柔肢體動作，PANSS N1 情感平淡分數顯著降低，證實動物能有效刺激情緒表達的外顯通道。\n  - [[2026-peraile-huerta-aat-psychosis-meta]]：統合分析亦指出，動物輔助治療是目前少數能顯著改善包含情感冷漠在內之整體負性症狀的非藥物介入方式。\n\n---\n\n## 3. 爭議與分歧解析 (Contradictions \u0026 Divergent Findings)\n\n| 正向情緒活化支持 | 改善幅度有限或分歧研究 | 方法學分歧剖析 |\n| :--- | :--- | :--- |\n| [[2021-chen-dog-aat-taiwan-rct]]\u003cbr\u003e[[2016-calvo-dog-aat-rehab-rct]] | 部分早期研究未達顯著 | 1. **介入活動設計**：單純讓動物坐在病房中（AAA）不足以喚起表情，必須如 Chen et al. (2021) 搭配職能治療師的引導、稱讚犬隻、進行正向表情模仿與互動遊戲。\u003cbr\u003e2. **評估工具客觀性**：精神科量表依賴訪談者主觀觀察，近年研究開始引入臉部微表情分析或錄影評分，能更敏感地捕捉肌肉微動。 |\n\n---\n\n## 4. 作用機轉與假說\n- **非評判性鏡像神經元活化 (Mirror Neuron Activation)**：犬隻豐富的面部表情（如歪頭、眨眼、搖尾、咧嘴微笑）提供了直接、生動且不具威脅性的情緒鏡像，促使個案自發產生情感模仿與共鳴。\n- **神經胜肽調節**：伴隨 [[oxytocin]] 與內源性多巴胺釋放，中樞神經系統的情緒抑制被解除，促進外周運動皮質對面部肌肉的自主支配。\n\n---\n\n## 5. 🌟 臨床實務與日常生活／大眾生活功能意涵 (Public \u0026 Daily Life Meaning)\n\n\u003e **大眾與家屬視角解讀**：\n\u003e 「為什麼他看起來總是冷冰冰的？是不是他根本不在乎我們了？」\n\u003e \n\u003e 面對眼神空洞、語調單調如機器人的個案，家屬往往感到心寒。但現代神經科學告訴我們：**個案不是沒有感覺，而是大腦的情緒播放器『喇叭線被剪斷了』**。他的內心可能依然感到溫暖或悲傷，但臉部肌肉與聲帶無法配合展現出來。\n\u003e \n\u003e 動物輔助治療最動人的一幕，往往發生在治療犬輕輕把下巴靠在病友腿上的那一刻。\n\u003e 那個長年被認為「沒有表情」的個案，雙眼會突然亮起來，眼角泛起笑紋，嘴裡輕輕喚出：「好可愛喔」。這一絲微小的笑容，對醫護和家屬而言，就是冰封大腦重新接通情感訊號的最具體證明。\n"},"anhedonia":{"Title":"無快感症 (Anhedonia) 臨床概念與動輔介入專頁","Path":"wiki/concepts/symptoms/anhedonia.md","Content":"---\r\ntitle: 無快感症 (Anhedonia)\r\ncategory: symptom\r\ntags: [concept, symptom, negative-symptom, anhedonia, pleasure]\r\nlast_updated: 2026-11-17\r\n---\r\n\r\n# 無快感症 (Anhedonia)\r\n\r\n\u003e [!SUMMARY] 一句話精華\r\n\u003e 思覺失調症核心負性症狀之一，指個案感受快樂、愉悅與正向情緒體驗的能力顯著減退，包含「社交快感缺乏」與「身體/感官快感缺乏」。\r\n\r\n---\r\n\r\n## 1. 概念與臨床評估\r\n- **定義**：在現代精神病學中，無快感症被進一步細分為**預期性快感缺乏 (Anticipatory Anhedonia)**（無法預期未來活動會帶來快樂，導致缺乏行動誘因）與**消費性快感 (Consummatory Pleasure)**（活動當下感受快樂的能力，通常相對保留）。\r\n- **臨床評估工具**：\r\n  - [[panss-negative]]：部分反映於情感退縮與社交淡漠。\r\n  - **Snaith-Hamilton Pleasure Scale (SHAPS)**：專門量測感官與日常經驗愉悅感的自我評量工具。\r\n  - **Chapman 身體/社交快感缺乏量表 (CPAS / CSAS)**。\r\n\r\n---\r\n\r\n## 2. 動物輔助治療之實證總結\r\n- **統合分析統整**：\r\n  - [[2026-peraile-huerta-aat-psychosis-meta]] 指出，動物介入能針對傳統藥物無效的快感缺陷提供感官刺激突破口。\r\n- **指標性研究實證**：\r\n  - **Nathans-Barel et al. (2005)**（引述於 2026 統合分析）：在一項針對慢性思覺失調住院患者的對照試驗中，使用 SHAPS 量表評估，發現接受每週 1 次犬隻輔助治療持續 10 週的個案，在**第 5 週即出現顯著的快感感受力（Hedonic tone）回升**（p = 0.02），且休閒活動參與度顯著提升（p = 0.01），顯示動物能直接刺激當下的愉悅體驗。\r\n\r\n---\r\n\r\n## 3. 爭議與分歧解析 (Contradictions \u0026 Divergent Findings)\r\n\r\n| 支持改善快感之研究 | 顯示效果侷限之研究 | 方法學分歧拆解（劑量/對照組/量表） |\r\n| :--- | :--- | :--- |\r\n| Nathans-Barel et al. (2005)\u003cbr\u003e[[2026-peraile-huerta-aat-psychosis-meta]] | 部分常規 RCT 僅測 PANSS 總分而未單獨析出快感量表 | 1. **量表特異性**：PANSS 負性量表無法細緻區分「預期性」與「消費性」快感，需採用如 SHAPS 等專屬量表才能捕捉變化。\u003cbr\u003e2. **介入活動深度**：單純遠觀動物效果有限，必須包含「觸摸、擁抱、餵食與遊戲」等高感官互動，才能活化中樞愉悅迴路。 |\r\n\r\n---\r\n\r\n## 4. 作用機轉與假說\r\n- **多感官愉悅刺激 (Multi-Sensory Hedonic Input)**：撫摸動物毛皮的觸覺反饋、聽見狗狗搖尾巴或呼吸的聲音，提供了即時且強烈的身體消費性愉悅。\r\n- **神經生物學路徑**：促進內源性阿片肽（β-endorphin）與多巴胺（Dopamine）釋放，協同 [[oxytocin]] 調節情緒中樞杏仁核，緩解長期情緒遲鈍。\r\n\r\n---\r\n\r\n## 5. 🌟 臨床實務與日常生活／大眾生活功能意涵 (Public \u0026 Daily Life Meaning)\r\n\r\n\u003e **大眾與家屬視角解讀**：\r\n\u003e 「吃山珍海味覺得像嚼蠟、看喜劇笑不出來、過年過節也面無表情」——這是許多思覺失調個案家屬最心痛的日常觀察。外界常誤以為個案「鐵石心腸」或「變冷酷了」，但這其實是罹患了「大腦快樂感知喪失症（Anhedonia）」。\r\n\u003e \r\n\u003e 人類複雜的語言社交往往伴隨著期待與評判，對個案來說充滿壓力；但毛茸茸的小動物卻不同。狗狗溫暖的體溫、柔軟的毛髮、歪著頭舔舔個案手心的模樣，是一種「不需要大腦分析就能直接感受的純粹溫柔」。\r\n\u003e \r\n\u003e 許多原本長年不苟言笑的病友，在把狗狗抱進懷裡的那一刻，臉上會不自覺綻放出久違的笑容。這種由動物喚醒的微小快樂，是重啟個案感受生命溫度最珍貴的起點。\r\n"},"active_control":{"Title":"積極對照組設置挑戰 方法學專題","Path":"wiki/methodology/active-control-challenges.md","Content":"---\r\ntitle: 積極對照組設置難題：休閒活動 vs 動物特異性療效之區分限制\r\ncategory: methodology\r\ntags: [methodology, control-group, active-control, tau, study-design, bias]\r\nlast_updated: 2026-11-17\r\n---\r\n\r\n# 積極對照組設置難題：休閒活動 vs 動物特異性療效之區分限制\r\n\r\n\u003e [!SUMMARY] 一句話精華\r\n\u003e 探討動物輔助治療（AAT）臨床試驗中最核心的方法學挑戰：對照組究竟該設置為純「常規治療 (TAU)」，還是等時數的「非動物積極休閒活動」？此設計直接左右了統計效應值的大小與結論解讀。\r\n\r\n---\r\n\r\n## 1. 核心方法學困境 (The Dilemma)\r\n\r\n在評估 AAT 對思覺失調負性症狀的成效時，研究者面臨經典的兩難抉擇：\r\n\r\n```mermaid\r\nflowchart TD\r\n    ChoiceA[\"設計 A：對照純常規治療 (TAU)\"] --\u003e OutcomeA[\"優點：符合臨床真實情境\u003cbr\u003e缺點：無法排除『額外被關心、新穎活動、額外時間』帶來的安慰劑與霍桑效應\"]\r\n    OutcomeA --\u003e ResultA[\"呈現極大效應值\u003cbr\u003e(例如 Chu et al. 2009, SMD = -1.74)\"]\r\n\r\n    ChoiceB[\"設計 B：對照等時數積極活動 (Active Control)\u003cbr\u003e(如桌遊、園藝、藝術治療、體操)\"] --\u003e OutcomeB[\"優點：嚴格控制時間與關注度\u003cbr\u003e缺點：積極活動本身就具備復健效益，會稀釋動物特異性\"]\r\n    OutcomeB --\u003e ResultB[\"組間差異縮減或未達顯著\u003cbr\u003e(例如 Calvo et al. 2016, Villalta-Gil et al. 2009)\"]\r\n```\r\n\r\n---\r\n\r\n## 2. 跨文獻實證對比 (Literature Evidence)\r\n\r\n1. **純 TAU 對照組研究**：\r\n   - Chu et al. (2009)：對照常規治療，AAT 組負性症狀改善達 SMD = -1.74。\r\n2. **高標準積極對照組研究**：\r\n   - [[2021-chen-dog-aat-taiwan-rct]]：對照組每週額外接受 1 小時護理與職能治療，成功在嚴格條件下證明犬類介入具備超越常規復健的特異效應（SRD = 0.50, p \u003c 0.001）。\r\n   - [[2016-calvo-dog-aat-rehab-rct]]：對照組接受等時數之美術、體操活動，兩組在正性與一般病理均有改善，使組間在 PANSS 總分上未達統計顯著。\r\n   - [[2026-peraile-huerta-aat-psychosis-meta]] 統合分析：指出研究間的對照組異質性是導致統計異質性（I²）上升的主要來源。\r\n\r\n---\r\n\r\n## 3. 🌟 臨床實務與日常生活／大眾生活功能意涵 (Public \u0026 Daily Life Meaning)\r\n\r\n\u003e **大眾與家屬視角解讀**：\r\n\u003e 「有些學者說：『如果陪病人玩桌遊或做勞作也有進步，為什麼一定要找狗來？』」\r\n\u003e \r\n\u003e 這是一個常被提出來挑戰動輔治療的質疑。然而，臨床真實世界告訴我們：\r\n\u003e 1. **「願意走進教室」才是關鍵前提**：做手工藝或玩桌遊確實也有好處，但前提是病人要「願意來」。對於重度冷漠、動機缺乏的個案，叫他做手工藝他往往轉頭拒絕（常規復健出席率僅約 60%）；但聽說有狗狗在等他，出席率直接飆到 93%（[[2016-calvo-dog-aat-rehab-rct]]）。\r\n\u003e 2. **動物是啟動活動的「超強引信」**：動物特異性不只體現在「做完後的量表分數」，更體現在「能讓原本一動也不動的人願意開始行動」。動物不是取代其他活動，而是讓所有後續的生活復健成為可能的催化起點。\r\n"},"scaffolding":{"Title":"社交鷹架理論 (Social Scaffolding) 復健機轉專頁","Path":"wiki/concepts/mechanisms/social-scaffolding.md","Content":"---\ntitle: 社交鷹架與動機外接催化 (Social Scaffolding)\ncategory: mechanism\ntags: [concept, mechanism, psychology, social-scaffolding, occupational-therapy, motivation]\nlast_updated: 2026-11-17\n---\n\n# 社交鷹架與動機外接催化 (Social Scaffolding)\n\n\u003e [!SUMMARY] 一句話精華\n\u003e 解釋動物如何作為職能復健中之中介媒介（Intermediary Medium），透過提供非評判性的安全支撐（鷹架），協助個案逐步重建人際互動與自主行動技能的心理社會學機轉。\n\n---\n\n## 1. 理論基礎與核心概念\n- **社交鷹架 (Scaffolding) 原理**：\n  - 借鏡發展心理學家維高斯基（Vygotsky）之「近側發展區 (ZPD)」概念。慢性精神疾患個案因長年發病與機構化生活，直接面對複雜的人類社交要求時往往會產生「社交癱瘓」與逃避。\n  - 動物在人際互動中扮演了**暫時性但堅固的安全鷹架**：牠降低了互動的認知與情感負荷，讓個案能在低威脅情境下練習「主動性」、「責任感」與「雙向溝通」。\n- **動機外接啟動馬達 (External Motivational Catalyst)**：\n  - 當個案內在驅動力（[[avolition|動機缺乏]]）嚴重受損時，動物主動尋求接觸的特質（如搖尾、嗅聞、討摸）提供了外部強烈的情境線索，外接帶動個案的肢體與情感反應。\n\n---\n\n## 2. 臨床實務模型：台灣長庚／台大四階鷹架架構\n在 [[2021-chen-dog-aat-taiwan-rct]] 的 12 週 RCT 中，職能治療團隊設計了層次分明的四階鷹架模型，展現了社交鷹架的標準操作：\n\n```mermaid\nflowchart TD\n    Step1[\"階梯 1：感官與正向情緒接觸\u003cbr\u003e(撫摸、擁抱、梳毛、消除人際防禦)\"]\n    Step2[\"階梯 2：認知指令與行為發起\u003cbr\u003e(下達坐下、等待指令，建立效能感)\"]\n    Step3[\"階梯 3：人犬協同體能任務\u003cbr\u003e(牽引散步、餵食配件穿戴，日常生活技能轉化)\"]\n    Step4[\"階梯 4：群體人際社交泛化\u003cbr\u003e(向同儕介紹自己的狗、讚美他人、小組合作)\"]\n\n    Step1 --\u003e Step2 --\u003e Step3 --\u003e Step4\n```\n\n---\n\n## 3. 實證數據支持\n- **出席率與參與度**：在 [[2021-chen-dog-aat-taiwan-rct]] 中，此種結構化鷹架支持達成了 **0% 脫落率**；[[2016-calvo-dog-aat-rehab-rct]] 亦記錄到高達 92.9% 的復健出席率。\n- **症狀改善**：透過鷹架的逐步引導，個案在 [[panss-negative]] 上的社交退縮（N4）與情感平淡（N1）評分顯著降低。\n\n---\n\n## 4. 🌟 臨床實務與日常生活／大眾生活功能意涵 (Public \u0026 Daily Life Meaning)\n\n\u003e **大眾與家屬視角解讀**：\n\u003e 蓋房子需要鷹架，等牆壁穩固了，鷹架才會拆除；復健也是同樣的道理。\n\u003e \n\u003e 如果我們直接把一個長年躲在房裡的思覺失調個案推進熱鬧的聚會或要求他去面試，這就像在沒有鷹架的情況下要求一個骨折未癒的人去跑馬拉松，只會帶來恐慌與挫敗。\n\u003e \n\u003e 治療犬就是這座最溫柔的「心理鷹架」：\n\u003e 1. 第一步，個案只需要坐著摸摸狗，不需要說一句話，先感受安全。\n\u003e 2. 第二步，治療師鼓勵個案說一聲「坐下」，當狗狗聽話坐下時，個案體驗到「原來我能掌控事物、我有影響力」。\n\u003e 3. 第三步，個案牽著狗狗在教室走一圈，接受身旁病友的掌聲。\n\u003e 4. 最後，個案開始主動對旁邊的人說：「你的狗剛才好厲害喔！」\n\u003e \n\u003e 當這段鷹架一步步搭建完成，個案被封閉在內心的自信與勇氣也就慢慢長了出來，最終能脫離鷹架，獨立面對生活中的真實人際。\n"},"tyssedal2023":{"Title":"Tyssedal et al. (2023) 挪威犬類介入系統性回顧完整論文筆記","Path":"wiki/sources/2023-tyssedal-dog-assisted-review.md","Content":"---\r\ntitle: \"Dog-assisted interventions for adults diagnosed with schizophrenia and related disorders: a systematic review\"\r\nauthors: \"Malene Kalsnes Tyssedal et al.\"\r\nyear: 2023\r\nstudy_type: \"Systematic Review\"\r\nsample_size: 375\r\nintervention_type: \"Canine-AAT / Canine-AAA\"\r\ntarget_symptoms: [\"negative-symptoms\", \"positive-symptoms\", \"social-functioning\", \"stress\", \"quality-of-life\"]\r\noutcome_measures: [\"PANSS\", \"SANS\", \"GRADE\", \"RoB2\", \"ROBINS-I\"]\r\ntags: [source, canine, systematic-review, grade, risk-of-bias, norway]\r\ndate_ingested: 2026-11-17\r\n---\r\n\r\n# 犬類輔助介入對成人思覺失調症譜系疾患之系統性回顧 (Tyssedal et al., 2023)\r\n\r\n- **原始文獻出處**：[[raw/2023-tyssedal-dog-assisted-review.pdf]]\r\n- **完整引註**：Tyssedal, M. K., Johnsen, E., Brønstad, A., \u0026 Skrede, S. (2023). Dog-assisted interventions for adults diagnosed with schizophrenia and related disorders: a systematic review. *Frontiers in Psychiatry*, 14, 1192075. https://doi.org/10.3389/fpsyt.2023.1192075\r\n- **研究背景與範疇**：\r\n  - 挪威卑爾根大學（University of Bergen）精神醫學與臨床藥理團隊執行。\r\n  - 首篇專門鎖定**「犬類輔助介入 (Dog-Assisted Interventions, DAI)」**對思覺失調成人的 PRISMA 系統性回顧，排除其他動物物種以提高實證同質性。\r\n  - 嚴格納入 11 項量化研究（共 12 篇發表，涵蓋 196 位介入組 vs 179 位對照組）。\r\n\r\n---\r\n\r\n## 1. 核心實證總結 (Synthesis of Findings)\r\n\r\n### 1.1 正性症狀改善最為一致，負性症狀呈現分歧\r\n- **正性症狀 (Positive Symptoms)**：多數研究（如 [[2021-chen-dog-aat-taiwan-rct]]、Monfort 2022、Chu 2009）一致報告犬類組呈現統計顯著改善，推論可能與治療師在現場提供的「現實導向」與感官專注有關。\r\n- **負性症狀 (Negative Symptoms)**：呈現分歧（Diverging results）。大樣本 RCT（如 Chen et al. 2021, n=40）展現顯著改善；但數項小型試驗（如 [[2016-calvo-dog-aat-rehab-rct]] n=22、Villalta-Gil 2009 n=18）則僅在組內顯著，組間差異未達統計顯著。\r\n\r\n### 1.2 溝通技能、自尊與生活技能之擴展收穫\r\n- **溝通與互動技能 (ACIS)**：Chen et al. (2022) 證實犬隻介入顯著改善個案的人際交流與肢體表達（p \u003c 0.001）。\r\n- **生活技能 (Living Skills)**：Monfort et al. (2022) 證實提升了居住復健個案的生活技能量表分數（LSP-20, p = 0.001）。\r\n- **非個人社交行為惡化警訊**：Villalta-Gil et al. (2009) 報告介入組在「非人際社交行為（如對公共物品之破壞性衝動）」出現顯著退步，提醒臨床方案若未針對特定行為進行目標設定，可能引發非預期反應。\r\n\r\n---\r\n\r\n## 2. 方法學品質與偏誤風險評估 (RoB2 \u0026 GRADE)\r\n\r\n- **GRADE 證據等級評定為「低 (Low)」至「極低 (Very Low)」**：\r\n  - 主要降級原因包括：無法對動物介入實施盲法、多數研究缺乏預先註冊之試驗計畫書（Protocols）、樣本規模普遍偏小（缺乏統計檢定力計算）。\r\n- **對照組異質性解析**：\r\n  - 若對照組為空白常規治療（TAU），成效顯著；\r\n  - 若對照組為高互動性之休閒復健（如音樂、藝術、桌遊），動物特異性常被稀釋（見 [[active-control-challenges]]）。\r\n\r\n---\r\n\r\n## 3. 與既有文獻之關聯 (Cross-References \u0026 Debates)\r\n\r\n- **更新並推進早期綜述**：\r\n  - 補充了早期 [[2019-hawkins-aat-schizophrenia-review]] 缺乏的 2021~2023 年新文獻（特別是納入了台灣 Chen 2021/2022 與西班牙 Monfort 2022 的成果）。\r\n- **促成後續統合分析**：\r\n  - 本篇系統性回顧梳理之偏誤矩陣，直接為隨後進行的 [[2026-peraile-huerta-aat-psychosis-meta]] 統合分析提供了方法學基石。\r\n\r\n---\r\n\r\n## 4. 🌟 臨床實務與日常生活／大眾生活功能意涵 (Public \u0026 Daily Life Meaning)\r\n\r\n\u003e **大眾與家屬視角解讀**：\r\n\u003e 「狗狗走進病房真的百利而無一害嗎？我們該抱持怎樣的期待？」\r\n\u003e \r\n\u003e 這篇由挪威學者撰寫的嚴謹回顧給了大眾極為清醒而客觀的指引：\r\n\u003e 1. **它不是包治百病的萬靈丹，而是精準的輔助催化劑**：犬類輔助治療在正向情緒、日常生活溝通與緩解壓力上有高度共識，但無法完全取代標準抗精神病藥物。\r\n\u003e 2. **嚴格拒絕「無指導的隨意接觸」**：研究特別提醒，如果只是把狗放進病房讓個案隨意逗弄，缺乏專業動輔師與職能治療師的行為目標引導，有時反而可能引發個案的分心或挫折。\r\n\u003e 3. **需要專業「三角團隊」護航**：唯有由具備醫療背景的治療師、合格治療犬與專業指導手組成的團隊，才能把「愛狗」轉化為「重建生活能力」的專業醫療力量。\r\n"},"synthesis":{"Title":"《從封閉孤立到溫柔破冰》大眾科普專題全文","Path":"wiki/syntheses/from-isolation-to-connection.md","Content":"---\r\ntitle: 從封閉孤立到溫柔破冰：動物如何走入思覺失調個案的日常（大眾科普與去污名化綜述）\r\ncategory: synthesis\r\ntags: [synthesis, public-science, de-stigmatization, daily-life, family-education, recovery]\r\nlast_updated: 2026-11-17\r\n---\r\n\r\n# 從封閉孤立到溫柔破冰：動物如何走入思覺失調個案的日常\r\n\r\n\u003e [!SUMMARY] 一句話精華\r\n\u003e 走出醫學專有名詞的象牙塔，全面解讀「負性症狀」對個案與家庭造成的隱形枷鎖，並透過科學實證揭示治療犬與治療馬如何作為無評判的溫暖橋樑，重燃生活希望。\r\n\r\n---\r\n\r\n## 序言：看不見的真正困境——什麼是「負性症狀」？\r\n\r\n當社會大眾談論起「思覺失調症（舊稱精神分裂症）」時，腦海中浮現的往往是電影戲劇裡的刻板印象：幻聽、妄想、語無倫次、情緒失控。這些在精神醫學上被稱為**「正性症狀（Positive Symptoms）」**——多出來的異常知覺。\r\n\r\n現代精神藥物對壓制幻覺與妄想已經非常成熟。然而，真正把個案與社會徹底隔絕、讓無數家庭陷入漫長痛苦的，往往是那些「被偷走的能力」——醫學上稱為**「負性症狀（Negative Symptoms）」**：\r\n\r\n- **動機被偷走了 ([[avolition|動機缺乏]])**：連起床、洗臉、換衣服都顯得千斤沉重，整日坐在客廳或躺在床上發呆。\r\n- **表情被偷走了 ([[blunted-affect|情感平淡]])**：眼神空洞，嘴角不再揚起，無論周遭發生什麼悲喜事件，臉部如石雕般僵硬。\r\n- **快樂被偷走了 ([[anhedonia|無快感症]])**：吃喜歡的美食不再感到美味，過去熱愛的嗜好變得毫無吸引力。\r\n- **語言與人際被偷走了 ([[asociality|社交退縮]] / [[alogia|言語貧乏]])**：害怕人群，害怕被批判，問一句答半句，漸漸退縮到無人的角落。\r\n\r\n在日常生活中，家屬常因不理解而痛心地責怪：「你怎麼變得這麼懶？」「你就不能稍微努力一點走出來嗎？」這種誤解造成了深層的二次傷害，也讓個案在自卑與自責中越陷越深。\r\n\r\n---\r\n\r\n## 第一章：科學的重大突破——動物不是娛樂，而是有實證的醫療輔助\r\n\r\n長期以來，精神醫學界對負性症狀近乎束手無策，因為傳統藥物對活化動機的效果相當有限。\r\n\r\n然而，在 **[[2026-peraile-huerta-aat-psychosis-meta|2026 年發表的最新大型統合分析 (Meta-Analysis)]]** 中，國際研究團隊彙整了 12 項研究、408 位個案的臨床數據，證實了震撼的結論：\r\n\u003e **動物輔助治療（AAT）對思覺失調症的負性症狀，能產生統計上中等程度的實質改善（SMD = -0.51, p \u003c 0.05）**。\r\n\r\n這項統合分析告訴社會：**帶動物進入精神復健，絕對不是單純的「讓病人摸摸狗、消磨時間的娛樂」，而是一種能精準穿透藥物死角、喚醒大腦社交網絡的循證醫學介入**。\r\n\r\n---\r\n\r\n## 第二章：毛茸茸的奇蹟——為什麼動物能做到人類做不到的事？\r\n\r\n為什麼經驗豐富的醫師、心理師或深愛個案的家人苦口婆心勸說無效，一隻狗狗卻能在幾十分鐘內打開個案的心防？\r\n\r\n### 1. 無條件的接納與「非評判性空間」\r\n人類的社交充滿了隱形規則與評判眼光。個案面對他人時，內心總是充滿恐懼：「他會不會覺得我很怪？」「我說話結巴怎麼辦？」\r\n但狗狗完全不同。一隻搖著尾巴的小狗，不在乎眼前的人是否穿戴整齊、是否發病三十年、是否說話結巴。**牠只在乎你願不願意摸摸牠。這種「被全然接納」的純粹安全感，是任何語言諮商都難以比擬的**。\r\n\r\n### 2. 生物學上的「安全警報解除」（皮質醇下降與催產素激發）\r\n這不是心靈雞湯，而是身體裡確確實實發生的生化轉變：\r\n- 西班牙研究 [[2016-calvo-dog-aat-rehab-rct]] 透過唾液檢測證實，與治療犬互動 1 小時後，個案體內的**壓力荷爾蒙（皮質醇 Cortisol）顯著下降**。\r\n- 神經科學研究 [[oxytocin]] 顯示，人犬互相注視撫摸時，大腦會分泌「催產素（信任荷爾蒙）」，中樞神經的過度防衛被解除，封閉的感情迴路得以重新通電。\r\n\r\n### 3. 外接的「啟動馬達」（社交鷹架機制）\r\n在台灣高雄長庚與台大團隊進行的 12 週臨床試驗 [[2021-chen-dog-aat-taiwan-rct]] 中，職能治療師設計了精巧的 [[social-scaffolding|社交鷹架]]：\r\n- 第一步，先摸摸柯基、馬爾濟斯的毛，感受快樂；\r\n- 第二步，手握牽繩在教室散步，鍛鍊身體平衡與肌力；\r\n- 第三步，學習對狗說「坐下、握手」，當狗狗聽話的那一刻，個案重新找回「我能掌控事物」的效能感；\r\n- 第四步，個案開始主動稱讚其他病友的狗。\r\n**在該試驗中，40 位患病多年的中老年病友達成「0% 脫落率（全勤參與）」**，負性症狀改善達到了顯著的大效應值（SRD = 0.50）！\r\n\r\n---\r\n\r\n## 第三章：犬類 vs 馬匹——如何為個案選擇適合的動物夥伴？\r\n\r\n依據知識庫的跨研究比較 [[canine-vs-equine]]，不同的動物具有不同的療癒特長：\r\n\r\n```mermaid\r\nflowchart LR\r\n    A[\"個案的核心困境為何？\"] --\u003e B{\"極度退縮、毫無動機、情感平淡\u003cbr\u003e(重度負性症狀)\"}\r\n    A --\u003e C{\"感到被世界拋棄、深層自卑、缺乏掌控感\u003cbr\u003e(孤獨感與生活品質低落)\"}\r\n\r\n    B --\u003e D[\"首選：犬類輔助治療 (Canine-AAT)\u003cbr\u003e• 柔軟貼身觸摸\u003cbr\u003e• 快速破冰刺激催產素\u003cbr\u003e• 參考：Chen et al. (2021)\"]\r\n    C --\u003e E[\"首選：馬匹輔助治療 (Equine-AAT)\u003cbr\u003e• 騎乘視野轉換與尊嚴重建\u003cbr\u003e• 感覺統合與全身律動\u003cbr\u003e• 參考：Öztürk et al. (2025)\"]\r\n```\r\n\r\n- **狗狗是貼心的破冰好友**：中小型犬的高親近度與觸覺撫摸，是融化重度冷漠、啟動生活動機的最佳起點。\r\n- **馬匹是威嚴的人生導師**：土耳其 2025 年最新試驗 [[2025-ozturk-equine-aat-rct]] 顯示，騎乘馬匹雖然對負性量表改變較慢，但能使個案的**孤獨感大幅消融（d = 0.99），生活品質出現飛躍性提升（d = 1.93）**。跨上馬背的居高臨下，讓長年低頭自卑的個案重新找回身為人的驕傲。\r\n\r\n---\r\n\r\n## 第四章：給家屬與社會大眾的心靈指引\r\n\r\n當我們看見思覺失調個案因為一隻狗、一匹馬而露出久違的微笑時，這給了我們三點最重要的省思：\r\n\r\n1. **請撕下「懶惰、不長進」的標籤**：\r\n   個案不是不想動，而是大腦的動機引擎生病了。請理解他們的沉默與退縮，給予支持而非責備。\r\n2. **「養寵物」不等於「動物輔助治療」**：\r\n   正如 [[2019-hawkins-aat-schizophrenia-review]] 所嚴肅提醒，未經評估貿然讓個案獨立飼養寵物，可能加重照顧壓力。真正的輔助治療，必須由具備醫療背景的職能治療師、合格動物與指導手三方守護，並嚴格保障動物的福利（One Welfare）。\r\n3. **看見病症背後未曾熄滅的靈魂**：\r\n   即使患病二三十年，當面對純真的生命時，個案展現出的溫柔、愛心與照顧渴望，與你我毫無二致。動物輔助治療最大的價值，不僅僅在於壓低量表上的分數，更在於**為那些被社會遺忘在暗角的人們，重新點亮一盞回家的溫暖燈火**。\r\n"},"hawkins2019":{"Title":"Hawkins et al. (2019) 英國愛丁堡大學早期回顧完整論文筆記","Path":"wiki/sources/2019-hawkins-aat-schizophrenia-review.md","Content":"---\r\ntitle: \"Animal-assisted therapy for schizophrenia and related disorders: A systematic review\"\r\nauthors: \"Emma L. Hawkins et al.\"\r\nyear: 2019\r\nstudy_type: \"Systematic Review\"\r\nsample_size: 390\r\nintervention_type: \"AAT / AAA / Pet-Therapy\"\r\ntarget_symptoms: [\"negative-symptoms\", \"positive-symptoms\", \"self-view\", \"quality-of-life\", \"social-functioning\"]\r\noutcome_measures: [\"PANSS\", \"SANS\", \"SAFE\", \"GSE\", \"Cochrane-RoB\"]\r\ntags: [source, systematic-review, edinburgh, multi-species, animal-welfare, history]\r\ndate_ingested: 2026-11-17\r\n---\r\n\r\n# 動物輔助治療對思覺失調症及相關疾患之系統性回顧 (Hawkins et al., 2019)\r\n\r\n- **原始文獻出處**：[[raw/2019-hawkins-aat-schizophrenia-review.pdf]]\r\n- **完整引註**：Hawkins, E. L., Hawkins, R. D., Dennis, M., Williams, J. M., \u0026 Lawrie, S. M. (2019). Animal-assisted therapy for schizophrenia and related disorders: A systematic review. *Journal of Psychiatric Research*, 115, 51–60. https://doi.org/10.1016/j.jpsychires.2019.05.013\r\n- **研究背景與範疇**：\r\n  - 英國愛丁堡大學（University of Edinburgh）精神醫學團隊執行。\r\n  - 檢索截至 2018 年 8 月之 7 項隨機對照試驗（RCT），共 390 位思覺失調譜系個案（平均年齡 50.9 歲）。\r\n  - **多元物種涵蓋**：包含犬類（5 篇）、貓、馬匹、農場動物（牛羊）及倉鼠（Kung et al. 2005 倉鼠寵物療法）。\r\n\r\n---\r\n\r\n## 1. 核心實證總結 (Synthesis of Findings)\r\n\r\n### 1.1 早期實證呈現「混合且未定論 (Inconclusive)」\r\n- **負性症狀**：7 項研究中僅 1 篇（Kung et al. 2005，倉鼠寵物治療）報告 SANS 負性症狀顯著改善；其餘研究在 PANSS 負性分數上多數組間差異未達統計顯著。\r\n- **正向自我認知 (Positive Self-View)**：兩項研究報告個案的「自我效能感 (Self-Efficacy)」、「自尊 (Self-Esteem)」與「自我決定感」在動物介入後呈現顯著提升。\r\n- **生活品質 (QoL)**：納入生活品質量表（QOLS-N、EQ-5D、WHOQOL-BREF）的 3 項研究均未發現統計顯著改善。\r\n\r\n### 1.2 嚴肅點出方法學缺陷與「動物福祉 (Animal Welfare)」危機\r\n- **偏誤風險普遍偏高**：7 項研究中僅 10 項評估指標達到低風險，絕大多數在分配隱匿與盲法上存在高度或不清晰風險。\r\n- ⚠️ **動物福祉嚴重被漠視**：7 項研究中**僅有 1 篇（Calvo et al. 2016）提及動物福祉評估**，無任何研究通過動物實驗倫理委員會（IACUC）審查。部分研究甚至報告個案對動物的潛在傷害衝動，呼籲全面落實 IAHAIO 國際動物福祉指引與「健康一體 (One Welfare)」原則。\r\n\r\n---\r\n\r\n## 2. 與既有文獻之演進對照 (Historical Context)\r\n\r\n- **從「未定論」到「確證顯著」的時代轉折**：\r\n  - 本篇 2019 年綜述受限於當時多數研究樣本量極小（n \u003c 25）、介入不標準，得出了「證據仍不足以支持常規政策採用」的謹慎結論。\r\n  - 此結論促使後續研究（如台灣 [[2021-chen-dog-aat-taiwan-rct]]、土耳其 [[2025-ozturk-equine-aat-rct]]）在研究設計上大幅精進（落實分層隨機、認證治療犬、跨專業團隊），最終在 [[2026-peraile-huerta-aat-psychosis-meta]] 統合分析中確立了負性症狀的實質療效（SMD = -0.51）。\r\n\r\n---\r\n\r\n## 3. 🌟 臨床實務與日常生活／大眾生活功能意涵 (Public \u0026 Daily Life Meaning)\r\n\r\n\u003e **大眾與家屬視角解讀**：\r\n\u003e 「是不是隨便買一隻寵物給生病的家人養，就能治好思覺失調？」\r\n\u003e \r\n\u003e 愛丁堡大學這篇回顧給了大眾最嚴肅的警惕：\r\n\u003e 1. **「養寵物」不等於「動物輔助治療」**：在個案身心狀況極不穩定、缺乏專業引導的情況下，貿然要求個案照顧動物，往往會造成沉重的照顧負擔，甚至可能因挫折或幻覺對動物造成傷害。\r\n\u003e 2. **雙向療癒（One Welfare）的尊重**：治療不是單方面的索取。治療犬在病房中工作，同樣會感到疲憊與壓力。合格的動輔計畫一定會優先確保動物的快樂與安全。當個案學會尊重、溫柔對待另一個脆弱的生命時，同理心與人性尊嚴才真正開始復甦。\r\n"}};
+
+    function openArticleModal(articleId) {
+      const article = articlesData[articleId];
+      if (!article) return;
+
+      document.getElementById('modalTitle').textContent = article.Title;
+      document.getElementById('modalPath').textContent = '檔案路徑：' + article.Path;
+      document.getElementById('modalGitHubLink').href = article.Path;
+
+      // 使用 marked 解析 Markdown 渲染為完整內容
+      document.getElementById('modalContent').innerHTML = marked.parse(article.Content || '');
+
+      document.getElementById('articleModal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('articleModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    function closeModalOnBackdrop(e) {
+      if (e.target.id === 'articleModal') {
+        closeModal();
+      }
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
 
 </body>
 </html>
