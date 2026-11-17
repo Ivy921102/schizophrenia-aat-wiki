@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>動物輔助治療對思覺失調症及相關譜系障礙負性症狀的療效</title>
+  <!-- GitHub Markdown CSS & Marked for embedded preview -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.0/github-markdown.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     /* 全域字體強制指定為標楷體 */
     *, *::before, *::after, html, body, h1, h2, h3, h4, h5, h6, p, span, div, a, button, table, th, td, input, select, textarea {
@@ -52,7 +55,7 @@
     }
 
     .container {
-      max-width: 1140px;
+      max-width: 1160px;
       margin: 0 auto;
       padding: 2.5rem 1.5rem;
     }
@@ -67,42 +70,38 @@
       box-shadow: var(--shadow-md);
       margin-bottom: 3rem;
       position: relative;
-      overflow: hidden;
     }
 
-    .hero-decor-paw {
-      position: absolute;
-      width: 45px;
-      height: 45px;
-      opacity: 0.12;
-      pointer-events: none;
-    }
-
+    /* 豐富的 Q 版動物群 */
     .hero-animals {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 2rem;
+      gap: 1.25rem;
+      flex-wrap: wrap;
       margin-bottom: 1.5rem;
     }
 
     .animal-avatar {
-      width: 120px;
-      height: 120px;
+      width: 95px;
+      height: 95px;
       border-radius: 50%;
-      background: #fff;
-      padding: 8px;
+      background: #ffffff;
+      padding: 6px;
       border: 3px solid var(--card-border);
       box-shadow: var(--shadow-sm);
-      transition: transform 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      cursor: pointer;
     }
 
     .animal-avatar:hover {
-      transform: translateY(-6px) scale(1.05);
+      transform: translateY(-8px) scale(1.1);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-md);
     }
 
     .hero-title {
-      font-size: 2.4rem;
+      font-size: 2.35rem;
       font-weight: 900;
       color: #1c1917;
       letter-spacing: 0.04em;
@@ -113,7 +112,7 @@
     .hero-desc {
       font-size: 1.15rem;
       color: var(--text-muted);
-      max-width: 860px;
+      max-width: 880px;
       margin: 0 auto 1.75rem;
       line-height: 1.85;
     }
@@ -158,10 +157,16 @@
     .section-header {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      justify-content: space-between;
       border-bottom: 2px solid #f5ede2;
       padding-bottom: 1rem;
       margin-bottom: 1.75rem;
+    }
+
+    .section-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
     }
 
     .section-icon {
@@ -175,16 +180,21 @@
       letter-spacing: 0.03em;
     }
 
+    .section-animal-mini {
+      width: 48px;
+      height: 48px;
+    }
+
     /* 網格系統 */
     .grid-2 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
       gap: 1.75rem;
     }
 
     .grid-3 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 1.5rem;
     }
 
@@ -193,7 +203,7 @@
       background: #ffffff;
       border: 1.5px solid #e7e5e4;
       border-radius: 18px;
-      padding: 1.6rem;
+      padding: 1.75rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -227,24 +237,30 @@
       margin-bottom: 0.75rem;
     }
 
+    .paper-tags-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
     .paper-tag {
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       font-weight: bold;
-      padding: 0.2rem 0.65rem;
+      padding: 0.25rem 0.7rem;
       border-radius: 6px;
       display: inline-block;
-      margin-bottom: 0.5rem;
     }
 
     .paper-tag-canine { background: #ccfbf1; color: #0f766e; }
     .paper-tag-equine { background: #fef3c7; color: #b45309; }
 
     .paper-title {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 800;
       color: #1c1917;
       line-height: 1.45;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.4rem;
     }
 
     .paper-meta {
@@ -256,7 +272,7 @@
     .paper-highlight {
       background: #f8fafc;
       border-left: 3px solid #38bdf8;
-      padding: 0.85rem 1rem;
+      padding: 0.9rem 1rem;
       border-radius: 0 10px 10px 0;
       font-size: 0.98rem;
       color: #334155;
@@ -267,11 +283,12 @@
     .paper-public {
       background: #fffdf5;
       border: 1px dashed #f59e0b;
-      padding: 0.85rem 1rem;
+      padding: 0.9rem 1rem;
       border-radius: 12px;
       font-size: 0.95rem;
       color: #78350f;
       line-height: 1.7;
+      margin-bottom: 1.25rem;
     }
 
     .public-label {
@@ -283,13 +300,41 @@
       color: #b45309;
     }
 
+    /* 學術深入閱讀鏈結按鈕 */
+    .academic-link-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      color: #0369a1;
+      padding: 0.65rem 1.25rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .academic-link-btn:hover {
+      background: #0284c7;
+      color: #ffffff;
+      border-color: #0284c7;
+      box-shadow: 0 3px 10px rgba(2, 132, 199, 0.3);
+    }
+
     /* 概念網絡小卡片 */
     .concept-box {
       background: #fdfbf7;
-      border: 1px solid #ebd5c1;
-      border-radius: 16px;
-      padding: 1.35rem;
+      border: 1.5px solid #ebd5c1;
+      border-radius: 18px;
+      padding: 1.5rem;
       transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .concept-box:hover {
@@ -299,19 +344,20 @@
     }
 
     .concept-title {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       font-weight: bold;
       color: #1c1917;
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.65rem;
     }
 
     .concept-desc {
       font-size: 0.98rem;
       color: var(--text-muted);
       line-height: 1.75;
+      margin-bottom: 1rem;
     }
 
     /* 比較表格 */
@@ -360,7 +406,7 @@
     }
 
     .synthesis-quote {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-style: normal;
       color: #78350f;
       line-height: 1.85;
@@ -383,6 +429,7 @@
     .footer-animals {
       display: flex;
       justify-content: center;
+      align-items: center;
       gap: 1.5rem;
       margin-bottom: 1rem;
     }
@@ -391,8 +438,8 @@
       .hero-title { font-size: 1.85rem; }
       .grid-2 { grid-template-columns: 1fr; }
       .grid-3 { grid-template-columns: 1fr; }
-      .hero-animals { flex-direction: column; gap: 1rem; }
-      .animal-avatar { width: 90px; height: 90px; }
+      .hero-animals { gap: 0.75rem; }
+      .animal-avatar { width: 70px; height: 70px; }
     }
   </style>
 </head>
@@ -404,9 +451,14 @@
 
     <!-- 主頁 Hero Header -->
     <header class="hero">
+      <!-- 豐富多彩的 Q 版動物家族 -->
       <div class="hero-animals">
-        <img class="animal-avatar" src="assets/cute-dog.svg" alt="Q版治療犬" />
-        <img class="animal-avatar" src="assets/cute-horse.svg" alt="Q版治療馬" />
+        <img class="animal-avatar" src="assets/cute-dog.svg" title="治癒金毛治療犬" alt="治療犬" />
+        <img class="animal-avatar" src="assets/cute-horse.svg" title="溫柔哈芙林格小馬" alt="治療馬" />
+        <img class="animal-avatar" src="assets/cute-dog-study.svg" title="學術研究小犬博士" alt="研究犬" />
+        <img class="animal-avatar" src="assets/cute-cat.svg" title="暖心安撫呼嚕貓" alt="陪伴貓" />
+        <img class="animal-avatar" src="assets/cute-bunny.svg" title="感官觸摸長耳兔" alt="治療兔" />
+        <img class="animal-avatar" src="assets/cute-dog-heart.svg" title="接納與催產素愛心犬" alt="愛心犬" />
       </div>
 
       <h1 class="hero-title">動物輔助治療對思覺失調症及相關譜系障礙負性症狀的療效</h1>
@@ -426,8 +478,11 @@
     <!-- 臨床背景與介入機制 -->
     <section class="section-card">
       <div class="section-header">
-        <span class="section-icon">🩺</span>
-        <h2 class="section-title">主題介紹與臨床意涵</h2>
+        <div class="section-title-wrap">
+          <span class="section-icon">🩺</span>
+          <h2 class="section-title">主題介紹與臨床意涵</h2>
+        </div>
+        <img class="section-animal-mini" src="assets/cute-dog-heart.svg" alt="Heart Dog" />
       </div>
 
       <div class="grid-2">
@@ -450,17 +505,23 @@
     <!-- 單篇文獻萃取庫 -->
     <section class="section-card">
       <div class="section-header">
-        <span class="section-icon">📚</span>
-        <h2 class="section-title">單篇文獻萃取庫</h2>
+        <div class="section-title-wrap">
+          <span class="section-icon">📚</span>
+          <h2 class="section-title">單篇文獻萃取庫</h2>
+        </div>
+        <img class="section-animal-mini" src="assets/cute-dog-study.svg" alt="Study Dog" />
       </div>
 
       <div class="grid-2">
         <!-- Paper 1 -->
         <div class="paper-card">
           <div class="paper-header">
-            <span class="paper-tag paper-tag-canine">PRISMA 統合分析</span>
+            <div class="paper-tags-row">
+              <span class="paper-tag paper-tag-canine">PRISMA 統合分析</span>
+              <span style="font-size: 0.85rem; color: #64748b;">n = 408</span>
+            </div>
             <h3 class="paper-title">Peraile-Huerta et al. (2026)</h3>
-            <p class="paper-meta">Complementary Therapies in Medicine｜12 篇研究、408 位個案</p>
+            <p class="paper-meta">Complementary Therapies in Medicine｜12 篇研究統合分析</p>
           </div>
           <div class="paper-highlight">
             <strong>核心數據</strong>：AAT 對改善負性症狀具顯著中等效應值（SMD = -0.51, 95% CI: [-0.95, -0.07], p &lt; 0.05）。排除馬匹後犬類效果更穩健；正性症狀與一般病理則無組間顯著差異。
@@ -469,14 +530,20 @@
             <div class="public-label">🌟 大眾生活解讀</div>
             證實動物不是玄學安慰劑，而是能實質敲開緊閉心門的醫學復健媒介，尤其對常規藥物束手無策的「退縮與冷漠」有獨特療效。
           </div>
+          <a href="wiki/sources/2026-peraile-huerta-aat-psychosis-meta.md" target="_blank" class="academic-link-btn">
+            📄 查閱 2026 統合分析完整論文萃取筆記 &rarr;
+          </a>
         </div>
 
         <!-- Paper 2 -->
         <div class="paper-card equine">
           <div class="paper-header">
-            <span class="paper-tag paper-tag-equine">隨機對照試驗 (RCT)</span>
+            <div class="paper-tags-row">
+              <span class="paper-tag paper-tag-equine">隨機對照試驗 (RCT)</span>
+              <span style="font-size: 0.85rem; color: #b45309;">n = 61</span>
+            </div>
             <h3 class="paper-title">Öztürk et al. (2025)</h3>
-            <p class="paper-meta">Perspectives in Psychiatric Care｜土耳其馬術 RCT (n = 61)</p>
+            <p class="paper-meta">Perspectives in Psychiatric Care｜土耳其馬術 RCT</p>
           </div>
           <div class="paper-highlight">
             <strong>核心數據</strong>：8 週馬匹介入顯著降低孤獨感（d = 0.99, p &lt; 0.001）與提升生活品質（d = 1.93, p &lt; 0.001）；PANSS 負性次量表無顯著組間差異（p = 0.610）。
@@ -485,14 +552,20 @@
             <div class="public-label">🌟 大眾生活解讀</div>
             騎在幾百公斤的大馬背上，個案俯瞰世界的視野被徹底翻轉，重拾尊嚴感與掌控力，能大幅消融常年籠罩的深層孤獨。
           </div>
+          <a href="wiki/sources/2025-ozturk-equine-aat-rct.md" target="_blank" class="academic-link-btn">
+            🐴 查閱 2025 土耳其馬術 RCT 完整論文筆記 &rarr;
+          </a>
         </div>
 
         <!-- Paper 3 -->
         <div class="paper-card">
           <div class="paper-header">
-            <span class="paper-tag paper-tag-canine">系統性回顧</span>
+            <div class="paper-tags-row">
+              <span class="paper-tag paper-tag-canine">系統性回顧</span>
+              <span style="font-size: 0.85rem; color: #64748b;">11 篇研究</span>
+            </div>
             <h3 class="paper-title">Tyssedal et al. (2023)</h3>
-            <p class="paper-meta">Nordic Journal of Psychiatry｜挪威犬類介入系統回顧 (11 篇研究)</p>
+            <p class="paper-meta">Nordic Journal of Psychiatry｜挪威犬類介入系統回顧</p>
           </div>
           <div class="paper-highlight">
             <strong>核心數據</strong>：以 RoB2 與 GRADE 嚴格梳理文獻，指出當對照組為純常規治療（TAU）時負性症狀顯著改善；但對照組若為桌遊或休閒活動時，效應值常被沖淡。
@@ -501,14 +574,20 @@
             <div class="public-label">🌟 大眾生活解讀</div>
             點出治療關鍵不單是「狗狗可愛」，更在於「結構化人際活動」的催化。動物是讓個案願意主動走向活動的最佳引路人。
           </div>
+          <a href="wiki/sources/2023-tyssedal-dog-assisted-review.md" target="_blank" class="academic-link-btn">
+            🔍 查閱 2023 挪威系統性回顧完整筆記 &rarr;
+          </a>
         </div>
 
         <!-- Paper 4 -->
         <div class="paper-card">
           <div class="paper-header">
-            <span class="paper-tag paper-tag-canine">隨機對照試驗 (RCT)</span>
+            <div class="paper-tags-row">
+              <span class="paper-tag paper-tag-canine">隨機對照試驗 (RCT)</span>
+              <span style="font-size: 0.85rem; color: #0f766e;">n = 40 (0% 脫落)</span>
+            </div>
             <h3 class="paper-title">Chen et al. (2021)</h3>
-            <p class="paper-meta">Psychiatry Research｜台灣高雄長庚與台大職能治療團隊 (n = 40)</p>
+            <p class="paper-meta">Psychiatry Research｜台灣高雄長庚與台大職能治療團隊</p>
           </div>
           <div class="paper-highlight">
             <strong>核心數據</strong>：12 週犬類介入負性症狀達大效應值改善（SRD = 0.50, p &lt; 0.001）、達成 0% 脫落率。建立感官到任務四階標準職能流程。
@@ -517,14 +596,20 @@
             <div class="public-label">🌟 大眾生活解讀</div>
             在中老年慢性思覺失調個案中創造 100% 全程出席奇蹟！從梳毛、握手到指令練習，讓病人重新在群體中找回成就感。
           </div>
+          <a href="wiki/sources/2021-chen-dog-aat-taiwan-rct.md" target="_blank" class="academic-link-btn">
+            🇹🇼 查閱 2021 台灣長庚與台大團隊 RCT 筆記 &rarr;
+          </a>
         </div>
 
         <!-- Paper 5 -->
         <div class="paper-card">
           <div class="paper-header">
-            <span class="paper-tag paper-tag-canine">早期系統性回顧</span>
+            <div class="paper-tags-row">
+              <span class="paper-tag paper-tag-canine">早期系統性回顧</span>
+              <span style="font-size: 0.85rem; color: #64748b;">7 項 RCT</span>
+            </div>
             <h3 class="paper-title">Hawkins et al. (2019)</h3>
-            <p class="paper-meta">BMC Psychiatry｜英國愛丁堡大學系統性回顧 (7 項 RCT)</p>
+            <p class="paper-meta">BMC Psychiatry｜英國愛丁堡大學系統性回顧</p>
           </div>
           <div class="paper-highlight">
             <strong>核心數據</strong>：奠定早期臨床實證基線，跨物種探討犬、馬、貓療效。率先倡議遵循 IAHAIO 與 One Welfare 動物福祉標準，避免工作犬過勞。
@@ -533,14 +618,20 @@
             <div class="public-label">🌟 大眾生活解讀</div>
             提醒我們人與動物的療癒是「雙向尊重」。唯有在確保治療犬開心、被關愛的狀態下，所傳遞出的撫慰能量才是最純粹真實的。
           </div>
+          <a href="wiki/sources/2019-hawkins-aat-schizophrenia-review.md" target="_blank" class="academic-link-btn">
+            🇬🇧 查閱 2019 英國愛丁堡大學回顧筆記 &rarr;
+          </a>
         </div>
 
         <!-- Paper 6 -->
         <div class="paper-card">
           <div class="paper-header">
-            <span class="paper-tag paper-tag-canine">隨機對照試驗 (RCT)</span>
+            <div class="paper-tags-row">
+              <span class="paper-tag paper-tag-canine">隨機對照試驗 (RCT)</span>
+              <span style="font-size: 0.85rem; color: #64748b;">n = 24</span>
+            </div>
             <h3 class="paper-title">Calvo et al. (2016)</h3>
-            <p class="paper-meta">Frontiers in Psychology｜西班牙 6 個月長週期 RCT (n = 24)</p>
+            <p class="paper-meta">Frontiers in Psychology｜西班牙 6 個月長週期 RCT</p>
           </div>
           <div class="paper-highlight">
             <strong>核心數據</strong>：接觸犬隻 1 小時後唾液皮質醇（壓力荷爾蒙）顯著下降（p &lt; 0.05）；介入組復健出席率達 92.9%（常規組僅 61.2%）。
@@ -549,6 +640,9 @@
             <div class="public-label">🌟 大眾生活解讀</div>
             用客觀口水化驗打破質疑！摸摸狗能迅速熄滅大腦緊繃的防空警報，讓長期緊繃防備的心靈得以真正喘息放鬆。
           </div>
+          <a href="wiki/sources/2016-calvo-dog-aat-rehab-rct.md" target="_blank" class="academic-link-btn">
+            🇪🇸 查閱 2016 西班牙長週期 RCT 筆記 &rarr;
+          </a>
         </div>
       </div>
     </section>
@@ -556,50 +650,76 @@
     <!-- 核心概念網絡 -->
     <section class="section-card">
       <div class="section-header">
-        <span class="section-icon">🧩</span>
-        <h2 class="section-title">核心實體與概念網絡</h2>
+        <div class="section-title-wrap">
+          <span class="section-icon">🧩</span>
+          <h2 class="section-title">核心實體與概念網絡</h2>
+        </div>
+        <img class="section-animal-mini" src="assets/cute-cat.svg" alt="Calm Cat" />
       </div>
 
       <div class="grid-2">
         <!-- 症狀細項 -->
         <div class="concept-box">
-          <div class="concept-title">🧠 負性症狀細項 (Negative Symptoms)</div>
-          <ul style="padding-left: 1.25rem; line-height: 1.8; color: var(--text-muted);">
-            <li><strong>動機缺乏 (Avolition)</strong>：行為啟動引擎熄火，動物作為外接啟動馬達。</li>
-            <li><strong>社交退縮 (Asociality)</strong>：治療犬作為安全第三者，打破人際溝通防線。</li>
-            <li><strong>情感平淡 (Blunted Affect)</strong>：觸摸毛皮刺激鏡像神經元，重啟微表情肌肉。</li>
-            <li><strong>無快感症 (Anhedonia)</strong>：多感官愉悅刺激，研究證實 5 週快感感受力顯著回升。</li>
-          </ul>
+          <div>
+            <div class="concept-title">🧠 負性症狀細項 (Negative Symptoms)</div>
+            <ul style="padding-left: 1.25rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 1rem;">
+              <li><strong><a href="wiki/concepts/symptoms/avolition.md" style="color: #0369a1; text-decoration: underline;">動機缺乏 (Avolition)</a></strong>：行為啟動引擎熄火，動物作為外接啟動馬達。</li>
+              <li><strong><a href="wiki/concepts/symptoms/asociality.md" style="color: #0369a1; text-decoration: underline;">社交退縮 (Asociality)</a></strong>：治療犬作為安全第三者，打破人際溝通防線。</li>
+              <li><strong><a href="wiki/concepts/symptoms/blunted-affect.md" style="color: #0369a1; text-decoration: underline;">情感平淡 (Blunted Affect)</a></strong>：觸摸毛皮刺激鏡像神經元，重啟微表情肌肉。</li>
+              <li><strong><a href="wiki/concepts/symptoms/anhedonia.md" style="color: #0369a1; text-decoration: underline;">無快感症 (Anhedonia)</a></strong>：多感官愉悅刺激，研究證實 5 週快感感受力顯著回升。</li>
+            </ul>
+          </div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <a href="wiki/concepts/symptoms/avolition.md" target="_blank" class="academic-link-btn" style="padding: 0.4rem 0.8rem; font-size: 0.88rem;">動機缺乏專頁</a>
+            <a href="wiki/concepts/symptoms/asociality.md" target="_blank" class="academic-link-btn" style="padding: 0.4rem 0.8rem; font-size: 0.88rem;">社交退縮專頁</a>
+            <a href="wiki/concepts/symptoms/blunted-affect.md" target="_blank" class="academic-link-btn" style="padding: 0.4rem 0.8rem; font-size: 0.88rem;">情感平淡專頁</a>
+          </div>
         </div>
 
         <!-- 介入模式 -->
         <div class="concept-box">
-          <div class="concept-title">🐾 介入模式與媒介 (Interventions)</div>
-          <ul style="padding-left: 1.25rem; line-height: 1.8; color: var(--text-muted);">
-            <li><strong>犬類輔助治療 (Canine-AAT)</strong>：負性症狀破冰主力，近身撫摸與職能生活任務。</li>
-            <li><strong>馬術與馬匹治療 (Equine-AAT)</strong>：全身律動平衡、視野提升、尊嚴重建與消融孤獨。</li>
-            <li><strong>團體 vs 個別介入</strong>：團體建立安全微型社會，個別維持專屬情感基地。</li>
-          </ul>
+          <div>
+            <div class="concept-title">🐾 介入模式與媒介 (Interventions)</div>
+            <ul style="padding-left: 1.25rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 1rem;">
+              <li><strong><a href="wiki/concepts/interventions/canine-aat.md" style="color: #0d9488; text-decoration: underline;">犬類輔助治療 (Canine-AAT)</a></strong>：負性症狀破冰主力，近身撫摸與職能生活任務。</li>
+              <li><strong><a href="wiki/concepts/interventions/equine-aat.md" style="color: #d97706; text-decoration: underline;">馬術與馬匹治療 (Equine-AAT)</a></strong>：全身律動平衡、視野提升、尊嚴重建與消融孤獨。</li>
+              <li><strong>團體 vs 個別介入</strong>：團體建立安全微型社會，個別維持專屬情感基地。</li>
+            </ul>
+          </div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <a href="wiki/concepts/interventions/canine-aat.md" target="_blank" class="academic-link-btn" style="padding: 0.4rem 0.8rem; font-size: 0.88rem;">犬類 AAT 專頁</a>
+            <a href="wiki/concepts/interventions/equine-aat.md" target="_blank" class="academic-link-btn" style="padding: 0.4rem 0.8rem; font-size: 0.88rem;">馬匹 AAT 專頁</a>
+          </div>
         </div>
 
         <!-- 評估量表 -->
         <div class="concept-box">
-          <div class="concept-title">📊 評估量表與指標 (Outcome Measures)</div>
-          <ul style="padding-left: 1.25rem; line-height: 1.8; color: var(--text-muted);">
-            <li><strong>PANSS 負性次量表</strong>：涵蓋情感平淡、社交退縮、抽象思考困難等 7 項向度。</li>
-            <li><strong>SANS / BNSS 量表</strong>：現代臨床更精準捕捉表達與動機雙向度的新標準工具。</li>
-            <li><strong>臨床微改變轉譯</strong>：將抽象量表分數下降 3 分轉譯為現實中的主動打招呼與梳洗。</li>
-          </ul>
+          <div>
+            <div class="concept-title">📊 評估量表與指標 (Outcome Measures)</div>
+            <ul style="padding-left: 1.25rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 1rem;">
+              <li><strong><a href="wiki/concepts/measures/panss-negative.md" style="color: #0369a1; text-decoration: underline;">PANSS 負性次量表</a></strong>：涵蓋情感平淡、社交退縮、抽象思考困難等 7 項向度。</li>
+              <li><strong>SANS / BNSS 量表</strong>：現代臨床更精準捕捉表達與動機雙向度的新標準工具。</li>
+              <li><strong>臨床微改變轉譯</strong>：將抽象量表分數下降 3 分轉譯為現實中的主動打招呼與梳洗。</li>
+            </ul>
+          </div>
+          <a href="wiki/concepts/measures/panss-negative.md" target="_blank" class="academic-link-btn" style="padding: 0.4rem 0.8rem; font-size: 0.88rem;">查閱 PANSS 量表剖析</a>
         </div>
 
         <!-- 生理心理機轉 -->
         <div class="concept-box">
-          <div class="concept-title">🧬 神經與心理機轉 (Mechanisms)</div>
-          <ul style="padding-left: 1.25rem; line-height: 1.8; color: var(--text-muted);">
-            <li><strong>催產素神經迴路 (Oxytocin)</strong>：人犬凝視循環觸發哺乳類生物級信任與安全感。</li>
-            <li><strong>皮質醇壓力調節 (HPA Axis)</strong>：唾液客觀指標證實接觸後壓力荷爾蒙顯著下降。</li>
-            <li><strong>社交鷹架理論 (Social Scaffolding)</strong>：感官接觸 → 認知指令 → 日常任務 → 社會泛化。</li>
-          </ul>
+          <div>
+            <div class="concept-title">🧬 神經與心理機轉 (Mechanisms)</div>
+            <ul style="padding-left: 1.25rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 1rem;">
+              <li><strong><a href="wiki/concepts/mechanisms/oxytocin.md" style="color: #0369a1; text-decoration: underline;">催產素神經迴路 (Oxytocin)</a></strong>：人犬凝視循環觸發哺乳類生物級信任與安全感。</li>
+              <li><strong><a href="wiki/concepts/mechanisms/cortisol-hpa.md" style="color: #0369a1; text-decoration: underline;">皮質醇壓力調節 (HPA Axis)</a></strong>：唾液客觀指標證實接觸後壓力荷爾蒙顯著下降。</li>
+              <li><strong><a href="wiki/concepts/mechanisms/social-scaffolding.md" style="color: #0369a1; text-decoration: underline;">社交鷹架理論 (Social Scaffolding)</a></strong>：感官接觸 → 認知指令 → 日常任務 → 社會泛化。</li>
+            </ul>
+          </div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <a href="wiki/concepts/mechanisms/oxytocin.md" target="_blank" class="academic-link-btn" style="padding: 0.4rem 0.8rem; font-size: 0.88rem;">催產素假說</a>
+            <a href="wiki/concepts/mechanisms/cortisol-hpa.md" target="_blank" class="academic-link-btn" style="padding: 0.4rem 0.8rem; font-size: 0.88rem;">皮質醇調節</a>
+            <a href="wiki/concepts/mechanisms/social-scaffolding.md" target="_blank" class="academic-link-btn" style="padding: 0.4rem 0.8rem; font-size: 0.88rem;">社交鷹架理論</a>
+          </div>
         </div>
       </div>
     </section>
@@ -607,8 +727,11 @@
     <!-- 跨研究比較矩陣 -->
     <section class="section-card">
       <div class="section-header">
-        <span class="section-icon">⚖️</span>
-        <h2 class="section-title">跨研究比較矩陣與方法學剖析</h2>
+        <div class="section-title-wrap">
+          <span class="section-icon">⚖️</span>
+          <h2 class="section-title">跨研究比較矩陣與方法學剖析</h2>
+        </div>
+        <img class="section-animal-mini" src="assets/cute-bunny.svg" alt="Bunny" />
       </div>
 
       <div class="table-wrapper">
@@ -674,17 +797,27 @@
         </table>
       </div>
 
-      <div style="margin-top: 1.5rem; background: #f8fafc; border-radius: 14px; padding: 1.25rem; font-size: 0.98rem; color: #475569; line-height: 1.8;">
-        <strong>💡 方法學啟示</strong>：
-        當對照組為純常規治療（TAU）時，動物輔助介入呈現極大優勢（SMD = -1.74）；當對照組具備積極社交成分時，動物特異性效應縮減為中等。這說明動物的核心角色是「動機觸媒」，能讓個案自發跨出第一步。
+      <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="wiki/comparisons/negative-symptoms-meta-comparison.md" target="_blank" class="academic-link-btn">
+          ⚖️ 查閱負性症狀跨研究效應值完整對照表 &rarr;
+        </a>
+        <a href="wiki/comparisons/canine-vs-equine.md" target="_blank" class="academic-link-btn">
+          🐕🐴 查閱犬類 vs 馬匹介入成效分歧分析 &rarr;
+        </a>
+        <a href="wiki/methodology/active-control-challenges.md" target="_blank" class="academic-link-btn">
+          🔬 查閱積極對照組設置挑戰專案 &rarr;
+        </a>
       </div>
     </section>
 
     <!-- 旗艦科普與去污名化專題 -->
     <section class="section-card synthesis-banner">
       <div class="section-header" style="border-bottom-color: #fde68a;">
-        <span class="section-icon">🌟</span>
-        <h2 class="section-title">大眾科普與去污名化專題</h2>
+        <div class="section-title-wrap">
+          <span class="section-icon">🌟</span>
+          <h2 class="section-title">大眾科普與去污名化專題</h2>
+        </div>
+        <img class="section-animal-mini" src="assets/cute-dog.svg" alt="Friendly Dog" />
       </div>
 
       <h3 style="font-size: 1.4rem; color: #78350f; font-weight: bold; margin-bottom: 0.5rem;">
@@ -696,19 +829,27 @@
         動物不會用異樣的眼光打量生病的人。當狗狗依偎在個案身旁、把下巴靠在膝蓋上時，無條件的接納打破了長年的自責與封閉。為了帶狗狗散步、為了給小馬梳毛，個案重新站了起來，找回了生活被需要的意義。」
       </div>
 
-      <p style="color: #78350f; line-height: 1.8; font-size: 1rem;">
+      <p style="color: #78350f; line-height: 1.8; font-size: 1rem; margin-bottom: 1.25rem;">
         本知識庫不僅整理學術硬核數據，更致力於推動社會大眾對思覺失調譜系負性症狀的理解與去污名化。動物輔助治療展現了醫學、心理與生命教育跨界融合的溫柔力量。
       </p>
+
+      <a href="wiki/syntheses/from-isolation-to-connection.md" target="_blank" class="academic-link-btn" style="background: #ffffff; border-color: #f59e0b; color: #92400e;">
+        📖 閱讀去污名化大眾科普旗艦專題全文 &rarr;
+      </a>
     </section>
 
     <!-- 頁尾 -->
     <footer>
       <div class="footer-animals">
-        <img src="assets/cute-dog.svg" width="40" height="40" alt="Dog" />
-        <img src="assets/cute-paw.svg" width="30" height="30" alt="Paw" />
-        <img src="assets/cute-horse.svg" width="40" height="40" alt="Horse" />
+        <img src="assets/cute-dog.svg" width="38" height="38" alt="Dog" />
+        <img src="assets/cute-paw.svg" width="28" height="28" alt="Paw" />
+        <img src="assets/cute-horse.svg" width="38" height="38" alt="Horse" />
+        <img src="assets/cute-paw.svg" width="28" height="28" alt="Paw" />
+        <img src="assets/cute-cat.svg" width="38" height="38" alt="Cat" />
+        <img src="assets/cute-paw.svg" width="28" height="28" alt="Paw" />
+        <img src="assets/cute-bunny.svg" width="38" height="38" alt="Bunny" />
       </div>
-      <p>動物輔助治療對思覺失調症及相關譜系障礙負性症狀的療效｜知識庫網頁</p>
+      <p>動物輔助治療對思覺失調症及相關譜系障礙負性症狀的療效｜學術實證與大眾轉譯知識庫</p>
     </footer>
 
   </div>

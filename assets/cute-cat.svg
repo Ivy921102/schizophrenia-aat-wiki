@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <radialGradient id="catCheek" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fda4af" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#fda4af" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadowCat" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Curled Tail -->
+  <path d="M 145 155 C 175 160 185 130 170 115 C 160 105 150 120 156 128 C 162 135 155 145 142 145" fill="#fdba74" stroke="#ea580c" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Body -->
+  <ellipse cx="100" cy="144" rx="46" ry="38" fill="#ffedd5" stroke="#ea580c" stroke-width="3.5" filter="url(#shadowCat)"/>
+
+  <!-- Paws -->
+  <ellipse cx="80" cy="174" rx="13" ry="9" fill="#ffffff" stroke="#ea580c" stroke-width="2.5"/>
+  <ellipse cx="120" cy="174" rx="13" ry="9" fill="#ffffff" stroke="#ea580c" stroke-width="2.5"/>
+
+  <!-- Gentle Cat Scarf / Collar -->
+  <path d="M 74 124 Q 100 134 126 124 Q 130 135 124 140 Q 100 148 76 140 Z" fill="#ec4899" stroke="#db2777" stroke-width="2.5"/>
+  <!-- Gold Bell / Heart -->
+  <circle cx="100" cy="142" r="6" fill="#facc15" stroke="#ca8a04" stroke-width="1.5"/>
+
+  <!-- Cat Ears -->
+  <path d="M 62 42 L 85 70 L 52 74 Z" fill="#fdba74" stroke="#ea580c" stroke-width="3.5"/>
+  <path d="M 64 50 L 78 68 L 58 70 Z" fill="#fecdd3"/>
+
+  <path d="M 138 42 L 148 74 L 115 70 Z" fill="#fdba74" stroke="#ea580c" stroke-width="3.5"/>
+  <path d="M 136 50 L 142 70 L 122 68 Z" fill="#fecdd3"/>
+
+  <!-- Head -->
+  <circle cx="100" cy="86" r="44" fill="#ffedd5" stroke="#ea580c" stroke-width="3.5" filter="url(#shadowCat)"/>
+
+  <!-- Cute Forehead Calico Stripes -->
+  <path d="M 94 44 C 94 54 90 60 86 64" stroke="#ea580c" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M 100 43 C 100 55 100 62 100 66" stroke="#ea580c" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M 106 44 C 106 54 110 60 114 64" stroke="#ea580c" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+  <!-- Blushing Cheeks -->
+  <circle cx="70" cy="98" r="9" fill="url(#catCheek)"/>
+  <circle cx="130" cy="98" r="9" fill="url(#catCheek)"/>
+
+  <!-- Whiskers -->
+  <path d="M 54 94 L 32 90 M 52 100 L 30 102 M 54 106 L 34 112" stroke="#ea580c" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 146 94 L 168 90 M 148 100 L 170 102 M 146 106 L 166 112" stroke="#ea580c" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Peaceful Smiling Sleeping / Purring Eyes -->
+  <path d="M 72 84 Q 80 94 88 84" stroke="#1c1917" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M 112 84 Q 120 94 128 84" stroke="#1c1917" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Tiny Pink Nose & Mouth -->
+  <polygon points="96,93 104,93 100,97" fill="#f43f5e"/>
+  <path d="M 96 98 Q 100 101 100 103 Q 100 101 104 98" stroke="#1c1917" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Zzz or Purr Music notes floating -->
+  <path d="M 148 40 L 158 36 L 158 52 M 158 44 L 168 40 L 168 56" stroke="#ec4899" stroke-width="2" fill="none"/>
+  <circle cx="154" cy="52" r="3" fill="#ec4899"/>
+  <circle cx="164" cy="56" r="3" fill="#ec4899"/>
+</svg>

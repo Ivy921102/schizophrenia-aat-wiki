@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <radialGradient id="cheekStudy" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fb7185" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#fb7185" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadowStudy" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Tail -->
+  <path d="M 45 135 C 28 115 22 90 38 80 C 48 75 52 90 48 110" fill="#f59e0b" stroke="#d97706" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Body -->
+  <ellipse cx="100" cy="142" rx="46" ry="38" fill="#fbbf24" stroke="#d97706" stroke-width="3.5" filter="url(#shadowStudy)"/>
+
+  <!-- Doctor / Researcher Coat -->
+  <path d="M 68 126 Q 100 118 132 126 L 136 170 Q 100 176 64 170 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="2.5"/>
+  <path d="M 85 125 L 94 150 L 100 135 L 106 150 L 115 125" stroke="#3b82f6" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Stethoscope -->
+  <path d="M 80 128 C 80 155 120 155 120 128" stroke="#0284c7" stroke-width="3" fill="none"/>
+  <circle cx="100" cy="154" r="6" fill="#38bdf8" stroke="#0284c7" stroke-width="2"/>
+
+  <!-- Research Clipboard Held in Paws -->
+  <rect x="74" y="145" width="52" height="42" rx="4" fill="#fef3c7" stroke="#b45309" stroke-width="2.5" filter="url(#shadowStudy)"/>
+  <rect x="88" y="141" width="24" height="7" rx="2" fill="#94a3b8" stroke="#64748b" stroke-width="1.5"/>
+  <!-- Lines on Paper -->
+  <line x1="82" y1="156" x2="118" y2="156" stroke="#d97706" stroke-width="2" stroke-linecap="round"/>
+  <line x1="82" y1="164" x2="114" y2="164" stroke="#d97706" stroke-width="2" stroke-linecap="round"/>
+  <line x1="82" y1="172" x2="108" y2="172" stroke="#d97706" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 112 176 L 115 180 L 122 173" stroke="#10b981" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Floppy Ears -->
+  <path d="M 52 65 C 30 75 25 115 42 125 C 55 132 65 110 60 85 Z" fill="#d97706" stroke="#b45309" stroke-width="3"/>
+  <path d="M 148 65 C 170 75 175 115 158 125 C 145 132 135 110 140 85 Z" fill="#d97706" stroke="#b45309" stroke-width="3"/>
+
+  <!-- Head -->
+  <circle cx="100" cy="80" r="46" fill="#fbbf24" stroke="#d97706" stroke-width="3.5" filter="url(#shadowStudy)"/>
+
+  <!-- Cheeks -->
+  <circle cx="68" cy="92" r="10" fill="url(#cheekStudy)"/>
+  <circle cx="132" cy="92" r="10" fill="url(#cheekStudy)"/>
+
+  <!-- Round Glasses -->
+  <circle cx="78" cy="74" r="15" fill="rgba(255,255,255,0.4)" stroke="#1e293b" stroke-width="3"/>
+  <circle cx="122" cy="74" r="15" fill="rgba(255,255,255,0.4)" stroke="#1e293b" stroke-width="3"/>
+  <path d="M 93 74 L 107 74" stroke="#1e293b" stroke-width="3"/>
+
+  <!-- Eyes behind glasses -->
+  <ellipse cx="78" cy="74" rx="6" ry="7" fill="#1e1b4b"/>
+  <ellipse cx="122" cy="74" rx="6" ry="7" fill="#1e1b4b"/>
+  <circle cx="76" cy="71" r="2.5" fill="#ffffff"/>
+  <circle cx="120" cy="71" r="2.5" fill="#ffffff"/>
+
+  <!-- Snout -->
+  <ellipse cx="100" cy="93" rx="18" ry="13" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <!-- Nose -->
+  <path d="M 95 87 C 95 84 105 84 105 87 C 105 90 101 93 100 93 C 99 93 95 90 95 87 Z" fill="#1e1b4b"/>
+  <path d="M 96 94 Q 100 97 100 99 Q 100 97 104 94" stroke="#1e1b4b" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Little Graduation / Scholar Hat Floating on Angle -->
+  <path d="M 100 24 L 128 32 L 100 40 L 72 32 Z" fill="#1e293b" stroke="#0f172a" stroke-width="2"/>
+  <rect x="91" y="38" width="18" height="6" fill="#1e293b"/>
+  <path d="M 124 33 L 132 46" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="132" cy="47" r="2.5" fill="#f59e0b"/>
+</svg>
