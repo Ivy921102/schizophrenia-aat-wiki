@@ -50,7 +50,7 @@
 
     .top-bar {
       height: 8px;
-      background: linear-gradient(90deg, #0d9488, #d97706, #f43f5e, #6366f1);
+      background: linear-gradient(90deg, #0d9488, #2563eb, #d97706, #7c3aed, #0891b2, #e11d48);
     }
 
     .container {
@@ -189,7 +189,7 @@
       gap: 1.75rem;
     }
 
-    /* 文獻卡片 */
+    /* 文獻卡片基礎樣式 */
     .paper-card {
       background: #ffffff;
       border: 1.5px solid #e7e5e4;
@@ -211,17 +211,93 @@
       left: 0;
       width: 6px;
       height: 100%;
-      background: var(--primary);
-    }
-
-    .paper-card.equine::before {
-      background: var(--amber);
     }
 
     .paper-card:hover {
       transform: translateY(-4px);
       box-shadow: var(--shadow-md);
-      border-color: #cbd5e1;
+    }
+
+    /* ========================================================
+       🌟 六大文獻個別專屬色彩配置 (Distinct Colors per Paper)
+       ======================================================== */
+
+    /* 1. Chen et al. 2021 (台灣長庚) - 翡翠青綠 */
+    .card-theme-teal::before { background: #0d9488 !important; }
+    .card-theme-teal:hover { border-color: #0d9488 !important; }
+    .card-theme-teal .paper-tag { background: #ccfbf1; color: #0f766e; }
+    .card-theme-teal .btn-read-deep {
+      background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
+      box-shadow: 0 4px 12px rgba(13, 148, 136, 0.25);
+    }
+    .card-theme-teal .btn-read-deep:hover {
+      background: linear-gradient(135deg, #115e59 0%, #0f766e 100%);
+      box-shadow: 0 6px 16px rgba(13, 148, 136, 0.35);
+    }
+
+    /* 2. Peraile-Huerta et al. 2026 (統合分析) - 科技海洋藍 */
+    .card-theme-blue::before { background: #2563eb !important; }
+    .card-theme-blue:hover { border-color: #2563eb !important; }
+    .card-theme-blue .paper-tag { background: #dbeafe; color: #1d4ed8; }
+    .card-theme-blue .btn-read-deep {
+      background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+    .card-theme-blue .btn-read-deep:hover {
+      background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+    }
+
+    /* 3. Öztürk et al. 2025 (土耳其馬術) - 暖陽大地橙 */
+    .card-theme-amber::before { background: #d97706 !important; }
+    .card-theme-amber:hover { border-color: #d97706 !important; }
+    .card-theme-amber .paper-tag { background: #fef3c7; color: #b45309; }
+    .card-theme-amber .btn-read-deep {
+      background: linear-gradient(135deg, #b45309 0%, #d97706 100%);
+      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);
+    }
+    .card-theme-amber .btn-read-deep:hover {
+      background: linear-gradient(135deg, #92400e 0%, #b45309 100%);
+      box-shadow: 0 6px 16px rgba(217, 119, 6, 0.35);
+    }
+
+    /* 4. Tyssedal et al. 2023 (挪威系統回顧) - 北歐極光紫 */
+    .card-theme-purple::before { background: #7c3aed !important; }
+    .card-theme-purple:hover { border-color: #7c3aed !important; }
+    .card-theme-purple .paper-tag { background: #ede9fe; color: #6d28d9; }
+    .card-theme-purple .btn-read-deep {
+      background: linear-gradient(135deg, #6d28d9 0%, #7c3aed 100%);
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+    }
+    .card-theme-purple .btn-read-deep:hover {
+      background: linear-gradient(135deg, #5b21b6 0%, #6d28d9 100%);
+      box-shadow: 0 6px 16px rgba(124, 58, 237, 0.35);
+    }
+
+    /* 5. Hawkins et al. 2019 (愛丁堡回顧) - 沉穩湖水青 */
+    .card-theme-cyan::before { background: #0891b2 !important; }
+    .card-theme-cyan:hover { border-color: #0891b2 !important; }
+    .card-theme-cyan .paper-tag { background: #cffafe; color: #0e7490; }
+    .card-theme-cyan .btn-read-deep {
+      background: linear-gradient(135deg, #0e7490 0%, #0891b2 100%);
+      box-shadow: 0 4px 12px rgba(8, 145, 178, 0.25);
+    }
+    .card-theme-cyan .btn-read-deep:hover {
+      background: linear-gradient(135deg, #155e75 0%, #0e7490 100%);
+      box-shadow: 0 6px 16px rgba(8, 145, 178, 0.35);
+    }
+
+    /* 6. Calvo et al. 2016 (西班牙長週期) - 熱情玫瑰紅 */
+    .card-theme-rose::before { background: #e11d48 !important; }
+    .card-theme-rose:hover { border-color: #e11d48 !important; }
+    .card-theme-rose .paper-tag { background: #ffe4e6; color: #be123c; }
+    .card-theme-rose .btn-read-deep {
+      background: linear-gradient(135deg, #be123c 0%, #e11d48 100%);
+      box-shadow: 0 4px 12px rgba(225, 29, 72, 0.25);
+    }
+    .card-theme-rose .btn-read-deep:hover {
+      background: linear-gradient(135deg, #9f1239 0%, #be123c 100%);
+      box-shadow: 0 6px 16px rgba(225, 29, 72, 0.35);
     }
 
     .paper-tags-row {
@@ -239,9 +315,6 @@
       display: inline-block;
     }
 
-    .paper-tag-canine { background: #ccfbf1; color: #0f766e; }
-    .paper-tag-equine { background: #fef3c7; color: #b45309; }
-
     .paper-title {
       font-size: 1.25rem;
       font-weight: 800;
@@ -258,7 +331,7 @@
 
     .paper-highlight {
       background: #f8fafc;
-      border-left: 3px solid #38bdf8;
+      border-left: 3px solid #94a3b8;
       padding: 0.9rem 1rem;
       border-radius: 0 10px 10px 0;
       font-size: 0.98rem;
@@ -287,14 +360,13 @@
       color: #b45309;
     }
 
-    /* 點擊展開按鈕 */
+    /* 點擊展開按鈕通用 */
     .btn-read-deep {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
       width: 100%;
-      background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
       color: #ffffff;
       padding: 0.8rem 1.2rem;
       border-radius: 12px;
@@ -302,24 +374,11 @@
       font-weight: bold;
       border: none;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(13, 148, 136, 0.25);
       transition: all 0.2s ease;
     }
 
     .btn-read-deep:hover {
-      background: linear-gradient(135deg, #115e59 0%, #0f766e 100%);
       transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(13, 148, 136, 0.35);
-    }
-
-    .btn-read-deep.amber-btn {
-      background: linear-gradient(135deg, #b45309 0%, #d97706 100%);
-      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);
-    }
-
-    .btn-read-deep.amber-btn:hover {
-      background: linear-gradient(135deg, #92400e 0%, #b45309 100%);
-      box-shadow: 0 6px 16px rgba(217, 119, 6, 0.35);
     }
 
     /* 概念小卡片 */
@@ -599,7 +658,7 @@
       </div>
     </section>
 
-    <!-- 單篇文獻萃取庫 -->
+    <!-- 單篇文獻萃取庫 (六大文獻每框顏色各具特色) -->
     <section class="section-card">
       <div class="section-header">
         <div class="section-title-wrap">
@@ -610,11 +669,11 @@
       </div>
 
       <div class="grid-2">
-        <!-- Paper 1: Chen et al. 2021 (台灣長庚/台大，如您截圖所示) -->
-        <div class="paper-card">
+        <!-- Paper 1: Chen et al. 2021 (翡翠青綠 Theme) -->
+        <div class="paper-card card-theme-teal">
           <div class="paper-header">
             <div class="paper-tags-row">
-              <span class="paper-tag paper-tag-canine">隨機對照試驗 (RCT)</span>
+              <span class="paper-tag">隨機對照試驗 (RCT)</span>
               <span style="font-size: 0.88rem; color: #0f766e; font-weight: bold;">n = 40 (0% 脫落率)</span>
             </div>
             <h3 class="paper-title">Chen et al. (2021) 台灣長庚與台大職能治療團隊</h3>
@@ -632,12 +691,12 @@
           </button>
         </div>
 
-        <!-- Paper 2: Peraile-Huerta et al. 2026 -->
-        <div class="paper-card">
+        <!-- Paper 2: Peraile-Huerta et al. 2026 (科技海洋藍 Theme) -->
+        <div class="paper-card card-theme-blue">
           <div class="paper-header">
             <div class="paper-tags-row">
-              <span class="paper-tag paper-tag-canine">PRISMA 統合分析</span>
-              <span style="font-size: 0.88rem; color: #64748b; font-weight: bold;">n = 408 (12 篇研究)</span>
+              <span class="paper-tag">PRISMA 統合分析</span>
+              <span style="font-size: 0.88rem; color: #1d4ed8; font-weight: bold;">n = 408 (12 篇研究)</span>
             </div>
             <h3 class="paper-title">Peraile-Huerta et al. (2026) 最新統合分析</h3>
             <p class="paper-meta">Complementary Therapies in Medicine｜全球最新統合實證標竿</p>
@@ -654,11 +713,11 @@
           </button>
         </div>
 
-        <!-- Paper 3: Öztürk et al. 2025 -->
-        <div class="paper-card equine">
+        <!-- Paper 3: Öztürk et al. 2025 (暖陽大地橙 Theme) -->
+        <div class="paper-card card-theme-amber">
           <div class="paper-header">
             <div class="paper-tags-row">
-              <span class="paper-tag paper-tag-equine">隨機對照試驗 (RCT)</span>
+              <span class="paper-tag">隨機對照試驗 (RCT)</span>
               <span style="font-size: 0.88rem; color: #b45309; font-weight: bold;">n = 61 (馬術治療)</span>
             </div>
             <h3 class="paper-title">Öztürk et al. (2025) 土耳其馬術 RCT</h3>
@@ -671,17 +730,17 @@
             <div class="public-label">🌟 大眾生活解讀</div>
             騎在幾百公斤的大馬背上，俯瞰世界的視野被徹底翻轉，重拾尊嚴感與掌控力，大幅消融深層孤獨。
           </div>
-          <button class="btn-read-deep amber-btn" onclick="openArticleModal('ozturk2025')">
+          <button class="btn-read-deep" onclick="openArticleModal('ozturk2025')">
             🐴 點此點開查看 2025 土耳其馬術 RCT 完整筆記 &rarr;
           </button>
         </div>
 
-        <!-- Paper 4: Tyssedal et al. 2023 -->
-        <div class="paper-card">
+        <!-- Paper 4: Tyssedal et al. 2023 (北歐極光紫 Theme) -->
+        <div class="paper-card card-theme-purple">
           <div class="paper-header">
             <div class="paper-tags-row">
-              <span class="paper-tag paper-tag-canine">系統性回顧</span>
-              <span style="font-size: 0.88rem; color: #64748b; font-weight: bold;">11 篇研究 (RoB2 評估)</span>
+              <span class="paper-tag">系統性回顧</span>
+              <span style="font-size: 0.88rem; color: #6d28d9; font-weight: bold;">11 篇研究 (RoB2 評估)</span>
             </div>
             <h3 class="paper-title">Tyssedal et al. (2023) 挪威犬類介入系統回顧</h3>
             <p class="paper-meta">Nordic Journal of Psychiatry｜GRADE & RoB2 實證評估</p>
@@ -698,12 +757,12 @@
           </button>
         </div>
 
-        <!-- Paper 5: Hawkins et al. 2019 -->
-        <div class="paper-card">
+        <!-- Paper 5: Hawkins et al. 2019 (沉穩湖水青 Theme) -->
+        <div class="paper-card card-theme-cyan">
           <div class="paper-header">
             <div class="paper-tags-row">
-              <span class="paper-tag paper-tag-canine">早期系統性回顧</span>
-              <span style="font-size: 0.88rem; color: #64748b; font-weight: bold;">7 項 RCT</span>
+              <span class="paper-tag">早期系統性回顧</span>
+              <span style="font-size: 0.88rem; color: #0e7490; font-weight: bold;">7 項 RCT</span>
             </div>
             <h3 class="paper-title">Hawkins et al. (2019) 英國愛丁堡大學系統回顧</h3>
             <p class="paper-meta">BMC Psychiatry｜早期臨床實證基線與動物福祉倡議</p>
@@ -720,12 +779,12 @@
           </button>
         </div>
 
-        <!-- Paper 6: Calvo et al. 2016 -->
-        <div class="paper-card">
+        <!-- Paper 6: Calvo et al. 2016 (熱情玫瑰紅 Theme) -->
+        <div class="paper-card card-theme-rose">
           <div class="paper-header">
             <div class="paper-tags-row">
-              <span class="paper-tag paper-tag-canine">隨機對照試驗 (RCT)</span>
-              <span style="font-size: 0.88rem; color: #64748b; font-weight: bold;">n = 24 (6 個月長週期)</span>
+              <span class="paper-tag">隨機對照試驗 (RCT)</span>
+              <span style="font-size: 0.88rem; color: #be123c; font-weight: bold;">n = 24 (6 個月長週期)</span>
             </div>
             <h3 class="paper-title">Calvo et al. (2016) 西班牙長週期 RCT</h3>
             <p class="paper-meta">Frontiers in Psychology｜唾液皮質醇生化指標檢測</p>
@@ -944,7 +1003,7 @@
           <span style="font-size: 0.85rem; color: #64748b;" id="modalPath"></span>
         </div>
         <div class="modal-header-actions">
-          <a id="modalGitHubLink" href="#" target="_blank" style="font-size: 0.9rem; color: #0284c7; text-decoration: underline; font-weight: bold;">在 GitHub 查看</a>
+          <a id="modalGitHubLink" href="#" target="_blank" style="font-size: 0.92rem; color: #0284c7; text-decoration: underline; font-weight: bold;">在 GitHub 原始頁面開啟 ↗</a>
           <button class="modal-btn-close" onclick="closeModal()">✕</button>
         </div>
       </div>
@@ -961,7 +1020,7 @@
 
       document.getElementById('modalTitle').textContent = article.Title;
       document.getElementById('modalPath').textContent = '檔案路徑：' + article.Path;
-      document.getElementById('modalGitHubLink').href = article.Path;
+      document.getElementById('modalGitHubLink').href = 'https://github.com/Ivy921102/schizophrenia-aat-wiki/blob/main/' + article.Path;
 
       // 使用 marked 解析 Markdown 渲染為完整內容
       document.getElementById('modalContent').innerHTML = marked.parse(article.Content || '');
