@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>動物輔助治療 × 思覺失調症負性症狀：LLM Wiki 與教學展示系統</title>
+  <title>動物輔助治療 × 思覺失調症負性症狀：LLM Wiki 知識庫</title>
   <!-- Mermaid.js for Rendering Diagrams -->
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   <script>mermaid.initialize({ startOnLoad: true, theme: 'dark' });</script>
@@ -34,12 +34,12 @@
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 2.5rem 1.5rem 5rem;
+      padding: 3rem 1.5rem 5rem;
     }
 
     header {
       text-align: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem;
     }
 
     .pill {
@@ -56,7 +56,7 @@
     }
 
     h1.hero-title {
-      font-size: 2.5rem;
+      font-size: 2.6rem;
       font-weight: 800;
       line-height: 1.25;
       margin-bottom: 1rem;
@@ -66,61 +66,53 @@
     }
 
     p.hero-subtitle {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       color: var(--text-muted);
-      max-width: 800px;
+      max-width: 820px;
       margin: 0 auto;
     }
 
-    /* Tab Switcher */
-    .tab-bar {
+    /* Action bar */
+    .action-bar {
       display: flex;
       justify-content: center;
-      gap: 0.75rem;
-      margin-bottom: 2.5rem;
+      gap: 1.25rem;
+      margin: 2.5rem 0;
       flex-wrap: wrap;
     }
 
-    .tab-btn {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      color: var(--text-muted);
-      padding: 0.75rem 1.5rem;
-      border-radius: 9999px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: flex;
+    .btn {
+      display: inline-flex;
       align-items: center;
       gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 9999px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
     }
 
-    .tab-btn:hover {
-      color: var(--text);
-      border-color: var(--primary);
-    }
-
-    .tab-btn.active {
-      background: var(--primary);
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-hover));
       color: #fff;
-      border-color: var(--primary);
       box-shadow: 0 4px 14px rgba(13, 148, 136, 0.4);
     }
 
-    /* Tab Contents */
-    .tab-content {
-      display: none;
-      animation: fadeIn 0.3s ease;
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(13, 148, 136, 0.6);
     }
 
-    .tab-content.active {
-      display: block;
+    .btn-secondary {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text);
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
     }
 
     /* Cards & Layout */
@@ -128,8 +120,8 @@
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 1.25rem;
-      padding: 2rem;
-      margin-bottom: 2rem;
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
       box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
     }
 
@@ -137,7 +129,7 @@
       font-size: 1.6rem;
       font-weight: 700;
       color: #fff;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
       display: flex;
       align-items: center;
       gap: 0.6rem;
@@ -148,71 +140,78 @@
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+      gap: 1.75rem;
     }
 
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
+      gap: 1.5rem;
     }
 
-    .cta-card {
-      background: linear-gradient(135deg, rgba(13, 148, 136, 0.2), rgba(56, 189, 248, 0.1));
-      border: 1px solid var(--primary);
-      border-radius: 1.25rem;
-      padding: 2.25rem;
-      text-align: center;
-      margin-bottom: 2.5rem;
+    .source-item {
+      background: rgba(15, 23, 42, 0.5);
+      border: 1px solid var(--card-border);
+      border-radius: 0.85rem;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+      transition: border-color 0.2s;
     }
 
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: linear-gradient(135deg, var(--primary), var(--primary-hover));
-      color: #fff;
-      padding: 0.85rem 2rem;
-      border-radius: 9999px;
+    .source-item:hover {
+      border-color: var(--primary);
+    }
+
+    .source-title {
       font-size: 1.05rem;
       font-weight: 700;
-      text-decoration: none;
-      box-shadow: 0 4px 14px rgba(13, 148, 136, 0.4);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(13, 148, 136, 0.6);
-    }
-
-    /* Table styling */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.25rem 0;
-      font-size: 0.95rem;
-    }
-
-    th, td {
-      padding: 0.85rem 1rem;
-      border: 1px solid var(--card-border);
-      text-align: left;
-    }
-
-    th {
-      background: rgba(15, 23, 42, 0.75);
       color: var(--accent);
-      font-weight: 700;
+      margin-bottom: 0.35rem;
     }
 
-    tr:nth-child(even) {
-      background: rgba(255, 255, 255, 0.02);
+    .source-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
     }
 
-    /* Code & Callout */
-    pre, code {
-      font-family: Consolas, Monaco, "Andale Mono", monospace;
+    .source-stat {
+      font-size: 0.95rem;
+      color: #e2e8f0;
+      line-height: 1.5;
+    }
+
+    .badge-tag {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent);
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.35rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-right: 0.35rem;
+    }
+
+    .concept-box {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--card-border);
+      border-radius: 0.85rem;
+      padding: 1.25rem;
+    }
+
+    .concept-box h3 {
+      font-size: 1.15rem;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .concept-box p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
     }
 
     .mermaid {
@@ -223,32 +222,10 @@
       overflow-x: auto;
     }
 
-    .callout {
-      background: rgba(15, 23, 42, 0.6);
-      border-left: 4px solid var(--secondary);
-      border-radius: 0.5rem;
-      padding: 1rem 1.25rem;
-      margin: 1rem 0;
-    }
-
-    .callout strong { color: var(--secondary); }
-
-    /* File Link pills */
-    .file-badge {
-      display: inline-block;
-      background: rgba(56, 189, 248, 0.15);
-      color: var(--accent);
-      padding: 0.2rem 0.6rem;
-      border-radius: 0.4rem;
-      font-size: 0.85rem;
-      font-family: monospace;
-      margin: 0.2rem 0;
-    }
-
     @media (max-width: 768px) {
       h1.hero-title { font-size: 1.85rem; }
       .grid-2, .grid-3 { grid-template-columns: 1fr; }
-      .card { padding: 1.25rem; }
+      .card { padding: 1.5rem; }
     }
   </style>
 </head>
@@ -256,220 +233,198 @@
 
   <div class="container">
     <header>
-      <div class="pill">生成式 AI 第十週作業成果專區</div>
+      <div class="pill">Andrej Karpathy LLM Wiki Pattern</div>
       <h1 class="hero-title">動物輔助治療 × 思覺失調症負性症狀</h1>
-      <p class="hero-subtitle">基於 Andrej Karpathy LLM Wiki 模式建立之持久複利型知識庫、教學簡報與反思報告</p>
-    </header>
+      <p class="hero-subtitle">
+        專門整理「動物輔助治療（AAT）對思覺失調症負性症狀之療效、機制與大眾轉譯」的持久複利型文獻知識庫
+      </p>
 
-    <!-- Navigation Tabs -->
-    <div class="tab-bar">
-      <button class="tab-btn active" onclick="switchTab('presentation-tab')">🎓 教學型 HTML 簡報</button>
-      <button class="tab-btn" onclick="switchTab('wiki-tab')">📚 LLM Wiki 知識庫總覽</button>
-      <button class="tab-btn" onclick="switchTab('loop-tab')">🔄 Loop / Graph 設計說明</button>
-      <button class="tab-btn" onclick="switchTab('reflection-tab')">📝 執行紀錄與深度反思</button>
-    </div>
-
-    <!-- TAB 1: 教學型簡報入口 -->
-    <div id="presentation-tab" class="tab-content active">
-      <div class="cta-card">
-        <h2 style="font-size: 2rem; margin-bottom: 0.75rem; color: #fff;">🐾 《打破沉默的爪印》教學簡報</h2>
-        <p style="font-size: 1.15rem; color: var(--text-muted); margin-bottom: 1.75rem; max-width: 750px; margin-left: auto; margin-right: auto;">
-          本簡報專為初學者與社會大眾設計，將艱澀的精神醫學量表與神經生物學，轉化為有溫度的故事。支援鍵盤左右鍵（← / →）及手機滑動瀏覽。
-        </p>
-        <a href="presentation.html" class="btn-primary" target="_blank">
-          <span>🚀 點此開啟「全螢幕教學簡報」 (presentation.html)</span>
+      <div class="action-bar">
+        <a href="presentation.html" class="btn btn-primary" target="_blank">
+          <span>🐾 開啟教學 HTML 簡報 (presentation.html)</span>
+        </a>
+        <a href="https://github.com/Ivy921102/schizophrenia-aat-wiki" class="btn btn-secondary" target="_blank">
+          <span>💻 瀏覽 GitHub 儲存庫源碼</span>
         </a>
       </div>
+    </header>
 
-      <div class="card">
-        <h2 class="section-title">📖 簡報核心教學大綱</h2>
-        <div class="grid-3">
-          <div style="background: rgba(15,23,42,0.5); padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--card-border);">
-            <h3 style="color: var(--secondary); margin-bottom: 0.5rem;">第一單元：認識隱形枷鎖</h3>
-            <p style="font-size: 0.9rem; color: var(--text-muted);">
-              破解大眾對思覺失調「只有幻覺妄想」的迷思。深入淺出解析什麼是偷走生活動力的「負性症狀」（動機缺乏、情感平淡、社交退縮、無快感症）。
-            </p>
+    <!-- 1. 知識庫總覽 -->
+    <div class="card">
+      <h2 class="section-title">📖 知識庫核心架構與原則</h2>
+      <div class="grid-3">
+        <div class="concept-box">
+          <h3>⚡ 知識持續複利</h3>
+          <p>知識不隨對話結束而消散。每篇文獻讀入後，持續沉澱、交叉鏈結、標註矛盾與演化假說，使知識庫持續增益。</p>
+        </div>
+        <div class="concept-box">
+          <h3>🔒 原始文獻不可變</h3>
+          <p><code>raw/</code> 目錄為唯一真實來源（Source of Truth），存放 6 篇完整論文 PDF，唯讀且不可被任意竄改。</p>
+        </div>
+        <div class="concept-box">
+          <h3>🌟 大眾轉譯與去污名化</h3>
+          <p>走出學術象牙塔！所有文獻摘要與實體頁，皆強制包含平易近人的「臨床生活功能意涵」，促進社會理解。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. 單篇文獻萃取庫 (Sources) -->
+    <div class="card">
+      <h2 class="section-title">📚 單篇文獻萃取庫 (wiki/sources/，共 6 篇)</h2>
+      <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+        每篇文獻均包含：研究設計、樣本量、量表統計顯著性（p值、效應值）、偏誤評估與大眾生活轉譯。
+      </p>
+
+      <div class="source-item">
+        <div class="source-title">Peraile-Huerta et al. (2026) — 系統性回顧與統合分析 (Meta-Analysis)</div>
+        <div class="source-meta">
+          <span class="badge-tag">Meta-Analysis</span>
+          <span class="badge-tag">PRISMA</span>
+          <span class="badge-tag">n=408</span>
+          <em>Complementary Therapies in Medicine</em>
+        </div>
+        <div class="source-stat">
+          <strong>實證標竿：</strong>確立動物輔助治療對思覺失調負性症狀具備<strong>統計顯著的中等改善效應值（SMD = -0.51, 95% CI [-0.95, -0.07], p &lt; 0.05）</strong>；敏感度分析證實犬類介入效果穩健。
+        </div>
+      </div>
+
+      <div class="source-item">
+        <div class="source-title">Chen et al. (2021) — 台灣長庚／台大犬類輔助治療隨機對照試驗 (RCT)</div>
+        <div class="source-meta">
+          <span class="badge-tag">RCT</span>
+          <span class="badge-tag">Taiwan</span>
+          <span class="badge-tag">n=40</span>
+          <em>Frontiers in Psychiatry</em>
+        </div>
+        <div class="source-stat">
+          <strong>實證標竿：</strong>12 週犬類介入對中老年慢性個案之 PANSS 負性症狀呈現<strong>大效應值改善（SRD = 0.50, p &lt; 0.001）</strong>，達成 0% 脫落率，建立四階社交鷹架操作模型。
+        </div>
+      </div>
+
+      <div class="source-item">
+        <div class="source-title">Öztürk et al. (2025) — 土耳其馬匹輔助治療隨機對照試驗 (Equine RCT)</div>
+        <div class="source-meta">
+          <span class="badge-tag">Equine RCT</span>
+          <span class="badge-tag">n=61</span>
+          <em>Journal of Psychosocial Nursing and Mental Health Services</em>
+        </div>
+        <div class="source-stat">
+          <strong>實證標竿：</strong>揭示馬匹介入大幅消融孤獨感（d = 0.99）與提升生活品質（d = 1.93），但 PANSS 負性次量表組間無顯著差異（p = 0.610），展現跨動物媒介分歧。
+        </div>
+      </div>
+
+      <div class="source-item">
+        <div class="source-title">Calvo et al. (2016) — 西班牙 6 個月常規復健輔助犬類 RCT</div>
+        <div class="source-meta">
+          <span class="badge-tag">RCT</span>
+          <span class="badge-tag">Biomarker</span>
+          <span class="badge-tag">n=24</span>
+          <em>Frontiers in Psychology</em>
+        </div>
+        <div class="source-stat">
+          <strong>實證標竿：</strong>客觀檢測唾液皮質醇（Cortisol），證實與犬隻互動 1 小時後<strong>壓力荷爾蒙顯著下降 (p &lt; 0.05)</strong>；AAT 組出席率高達 92.9%（對照組僅 61.2%）。
+        </div>
+      </div>
+
+      <div class="source-item">
+        <div class="source-title">Tyssedal et al. (2023) — 挪威犬類輔助介入系統性回顧 (GRADE &amp; RoB2)</div>
+        <div class="source-meta">
+          <span class="badge-tag">Systematic Review</span>
+          <span class="badge-tag">GRADE</span>
+          <span class="badge-tag">11 Studies</span>
+          <em>Frontiers in Psychiatry</em>
+        </div>
+        <div class="source-stat">
+          <strong>實證標竿：</strong>專門梳理犬類介入研究之偏誤風險與證據等級，深入剖析積極對照組與盲法限制對統計結果之影響。
+        </div>
+      </div>
+
+      <div class="source-item">
+        <div class="source-title">Hawkins et al. (2019) — 愛丁堡大學思覺失調動物輔助介入早期系統性回顧</div>
+        <div class="source-meta">
+          <span class="badge-tag">Systematic Review</span>
+          <span class="badge-tag">Animal Welfare</span>
+          <span class="badge-tag">7 RCTs</span>
+          <em>Journal of Psychiatric Research</em>
+        </div>
+        <div class="source-stat">
+          <strong>實證標竿：</strong>建立早期實證基線，率先嚴肅倡議「健康一體（One Welfare / IAHAIO）」之動物福祉與倫理審查規範。
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. 核心概念網絡 (Concepts) -->
+    <div class="card">
+      <h2 class="section-title">🧠 核心概念與實體網絡 (wiki/concepts/)</h2>
+      <div class="grid-2">
+        <div>
+          <h3 style="color: var(--accent); margin-bottom: 1rem;">負性症狀細項 (Symptoms)</h3>
+          <div class="concept-box" style="margin-bottom: 1rem;">
+            <strong>動機缺乏 (Avolition)</strong>
+            <p>解讀大腦目標導向行為「引擎熄火」本質；動物作為外接啟動馬達，破除「懶惰怠惰」的社會污名。</p>
           </div>
-          <div style="background: rgba(15,23,42,0.5); padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--card-border);">
-            <h3 style="color: var(--primary); margin-bottom: 0.5rem;">第二單元：科學實證與機轉</h3>
-            <p style="font-size: 0.9rem; color: var(--text-muted);">
-              解讀 2026 最新統合分析（SMD = -0.51 顯著療效）。揭開身體不會說謊的生理機轉：催產素注視循環、唾液皮質醇壓力下降與非評判性安全感。
-            </p>
+          <div class="concept-box" style="margin-bottom: 1rem;">
+            <strong>社交退縮 (Asociality)</strong>
+            <p>治療犬作為非評判性第三者話題，消除人際防禦心理，重新搭建群體社交鷹架。</p>
           </div>
-          <div style="background: rgba(15,23,42,0.5); padding: 1.25rem; border-radius: 0.75rem; border: 1px solid var(--card-border);">
-            <h3 style="color: var(--accent); margin-bottom: 0.5rem;">第三單元：臨床抉擇與關懷</h3>
-            <p style="font-size: 0.9rem; color: var(--text-muted);">
-              犬類（破冰動機）vs 馬匹（消融孤獨重塑尊嚴）之臨床對比。給家屬的溫暖處方：撕下懶惰標籤，落實雙向福祉（One Welfare）。
-            </p>
+          <div class="concept-box" style="margin-bottom: 1rem;">
+            <strong>情感平淡 (Blunted Affect)</strong>
+            <p>解析「內在感受猶在、外在表達受阻」病理，藉由人犬肢體觸摸與鏡像神經元喚醒面部微表情。</p>
+          </div>
+          <div class="concept-box">
+            <strong>無快感症 (Anhedonia)</strong>
+            <p>多感官愉悅刺激；Nathans-Barel 研究證實介入 5 週後快感感受力（Hedonic tone）顯著回升。</p>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="color: var(--secondary); margin-bottom: 1rem;">身心機轉與介入 (Mechanisms &amp; Interventions)</h3>
+          <div class="concept-box" style="margin-bottom: 1rem;">
+            <strong>催產素神經迴路 (Oxytocin Hypothesis)</strong>
+            <p>人犬互相注視撫摸激發中樞催產素釋放，下調杏仁核恐懼，重塑哺乳動物生物級安全信任感。</p>
+          </div>
+          <div class="concept-box" style="margin-bottom: 1rem;">
+            <strong>皮質醇壓力調節 (Cortisol/HPA Axis)</strong>
+            <p>西班牙唾液檢驗實證，與治療犬互動促使游離皮質醇快速回落，生理層面解除慢性神經緊繃。</p>
+          </div>
+          <div class="concept-box" style="margin-bottom: 1rem;">
+            <strong>社交鷹架理論 (Social Scaffolding)</strong>
+            <p>台灣團隊四階職能復健模型：感官接觸 $\rightarrow$ 認知指令 $\rightarrow$ 生活任務 $\rightarrow$ 群體社交泛化。</p>
+          </div>
+          <div class="concept-box">
+            <strong>犬類 vs 馬匹介入成效分歧 (Canine vs Equine)</strong>
+            <p>剖析為何「犬類強在負性症狀破冰、馬匹強在孤獨感消融與生活品質重塑」之媒介特異性。</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- TAB 2: LLM Wiki 知識庫總覽 -->
-    <div id="wiki-tab" class="tab-content">
-      <div class="card">
-        <h2 class="section-title">📂 LLM Wiki 檔案結構與成果清冊</h2>
-        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
-          本知識庫嚴格遵守 Karpathy LLM Wiki 模式，將不可變的原始論文（<code>raw/</code>）提煉為持續複利的實體網絡（<code>wiki/</code>），並由 <code>AGENTS.md</code> 系統憲法統籌維護。
-        </p>
-
-        <div class="grid-2">
-          <div>
-            <h3 style="color: var(--accent); margin-bottom: 0.75rem;">📚 原始文獻庫 (Raw Sources, n=6)</h3>
-            <ul style="list-style: none; line-height: 1.8; font-size: 0.9rem;">
-              <li><span class="file-badge">raw/2026-peraile-huerta-aat-psychosis-meta.pdf</span> (2026 最新統合分析)</li>
-              <li><span class="file-badge">raw/2025-ozturk-equine-aat-rct.pdf</span> (土耳其 2025 馬術 RCT)</li>
-              <li><span class="file-badge">raw/2023-tyssedal-dog-assisted-review.pdf</span> (挪威犬類介入系統性回顧)</li>
-              <li><span class="file-badge">raw/2021-chen-dog-aat-taiwan-rct.pdf</span> (台灣長庚/台大犬類 RCT)</li>
-              <li><span class="file-badge">raw/2019-hawkins-aat-schizophrenia-review.pdf</span> (愛丁堡大學早期回顧)</li>
-              <li><span class="file-badge">raw/2016-calvo-dog-aat-rehab-rct.pdf</span> (西班牙長週期皮質醇檢測 RCT)</li>
-            </ul>
-          </div>
-          <div>
-            <h3 style="color: var(--secondary); margin-bottom: 0.75rem;">🧠 核心概念與實體頁 (Concepts)</h3>
-            <ul style="list-style: none; line-height: 1.8; font-size: 0.9rem;">
-              <li><span class="file-badge">wiki/concepts/symptoms/avolition.md</span> (動機缺乏)</li>
-              <li><span class="file-badge">wiki/concepts/symptoms/asociality.md</span> (社交退縮)</li>
-              <li><span class="file-badge">wiki/concepts/symptoms/blunted-affect.md</span> (情感平淡)</li>
-              <li><span class="file-badge">wiki/concepts/symptoms/anhedonia.md</span> (無快感症)</li>
-              <li><span class="file-badge">wiki/concepts/interventions/canine-aat.md</span> (犬類輔助治療)</li>
-              <li><span class="file-badge">wiki/concepts/interventions/equine-aat.md</span> (馬匹輔助治療)</li>
-              <li><span class="file-badge">wiki/concepts/mechanisms/oxytocin.md</span> (催產素神經迴路)</li>
-              <li><span class="file-badge">wiki/concepts/mechanisms/cortisol-hpa.md</span> (皮質醇壓力調節)</li>
-              <li><span class="file-badge">wiki/concepts/mechanisms/social-scaffolding.md</span> (社交鷹架理論)</li>
-            </ul>
-          </div>
-        </div>
-
-        <div style="margin-top: 1.5rem;">
-          <h3 style="color: #34d399; margin-bottom: 0.75rem;">⚖️ 專案比較、綜述與方法學分析</h3>
-          <div class="grid-3" style="font-size: 0.9rem;">
-            <div>
-              <strong>比較矩陣 (Comparisons)</strong>
-              <ul style="list-style: none; margin-top: 0.5rem; line-height: 1.6;">
-                <li><span class="file-badge">negative-symptoms-meta-comparison.md</span></li>
-                <li><span class="file-badge">canine-vs-equine.md</span></li>
-              </ul>
-            </div>
-            <div>
-              <strong>大眾綜述 (Syntheses)</strong>
-              <ul style="list-style: none; margin-top: 0.5rem; line-height: 1.6;">
-                <li><span class="file-badge">from-isolation-to-connection.md</span></li>
-              </ul>
-            </div>
-            <div>
-              <strong>方法學評估 (Methodology)</strong>
-              <ul style="list-style: none; margin-top: 0.5rem; line-height: 1.6;">
-                <li><span class="file-badge">active-control-challenges.md</span></li>
-                <li><span class="file-badge">blind-assessment-limitations.md</span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- TAB 3: Loop / Graph 設計說明 -->
-    <div id="loop-tab" class="tab-content">
-      <div class="card">
-        <h2 class="section-title">🔄 Loop / Graph 流程圖架構 (作業步驟三)</h2>
-        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
-          以下為本系統中，資訊如何從「原始文獻取得 $\rightarrow$ 結構化提案 $\rightarrow$ 人機確認 $\rightarrow$ Wiki 複利 $\rightarrow$ 健康檢查 $\rightarrow$ 教學簡報生成」的完整資訊流動圖譜：
-        </p>
-
-        <div class="mermaid">
-graph TD
-    A[原始文獻匯入 raw/] --> B[Ingest 研讀與提案階段]
-    B --> C{人機審核門檻<br>Proposal Review}
+    <!-- 4. 知識庫流動圖譜 -->
+    <div class="card">
+      <h2 class="section-title">🔄 知識庫建置與演化圖譜 (Workflow Graph)</h2>
+      <div class="mermaid">
+graph LR
+    Raw[raw/ 原始文獻庫<br>6 篇不可變 PDF] --> Ingest[兩階段 Ingest 流程<br>提案與人機審核]
+    Ingest --> Sources[wiki/sources/<br>單篇文獻結構化萃取]
     
-    C -- 需調整/補充 --> B
-    C -- 確認核准 (Confirm) --> D[Commit 寫入 Wiki 網絡]
+    Sources --> Concepts[wiki/concepts/<br>四大實體：症狀/介入/量表/機轉]
+    Sources --> Comparisons[wiki/comparisons/<br>跨研究效應值比較矩陣]
+    Sources --> Methodology[wiki/methodology/<br>偏誤評估與對照組限制]
+
+    Concepts --> Synthesis[wiki/syntheses/<br>大眾科普綜述：溫柔破冰]
+    Comparisons --> Synthesis
     
-    subgraph Wiki_Compounding [Wiki 知識複利循環]
-        D --> D1[生成 sources/ 論文專頁]
-        D --> D2[更新 concepts/ 實體與矛盾專區]
-        D --> D3[更新 comparisons/ 對比矩陣]
-        D --> D4[追加 log.md & 更新 index.md]
-    end
+    Synthesis --> Presentation[presentation.html<br>教學型 HTML 簡報展示]
 
-    Wiki_Compounding --> E[Lint 知識庫健康檢查 Loop]
-    E --> E1{檢查拓撲/矛盾/大眾轉譯?}
-    E1 -- 發現缺口或孤立節點 --> D
-    E1 -- 通過健檢 --> F[Query 檢索與教學轉譯]
-
-    F --> G[生成旗艦大眾科普綜述<br>from-isolation-to-connection.md]
-    G --> H[產出互動式教學 HTML 簡報<br>presentation.html]
-
-    style C fill:#f59e0b,stroke:#b45309,color:#000,font-weight:bold
-    style E1 fill:#0d9488,stroke:#0f766e,color:#fff,font-weight:bold
-    style H fill:#38bdf8,stroke:#0284c7,color:#000,font-weight:bold
-        </div>
-
-        <h3 style="color: var(--accent); margin: 1.5rem 0 0.75rem;">⚙️ 流程機制的深度解析：</h3>
-        <ol style="padding-left: 1.25rem; line-height: 1.8; color: #cbd5e1;">
-          <li><strong>哪些步驟會重複執行 (Repetitive Loops)？</strong>
-            <br>• <strong>文獻匯入循環 (Ingest Loop)</strong>：每加入一篇新論文，系統便重複執行「提報亮點 $\rightarrow$ 人機對齊 $\rightarrow$ 寫入 Source $\rightarrow$ 拓撲更新概念頁」的完整循環。
-            <br>• <strong>健檢修復循環 (Lint Loop)</strong>：定期掃描有無未建頁的高頻詞、死鏈結或未包含「大眾轉譯」章節的頁面，觸發自動補齊。
-          </li>
-          <li><strong>哪些地方需要檢查或重新生成 (Checkpoints & Re-generation)？</strong>
-            <br>• <strong>提案審核節點 (Proposal Gate)</strong>：在寫入檔案前，由使用者檢查文獻基本數據、第一作者格式是否合規。
-            <br>• <strong>跨文獻矛盾比對點 (Contradiction Check)</strong>：當新文獻（如馬匹研究）與舊文獻（如犬類研究）結論分歧時，強制重新生成 <code>comparisons/</code> 對比矩陣。
-          </li>
-          <li><strong>為什麼這樣設計 (Design Rationales)？</strong>
-            <br>• <strong>防止 LLM 知識幻覺</strong>：杜絕 Agent 默默寫入錯誤數據，確保 <code>raw/</code> 永遠是唯一真實來源。
-            <br>• <strong>實踐 Karpathy 的複利原則</strong>：知識不因對話結束而消散，每次提問與比對都沉澱為 Wiki 永久資產。
-          </li>
-        </ol>
-      </div>
-    </div>
-
-    <!-- TAB 4: 執行紀錄與反思 -->
-    <div id="reflection-tab" class="tab-content">
-      <div class="card">
-        <h2 class="section-title">📝 執行紀錄與深度反思 (作業步驟四)</h2>
-
-        <div class="callout">
-          <strong>📋 一次實際執行的結果與檢查紀錄：</strong>
-          <br>以本次 <code>2021-chen-dog-aat-taiwan-rct.pdf</code> 匯入為例：
-          系統研讀後先向使用者提報結構化數據（40 位中老年個案、0% 脫落率、PANSS 負性症狀大效應值 SRD=0.50）。使用者於審核節點發出修正指示：<em>「第一作者名字請用英文就好」</em>。系統即時修正為 <code>Tzu-Ting Chen et al.</code> 後才正式 Commit 寫入專頁並同步建立 <code>social-scaffolding.md</code> 與 <code>canine-vs-equine.md</code>。
-        </div>
-
-        <h3 style="color: var(--secondary); margin: 1.75rem 0 0.75rem;">🤔 關鍵反思一：哪一個節點最常出錯？</h3>
-        <p style="color: #cbd5e1; line-height: 1.75;">
-          在整個人機協作實務中，<strong>最容易出錯且最常被忽略的節點是「文獻研讀後的初次萃取與格式對齊節點」以及「概念預設假設節點」</strong>。
-          例如：
-          <br>1. AI 容易自作主張將第一作者姓名翻譯為中文，或是將研究結論泛化（抹平對照組差異）；
-          <br>2. 在初期設計 Wiki 架構時，AI 容易忽略「目標讀者是誰」以及「是否包含大眾轉譯」等核心哲學問題，導致生成的內容容易淪為只有專業人士看得懂的枯燥數據堆疊。
-        </p>
-
-        <h3 style="color: var(--primary); margin: 1.75rem 0 0.75rem;">🔍 關鍵反思二：發現問題後，把檢查往前移到了哪一個步驟？</h3>
-        <p style="color: #cbd5e1; line-height: 1.75;">
-          我們將所有的關鍵檢查<strong>「全面大幅度前移（Shift-Left）」</strong>：
-          <br>• <strong>將架構檢查前移到「提問釐清期」</strong>：在碰觸任何檔案之前，透過 5~6 個選擇題，先行確認讀者定位、矛盾處理四維度與大眾轉譯強制項。
-          <br>• <strong>將資料查驗前移到「兩階段 Ingest 的提案期 (Proposal Phase)」</strong>：在 Agent 碰觸 Wiki 檔案層之前，強制在對話中吐出結構化提案。唯有在此門檻檢查過作者英文拼寫、量表數據與轉譯觀點後，才允許寫入磁碟，徹底杜絕了髒資料污染知識庫。
-        </p>
-
-        <h3 style="color: var(--accent); margin: 1.75rem 0 0.75rem;">🛠️ 關鍵反思三：有沒有因此修改 Workflow / Graph？為什麼？</h3>
-        <p style="color: #cbd5e1; line-height: 1.75;">
-          <strong>有，且進行了重大的架構迭代！</strong>
-          <br>我們在 <code>AGENTS.md</code> 中修改了兩大工作流規範：
-          <br>1. <strong>將「Lint 巡檢規範」追加了強制項</strong>：原本 Lint 只檢查「死鏈結與孤立頁面」，修改後強制要求 Lint 必須逐頁巡檢「是否包含合格的【大眾生活功能意涵】專題」，確保科普轉譯的初心不被稀釋。
-          <br>2. <strong>在 Graph 中新增「矛盾拆解分歧閥 (Divergence Resolution Valve)」</strong>：當遇到馬匹研究與犬類研究結果衝突時，不再只是客觀並列，而是強制從「劑量、對照組性質、樣本量、量表敏感度」四維度進行交叉分析，使圖譜具備自我辯證與進化的能力。
-        </p>
+    style Raw fill:#1e293b,stroke:#94a3b8,color:#fff
+    style Sources fill:#0f766e,stroke:#0d9488,color:#fff
+    style Concepts fill:#0369a1,stroke:#38bdf8,color:#fff
+    style Synthesis fill:#b45309,stroke:#f59e0b,color:#fff
+    style Presentation fill:#4338ca,stroke:#818cf8,color:#fff
       </div>
     </div>
 
   </div>
 
-  <script>
-    function switchTab(tabId) {
-      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-
-      event.currentTarget.classList.add('active');
-      document.getElementById(tabId).classList.add('active');
-    }
-  </script>
 </body>
 </html>
