@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>簡報生成 State Graph 流程架構</title>
+  <style>
+    *, *::before, *::after, html, body, h1, h2, h3, p, span, div, a, button {
+      font-family: "標楷體", "BiauKai", "DFKai-SB", "TW-Kai", "KaiTi", serif !important;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #0f172a;
+      color: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem 1rem 3rem 1rem;
+    }
+
+    .toolbar {
+      width: 100%;
+      max-width: 1080px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 14px;
+      padding: 0.85rem 1.3rem;
+    }
+
+    .toolbar-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #f8fafc;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background: #334155;
+      color: #f8fafc;
+      border: 1px solid #475569;
+      padding: 0.45rem 1rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .btn:hover {
+      background: #0d9488;
+      border-color: #14b8a6;
+      color: #ffffff;
+    }
+
+    .btn-primary {
+      background: #0d9488;
+      border-color: #14b8a6;
+    }
+
+    .btn-primary:hover {
+      background: #0f766e;
+    }
+
+    .graph-card {
+      width: 100%;
+      max-width: 1080px;
+      background: #18181b;
+      border: 1.5px solid #3f3f46;
+      border-radius: 20px;
+      padding: 1.2rem;
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.45);
+      display: flex;
+      justify-content: center;
+    }
+
+    .graph-card img {
+      width: 100%;
+      max-width: 1040px;
+      height: auto;
+      border-radius: 12px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="toolbar">
+    <div class="toolbar-title">🗺️ 動物輔助治療 × 思覺失調症簡報生成 State Graph</div>
+    <div class="toolbar-actions">
+      <a href="graph/slide_generation_graph.png" download="slide_generation_graph.png" class="btn btn-primary">⬇️ 下載高解析 PNG 長圖</a>
+      <a href="slides.html" class="btn">📽️ 觀看 15 頁互動簡報</a>
+      <a href="index.html" class="btn">📚 前往 LLM Wiki</a>
+    </div>
+  </header>
+
+  <main class="graph-card">
+    <img src="graph/slide_generation_graph.png" alt="簡報生成 State Graph 四階段完整長圖" />
+  </main>
+
+</body>
+</html>
