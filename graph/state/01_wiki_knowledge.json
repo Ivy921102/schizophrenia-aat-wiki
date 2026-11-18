@@ -1,0 +1,151 @@
+﻿{
+    "extracted_at":  "2026-11-18T18:15:22+08:00",
+    "node":  "Node 1: wiki_extractor",
+    "sources":  [
+                    {
+                        "id":  "2021-chen-dog-aat-taiwan-rct",
+                        "source_path":  "wiki/sources/2021-chen-dog-aat-taiwan-rct.md",
+                        "title":  "犬類輔助治療對中老年思覺失調症患者之隨機對照試驗 (Chen et al., 2021)",
+                        "char_count":  3760,
+                        "has_public_msg":  true,
+                        "public_excerpt":  "\u003e **大眾與家屬視角解讀**：\r\n\u003e 「發病二三十年、已經五十幾歲的家人，整天待在病房或客廳動也不動，真的還能改變嗎？」\r\n\u003e \r\n\u003e 這是許多長期照顧者內心最深沉的嘆息。慢性思覺失調患者常伴隨「機構化生活」——日復一日遵從指令，卻喪失了主動生活的能力與表情。\r\n\u003e \r\n\u003e 這篇台灣在地研究帶給社會最重要的啟發在於：\r\n\u003e 1. **動物能穿透歲月沉積的冷漠**：即使是平均發病超過 15 年的中老年病友，在看到搖著短尾巴的柯基犬、溫和貼心的拉布拉多時，內心深處的柔軟與活力依..."
+                    },
+                    {
+                        "id":  "2026-peraile-huerta-aat-psychosis-meta",
+                        "source_path":  "wiki/sources/2026-peraile-huerta-aat-psychosis-meta.md",
+                        "title":  "動物輔助治療對精神病性疾患患者之療效：系統性回顧與統合分析 (Peraile-Huerta et al., 2026)",
+                        "char_count":  3762,
+                        "has_public_msg":  true,
+                        "public_excerpt":  "\u003e **大眾與家屬視角解讀**：\r\n\u003e 精神醫學界長期面對的殘酷現實是：**現代抗精神病藥物能有效消除幻聽與妄想，但對於讓個案「重燃生活動力、願意開口說話、踏出房門」等負性症狀，常常無能為力**。在日常生活中，個案整日靜坐、情感冷漠，往往被家人或鄰里誤解為「不思進取、無藥可救的懶散」，引發沉重的家庭自責與社會孤立。\r\n\u003e \r\n\u003e 這篇 2026 年的最新統合分析（Meta-analysis）為社會大眾提供了強而有力的科學解答：\r\n\u003e 1. **它不是單純的娛樂，而是具備醫療實..."
+                    },
+                    {
+                        "id":  "2025-ozturk-equine-aat-rct",
+                        "source_path":  "wiki/sources/2025-ozturk-equine-aat-rct.md",
+                        "title":  "馬匹輔助治療對思覺失調症患者療效之隨機對照試驗 (Öztürk et al., 2025)",
+                        "char_count":  3102,
+                        "has_public_msg":  true,
+                        "public_excerpt":  "\u003e **大眾與家屬視角解讀**：\r\n\u003e 「一個連出門都會發抖、觉得自己一事無成的病友，怎麼可能去騎馬？」\r\n\u003e \r\n\u003e 許多家屬起初聽到馬術治療時，往往充滿恐懼。但這篇研究揭示了震撼的心理轉變：\r\n\u003e 1. **馬背上的視野轉換**：長年處於社會邊緣的病友，平時習慣低著頭、承受別人的眼光。當他跨上一匹五百公斤重的高大駿馬時，視野瞬間拔高至兩公尺。這種生理與心理上的「昂首闊步」，徹底粉碎了深層的自卑感。\r\n\u003e 2. **孤獨感的終結**：馬匹是極度敏感的動物，牠能感知騎乘者的心..."
+                    },
+                    {
+                        "id":  "2023-tyssedal-dog-assisted-review",
+                        "source_path":  "wiki/sources/2023-tyssedal-dog-assisted-review.md",
+                        "title":  "犬類輔助介入對成人思覺失調症譜系疾患之系統性回顧 (Tyssedal et al., 2023)",
+                        "char_count":  2869,
+                        "has_public_msg":  true,
+                        "public_excerpt":  "\u003e **大眾與家屬視角解讀**：\r\n\u003e 「狗狗走進病房真的百利而無一害嗎？我們該抱持怎樣的期待？」\r\n\u003e \r\n\u003e 這篇由挪威學者撰寫的嚴謹回顧給了大眾極為清醒而客觀的指引：\r\n\u003e 1. **它不是包治百病的萬靈丹，而是精準的輔助催化劑**：犬類輔助治療在正向情緒、日常生活溝通與緩解壓力上有高度共識，但無法完全取代標準抗精神病藥物。\r\n\u003e 2. **嚴格拒絕「無指導的隨意接觸」**：研究特別提醒，如果只是把狗放進病房讓個案隨意逗弄，缺乏專業動輔師與職能治療師的行為目標引導，有時..."
+                    },
+                    {
+                        "id":  "2019-hawkins-aat-schizophrenia-review",
+                        "source_path":  "wiki/sources/2019-hawkins-aat-schizophrenia-review.md",
+                        "title":  "動物輔助治療對思覺失調症及相關疾患之系統性回顧 (Hawkins et al., 2019)",
+                        "char_count":  2484,
+                        "has_public_msg":  true,
+                        "public_excerpt":  "\u003e **大眾與家屬視角解讀**：\r\n\u003e 「是不是隨便買一隻寵物給生病的家人養，就能治好思覺失調？」\r\n\u003e \r\n\u003e 愛丁堡大學這篇回顧給了大眾最嚴肅的警惕：\r\n\u003e 1. **「養寵物」不等於「動物輔助治療」**：在個案身心狀況極不穩定、缺乏專業引導的情況下，貿然要求個案照顧動物，往往會造成沉重的照顧負擔，甚至可能因挫折或幻覺對動物造成傷害。\r\n\u003e 2. **雙向療癒（One Welfare）的尊重**：治療不是單方面的索取。治療犬在病房中工作，同樣會感到疲憊與壓力。合格的動輔計..."
+                    },
+                    {
+                        "id":  "2016-calvo-dog-aat-rehab-rct",
+                        "source_path":  "wiki/sources/2016-calvo-dog-aat-rehab-rct.md",
+                        "title":  "犬類輔助治療作為思覺失調常規心理社會復健之輔助介入：小型隨機對照試驗 (Calvo et al., 2016)",
+                        "char_count":  3700,
+                        "has_public_msg":  true,
+                        "public_excerpt":  "\u003e **大眾與家屬視角解讀**：\r\n\u003e 「每次叫他去復健中心，他總是找藉口不去，我們真的不知道該怎麼辦……」\r\n\u003e \r\n\u003e 復健出席率低下（60% 上下），是精神復健機構最頭痛的現實。病友並不是故意作對，而是面對冷冰冰的職能訓練，內心感受不到任何樂趣與安全感，反而承受著壓力。\r\n\u003e \r\n\u003e 這篇西班牙研究給出了兩個極具說服力的科學答案：\r\n\u003e 1. **93% 的全勤渴望**：當活動室裡有一隻狗狗在等他時，個案的出席率直接從 61% 飆升至 93%。一位個案說：「如果不去，狗..."
+                    }
+                ],
+    "symptoms":  [
+                     {
+                         "id":  "avolition",
+                         "source_path":  "wiki/concepts/symptoms/avolition.md",
+                         "title":  "動機缺乏 (Avolition)",
+                         "char_count":  2155,
+                         "has_public_msg":  true,
+                         "public_excerpt":  "\u003e **大眾與家屬視角解讀**：\r\n\u003e 當思覺失調個案整天躺在床上、連換衣服、刷牙或出門倒垃圾都顯得千斤重時，身邊的親友往往忍不住責怪：「你就是太懶了、沒有意志力！多出門走走不就好了？」\r\n\u003e \r\n\u003e 事實上，這不是性格缺陷，而是大腦動機系統的「引擎熄火（Avolition）」。個案的大腦在評估「做這件事有什麼意義」時，感受不到任何驅動信號。\r\n\u003e \r\n\u003e 動物輔助治療的魔力在於：**牠不是催促個案「為自己努力」，而是喚醒個案「想為動物做點什麼」的原始本能**。看到狗狗渴望被..."
+                     },
+                     {
+                         "id":  "asociality",
+                         "source_path":  "wiki/concepts/symptoms/asociality.md",
+                         "title":  "社交退縮 (Asociality)",
+                         "char_count":  2155,
+                         "has_public_msg":  true,
+                         "public_excerpt":  "\u003e **大眾與家屬視角解讀**：\r\n\u003e 「整天把自己關在房間裡、家裡來客人就躲起來、連去巷口買便當都不敢」——家屬常誤以為個案「討厭大家、性格古怪」。\r\n\u003e \r\n\u003e 但這往往不是個案的心態問題，而是長年患病後大腦對「人際訊號」感到極端疲憊與恐懼，進而啟動的自我保護機制。面對人類，個案擔心自己說錯話、擔心別人異樣的眼光。\r\n\u003e \r\n\u003e 動物輔助治療最神奇的改變在於：**狗是一座不會給人壓力的安全橋樑**。\r\n\u003e 當兩位長年互不理睬的病友坐在一起時，一隻搖著尾巴的小狗跑了過來。其..."
+                     },
+                     {
+                         "id":  "blunted-affect",
+                         "source_path":  "wiki/concepts/symptoms/blunted-affect.md",
+                         "title":  "情感平淡 (Blunted Affect)",
+                         "char_count":  1839,
+                         "has_public_msg":  true,
+                         "public_excerpt":  "\u003e **大眾與家屬視角解讀**：\n\u003e 「為什麼他看起來總是冷冰冰的？是不是他根本不在乎我們了？」\n\u003e \n\u003e 面對眼神空洞、語調單調如機器人的個案，家屬往往感到心寒。但現代神經科學告訴我們：**個案不是沒有感覺，而是大腦的情緒播放器『喇叭線被剪斷了』**。他的內心可能依然感到溫暖或悲傷，但臉部肌肉與聲帶無法配合展現出來。\n\u003e \n\u003e 動物輔助治療最動人的一幕，往往發生在治療犬輕輕把下巴靠在病友腿上的那一刻。\n\u003e 那個長年被認為「沒有表情」的個案，雙眼會突然亮起來，眼角泛起笑紋，嘴..."
+                     },
+                     {
+                         "id":  "anhedonia",
+                         "source_path":  "wiki/concepts/symptoms/anhedonia.md",
+                         "title":  "無快感症 (Anhedonia)",
+                         "char_count":  1901,
+                         "has_public_msg":  true,
+                         "public_excerpt":  "\u003e **大眾與家屬視角解讀**：\r\n\u003e 「吃山珍海味覺得像嚼蠟、看喜劇笑不出來、過年過節也面無表情」——這是許多思覺失調個案家屬最心痛的日常觀察。外界常誤以為個案「鐵石心腸」或「變冷酷了」，但這其實是罹患了「大腦快樂感知喪失症（Anhedonia）」。\r\n\u003e \r\n\u003e 人類複雜的語言社交往往伴隨著期待與評判，對個案來說充滿壓力；但毛茸茸的小動物卻不同。狗狗溫暖的體溫、柔軟的毛髮、歪著頭舔舔個案手心的模樣，是一種「不需要大腦分析就能直接感受的純粹溫柔」。\r\n\u003e \r\n\u003e 許多原本長..."
+                     }
+                 ],
+    "mechanisms":  [
+                       {
+                           "id":  "oxytocin",
+                           "source_path":  "wiki/concepts/mechanisms/oxytocin.md",
+                           "title":  "催產素神經迴路假說 (Oxytocin Hypothesis)",
+                           "char_count":  1584,
+                           "has_public_msg":  true,
+                           "public_excerpt":  "\u003e **大眾與家屬視角解讀**：\n\u003e 催產素常被科普界稱為「愛的荷爾蒙」或「抱抱荷爾蒙」。它不是什麼神秘的魔法，而是大腦中讓人感到「我是安全的、我可以信任對方」的化學開關。\n\u003e \n\u003e 思覺失調症個案的大腦往往處在極度警戒的狀態，即使面對至親家人，也可能因害怕被批評、或大腦解讀社交訊號困難，而緊緊閉鎖心門。\n\u003e \n\u003e 當個案把手埋進狗狗厚實溫暖的毛皮裡、當狗狗溫馴地把頭擱在個案膝蓋上時，個案的大腦深處就開始悄悄釋放催產素。這種生物層級的安全感，解除了長年緊繃的防衛警報。不需要任..."
+                       },
+                       {
+                           "id":  "cortisol-hpa",
+                           "source_path":  "wiki/concepts/mechanisms/cortisol-hpa.md",
+                           "title":  "皮質醇與壓力反應調節 (HPA Axis Regulation)",
+                           "char_count":  1494,
+                           "has_public_msg":  true,
+                           "public_excerpt":  "\u003e **大眾與家屬視角解讀**：\r\n\u003e 「為什麼個案動不動就情緒緊繃、發脾氣，或整個人縮在那裡一句話都不說？」\r\n\u003e \r\n\u003e 人類身處壓力時，體內會大量分泌「皮質醇（壓力荷爾蒙）」，啟動戰鬥或逃跑反應。\r\n\u003e 很多思覺失調病友的大腦警報器是「失靈的」，常年卡在警報狀態，體內皮質醇居高不下。對他們而言，待在人群中就像站在刺耳的防空警報下，自然會想要逃避或退縮。\r\n\u003e \r\n\u003e 狗狗就像天然的「靜音鍵」與「降壓閥」：\r\n\u003e 當個案靜靜坐著，手掌貼在狗狗規律起伏的背上，感受著牠溫熱的..."
+                       },
+                       {
+                           "id":  "social-scaffolding",
+                           "source_path":  "wiki/concepts/mechanisms/social-scaffolding.md",
+                           "title":  "社交鷹架與動機外接催化 (Social Scaffolding)",
+                           "char_count":  1743,
+                           "has_public_msg":  true,
+                           "public_excerpt":  "\u003e **大眾與家屬視角解讀**：\n\u003e 蓋房子需要鷹架，等牆壁穩固了，鷹架才會拆除；復健也是同樣的道理。\n\u003e \n\u003e 如果我們直接把一個長年躲在房裡的思覺失調個案推進熱鬧的聚會或要求他去面試，這就像在沒有鷹架的情況下要求一個骨折未癒的人去跑馬拉松，只會帶來恐慌與挫敗。\n\u003e \n\u003e 治療犬就是這座最溫柔的「心理鷹架」：\n\u003e 1. 第一步，個案只需要坐著摸摸狗，不需要說一句話，先感受安全。\n\u003e 2. 第二步，治療師鼓勵個案說一聲「坐下」，當狗狗聽話坐下時，個案體驗到「原來我能掌控事物、..."
+                       }
+                   ],
+    "interventions":  [
+                          {
+                              "id":  "canine-aat",
+                              "source_path":  "wiki/concepts/interventions/canine-aat.md",
+                              "title":  "犬類輔助治療 (Canine-Assisted Therapy)",
+                              "char_count":  1969,
+                              "has_public_msg":  true,
+                              "public_excerpt":  "\u003e **大眾與家屬視角解讀**：\r\n\u003e 為什麼在所有動物中，狗狗是最常被選為治療夥伴的？\r\n\u003e \r\n\u003e 因為狗狗演化出了無可取代的「社交超能力」——牠們會主動凝視人類的雙眼、會搖著尾巴迎上前、且完全不在乎眼前的個案是否外表整潔、說話是否流暢、有沒有社會成就。\r\n\u003e \r\n\u003e 在醫院或社區復健中心，我們常看見長年沉默的個案，在牽起治療犬的牽繩時，眼神從渙散轉為專注，開始對著狗說：「好乖，我們慢慢走」。這種在遛狗過程中所展現的主動引導、照顧他人、以及在公共場合被一般民眾投以友善目光..."
+                          },
+                          {
+                              "id":  "equine-aat",
+                              "source_path":  "wiki/concepts/interventions/equine-aat.md",
+                              "title":  "馬術與馬匹輔助治療 (Equine-Assisted Therapy)",
+                              "char_count":  1815,
+                              "has_public_msg":  true,
+                              "public_excerpt":  "\u003e **大眾與家屬視角解讀**：\r\n\u003e 「為什麼面對退縮封閉的個案，我們有時需要『馬』這麼大的動物？」\r\n\u003e \r\n\u003e 狗狗是貼心、柔軟的朋友；而馬，則是一位威嚴卻溫柔的「人生教練」。\r\n\u003e \r\n\u003e 長期患病的思覺失調個案，日常生活中幾乎處於「完全失控」與「被照顧者」的弱勢地位：吃什麼藥由醫師決定、幾點洗澡由家人叮嚀，內心充滿習得性無助。\r\n\u003e \r\n\u003e 但當個案站在馬匹身旁，手握韁繩並騎上馬鞍時，整個權力結構改變了：\r\n\u003e - **他不再是個只能接受指令的病人，而是一名必須挺直..."
+                          }
+                      ],
+    "syntheses":  [
+                      {
+                          "id":  "from-isolation-to-connection",
+                          "source_path":  "wiki/syntheses/from-isolation-to-connection.md",
+                          "title":  "從封閉孤立到溫柔破冰：動物如何走入思覺失調個案的日常",
+                          "char_count":  3299,
+                          "has_public_msg":  false,
+                          "public_excerpt":  ""
+                      }
+                  ],
+    "assets":  [
+                   "assets/cute-bunny.svg",
+                   "assets/cute-cat.svg",
+                   "assets/cute-dog-heart.svg",
+                   "assets/cute-dog-study.svg",
+                   "assets/cute-dog.svg",
+                   "assets/cute-horse.svg",
+                   "assets/cute-paw.svg"
+               ]
+}

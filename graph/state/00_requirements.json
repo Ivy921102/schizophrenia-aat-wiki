@@ -1,0 +1,75 @@
+{
+  "schema_version": "2.0",
+  "updated_at": "2026-11-18T19:51:00+08:00",
+  "graph_mode": "real_file_state_graph",
+  "output_format": "interactive_html_slides",
+  "target_output_file": "slides.html",
+  "hitl_gates": {
+    "gate_0_requirements": "completed",
+    "gate_3_outline_approval": "approved",
+    "gate_5_page_draft_approval": "mandatory_pause",
+    "gate_6_final_acceptance": "mandatory_pause",
+    "max_retries_before_escalation": 3
+  },
+  "audience_and_tone": {
+    "style": "balanced_academic_and_public",
+    "language": "zh-TW",
+    "font_family": "標楷體",
+    "objective_clinical_tone": true,
+    "de_stigmatization": true
+  },
+  "deck_scope": {
+    "page_count_min": 13,
+    "page_count_max": 15,
+    "target_page_count": 15,
+    "max_visible_chars_general_slide": 150,
+    "literature_slides_exempt_from_150_limit": true,
+    "literature_pages": [10, 11, 12],
+    "require_layout_plan_per_slide": true,
+    "minimalist_toc_no_subtitle": true,
+    "swap_cover_title_subtitle": true,
+    "remove_social_scaffolding_intro": true,
+    "aat_intro_and_mechanisms_before_literature": true,
+    "ethics_after_literature": true,
+    "lit_explorer_format": "PICO",
+    "interactive_slides_count": 3,
+    "interactive_slide_types": [
+      "破冰迷思測驗 (Icebreaker Myth-Busting Quiz)",
+      "機制與生活功能配對 (Mechanism & Daily Life Matching)",
+      "6 篇文獻 PICO 互動展廳 (6-Paper PICO Interactive Explorer)"
+    ]
+  },
+  "hard_constraints": {
+    "no_academic_anchor_on_cover": true,
+    "no_statistical_symbols": true,
+    "forbidden_stat_patterns": [
+      "SMD",
+      "SRD",
+      "p <",
+      "p =",
+      "p>",
+      "95% CI",
+      "MCID",
+      "I²",
+      "d =",
+      "Cohen"
+    ],
+    "forbidden_exaggeration_words": [
+      "奇蹟",
+      "神效",
+      "神奇"
+    ],
+    "include_all_6_papers": true,
+    "required_papers": [
+      "2021-chen-dog-aat-taiwan-rct",
+      "2026-peraile-huerta-aat-psychosis-meta",
+      "2025-ozturk-equine-aat-rct",
+      "2023-tyssedal-dog-assisted-review",
+      "2019-hawkins-aat-schizophrenia-review",
+      "2016-calvo-dog-aat-rehab-rct"
+    ],
+    "mechanisms_before_literature": true,
+    "no_cross_animal_divergence": true,
+    "no_windows_broken_flag_emojis": true
+  }
+}

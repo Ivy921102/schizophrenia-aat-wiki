@@ -1,0 +1,21 @@
+﻿{
+    "reviewed_at":  "2026-11-18T19:31:25+08:00",
+    "revision":  "v2 (rolled back from Gate 3 user feedback)",
+    "reviewer":  "Gate 2: Code Rules + AI Logic Reviewer (check_node2.ps1)",
+    "status":  "PASS",
+    "routing_decision":  "PAUSE -\u003e Gate 3 (人類介入關卡 1：大綱確認)",
+    "metrics":  {
+                    "total_pages":  15,
+                    "has_toc_slide":  true,
+                    "cover_swapped":  true,
+                    "interactive_pages":  3,
+                    "papers_covered":  6,
+                    "aat_and_mech_first":  true,
+                    "ethics_after_lit":  true,
+                    "zero_stat_symbols":  true,
+                    "no_divergence_talk":  true
+                },
+    "errors":  [
+
+               ]
+}

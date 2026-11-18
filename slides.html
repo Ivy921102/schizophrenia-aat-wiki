@@ -1,0 +1,1235 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>動物輔助治療如何幫助思覺失調個案找回生活動機與人際連結</title>
+  <style>
+    *, *::before, *::after, html, body, h1, h2, h3, h4, p, span, div, a, button, li {
+      font-family: "標楷體", "BiauKai", "DFKai-SB", "TW-Kai", "KaiTi", serif !important;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #0d9488;
+      --bg: #0f172a;
+      --slide-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+    }
+
+    body {
+      background: radial-gradient(circle at 50% 15%, #334155 0%, #0f172a 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1rem;
+      overflow-x: hidden;
+    }
+
+    .top-toolbar {
+      width: 100%;
+      max-width: 1180px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.45rem;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .top-toolbar-left, .top-toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .btn-toolbar {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #f8fafc;
+      padding: 0.35rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.2s;
+    }
+
+    .btn-toolbar:hover {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: #38bdf8;
+      color: #7dd3fc;
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      max-width: 1180px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.16);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 0.75rem;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 6.67%;
+      background: linear-gradient(90deg, #14b8a6 0%, #38bdf8 100%);
+      transition: width 0.3s ease;
+    }
+
+    .presentation-viewport {
+      width: 100%;
+      max-width: 1180px;
+      height: 685px;
+      background: var(--slide-bg);
+      border-radius: 24px;
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      padding: 2.3rem 2.9rem 1.9rem 2.9rem;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(28px);
+      transition: opacity 0.32s ease, transform 0.32s ease;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(0);
+      z-index: 2;
+    }
+
+    /* 頁首 */
+    .slide-header {
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.15rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .slide-title-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0.32rem;
+    }
+
+    .slide-unit-badge {
+      font-size: 0.88rem;
+      font-weight: bold;
+      color: #0f766e;
+      background: #ccfbf1;
+      padding: 0.2rem 0.65rem;
+      border-radius: 6px;
+      width: fit-content;
+    }
+
+    .badge-interactive {
+      color: #0369a1;
+      background: #e0f2fe;
+    }
+
+    .slide-title {
+      font-size: 1.85rem;
+      color: #0f172a;
+      font-weight: bold;
+      line-height: 1.3;
+    }
+
+    .slide-subtitle {
+      font-size: 1rem;
+      color: #64748b;
+    }
+
+    .slide-header-animal {
+      width: 60px;
+      height: 60px;
+      flex-shrink: 0;
+    }
+
+    .slide-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1.05rem;
+    }
+
+    /* 封面 & 結語 */
+    .cover-slide {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 1.7rem;
+      background: linear-gradient(160deg, #ffffff 0%, #f0fdfa 100%);
+    }
+
+    .cover-animals-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.4rem;
+      flex-wrap: wrap;
+    }
+
+    .cover-title {
+      font-size: 2.55rem;
+      color: #0f172a;
+      font-weight: bold;
+      line-height: 1.45;
+      max-width: 900px;
+    }
+
+    .cover-footer-note {
+      font-size: 1.08rem;
+      color: #0f766e;
+      background: #ccfbf1;
+      padding: 0.55rem 1.5rem;
+      border-radius: 999px;
+      font-weight: bold;
+    }
+
+    .ending-quote {
+      font-size: 1.55rem;
+      font-weight: bold;
+      color: #0f172a;
+      max-width: 860px;
+      line-height: 1.75;
+      background: #fffbeb;
+      border-left: 5px solid #f59e0b;
+      padding: 1rem 1.5rem;
+      border-radius: 0 14px 14px 0;
+    }
+
+    .ending-vision {
+      font-size: 1.15rem;
+      color: #475569;
+      max-width: 780px;
+      line-height: 1.7;
+    }
+
+    /* 極簡目錄頁 */
+    .toc-layout {
+      flex-direction: row !important;
+      align-items: center;
+      gap: 2.5rem;
+      padding: 0.5rem 0;
+    }
+
+    .toc-list {
+      flex: 1.4;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .toc-item {
+      background: #f8fafc;
+      border: 1.8px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 1rem 1.4rem;
+      font-size: 1.32rem;
+      font-weight: bold;
+      color: #0f172a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: left;
+    }
+
+    .toc-item:hover {
+      background: #f0fdfa;
+      border-color: #0d9488;
+      color: #0f766e;
+      transform: translateX(6px);
+      box-shadow: 0 6px 16px rgba(13, 148, 136, 0.14);
+    }
+
+    .toc-arrow {
+      font-size: 0.98rem;
+      color: #0d9488;
+    }
+
+    .toc-visual {
+      flex: 0.7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* 網格與內容卡片 */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.1rem;
+    }
+
+    .content-box {
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 1.2rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .box-title {
+      font-size: 1.22rem;
+      font-weight: bold;
+      color: #0f172a;
+    }
+
+    .box-tag {
+      font-size: 0.86rem;
+      color: #64748b;
+      font-weight: bold;
+      margin-bottom: 0.15rem;
+    }
+
+    .box-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 1.05rem;
+      color: #334155;
+      line-height: 1.7;
+    }
+
+    .box-list li::before {
+      content: "• ";
+      color: #0d9488;
+      font-weight: bold;
+    }
+
+    /* 文獻完整版微調（第 10、11 頁） */
+    .lit-dense .content-box {
+      padding: 0.95rem 1.05rem;
+      gap: 0.4rem;
+    }
+    .lit-dense .box-title { font-size: 1.12rem; }
+    .lit-dense .box-list { font-size: 0.93rem; line-height: 1.58; gap: 0.35rem; }
+    .lit-dense .public-quote-box { font-size: 0.96rem; padding: 0.7rem 1.1rem; }
+
+    .public-quote-box {
+      background: #fffbeb;
+      border-left: 5px solid #f59e0b;
+      border-radius: 0 12px 12px 0;
+      padding: 0.85rem 1.2rem;
+      color: #78350f;
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+
+    /* 互動翻牌與配對卡 (Slide 4 & Slide 9) */
+    .interactive-card {
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      border-radius: 18px;
+      padding: 1.25rem;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.8rem;
+    }
+
+    .interactive-card:hover {
+      border-color: #0284c7;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(2, 132, 199, 0.14);
+    }
+
+    .interactive-card.revealed {
+      border-color: #0d9488;
+      background: #f0fdf4;
+    }
+
+    .quiz-q-badge {
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 0.2rem 0.65rem;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 0.45rem;
+    }
+
+    .quiz-question {
+      font-size: 1.16rem;
+      font-weight: bold;
+      color: #0f172a;
+      line-height: 1.55;
+    }
+
+    .quiz-action-btn {
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      padding: 0.5rem 0.9rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .interactive-card.revealed .quiz-action-btn {
+      background: #16a34a;
+    }
+
+    .quiz-answer-content {
+      display: none;
+      padding-top: 0.75rem;
+      border-top: 1.5px dashed #86efac;
+      font-size: 1rem;
+      color: #14532d;
+      line-height: 1.65;
+    }
+
+    .interactive-card.revealed .quiz-answer-content {
+      display: block;
+    }
+
+    .btn-soft-action {
+      background: #f1f5f9;
+      border: 1.5px solid #cbd5e1;
+      color: #334155;
+      padding: 0.45rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.94rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn-soft-action:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    /* PICO 互動展廳 (Slide 12) */
+    .pico-tabs {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0.5rem;
+    }
+
+    .pico-tab-btn {
+      background: #f8fafc;
+      border: 1.8px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 0.6rem 0.35rem;
+      font-size: 0.88rem;
+      font-weight: bold;
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .pico-tab-btn:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .pico-tab-btn.active {
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+    }
+
+    .pico-panel {
+      flex: 1;
+      background: #ffffff;
+      border: 2px solid #0d9488;
+      border-radius: 18px;
+      padding: 1.25rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.9rem;
+    }
+
+    .pico-header-title {
+      font-size: 1.32rem;
+      font-weight: bold;
+      color: #0f172a;
+    }
+
+    .pico-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.95rem;
+      flex: 1;
+    }
+
+    .pico-cell {
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 0.9rem 1.05rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .pico-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .pico-letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      color: #ffffff;
+      font-size: 0.95rem;
+    }
+
+    .pico-text {
+      font-size: 1.02rem;
+      color: #334155;
+      line-height: 1.65;
+    }
+
+    /* 底部操作列 */
+    .bottom-nav {
+      width: 100%;
+      max-width: 1180px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.65rem 0.6rem;
+      margin-top: 0.45rem;
+    }
+
+    .nav-btn {
+      background: #38bdf8;
+      color: #0f172a;
+      border: none;
+      padding: 0.58rem 1.35rem;
+      border-radius: 12px;
+      font-size: 1.02rem;
+      font-weight: bold;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: all 0.2s;
+    }
+
+    .nav-btn:hover { background: #7dd3fc; transform: translateY(-1px); }
+    .nav-btn:disabled { background: #475569; color: #94a3b8; cursor: not-allowed; transform: none; }
+
+    .dots-indicator {
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.28);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .dot.active {
+      width: 26px;
+      border-radius: 999px;
+      background: #38bdf8;
+    }
+
+    @media (max-width: 960px) {
+      .presentation-viewport { height: auto; min-height: 620px; }
+      .slide { padding: 1.5rem; position: relative; display: none; }
+      .slide.active { display: flex; }
+      .grid-2, .grid-3, .pico-grid { grid-template-columns: 1fr; }
+      .pico-tabs { grid-template-columns: repeat(3, 1fr); }
+      .toc-layout { flex-direction: column !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-toolbar">
+    <div class="top-toolbar-left">
+      <a href="index.html" class="btn-toolbar">🏠 返回知識庫</a>
+      <button type="button" class="btn-toolbar" onclick="goToSlide(2)">📋 目錄</button>
+      <span id="slideCounterText" style="color: #e2e8f0; font-weight: bold; font-size: 0.98rem;">第 1 / 15 頁</span>
+    </div>
+    <div class="top-toolbar-right">
+      <span style="color: #94a3b8; font-size: 0.88rem;">支援鍵盤 ← → 鍵翻頁</span>
+      <button type="button" class="btn-toolbar" onclick="toggleFullScreen()">⛶ 全螢幕簡報</button>
+    </div>
+  </div>
+
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" id="progressBarFill"></div>
+  </div>
+
+  <main class="presentation-viewport">
+    <!-- SLIDE 1 : COVER -->
+    <div class="slide cover-slide active" data-index="1">
+      <div class="cover-animals-row">
+        <img src="assets/cute-dog.svg" width="92" height="92" alt="治療動物" />
+        <img src="assets/cute-horse.svg" width="92" height="92" alt="治療動物" />
+        <img src="assets/cute-cat.svg" width="92" height="92" alt="治療動物" />
+        <img src="assets/cute-bunny.svg" width="92" height="92" alt="治療動物" />
+      </div>
+      <h1 class="cover-title">動物輔助治療如何幫助思覺失調個案找回生活動機與人際連結</h1>
+      <div class="cover-footer-note">🐾 點擊下方「下一頁」或按鍵盤右鍵開始 &rarr;</div>
+    </div>
+    <!-- SLIDE 2 : TOC -->
+    <div class="slide" data-index="2">
+      <div class="slide-header">
+        <div class="slide-title-wrap">
+          <h2 class="slide-title" style="font-size: 2.15rem;">目錄</h2>
+        </div>
+        <img src="assets/cute-dog-study.svg" class="slide-header-animal" alt="導覽犬" />
+      </div>
+      <div class="slide-body toc-layout">
+        <div class="toc-list">
+          <button type="button" class="toc-item" onclick="goToSlide(3)">
+            <span class="toc-text">01. 臨床困境與破冰</span>
+            <span class="toc-arrow">前往 &rarr;</span>
+          </button>
+          <button type="button" class="toc-item" onclick="goToSlide(5)">
+            <span class="toc-text">02. 認識動物輔助治療與核心機轉</span>
+            <span class="toc-arrow">前往 &rarr;</span>
+          </button>
+          <button type="button" class="toc-item" onclick="goToSlide(10)">
+            <span class="toc-text">03. 全 6 篇臨床實證文獻總覽</span>
+            <span class="toc-arrow">前往 &rarr;</span>
+          </button>
+          <button type="button" class="toc-item" onclick="goToSlide(13)">
+            <span class="toc-text">04. 雙向尊重的療癒倫理</span>
+            <span class="toc-arrow">前往 &rarr;</span>
+          </button>
+          <button type="button" class="toc-item" onclick="goToSlide(14)">
+            <span class="toc-text">05. 去污名化與未來展望</span>
+            <span class="toc-arrow">前往 &rarr;</span>
+          </button>
+        </div>
+        <div class="toc-visual">
+          <img src="assets/cute-dog-study.svg" width="190" height="190" alt="研究小犬" />
+          <div style="color: #64748b; font-size: 0.98rem; margin-top: 0.6rem;">點擊任一章節快速跳轉</div>
+        </div>
+      </div>
+    </div>
+    <!-- SLIDE 3 : content_2col -->
+    <div class="slide" data-index="3">
+      <div class="slide-header">
+        <div class="slide-title-wrap">
+          <span class="slide-unit-badge">01. 臨床困境與破冰</span>
+          <h2 class="slide-title">被誤解的「隱形重擔」：負性症狀</h2>
+        </div>
+        <img src="assets/cute-dog-study.svg" class="slide-header-animal" alt="動物插圖" />
+      </div>
+      <div class="slide-body">
+        <div class="grid-2" style="flex: 1; align-content: center;">
+          <div class="content-box">
+            <div class="box-title">四大核心症狀</div>
+            <ul class="box-list">
+              <li>動機缺乏：難以主動起床洗漱。</li>
+              <li>社交退縮：封閉心門遠離人群。</li>
+              <li>情感平淡：表情與語調變少。</li>
+              <li>無快感症：對喜好失去期待。</li>
+            </ul>
+          </div>
+          <div class="content-box">
+            <div class="box-title">臨床與家庭瓶頸</div>
+            <ul class="box-list">
+              <li>藥物多平息幻覺妄想，對負性症狀改善有限。</li>
+              <li>常被誤認懶惰，催促反加重退縮。</li>
+            </ul>
+          </div>
+        </div>
+        <div class="public-quote-box"><strong>🌟 生活轉譯</strong>：不是不努力，而是大腦啟動馬達暫時熄火。</div>
+      </div>
+    </div>
+    <!-- SLIDE 4 : INTERACTIVE MYTH -->
+    <div class="slide" data-index="4">
+      <div class="slide-header">
+        <div class="slide-title-wrap">
+          <span class="slide-unit-badge badge-interactive">🎮 01. 互動體驗站一</span>
+          <h2 class="slide-title">破冰迷思測驗：點擊卡片揭曉真相</h2>
+        </div>
+        <img src="assets/cute-cat.svg" class="slide-header-animal" alt="陪伴貓" />
+      </div>
+      <div class="slide-body" style="justify-content: center;">
+        <div class="grid-3">
+          <div class="interactive-card" id="myth1" onclick="toggleMythCard('myth1')">
+            <div>
+              <span class="quiz-q-badge">迷思 1</span>
+              <div class="quiz-question">整天躺著不動，多催促就會振作？</div>
+            </div>
+            <button class="quiz-action-btn" type="button">點擊翻牌看解答 💡</button>
+            <div class="quiz-answer-content">
+              <div style="font-weight: bold; color: #15803d; margin-bottom: 0.35rem;">✅ 錯！不是偷懶</div>
+              <div>動機缺乏源自神經受損，責備只會推高焦慮，需低壓力正向啟動。</div>
+            </div>
+          </div>
+          <div class="interactive-card" id="myth2" onclick="toggleMythCard('myth2')">
+            <div>
+              <span class="quiz-q-badge">迷思 2</span>
+              <div class="quiz-question">自己買隻寵物給家人養就有效？</div>
+            </div>
+            <button class="quiz-action-btn" type="button">點擊翻牌看解答 💡</button>
+            <div class="quiz-answer-content">
+              <div style="font-weight: bold; color: #15803d; margin-bottom: 0.35rem;">✅ 錯！不等於專業治療</div>
+              <div>未經評估飼養反增負擔，專業動輔須由醫療與動輔團隊全程守護。</div>
+            </div>
+          </div>
+          <div class="interactive-card" id="myth3" onclick="toggleMythCard('myth3')">
+            <div>
+              <span class="quiz-q-badge">迷思 3</span>
+              <div class="quiz-question">規則吃藥就能解決社交退縮？</div>
+            </div>
+            <button class="quiz-action-btn" type="button">點擊翻牌看解答 💡</button>
+            <div class="quiz-answer-content">
+              <div style="font-weight: bold; color: #15803d; margin-bottom: 0.35rem;">✅ 錯！須雙軌並行</div>
+              <div>藥物穩症狀，仍須結合職能與動物輔助復健重建動機。</div>
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 0.6rem;">
+          <button type="button" class="btn-soft-action" onclick="toggleAllCards('myth')">一次展開／收合全部迷思解答</button>
+        </div>
+      </div>
+    </div>
+    <!-- SLIDE 5 : content_3col -->
+    <div class="slide" data-index="5">
+      <div class="slide-header">
+        <div class="slide-title-wrap">
+          <span class="slide-unit-badge">02. 認識動物輔助治療</span>
+          <h2 class="slide-title">什麼是動物輔助治療 (AAT)？</h2>
+        </div>
+        <img src="assets/cute-dog.svg" class="slide-header-animal" alt="動物插圖" />
+      </div>
+      <div class="slide-body">
+        <div class="grid-3" style="flex: 1; align-content: center;">
+          <div class="content-box">
+            <div class="box-title">1. 專業黃金三角</div>
+            <ul class="box-list">
+              <li>目標復健，由動輔師、職能治療師與指導手協作。</li>
+            </ul>
+          </div>
+          <div class="content-box">
+            <div class="box-title">2. 主流夥伴：犬與馬</div>
+            <ul class="box-list">
+              <li>犬（柯基、拉布拉多、馬爾濟斯、柴犬）：貼身破冰。</li>
+              <li>馬（哈芙林格馬）：地面照護與騎乘建自信。</li>
+            </ul>
+          </div>
+          <div class="content-box">
+            <div class="box-title">3. 其他多元動物</div>
+            <ul class="box-list">
+              <li>文獻亦納入貓、農場動物（牛羊）與倉鼠，均經篩選。</li>
+            </ul>
+          </div>
+        </div>
+        <div class="public-quote-box"><strong>🌟 生活轉譯</strong>：無條件接納的毛夥伴，讓復健更安心。</div>
+      </div>
+    </div>
+    <!-- SLIDE 6 : content_2col -->
+    <div class="slide" data-index="6">
+      <div class="slide-header">
+        <div class="slide-title-wrap">
+          <span class="slide-unit-badge">02. 核心機轉（一）</span>
+          <h2 class="slide-title">大腦「愛的荷爾蒙」：催產素凝視迴路</h2>
+        </div>
+        <img src="assets/cute-dog-heart.svg" class="slide-header-animal" alt="動物插圖" />
+      </div>
+      <div class="slide-body">
+        <div class="grid-2" style="flex: 1; align-content: center;">
+          <div class="content-box">
+            <div class="box-title">催產素 (Oxytocin) 的角色</div>
+            <ul class="box-list">
+              <li>由下視丘分泌，掌管社交依附與信任。</li>
+              <li>可抑制杏仁核過度警戒，降低人際恐懼。</li>
+            </ul>
+          </div>
+          <div class="content-box">
+            <div class="box-title">溫柔凝視與撫摸共鳴</div>
+            <ul class="box-list">
+              <li>人犬眼神交流與輕撫能自然活化內源性催產素。</li>
+              <li>幫封閉已久的社交情感迴路重新通電。</li>
+            </ul>
+          </div>
+        </div>
+        <div class="public-quote-box"><strong>🌟 生活轉譯</strong>：撫摸溫暖毛皮時，大腦悄悄打開「我可以信任對方」的安全開關。</div>
+      </div>
+    </div>
+    <!-- SLIDE 7 : content_2col -->
+    <div class="slide" data-index="7">
+      <div class="slide-header">
+        <div class="slide-title-wrap">
+          <span class="slide-unit-badge">02. 核心機轉（二）</span>
+          <h2 class="slide-title">大腦警報靜音鍵：皮質醇壓力調節</h2>
+        </div>
+        <img src="assets/cute-cat.svg" class="slide-header-animal" alt="動物插圖" />
+      </div>
+      <div class="slide-body">
+        <div class="grid-2" style="flex: 1; align-content: center;">
+          <div class="content-box">
+            <div class="box-title">失靈的慢性壓力警報</div>
+            <ul class="box-list">
+              <li>個案常因 HPA 軸過度敏感，體內皮質醇長期偏高。</li>
+              <li>持續緊繃消耗心力，加重逃避退縮。</li>
+            </ul>
+          </div>
+          <div class="content-box">
+            <div class="box-title">溫血陪伴啟動副交感</div>
+            <ul class="box-list">
+              <li>感受動物體溫與規律呼吸，促進心跳平穩。</li>
+              <li>血液與唾液皮質醇真實回落，解除身體警戒。</li>
+            </ul>
+          </div>
+        </div>
+        <div class="public-quote-box"><strong>🌟 生活轉譯</strong>：溫熱陪伴像按下大腦防空警報靜音鍵，幫緊繃身心真正鬆口氣。</div>
+      </div>
+    </div>
+    <!-- SLIDE 8 : content_4grid -->
+    <div class="slide" data-index="8">
+      <div class="slide-header">
+        <div class="slide-title-wrap">
+          <span class="slide-unit-badge">02. 核心實務模組</span>
+          <h2 class="slide-title">結構化四大活動模組：走向生活自理</h2>
+        </div>
+        <img src="assets/cute-paw.svg" class="slide-header-animal" alt="動物插圖" />
+      </div>
+      <div class="slide-body">
+        <div class="grid-2" style="flex: 1; align-content: center;">
+          <div class="content-box">
+            <div class="box-title">1. 正向情緒</div>
+            <ul class="box-list">
+              <li>撫摸、梳毛，紓壓並練手部精細動作。</li>
+            </ul>
+          </div>
+          <div class="content-box">
+            <div class="box-title">2. 認知活動</div>
+            <ul class="box-list">
+              <li>問答、下達「坐下」指令，建立掌控感。</li>
+            </ul>
+          </div>
+          <div class="content-box">
+            <div class="box-title">3. 體能活動</div>
+            <ul class="box-list">
+              <li>牽繩散步、餵食，強化平衡與外出能力。</li>
+            </ul>
+          </div>
+          <div class="content-box">
+            <div class="box-title">4. 社交活動</div>
+            <ul class="box-list">
+              <li>打招呼、介紹愛犬，重啟人際對話。</li>
+            </ul>
+          </div>
+        </div>
+        <div class="public-quote-box"><strong>🌟 生活轉譯</strong>：梳毛對接穿衣，散步對接外出，復健融入日常。</div>
+      </div>
+    </div>
+    <!-- SLIDE 9 : INTERACTIVE MATCH -->
+    <div class="slide" data-index="9">
+      <div class="slide-header">
+        <div class="slide-title-wrap">
+          <span class="slide-unit-badge badge-interactive">🎮 02. 互動體驗站二</span>
+          <h2 class="slide-title">機制與生活功能配對：點擊卡片看解答</h2>
+        </div>
+        <img src="assets/cute-bunny.svg" class="slide-header-animal" alt="長耳兔" />
+      </div>
+      <div class="slide-body" style="justify-content: center;">
+        <div class="grid-2">
+          <div class="interactive-card match-card" id="match1" onclick="toggleMatchCard('match1')">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.8rem;">
+              <div>
+                <span class="quiz-q-badge">情境 1</span>
+                <div class="quiz-question" style="margin-bottom: 0;">安靜撫摸狗狗背毛 15 分鐘</div>
+              </div>
+              <button class="quiz-action-btn" style="flex-shrink: 0;" type="button">看配對 💡</button>
+            </div>
+            <div class="quiz-answer-content">
+              <div><strong>🧬 對應機轉</strong>：催產素上升 ＋ 皮質醇下降</div>
+              <div style="margin-top: 0.3rem;"><strong>🏠 日常能力</strong>：焦慮降低，願意走出房間陪伴家人。</div>
+            </div>
+          </div>
+          <div class="interactive-card match-card" id="match2" onclick="toggleMatchCard('match2')">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.8rem;">
+              <div>
+                <span class="quiz-q-badge">情境 2</span>
+                <div class="quiz-question" style="margin-bottom: 0;">握梳子幫狗狗梳毛與扣胸背帶</div>
+              </div>
+              <button class="quiz-action-btn" style="flex-shrink: 0;" type="button">看配對 💡</button>
+            </div>
+            <div class="quiz-answer-content">
+              <div><strong>🧬 對應機轉</strong>：正向情緒與體能・精細協調</div>
+              <div style="margin-top: 0.3rem;"><strong>🏠 日常能力</strong>：對接穿衣扣鈕扣、拿筷子與梳洗自理。</div>
+            </div>
+          </div>
+          <div class="interactive-card match-card" id="match3" onclick="toggleMatchCard('match3')">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.8rem;">
+              <div>
+                <span class="quiz-q-badge">情境 3</span>
+                <div class="quiz-question" style="margin-bottom: 0;">喊「坐下」，狗狗乖乖坐好</div>
+              </div>
+              <button class="quiz-action-btn" style="flex-shrink: 0;" type="button">看配對 💡</button>
+            </div>
+            <div class="quiz-answer-content">
+              <div><strong>🧬 對應機轉</strong>：認知模組・自我效能感重建</div>
+              <div style="margin-top: 0.3rem;"><strong>🏠 日常能力</strong>：打破無助感，體會「我有能力做好」。</div>
+            </div>
+          </div>
+          <div class="interactive-card match-card" id="match4" onclick="toggleMatchCard('match4')">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.8rem;">
+              <div>
+                <span class="quiz-q-badge">情境 4</span>
+                <div class="quiz-question" style="margin-bottom: 0;">牽繩散步並和病友聊狗狗喜好</div>
+              </div>
+              <button class="quiz-action-btn" style="flex-shrink: 0;" type="button">看配對 💡</button>
+            </div>
+            <div class="quiz-answer-content">
+              <div><strong>🧬 對應機轉</strong>：外接動機 ＋ 社交活動泛化</div>
+              <div style="margin-top: 0.3rem;"><strong>🏠 日常能力</strong>：克服外出恐懼，回家主動與家人對話。</div>
+            </div>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 0.4rem;">
+          <button type="button" class="btn-soft-action" onclick="toggleAllCards('match')">一次展開／收合全部配對</button>
+        </div>
+      </div>
+    </div>
+    <!-- SLIDE 10 : content_3col -->
+    <div class="slide lit-dense" data-index="10">
+      <div class="slide-header">
+        <div class="slide-title-wrap">
+          <span class="slide-unit-badge">03. 全 6 篇臨床實證（一）</span>
+          <h2 class="slide-title">實證全景（一）：全球大型統合分析與系統性回顧</h2>
+          <p class="slide-subtitle">匯聚跨國數百位個案的長期追蹤，證實動物輔助治療絕非心理安慰劑</p>
+        </div>
+        <img src="assets/cute-dog-study.svg" class="slide-header-animal" alt="動物插圖" />
+      </div>
+      <div class="slide-body">
+        <div class="grid-3" style="flex: 1; align-content: center;">
+          <div class="content-box" style="border-top: 5px solid #2563eb;">
+            <div class="box-title" style="color: #2563eb;">Peraile-Huerta et al. (2026)</div>
+            <div class="box-tag">全球最新統合分析｜Complementary Therapies in Medicine</div>
+            <ul class="box-list">
+              <li>統整全球 12 項臨床研究、涵蓋逾 400 位思覺失調譜系個案。</li>
+              <li>確立動物輔助治療對「負性症狀（缺乏動機、退縮冷漠）」具明確實質改善成效。</li>
+              <li>展現動物對於打破慢性退縮具有專一且穩健的臨床復健價值。</li>
+            </ul>
+          </div>
+          <div class="content-box" style="border-top: 5px solid #7c3aed;">
+            <div class="box-title" style="color: #7c3aed;">Tyssedal et al. (2023)</div>
+            <div class="box-tag">挪威卑爾根大學系統回顧｜Frontiers in Psychiatry</div>
+            <ul class="box-list">
+              <li>首篇專門鎖定成人思覺失調「犬類輔助介入」的嚴謹系統性回顧（納入 11 項研究、375 位個案）。</li>
+              <li>指出在結合專業團隊的結構化活動時，犬隻能大幅提升參與意願並催化人際互動。</li>
+              <li>強調治療關鍵在於透過動物引路，把個案帶入溫暖規律的社會互動。</li>
+            </ul>
+          </div>
+          <div class="content-box" style="border-top: 5px solid #0891b2;">
+            <div class="box-title" style="color: #0891b2;">Hawkins et al. (2019)</div>
+            <div class="box-tag">英國愛丁堡大學系統回顧｜Journal of Psychiatric Research</div>
+            <ul class="box-list">
+              <li>回顧早期 7 項隨機對照試驗（共 390 位個案），涵蓋犬、貓、馬、農場動物與倉鼠等多元物種。</li>
+              <li>奠定領域早期實證基線，並記錄到個案在自尊與自我效能感上的正向變化。</li>
+              <li>率先向國際學界呼籲建立嚴格的動物福祉與倫理審查標準。</li>
+            </ul>
+          </div>
+        </div>
+        <div class="public-quote-box"><strong>🌟 生活轉譯</strong>：從 2019 年的謹慎奠基，到 2023 年的精細梳理，再到 2026 年跨國統合分析確立療效，實證醫學一步步為動物輔助治療寫下令人安心的背書。</div>
+      </div>
+    </div>
+    <!-- SLIDE 11 : content_3col -->
+    <div class="slide lit-dense" data-index="11">
+      <div class="slide-header">
+        <div class="slide-title-wrap">
+          <span class="slide-unit-badge">03. 全 6 篇臨床實證（二）</span>
+          <h2 class="slide-title">實證全景（二）：三大臨床隨機對照試驗成果</h2>
+          <p class="slide-subtitle">走進台灣、土耳其與西班牙的臨床現場，見證客觀評估下的身心變化</p>
+        </div>
+        <img src="assets/cute-horse.svg" class="slide-header-animal" alt="動物插圖" />
+      </div>
+      <div class="slide-body">
+        <div class="grid-3" style="flex: 1; align-content: center;">
+          <div class="content-box" style="border-top: 5px solid #0d9488;">
+            <div class="box-title" style="color: #0d9488;">Chen et al. (2021) 台灣團隊</div>
+            <div class="box-tag">高雄長庚與台大職能治療｜Frontiers in Psychiatry</div>
+            <ul class="box-list">
+              <li>招募 40 位平均 54 歲的中老年慢性個案，由 4 隻認證治療犬（柯基、拉布拉多、馬爾濟斯、柴犬）陪伴 12 週。</li>
+              <li>個案在情感表達、社交退縮、自發會話與自覺壓力皆呈現明顯改善。</li>
+              <li>全體 40 位個案皆完成 12 週課程、未有人中途退出，客觀顯示高度可行性與參與度。</li>
+            </ul>
+          </div>
+          <div class="content-box" style="border-top: 5px solid #d97706;">
+            <div class="box-title" style="color: #d97706;">&#214;zt&#252;rk et al. (2025) 土耳其團隊</div>
+            <div class="box-tag">社區馬術治療試驗｜Journal of Psychosocial Nursing</div>
+            <ul class="box-list">
+              <li>招募 61 位社區心理衛生中心個案，與溫馴的哈芙林格馬進行 8 週地面照護與馬背騎乘。</li>
+              <li>個案深層的孤獨感大幅消融，焦慮減輕，整體生活品質與自尊感出現明顯提升。</li>
+              <li>跨上馬背的視野轉換與身體掌控經驗，協助個案重新建立自我效能。</li>
+            </ul>
+          </div>
+          <div class="content-box" style="border-top: 5px solid #e11d48;">
+            <div class="box-title" style="color: #e11d48;">Calvo et al. (2016) 西班牙團隊</div>
+            <div class="box-tag">巴塞隆納長週期試驗｜Frontiers in Psychology</div>
+            <ul class="box-list">
+              <li>針對 24 位長期住院的慢性思覺失調個案進行長達 6 個月的犬類輔助復健追蹤。</li>
+              <li>以客觀「唾液皮質醇化驗」證實與治療犬互動 1 小時後，體內壓力荷爾蒙真實下降。</li>
+              <li>介入組復健出席率高達九成以上（明顯高於常規對照組的六成），展現穩定參與動機。</li>
+            </ul>
+          </div>
+        </div>
+        <div class="public-quote-box"><strong>🌟 生活轉譯</strong>：三項跨國隨機對照試驗一致呈現高出席率與客觀身心正向轉變，證明溫暖無壓力的復健環境能有效提升慢性個案的參與意願。</div>
+      </div>
+    </div>
+    <!-- SLIDE 12 : INTERACTIVE PICO EXPLORER -->
+    <div class="slide" data-index="12">
+      <div class="slide-header">
+        <div class="slide-title-wrap">
+          <span class="slide-unit-badge badge-interactive">🎮 03. 互動體驗站三（PICO）</span>
+          <h2 class="slide-title">6 篇核心文獻 PICO 互動展廳</h2>
+        </div>
+        <img src="assets/cute-dog-study.svg" class="slide-header-animal" alt="研究博士犬" />
+      </div>
+      <div class="slide-body">
+        <div class="pico-tabs">
+          <button type="button" class="pico-tab-btn active" data-color="#0d9488" onclick="switchPicoTab(0)">🐕 台灣長庚 (2021)</button>
+          <button type="button" class="pico-tab-btn" data-color="#2563eb" onclick="switchPicoTab(1)">🌐 全球統合 (2026)</button>
+          <button type="button" class="pico-tab-btn" data-color="#d97706" onclick="switchPicoTab(2)">🐴 土耳其馬術 (2025)</button>
+          <button type="button" class="pico-tab-btn" data-color="#7c3aed" onclick="switchPicoTab(3)">🔍 挪威回顧 (2023)</button>
+          <button type="button" class="pico-tab-btn" data-color="#0891b2" onclick="switchPicoTab(4)">📖 愛丁堡回顧 (2019)</button>
+          <button type="button" class="pico-tab-btn" data-color="#e11d48" onclick="switchPicoTab(5)">🐕 西班牙RCT (2016)</button>
+        </div>
+        <div class="pico-panel" id="picoDisplayPanel"></div>
+      </div>
+    </div>
+    <!-- SLIDE 13 : content_2col -->
+    <div class="slide" data-index="13">
+      <div class="slide-header">
+        <div class="slide-title-wrap">
+          <span class="slide-unit-badge">04. 雙向療癒倫理</span>
+          <h2 class="slide-title">雙向尊重倫理：動物福祉 (One Welfare)</h2>
+        </div>
+        <img src="assets/cute-bunny.svg" class="slide-header-animal" alt="動物插圖" />
+      </div>
+      <div class="slide-body">
+        <div class="grid-2" style="flex: 1; align-content: center;">
+          <div class="content-box">
+            <div class="box-title">守護治療動物原則</div>
+            <ul class="box-list">
+              <li>依國際指引控管工時，備妥飲水與休息區。</li>
+              <li>全程監測舔嘴、打哈欠等疲累訊號。</li>
+            </ul>
+          </div>
+          <div class="content-box">
+            <div class="box-title">從照顧中萌芽同理</div>
+            <ul class="box-list">
+              <li>引導個案察覺動物疲累，主動讓牠休息。</li>
+              <li>在保護生命的同時，重建自我價值。</li>
+            </ul>
+          </div>
+        </div>
+        <div class="public-quote-box"><strong>🌟 生活轉譯</strong>：療癒非單向索取；雙向尊重守護動物與個案。</div>
+      </div>
+    </div>
+    <!-- SLIDE 14 : content_3col -->
+    <div class="slide" data-index="14">
+      <div class="slide-header">
+        <div class="slide-title-wrap">
+          <span class="slide-unit-badge">05. 去污名化專題</span>
+          <h2 class="slide-title">給家屬的一封信：《從封閉孤立到溫柔破冰》</h2>
+        </div>
+        <img src="assets/cute-dog-heart.svg" class="slide-header-animal" alt="動物插圖" />
+      </div>
+      <div class="slide-body">
+        <div class="grid-3" style="flex: 1; align-content: center;">
+          <div class="content-box">
+            <div class="box-title">1. 理解取代指責</div>
+            <ul class="box-list">
+              <li>撕下懶惰標籤，看見大腦疾病本質，減少無效催促。</li>
+            </ul>
+          </div>
+          <div class="content-box">
+            <div class="box-title">2. 肯定微小微光</div>
+            <ul class="box-list">
+              <li>伸手摸狗三分鐘或一次微笑，都是珍貴的復健進展。</li>
+            </ul>
+          </div>
+          <div class="content-box">
+            <div class="box-title">3. 聊聊動物破冰</div>
+            <ul class="box-list">
+              <li>用毛孩趣事取代追問病情，讓客廳慢慢找回笑聲。</li>
+            </ul>
+          </div>
+        </div>
+        <div class="public-quote-box"><strong>🌟 生活轉譯</strong>：「那天他回家主動說柯基腿短短的好可愛，我知道他正在慢慢走回來。」</div>
+      </div>
+    </div>
+    <!-- SLIDE 15 : ENDING -->
+    <div class="slide cover-slide" data-index="15">
+      <div class="cover-animals-row">
+        <img src="assets/cute-dog.svg" width="74" height="74" alt="治療動物" />
+        <img src="assets/cute-horse.svg" width="74" height="74" alt="治療動物" />
+        <img src="assets/cute-dog-study.svg" width="74" height="74" alt="治療動物" />
+        <img src="assets/cute-cat.svg" width="74" height="74" alt="治療動物" />
+        <img src="assets/cute-bunny.svg" width="74" height="74" alt="治療動物" />
+      </div>
+      <h2 class="slide-title" style="font-size: 2rem; color: #0d9488;">結語：無聲的接納，點亮回家的路</h2>
+      <div class="ending-quote">「動物沒有語言，卻能聽懂最深沉的沉默；不帶評價的凝視，接住了跋涉中的心靈。」</div>
+      <p class="ending-vision">期待醫療與社區動輔團隊攜手合作，讓溫暖陪伴成為常態復健選項。</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 0.4rem;">
+        <button type="button" class="nav-btn" onclick="goToSlide(1)">🔄 重新播放簡報</button>
+        <a href="index.html" class="nav-btn" style="background: #0d9488; color: #ffffff; text-decoration: none;">📖 返回知識庫首頁查看完整論文</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="bottom-nav">
+    <button type="button" class="nav-btn" id="prevBtn" onclick="prevSlide()">&larr; 上一頁</button>
+    <div class="dots-indicator" id="dotsContainer"></div>
+    <button type="button" class="nav-btn" id="nextBtn" onclick="nextSlide()">下一頁 &rarr;</button>
+  </footer>
+
+  <script>
+    const totalSlides = 15;
+    let currentSlide = 1;
+    const picoPapers = [{"id":"chen2021","tab_label":"🐕 台灣長庚 (2021)","color":"#0d9488","title":"Chen et al. (2021)｜Frontiers in Psychiatry","P":"40 位年齡 40 歲以上慢性思覺失調個案（日間與復健病房）","I":"4 隻認證治療犬，12 週跨專業四模組介入（每週 1 次、60 分鐘）","C":"常規治療加上每週 1 小時非動物團體復健（積極對照）","O":"負性症狀與自覺壓力顯著減輕；40 位個案全數完成，無人中途退出"},{"id":"peraile2026","tab_label":"🌐 全球統合 (2026)","color":"#2563eb","title":"Peraile-Huerta et al. (2026)｜Complementary Therapies in Medicine","P":"12 項跨國研究，共 408 位思覺失調譜系與精神病性疾患個案","I":"犬類（9 篇）、馬匹（2 篇）與犬馬混合（1 篇）動物輔助治療","C":"常規精神醫療照護或等時數非動物復健活動","O":"負性症狀具明確實質改善，焦慮呈減輕趨勢；正性症狀無明顯組間差異"},{"id":"ozturk2025","tab_label":"🐴 土耳其馬術 (2025)","color":"#d97706","title":"Öztürk et al. (2025)｜Journal of Psychosocial Nursing","P":"61 位社區心理衛生中心穩定期思覺失調個案","I":"8 週哈芙林格馬介入（每週 2 次、40 分鐘：地面照護＋安全騎乘）","C":"社區中心常規復健服務（衛教、運動、音樂與職能治療）","O":"孤獨感與特質焦慮明顯降低，生活品質與正性症狀顯著改善"},{"id":"tyssedal2023","tab_label":"🔍 挪威回顧 (2023)","color":"#7c3aed","title":"Tyssedal et al. (2023)｜Frontiers in Psychiatry","P":"11 項量化研究，共 375 位成人思覺失調譜系個案","I":"專門針對犬類輔助介入（治療犬互動與結構化團體活動）","C":"純常規治療或高互動性休閒復健（藝術、音樂、桌遊）","O":"多數研究見溝通、生活技能與正性症狀進步；負性成效受對照組影響"},{"id":"hawkins2019","tab_label":"📖 愛丁堡回顧 (2019)","color":"#0891b2","title":"Hawkins et al. (2019)｜Journal of Psychiatric Research","P":"早期 7 項隨機對照試驗，共 390 位思覺失調譜系個案","I":"多元動物介入（涵蓋犬、貓、馬、農場動物與倉鼠）","C":"常規精神照護或非動物替代活動","O":"早期證據尚屬混合，部分見自尊提升；率先點出強化動物福祉審查之必要"},{"id":"calvo2016","tab_label":"🐕 西班牙RCT (2016)","color":"#e11d48","title":"Calvo et al. (2016)｜Frontiers in Psychology","P":"24 位公立精神醫院長期住院慢性思覺失調個案","I":"6 個月犬類輔助復健（每週 2 次、60 分鐘），搭配唾液檢體採集","C":"等時數院內常規功能活動（美術、體能與體操）","O":"互動 1 小時後唾液皮質醇下降；出席率逾九成，高於常規組六成"}];
+
+    const dotsContainer = document.getElementById('dotsContainer');
+    for (let i = 1; i <= totalSlides; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'dot' + (i === 1 ? ' active' : '');
+      dot.title = '前往第 ' + i + ' 頁';
+      dot.onclick = () => goToSlide(i);
+      dotsContainer.appendChild(dot);
+    }
+
+    function goToSlide(n) {
+      if (n < 1 || n > totalSlides) return;
+      currentSlide = n;
+      document.querySelectorAll('.slide').forEach(el => {
+        el.classList.toggle('active', parseInt(el.getAttribute('data-index')) === currentSlide);
+      });
+      document.getElementById('progressBarFill').style.width = ((currentSlide / totalSlides) * 100) + '%';
+      document.getElementById('slideCounterText').textContent = '第 ' + currentSlide + ' / ' + totalSlides + ' 頁';
+      document.getElementById('prevBtn').disabled = (currentSlide === 1);
+      document.getElementById('nextBtn').disabled = (currentSlide === totalSlides);
+      document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i + 1 === currentSlide));
+    }
+
+    function nextSlide() { if (currentSlide < totalSlides) goToSlide(currentSlide + 1); }
+    function prevSlide() { if (currentSlide > 1) goToSlide(currentSlide - 1); }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+        if (document.activeElement.tagName !== 'BUTTON') { e.preventDefault(); nextSlide(); }
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        prevSlide();
+      } else if (e.key === 'Home') { goToSlide(1); }
+      else if (e.key === 'End') { goToSlide(totalSlides); }
+    });
+
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen();
+      } else {
+        if (document.exitFullscreen) document.exitFullscreen();
+      }
+    }
+
+    function toggleMythCard(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.toggle('revealed');
+    }
+
+    function toggleMatchCard(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.toggle('revealed');
+    }
+
+    function toggleAllCards(prefix) {
+      const cards = Array.from(document.querySelectorAll('[id^="' + prefix + '"]'));
+      const allOpen = cards.every(c => c.classList.contains('revealed'));
+      cards.forEach(c => c.classList.toggle('revealed', !allOpen));
+    }
+
+    function switchPicoTab(index) {
+      const paper = picoPapers[index];
+      if (!paper) return;
+
+      document.querySelectorAll('.pico-tab-btn').forEach((btn, idx) => {
+        const isActive = (idx === index);
+        btn.classList.toggle('active', isActive);
+        if (isActive) {
+          btn.style.background = paper.color;
+          btn.style.borderColor = paper.color;
+        } else {
+          btn.style.background = '#f8fafc';
+          btn.style.borderColor = '#cbd5e1';
+        }
+      });
+
+      const panel = document.getElementById('picoDisplayPanel');
+      panel.style.borderColor = paper.color;
+      panel.innerHTML =
+        '<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">' +
+          '<div class="pico-header-title" style="color:' + paper.color + ';">' + paper.title + '</div>' +
+          '<a href="index.html" target="_blank" style="font-size:0.92rem; color:' + paper.color + '; font-weight:bold; text-decoration:underline;">前往 Wiki 查閱全文 ↗</a>' +
+        '</div>' +
+        '<div class="pico-grid">' +
+          '<div class="pico-cell"><div class="pico-badge"><span class="pico-letter" style="background:#0d9488;">P</span>研究對象 (Population)</div><div class="pico-text">' + paper.P + '</div></div>' +
+          '<div class="pico-cell"><div class="pico-badge"><span class="pico-letter" style="background:#2563eb;">I</span>介入方式 (Intervention)</div><div class="pico-text">' + paper.I + '</div></div>' +
+          '<div class="pico-cell"><div class="pico-badge"><span class="pico-letter" style="background:#d97706;">C</span>對照組 (Comparison)</div><div class="pico-text">' + paper.C + '</div></div>' +
+          '<div class="pico-cell"><div class="pico-badge"><span class="pico-letter" style="background:#e11d48;">O</span>主要結果 (Outcome)</div><div class="pico-text">' + paper.O + '</div></div>' +
+        '</div>';
+    }
+
+    switchPicoTab(0);
+    goToSlide(1);
+  </script>
+</body>
+</html>

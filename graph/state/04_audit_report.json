@@ -1,0 +1,28 @@
+﻿{
+    "audited_at":  "2026-11-18T20:18:18+08:00",
+    "revision":  "v3 (per-slide \u003c=150 chars, layout_plan, PICO, objective tone)",
+    "auditor":  "Gate 4: Code Char-Budget + PICO + Regex + Tone QA",
+    "status":  "PASS",
+    "routing_decision":  "PAUSE -\u003e Gate 5 (人類介入關卡 2：審閱精簡文案、版面配置與 PICO)",
+    "max_chars_allowed":  150,
+    "per_slide_chars":  {
+                            "page_1":  "44",
+                            "page_2":  "66",
+                            "page_3":  "136",
+                            "page_4":  "66",
+                            "page_5":  "148",
+                            "page_6":  "144",
+                            "page_7":  "139",
+                            "page_8":  "130",
+                            "page_9":  "79",
+                            "page_10":  "598 (literature_exempt)",
+                            "page_11":  "600 (literature_exempt)",
+                            "page_12":  "125 (literature_exempt)",
+                            "page_13":  "128",
+                            "page_14":  "144",
+                            "page_15":  "83"
+                        },
+    "errors":  [
+
+               ]
+}

@@ -1,0 +1,17 @@
+﻿{
+    "checked_at":  "2026-11-18T18:15:44+08:00",
+    "validator":  "Code Validator 1 (check_node1.ps1)",
+    "status":  "PASS",
+    "routing_decision":  "Node 2: outline_planner",
+    "counts":  {
+                   "sources":  6,
+                   "symptoms":  4,
+                   "mechanisms":  3,
+                   "interventions":  2,
+                   "syntheses":  1,
+                   "svg_assets":  7
+               },
+    "errors":  [
+
+               ]
+}

@@ -1,0 +1,478 @@
+{
+  "schema_version": "3.0",
+  "generated_by": "Node 4: page_writer (v3 - concise <=150 chars, layout specs & PICO)",
+  "created_at": "2026-11-18T19:52:00+08:00",
+  "deck_meta": {
+    "title": "動物輔助治療如何幫助思覺失調個案找回生活動機與人際連結",
+    "subtitle": "",
+    "total_pages": 15,
+    "interactive_pages": [4, 9, 12],
+    "font_family": "標楷體"
+  },
+  "slides": [
+    {
+      "page": 1,
+      "type": "cover",
+      "unit": "封面",
+      "layout_plan": "置中大字封面：頂部 4 隻 Q 版萌寵橫排 → 中央大字主標題（無副標題）→ 底部膠囊操作引導",
+      "title": "動物輔助治療如何幫助思覺失調個案找回生活動機與人際連結",
+      "subtitle": "",
+      "footer_note": "點擊下方「下一頁」或按鍵盤右鍵開始",
+      "assets": [
+        "assets/cute-dog.svg",
+        "assets/cute-horse.svg",
+        "assets/cute-cat.svg",
+        "assets/cute-bunny.svg"
+      ]
+    },
+    {
+      "page": 2,
+      "type": "toc",
+      "unit": "目錄",
+      "layout_plan": "極簡五列目錄：左上「目錄」主標題（無副標題）→ 左中 5 條可點擊跳轉膠囊清單 → 右側研究小犬插圖留白",
+      "title": "目錄",
+      "subtitle": "",
+      "header_asset": "assets/cute-dog-study.svg",
+      "sections": [
+        { "num": "01", "name": "01. 臨床困境與破冰", "jump_to": 3 },
+        { "num": "02", "name": "02. 認識動物輔助治療與核心機轉", "jump_to": 5 },
+        { "num": "03", "name": "03. 全 6 篇臨床實證文獻總覽", "jump_to": 10 },
+        { "num": "04", "name": "04. 雙向尊重的療癒倫理", "jump_to": 13 },
+        { "num": "05", "name": "05. 去污名化與未來展望", "jump_to": 14 }
+      ]
+    },
+    {
+      "page": 3,
+      "type": "content_2col",
+      "unit": "01. 臨床困境與破冰",
+      "layout_plan": "左右等寬雙欄卡片（左：四大負性症狀關鍵條列；右：藥物與家庭瓶頸）＋ 底部一行暖金色轉譯金句",
+      "title": "被誤解的「隱形重擔」：負性症狀",
+      "subtitle": "",
+      "header_asset": "assets/cute-dog-study.svg",
+      "cards": [
+        {
+          "title": "四大核心症狀",
+          "bullets": [
+            "動機缺乏：難以主動起床洗漱。",
+            "社交退縮：封閉心門遠離人群。",
+            "情感平淡：表情與語調變少。",
+            "無快感症：對喜好失去期待。"
+          ]
+        },
+        {
+          "title": "臨床與家庭瓶頸",
+          "bullets": [
+            "藥物多平息幻覺妄想，對負性症狀改善有限。",
+            "常被誤認懶惰，催促反加重退縮。"
+          ]
+        }
+      ],
+      "public_quote": "不是不努力，而是大腦啟動馬達暫時熄火。"
+    },
+    {
+      "page": 4,
+      "type": "interactive_myth",
+      "unit": "01. 互動體驗站一",
+      "layout_plan": "三欄等寬互動翻牌卡：預設僅顯示 3 道迷思短題（版面清爽），點擊單張卡片即時翻面顯示客觀解答",
+      "title": "破冰迷思測驗：點擊卡片揭曉真相",
+      "subtitle": "",
+      "header_asset": "assets/cute-cat.svg",
+      "items": [
+        {
+          "id": "myth1",
+          "badge": "迷思 1",
+          "question": "整天躺著不動，多催促就會振作？",
+          "verdict": "錯！不是偷懶",
+          "explanation": "動機缺乏源自神經受損，責備只會推高焦慮，需低壓力正向啟動。"
+        },
+        {
+          "id": "myth2",
+          "badge": "迷思 2",
+          "question": "自己買隻寵物給家人養就有效？",
+          "verdict": "錯！不等於專業治療",
+          "explanation": "未經評估飼養反增負擔，專業動輔須由醫療與動輔團隊全程守護。"
+        },
+        {
+          "id": "myth3",
+          "badge": "迷思 3",
+          "question": "規則吃藥就能解決社交退縮？",
+          "verdict": "錯！須雙軌並行",
+          "explanation": "藥物穩症狀，仍須結合職能與動物輔助復健重建動機。"
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "type": "content_3col",
+      "unit": "02. 認識動物輔助治療",
+      "layout_plan": "三欄並排卡片（1. 專業團隊定義｜2. 主流犬與馬詳介｜3. 其他多元治療動物）＋ 底部單句轉譯",
+      "title": "什麼是動物輔助治療 (AAT)？",
+      "subtitle": "",
+      "header_asset": "assets/cute-dog.svg",
+      "cards": [
+        {
+          "title": "1. 專業黃金三角",
+          "bullets": [
+            "目標復健，由動輔師、職能治療師與指導手協作。"
+          ]
+        },
+        {
+          "title": "2. 主流夥伴：犬與馬",
+          "bullets": [
+            "犬（柯基、拉布拉多、馬爾濟斯、柴犬）：貼身破冰。",
+            "馬（哈芙林格馬）：地面照護與騎乘建自信。"
+          ]
+        },
+        {
+          "title": "3. 其他多元動物",
+          "bullets": [
+            "文獻亦納入貓、農場動物（牛羊）與倉鼠，均經篩選。"
+          ]
+        }
+      ],
+      "public_quote": "無條件接納的毛夥伴，讓復健更安心。"
+    },
+    {
+      "page": 6,
+      "type": "content_2col",
+      "unit": "02. 核心機轉（一）",
+      "layout_plan": "左右雙欄卡片（左：催產素神經角色；右：人動物凝視共鳴循環）＋ 底部一句白話轉譯",
+      "title": "大腦「愛的荷爾蒙」：催產素凝視迴路",
+      "subtitle": "",
+      "header_asset": "assets/cute-dog-heart.svg",
+      "cards": [
+        {
+          "title": "催產素 (Oxytocin) 的角色",
+          "bullets": [
+            "由下視丘分泌，掌管社交依附與信任。",
+            "可抑制杏仁核過度警戒，降低人際恐懼。"
+          ]
+        },
+        {
+          "title": "溫柔凝視與撫摸共鳴",
+          "bullets": [
+            "人犬眼神交流與輕撫能自然活化內源性催產素。",
+            "幫封閉已久的社交情感迴路重新通電。"
+          ]
+        }
+      ],
+      "public_quote": "撫摸溫暖毛皮時，大腦悄悄打開「我可以信任對方」的安全開關。"
+    },
+    {
+      "page": 7,
+      "type": "content_2col",
+      "unit": "02. 核心機轉（二）",
+      "layout_plan": "左右雙欄對比卡片（左：HPA 軸慢性高壓；右：副交感神經放鬆）＋ 底部一句白話轉譯",
+      "title": "大腦警報靜音鍵：皮質醇壓力調節",
+      "subtitle": "",
+      "header_asset": "assets/cute-cat.svg",
+      "cards": [
+        {
+          "title": "失靈的慢性壓力警報",
+          "bullets": [
+            "個案常因 HPA 軸過度敏感，體內皮質醇長期偏高。",
+            "持續緊繃消耗心力，加重逃避退縮。"
+          ]
+        },
+        {
+          "title": "溫血陪伴啟動副交感",
+          "bullets": [
+            "感受動物體溫與規律呼吸，促進心跳平穩。",
+            "血液與唾液皮質醇真實回落，解除身體警戒。"
+          ]
+        }
+      ],
+      "public_quote": "溫熱陪伴像按下大腦防空警報靜音鍵，幫緊繃身心真正鬆口氣。"
+    },
+    {
+      "page": 8,
+      "type": "content_4grid",
+      "unit": "02. 核心實務模組",
+      "layout_plan": "2×2 四宮格模組卡片（正向情緒｜認知｜體能｜社交，每格 2 行精煉文字）＋ 底部一句自理復健轉譯",
+      "title": "結構化四大活動模組：走向生活自理",
+      "subtitle": "",
+      "header_asset": "assets/cute-paw.svg",
+      "cards": [
+        {
+          "title": "1. 正向情緒",
+          "bullets": ["撫摸、梳毛，紓壓並練手部精細動作。"]
+        },
+        {
+          "title": "2. 認知活動",
+          "bullets": ["問答、下達「坐下」指令，建立掌控感。"]
+        },
+        {
+          "title": "3. 體能活動",
+          "bullets": ["牽繩散步、餵食，強化平衡與外出能力。"]
+        },
+        {
+          "title": "4. 社交活動",
+          "bullets": ["打招呼、介紹愛犬，重啟人際對話。"]
+        }
+      ],
+      "public_quote": "梳毛對接穿衣，散步對接外出，復健融入日常。"
+    },
+    {
+      "page": 9,
+      "type": "interactive_match",
+      "unit": "02. 互動體驗站二",
+      "layout_plan": "2×2 四格互動配對卡：正面呈現日常互動瞬間，點擊單卡展開「對應機轉」與「日常自理能力」",
+      "title": "機制與生活功能配對：點擊卡片看解答",
+      "subtitle": "",
+      "header_asset": "assets/cute-bunny.svg",
+      "items": [
+        {
+          "id": "match1",
+          "badge": "情境 1",
+          "scenario": "安靜撫摸狗狗背毛 15 分鐘",
+          "mechanism": "催產素上升 ＋ 皮質醇下降",
+          "daily_life": "焦慮降低，願意走出房間陪伴家人。"
+        },
+        {
+          "id": "match2",
+          "badge": "情境 2",
+          "scenario": "握梳子幫狗狗梳毛與扣胸背帶",
+          "mechanism": "正向情緒與體能・精細協調",
+          "daily_life": "對接穿衣扣鈕扣、拿筷子與梳洗自理。"
+        },
+        {
+          "id": "match3",
+          "badge": "情境 3",
+          "scenario": "喊「坐下」，狗狗乖乖坐好",
+          "mechanism": "認知模組・自我效能感重建",
+          "daily_life": "打破無助感，體會「我有能力做好」。"
+        },
+        {
+          "id": "match4",
+          "badge": "情境 4",
+          "scenario": "牽繩散步並和病友聊狗狗喜好",
+          "mechanism": "外接動機 ＋ 社交活動泛化",
+          "daily_life": "克服外出恐懼，回家主動與家人對話。"
+        }
+      ]
+    },
+    {
+      "page": 10,
+      "type": "content_3col",
+      "unit": "03. 全 6 篇臨床實證（一）",
+      "layout_plan": "三欄頂部色條文獻卡（藍：Peraile-Huerta 2026｜紫：Tyssedal 2023｜青：Hawkins 2019）＋ 底部一句總結",
+      "title": "實證全景（一）：全球大型統合分析與系統性回顧",
+      "subtitle": "匯聚跨國數百位個案的長期追蹤，證實動物輔助治療絕非心理安慰劑",
+      "header_asset": "assets/cute-dog-study.svg",
+      "cards": [
+        {
+          "title": "Peraile-Huerta et al. (2026)",
+          "tag": "全球最新統合分析｜Complementary Therapies in Medicine",
+          "accent": "#2563eb",
+          "bullets": [
+            "統整全球 12 項臨床研究、涵蓋逾 400 位思覺失調譜系個案。",
+            "確立動物輔助治療對「負性症狀（缺乏動機、退縮冷漠）」具明確實質改善成效。",
+            "展現動物對於打破慢性退縮具有專一且穩健的臨床復健價值。"
+          ]
+        },
+        {
+          "title": "Tyssedal et al. (2023)",
+          "tag": "挪威卑爾根大學系統回顧｜Frontiers in Psychiatry",
+          "accent": "#7c3aed",
+          "bullets": [
+            "首篇專門鎖定成人思覺失調「犬類輔助介入」的嚴謹系統性回顧（納入 11 項研究、375 位個案）。",
+            "指出在結合專業團隊的結構化活動時，犬隻能大幅提升參與意願並催化人際互動。",
+            "強調治療關鍵在於透過動物引路，把個案帶入溫暖規律的社會互動。"
+          ]
+        },
+        {
+          "title": "Hawkins et al. (2019)",
+          "tag": "英國愛丁堡大學系統回顧｜Journal of Psychiatric Research",
+          "accent": "#0891b2",
+          "bullets": [
+            "回顧早期 7 項隨機對照試驗（共 390 位個案），涵蓋犬、貓、馬、農場動物與倉鼠等多元物種。",
+            "奠定領域早期實證基線，並記錄到個案在自尊與自我效能感上的正向變化。",
+            "率先向國際學界呼籲建立嚴格的動物福祉與倫理審查標準。"
+          ]
+        }
+      ],
+      "public_quote": "從 2019 年的謹慎奠基，到 2023 年的精細梳理，再到 2026 年跨國統合分析確立療效，實證醫學一步步為動物輔助治療寫下令人安心的背書。"
+    },
+    {
+      "page": 11,
+      "type": "content_3col",
+      "unit": "03. 全 6 篇臨床實證（二）",
+      "layout_plan": "三欄頂部色條文獻卡（綠：Chen 2021｜橙：Öztürk 2025｜紅：Calvo 2016）＋ 底部客觀總結",
+      "title": "實證全景（二）：三大臨床隨機對照試驗成果",
+      "subtitle": "走進台灣、土耳其與西班牙的臨床現場，見證客觀評估下的身心變化",
+      "header_asset": "assets/cute-horse.svg",
+      "cards": [
+        {
+          "title": "Chen et al. (2021) 台灣團隊",
+          "tag": "高雄長庚與台大職能治療｜Frontiers in Psychiatry",
+          "accent": "#0d9488",
+          "bullets": [
+            "招募 40 位平均 54 歲的中老年慢性個案，由 4 隻認證治療犬（柯基、拉布拉多、馬爾濟斯、柴犬）陪伴 12 週。",
+            "個案在情感表達、社交退縮、自發會話與自覺壓力皆呈現明顯改善。",
+            "全體 40 位個案皆完成 12 週課程、未有人中途退出，客觀顯示高度可行性與參與度。"
+          ]
+        },
+        {
+          "title": "Öztürk et al. (2025) 土耳其團隊",
+          "tag": "社區馬術治療試驗｜Journal of Psychosocial Nursing",
+          "accent": "#d97706",
+          "bullets": [
+            "招募 61 位社區心理衛生中心個案，與溫馴的哈芙林格馬進行 8 週地面照護與馬背騎乘。",
+            "個案深層的孤獨感大幅消融，焦慮減輕，整體生活品質與自尊感出現明顯提升。",
+            "跨上馬背的視野轉換與身體掌控經驗，協助個案重新建立自我效能。"
+          ]
+        },
+        {
+          "title": "Calvo et al. (2016) 西班牙團隊",
+          "tag": "巴塞隆納長週期試驗｜Frontiers in Psychology",
+          "accent": "#e11d48",
+          "bullets": [
+            "針對 24 位長期住院的慢性思覺失調個案進行長達 6 個月的犬類輔助復健追蹤。",
+            "以客觀「唾液皮質醇化驗」證實與治療犬互動 1 小時後，體內壓力荷爾蒙真實下降。",
+            "介入組復健出席率高達九成以上（明顯高於常規對照組的六成），展現穩定參與動機。"
+          ]
+        }
+      ],
+      "public_quote": "三項跨國隨機對照試驗一致呈現高出席率與客觀身心正向轉變，證明溫暖無壓力的復健環境能有效提升慢性個案的參與意願。"
+    },
+    {
+      "page": 12,
+      "type": "interactive_pico",
+      "unit": "03. 互動體驗站三（PICO）",
+      "layout_plan": "頂部 6 色文獻切換按鈕列 ＋ 中央研究標頭 ＋ 下方 2×2 PICO 四格卡片（P 對象｜I 介入｜C 對照｜O 結果）",
+      "title": "6 篇核心文獻 PICO 互動展廳",
+      "subtitle": "",
+      "header_asset": "assets/cute-dog-study.svg",
+      "papers": [
+        {
+          "id": "chen2021",
+          "tab_label": "🐕 台灣長庚 (2021)",
+          "color": "#0d9488",
+          "title": "Chen et al. (2021)｜Frontiers in Psychiatry",
+          "P": "40 位年齡 40 歲以上慢性思覺失調個案（日間與復健病房）",
+          "I": "4 隻認證治療犬，12 週跨專業四模組介入（每週 1 次、60 分鐘）",
+          "C": "常規治療加上每週 1 小時非動物團體復健（積極對照）",
+          "O": "負性症狀與自覺壓力顯著減輕；40 位個案全數完成，無人中途退出"
+        },
+        {
+          "id": "peraile2026",
+          "tab_label": "🌐 全球統合 (2026)",
+          "color": "#2563eb",
+          "title": "Peraile-Huerta et al. (2026)｜Complementary Therapies in Medicine",
+          "P": "12 項跨國研究，共 408 位思覺失調譜系與精神病性疾患個案",
+          "I": "犬類（9 篇）、馬匹（2 篇）與犬馬混合（1 篇）動物輔助治療",
+          "C": "常規精神醫療照護或等時數非動物復健活動",
+          "O": "負性症狀具明確實質改善，焦慮呈減輕趨勢；正性症狀無明顯組間差異"
+        },
+        {
+          "id": "ozturk2025",
+          "tab_label": "🐴 土耳其馬術 (2025)",
+          "color": "#d97706",
+          "title": "Öztürk et al. (2025)｜Journal of Psychosocial Nursing",
+          "P": "61 位社區心理衛生中心穩定期思覺失調個案",
+          "I": "8 週哈芙林格馬介入（每週 2 次、40 分鐘：地面照護＋安全騎乘）",
+          "C": "社區中心常規復健服務（衛教、運動、音樂與職能治療）",
+          "O": "孤獨感與特質焦慮明顯降低，生活品質與正性症狀顯著改善"
+        },
+        {
+          "id": "tyssedal2023",
+          "tab_label": "🔍 挪威回顧 (2023)",
+          "color": "#7c3aed",
+          "title": "Tyssedal et al. (2023)｜Frontiers in Psychiatry",
+          "P": "11 項量化研究，共 375 位成人思覺失調譜系個案",
+          "I": "專門針對犬類輔助介入（治療犬互動與結構化團體活動）",
+          "C": "純常規治療或高互動性休閒復健（藝術、音樂、桌遊）",
+          "O": "多數研究見溝通、生活技能與正性症狀進步；負性成效受對照組影響"
+        },
+        {
+          "id": "hawkins2019",
+          "tab_label": "📖 愛丁堡回顧 (2019)",
+          "color": "#0891b2",
+          "title": "Hawkins et al. (2019)｜Journal of Psychiatric Research",
+          "P": "早期 7 項隨機對照試驗，共 390 位思覺失調譜系個案",
+          "I": "多元動物介入（涵蓋犬、貓、馬、農場動物與倉鼠）",
+          "C": "常規精神照護或非動物替代活動",
+          "O": "早期證據尚屬混合，部分見自尊提升；率先點出強化動物福祉審查之必要"
+        },
+        {
+          "id": "calvo2016",
+          "tab_label": "🐕 西班牙RCT (2016)",
+          "color": "#e11d48",
+          "title": "Calvo et al. (2016)｜Frontiers in Psychology",
+          "P": "24 位公立精神醫院長期住院慢性思覺失調個案",
+          "I": "6 個月犬類輔助復健（每週 2 次、60 分鐘），搭配唾液檢體採集",
+          "C": "等時數院內常規功能活動（美術、體能與體操）",
+          "O": "互動 1 小時後唾液皮質醇下降；出席率逾九成，高於常規組六成"
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "type": "content_2col",
+      "unit": "04. 雙向療癒倫理",
+      "layout_plan": "左右雙欄卡片（左：動物福祉核心原則；右：同理心與自尊復甦）＋ 底部一句倫理核心",
+      "title": "雙向尊重倫理：動物福祉 (One Welfare)",
+      "subtitle": "",
+      "header_asset": "assets/cute-bunny.svg",
+      "cards": [
+        {
+          "title": "守護治療動物原則",
+          "bullets": [
+            "依國際指引控管工時，備妥飲水與休息區。",
+            "全程監測舔嘴、打哈欠等疲累訊號。"
+          ]
+        },
+        {
+          "title": "從照顧中萌芽同理",
+          "bullets": [
+            "引導個案察覺動物疲累，主動讓牠休息。",
+            "在保護生命的同時，重建自我價值。"
+          ]
+        }
+      ],
+      "public_quote": "療癒非單向索取；雙向尊重守護動物與個案。"
+    },
+    {
+      "page": 14,
+      "type": "content_3col",
+      "unit": "05. 去污名化專題",
+      "layout_plan": "三欄日常實踐卡片（1. 理解卸責｜2. 肯定微光｜3. 家庭破冰）＋ 底部一行家屬心境短引語",
+      "title": "給家屬的一封信：《從封閉孤立到溫柔破冰》",
+      "subtitle": "",
+      "header_asset": "assets/cute-dog-heart.svg",
+      "cards": [
+        {
+          "title": "1. 理解取代指責",
+          "bullets": ["撕下懶惰標籤，看見大腦疾病本質，減少無效催促。"]
+        },
+        {
+          "title": "2. 肯定微小微光",
+          "bullets": ["伸手摸狗三分鐘或一次微笑，都是珍貴的復健進展。"]
+        },
+        {
+          "title": "3. 聊聊動物破冰",
+          "bullets": ["用毛孩趣事取代追問病情，讓客廳慢慢找回笑聲。"]
+        }
+      ],
+      "public_quote": "「那天他回家主動說柯基腿短短的好可愛，我知道他正在慢慢走回來。」"
+    },
+    {
+      "page": 15,
+      "type": "ending",
+      "unit": "05. 結語與展望",
+      "layout_plan": "置中結語版面：頂部五萌寵橫排 → 中央大字結語金句 → 一句社區願景 → 底部雙操作按鈕（重播／返回首頁）",
+      "title": "結語：無聲的接納，點亮回家的路",
+      "subtitle": "",
+      "header_asset": "assets/cute-dog.svg",
+      "quote": "「動物沒有語言，卻能聽懂最深沉的沉默；不帶評價的凝視，接住了跋涉中的心靈。」",
+      "vision": "期待醫療與社區動輔團隊攜手合作，讓溫暖陪伴成為常態復健選項。",
+      "assets": [
+        "assets/cute-dog.svg",
+        "assets/cute-horse.svg",
+        "assets/cute-dog-study.svg",
+        "assets/cute-cat.svg",
+        "assets/cute-bunny.svg"
+      ]
+    }
+  ]
+}

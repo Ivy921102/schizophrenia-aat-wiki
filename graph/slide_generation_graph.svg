@@ -1,0 +1,247 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="2560" viewBox="0 0 940 2560">
+  <defs>
+    <style>
+      text {
+        font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", "Segoe UI", sans-serif;
+      }
+      .title { font-size: 26px; font-weight: 700; fill: #f8fafc; }
+      .subtitle { font-size: 13.5px; fill: #94a3b8; }
+      .stage-label { font-size: 14px; font-weight: 700; fill: #cbd5e1; letter-spacing: 0.5px; }
+      .node-title { font-size: 15px; font-weight: 700; fill: #f8fafc; }
+      .node-sub { font-size: 12.5px; fill: #a1a1aa; }
+      .node-final-title { font-size: 16px; font-weight: 700; fill: #f0fdfa; }
+      .node-final-sub { font-size: 12.5px; fill: #99f6e4; }
+      .gate-dark-title { font-size: 14.5px; font-weight: 700; fill: #f8fafc; }
+      .gate-dark-sub { font-size: 12.5px; fill: #d4d4d8; }
+      .gate-green-title { font-size: 14.5px; font-weight: 700; fill: #064e3b; }
+      .gate-green-sub { font-size: 12.5px; fill: #065f46; }
+      .gate-amber-title { font-size: 15px; font-weight: 700; fill: #451a03; }
+      .gate-amber-sub { font-size: 13px; fill: #78350f; }
+      .gate-pink-title { font-size: 14.5px; font-weight: 700; fill: #4c0519; }
+      .gate-pink-sub { font-size: 12.5px; fill: #881337; }
+      .edge-label { font-size: 12px; font-weight: 600; fill: #e2e8f0; }
+      .edge-label-warn { font-size: 11.5px; font-weight: 600; fill: #fde68a; }
+      .legend-text { font-size: 12.5px; fill: #cbd5e1; }
+    </style>
+
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#94a3b8" />
+    </marker>
+    <marker id="arrow-warn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#f59e0b" />
+    </marker>
+    <marker id="arrow-pass" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#34d399" />
+    </marker>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect x="0" y="0" width="940" height="2560" fill="#18181b" />
+
+  <!-- Top Header -->
+  <text x="470" y="48" text-anchor="middle" class="title">動物輔助治療 × 思覺失調症簡報生成 State Graph</text>
+  <text x="470" y="76" text-anchor="middle" class="subtitle">Shift-Left 品質左移工作流｜程式檢核 ＋ AI 審查 ＋ 人類介入 (HITL)｜精準錯誤退回</text>
+  <line x1="80" y1="96" x2="860" y2="96" stroke="#27272a" stroke-width="1.5" />
+
+  <!-- ==================== STAGE 1 ==================== -->
+  <rect x="75" y="116" width="790" height="444" rx="12" fill="#1f1f23" fill-opacity="0.7" stroke="#3f3f46" stroke-width="1.2" />
+  <rect x="75" y="116" width="790" height="32" rx="12" fill="#27272a" />
+  <rect x="75" y="136" width="790" height="12" fill="#27272a" />
+  <text x="95" y="137" class="stage-label">第一階段：知識庫萃取與規格確立</text>
+
+  <!-- Node 0 & Node 1 -->
+  <rect x="135" y="168" width="285" height="64" rx="8" fill="#27272a" stroke="#52525b" stroke-width="1.2" />
+  <text x="277" y="195" text-anchor="middle" class="node-title">Node 0: 需求規格化</text>
+  <text x="277" y="217" text-anchor="middle" class="node-sub">輸出：00_requirements.json</text>
+
+  <rect x="520" y="168" width="285" height="64" rx="8" fill="#27272a" stroke="#52525b" stroke-width="1.2" />
+  <text x="662" y="195" text-anchor="middle" class="node-title">Node 1: Wiki 原始知識源</text>
+  <text x="662" y="217" text-anchor="middle" class="node-sub">wiki/*.md（6 篇文獻＋症狀＋機轉）</text>
+
+  <!-- Arrows N0 & N1 -> N2 -->
+  <path d="M 277 232 L 277 254 L 415 254 L 415 276" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 662 232 L 662 254 L 525 254 L 525 276" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)" />
+
+  <!-- Node 2 -->
+  <rect x="265" y="278" width="410" height="66" rx="8" fill="#27272a" stroke="#52525b" stroke-width="1.2" />
+  <text x="470" y="306" text-anchor="middle" class="node-title">Node 2: Wiki 知識萃取 (node1_extract.ps1)</text>
+  <text x="470" y="328" text-anchor="middle" class="node-sub">輸出：01_wiki_knowledge.json</text>
+
+  <!-- Arrow N2 -> G1 -->
+  <path d="M 470 344 L 470 374" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)" />
+
+  <!-- Gate 1 (Dark Charcoal Diamond) -->
+  <polygon points="470,376 645,456 470,536 295,456" fill="#27272a" stroke="#71717a" stroke-width="1.8" />
+  <text x="470" y="438" text-anchor="middle" class="gate-dark-title">Gate 1: Wiki 程式檢驗</text>
+  <text x="470" y="460" text-anchor="middle" class="gate-dark-sub">JSON 合法？6 篇文獻與 3 機轉齊全？</text>
+  <text x="470" y="481" text-anchor="middle" class="gate-dark-sub">輸出：01_check_report.json</text>
+
+  <!-- G1 Fail -> N2 -->
+  <path d="M 295 456 L 135 456 L 135 311 L 263 311" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)" />
+  <rect x="92" y="372" width="88" height="24" rx="4" fill="#18181b" stroke="#3f3f46" />
+  <text x="136" y="388" text-anchor="middle" class="edge-label">未通過重抽</text>
+
+  <!-- G1 Pass -> Stage 2 N3 -->
+  <path d="M 470 536 L 470 638" fill="none" stroke="#34d399" stroke-width="1.8" marker-end="url(#arrow-pass)" />
+  <rect x="442" y="567" width="56" height="24" rx="4" fill="#064e3b" stroke="#10b981" />
+  <text x="470" y="583" text-anchor="middle" class="edge-label">通過</text>
+
+  <!-- ==================== STAGE 2 ==================== -->
+  <rect x="75" y="600" width="790" height="594" rx="12" fill="#1f1f23" fill-opacity="0.7" stroke="#3f3f46" stroke-width="1.2" />
+  <rect x="75" y="600" width="790" height="32" rx="12" fill="#27272a" />
+  <rect x="75" y="620" width="790" height="12" fill="#27272a" />
+  <text x="95" y="621" class="stage-label">第二階段：大綱規劃與人類確認 (Shift-Left 核心)</text>
+
+  <!-- Node 3 -->
+  <rect x="255" y="640" width="430" height="66" rx="8" fill="#27272a" stroke="#52525b" stroke-width="1.2" />
+  <text x="470" y="668" text-anchor="middle" class="node-title">Node 3: 14 頁大綱與 3 互動頁規劃</text>
+  <text x="470" y="690" text-anchor="middle" class="node-sub">輸入：00 + 01 → 輸出：02_outline.md</text>
+
+  <!-- Arrow N3 -> G2 -->
+  <path d="M 470 706 L 470 738" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)" />
+
+  <!-- Gate 2 (Mint Green Diamond) -->
+  <polygon points="470,740 658,832 470,924 282,832" fill="#a7f3d0" stroke="#10b981" stroke-width="2" />
+  <text x="470" y="803" text-anchor="middle" class="gate-green-title">Gate 2: 大綱合規檢驗 (程式＋AI)</text>
+  <text x="470" y="825" text-anchor="middle" class="gate-green-sub">1. 機制在文獻前  2. 6 篇文獻全列</text>
+  <text x="470" y="845" text-anchor="middle" class="gate-green-sub">3. 零統計符號無分歧  4. 3 頁互動齊全</text>
+  <text x="470" y="866" text-anchor="middle" class="gate-green-sub">輸出：02_outline_review.json</text>
+
+  <!-- G2 Fail -> N3 -->
+  <path d="M 282 832 L 135 832 L 135 673 L 253 673" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)" />
+  <rect x="98" y="742" width="76" height="24" rx="4" fill="#18181b" stroke="#3f3f46" />
+  <text x="136" y="758" text-anchor="middle" class="edge-label">退回修改</text>
+
+  <!-- Arrow G2 -> G3 -->
+  <path d="M 470 924 L 470 980" fill="none" stroke="#34d399" stroke-width="1.8" marker-end="url(#arrow-pass)" />
+  <rect x="442" y="938" width="56" height="24" rx="4" fill="#064e3b" stroke="#10b981" />
+  <text x="470" y="954" text-anchor="middle" class="edge-label">通過</text>
+
+  <!-- Gate 3 (Bright Amber/Orange Diamond - HITL 1) -->
+  <polygon points="470,982 645,1070 470,1158 295,1070" fill="#fbbf24" stroke="#f59e0b" stroke-width="2" />
+  <text x="470" y="1050" text-anchor="middle" class="gate-amber-title">Gate 3: 人類介入關卡 1 (HITL)</text>
+  <text x="470" y="1073" text-anchor="middle" class="gate-amber-sub">由使用者審閱並確認大綱</text>
+  <text x="470" y="1095" text-anchor="middle" class="gate-amber-title">【強制暫停】</text>
+
+  <!-- G3 Feedback -> N3 -->
+  <path d="M 645 1070 L 805 1070 L 805 673 L 687 673" fill="none" stroke="#f59e0b" stroke-width="1.6" marker-end="url(#arrow-warn)" />
+  <rect x="758" y="852" width="94" height="24" rx="4" fill="#18181b" stroke="#d97706" />
+  <text x="805" y="868" text-anchor="middle" class="edge-label-warn">依修改指示</text>
+
+  <!-- G3 OK -> Stage 3 N4 -->
+  <path d="M 470 1158 L 470 1272" fill="none" stroke="#34d399" stroke-width="1.8" marker-end="url(#arrow-pass)" />
+  <rect x="415" y="1198" width="110" height="24" rx="4" fill="#064e3b" stroke="#10b981" />
+  <text x="470" y="1214" text-anchor="middle" class="edge-label">確認大綱 OK</text>
+
+  <!-- ==================== STAGE 3 ==================== -->
+  <rect x="75" y="1232" width="790" height="606" rx="12" fill="#1f1f23" fill-opacity="0.7" stroke="#3f3f46" stroke-width="1.2" />
+  <rect x="75" y="1232" width="790" height="32" rx="12" fill="#27272a" />
+  <rect x="75" y="1252" width="790" height="12" fill="#27272a" />
+  <text x="95" y="1253" class="stage-label">第三階段：逐頁內容編寫與雙重品管</text>
+
+  <!-- Node 4 -->
+  <rect x="235" y="1274" width="470" height="70" rx="8" fill="#27272a" stroke="#52525b" stroke-width="1.2" />
+  <text x="470" y="1303" text-anchor="middle" class="node-title">Node 4: 逐頁詳細文案與互動題編寫</text>
+  <text x="470" y="1326" text-anchor="middle" class="node-sub">輸出：03_slides_content.json 與 03_slides_draft.md</text>
+
+  <!-- Arrow N4 -> G4 -->
+  <path d="M 470 1344 L 470 1376" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)" />
+
+  <!-- Gate 4 (Soft Coral Pink Diamond) -->
+  <polygon points="470,1378 662,1474 470,1570 278,1474" fill="#fda4af" stroke="#f43f5e" stroke-width="2" />
+  <text x="470" y="1442" text-anchor="middle" class="gate-pink-title">Gate 4: 逐頁雙重品管 (程式＋AI)</text>
+  <text x="470" y="1464" text-anchor="middle" class="gate-pink-sub">1. Regex 禁統計符號與異常國旗</text>
+  <text x="470" y="1484" text-anchor="middle" class="gate-pink-sub">2. 6 篇文獻齊全與字數預算合規</text>
+  <text x="470" y="1505" text-anchor="middle" class="gate-pink-sub">3. 大眾轉譯溫柔度與零幻覺</text>
+  <text x="470" y="1526" text-anchor="middle" class="gate-pink-sub">輸出：04_audit_report.json</text>
+
+  <!-- G4 Fail -> N4 -->
+  <path d="M 278 1474 L 135 1474 L 135 1309 L 233 1309" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)" />
+  <rect x="83" y="1380" width="106" height="24" rx="4" fill="#18181b" stroke="#3f3f46" />
+  <text x="136" y="1396" text-anchor="middle" class="edge-label">文案/規則未過</text>
+
+  <!-- G4 Missing Source -> Far-left dashed rollback to Node 2 -->
+  <path d="M 320 1496 L 34 1496 L 34 295 L 263 295" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow-warn)" />
+  <rect x="4" y="875" width="60" height="72" rx="6" fill="#18181b" stroke="#d97706" />
+  <text x="34" y="896" text-anchor="middle" class="edge-label-warn">缺原始</text>
+  <text x="34" y="914" text-anchor="middle" class="edge-label-warn">素材</text>
+  <text x="34" y="932" text-anchor="middle" class="edge-label-warn">退 N2</text>
+
+  <!-- Arrow G4 -> G5 -->
+  <path d="M 470 1570 L 470 1624" fill="none" stroke="#34d399" stroke-width="1.8" marker-end="url(#arrow-pass)" />
+  <rect x="428" y="1583" width="84" height="24" rx="4" fill="#064e3b" stroke="#10b981" />
+  <text x="470" y="1599" text-anchor="middle" class="edge-label">品管通過</text>
+
+  <!-- Gate 5 (Bright Amber/Orange Diamond - HITL 2) -->
+  <polygon points="470,1626 645,1714 470,1802 295,1714" fill="#fbbf24" stroke="#f59e0b" stroke-width="2" />
+  <text x="470" y="1694" text-anchor="middle" class="gate-amber-title">Gate 5: 人類介入關卡 2 (HITL)</text>
+  <text x="470" y="1717" text-anchor="middle" class="gate-amber-sub">由使用者審閱逐頁文字稿</text>
+  <text x="470" y="1739" text-anchor="middle" class="gate-amber-title">【強制暫停】</text>
+
+  <!-- G5 Feedback -> N4 -->
+  <path d="M 645 1714 L 805 1714 L 805 1309 L 707 1309" fill="none" stroke="#f59e0b" stroke-width="1.6" marker-end="url(#arrow-warn)" />
+  <rect x="765" y="1496" width="80" height="24" rx="4" fill="#18181b" stroke="#d97706" />
+  <text x="805" y="1512" text-anchor="middle" class="edge-label-warn">調整文案</text>
+
+  <!-- G5 OK -> Stage 4 N5 -->
+  <path d="M 470 1802 L 470 1916" fill="none" stroke="#34d399" stroke-width="1.8" marker-end="url(#arrow-pass)" />
+  <rect x="408" y="1844" width="124" height="24" rx="4" fill="#064e3b" stroke="#10b981" />
+  <text x="470" y="1860" text-anchor="middle" class="edge-label">核准逐頁稿 OK</text>
+
+  <!-- ==================== STAGE 4 ==================== -->
+  <rect x="75" y="1878" width="790" height="538" rx="12" fill="#1f1f23" fill-opacity="0.7" stroke="#3f3f46" stroke-width="1.2" />
+  <rect x="75" y="1878" width="790" height="32" rx="12" fill="#27272a" />
+  <rect x="75" y="1898" width="790" height="12" fill="#27272a" />
+  <text x="95" y="1899" class="stage-label">第四階段：互動網頁封裝與最終驗收</text>
+
+  <!-- Node 5 -->
+  <rect x="235" y="1918" width="470" height="68" rx="8" fill="#27272a" stroke="#52525b" stroke-width="1.2" />
+  <text x="470" y="1946" text-anchor="middle" class="node-title">Node 5: 互動式網頁簡報 HTML 編譯</text>
+  <text x="470" y="1969" text-anchor="middle" class="node-sub">輸入：03_slides_content.json ＋ assets/*.svg → 輸出：slides.html</text>
+
+  <!-- Arrow N5 -> G6 -->
+  <path d="M 470 1986 L 470 2016" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)" />
+
+  <!-- Gate 6 (Dark Charcoal Diamond) -->
+  <polygon points="470,2018 652,2102 470,2186 288,2102" fill="#27272a" stroke="#71717a" stroke-width="1.8" />
+  <text x="470" y="2082" text-anchor="middle" class="gate-dark-title">Gate 6: 程式與瀏覽器互動驗收</text>
+  <text x="470" y="2104" text-anchor="middle" class="gate-dark-sub">標楷體 / SVG 路徑 / 3 頁互動 / 鍵盤翻頁</text>
+  <text x="470" y="2125" text-anchor="middle" class="gate-dark-sub">輸出：05_build_check.json</text>
+
+  <!-- G6 Fail -> N5 -->
+  <path d="M 288 2102 L 135 2102 L 135 1952 L 233 1952" fill="none" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)" />
+  <rect x="78" y="2014" width="116" height="24" rx="4" fill="#18181b" stroke="#3f3f46" />
+  <text x="136" y="2030" text-anchor="middle" class="edge-label">破版/互動異常</text>
+
+  <!-- Arrow G6 -> N6 -->
+  <path d="M 470 2186 L 470 2292" fill="none" stroke="#34d399" stroke-width="1.8" marker-end="url(#arrow-pass)" />
+  <rect x="428" y="2225" width="84" height="24" rx="4" fill="#064e3b" stroke="#10b981" />
+  <text x="470" y="2241" text-anchor="middle" class="edge-label">驗收通過</text>
+
+  <!-- Node 6 (Final Delivery) -->
+  <rect x="245" y="2294" width="450" height="78" rx="10" fill="#134e4a" stroke="#14b8a6" stroke-width="2" />
+  <text x="470" y="2327" text-anchor="middle" class="node-final-title">Node 6: 最終交付與同步 GitHub</text>
+  <text x="470" y="2352" text-anchor="middle" class="node-final-sub">更新 index.html 簡報入口、提交並推送至 main 分支</text>
+
+  <!-- ==================== FOOTER LEGEND & ESCALATION ==================== -->
+  <rect x="75" y="2438" width="790" height="96" rx="10" fill="#27272a" stroke="#3f3f46" stroke-width="1.2" />
+
+  <!-- Color Legend Pills -->
+  <rect x="105" y="2456" width="14" height="14" rx="3" fill="#a7f3d0" stroke="#10b981" />
+  <text x="126" y="2468" class="legend-text">大綱自動審查</text>
+
+  <rect x="245" y="2456" width="14" height="14" rx="3" fill="#fbbf24" stroke="#f59e0b" />
+  <text x="266" y="2468" class="legend-text">人類介入關卡 (HITL)</text>
+
+  <rect x="425" y="2456" width="14" height="14" rx="3" fill="#fda4af" stroke="#f43f5e" />
+  <text x="446" y="2468" class="legend-text">逐頁雙重品管</text>
+
+  <rect x="570" y="2456" width="14" height="14" rx="3" fill="#27272a" stroke="#71717a" />
+  <text x="591" y="2468" class="legend-text">程式與瀏覽器驗收</text>
+
+  <line x1="725" y1="2463" x2="755" y2="2463" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="5,3" />
+  <text x="763" y="2468" class="legend-text">跨階段退回</text>
+
+  <!-- Escalation Rule -->
+  <text x="470" y="2508" text-anchor="middle" class="edge-label-warn">防死迴圈保護機制：任一自動檢核關卡 (Gate 1 / 2 / 4 / 6) 連續失敗超過 3 次，系統將自動暫停並升級交由人工裁決</text>
+</svg>
