@@ -346,8 +346,8 @@
       "papers": [
         {
           "id": "chen2021",
-          "tab_label": "🐕 台灣長庚 (2021)",
-          "color": "#0d9488",
+          "tab_label": "Chen et al. (2021)",
+          "color": "#2F6F5E",
           "title": "Chen et al. (2021)｜Frontiers in Psychiatry",
           "P": "40 位年齡 40 歲以上慢性思覺失調個案（日間與復健病房）",
           "I": "4 隻認證治療犬，12 週跨專業四模組介入（每週 1 次、60 分鐘）",
@@ -356,8 +356,8 @@
         },
         {
           "id": "peraile2026",
-          "tab_label": "🌐 全球統合 (2026)",
-          "color": "#2563eb",
+          "tab_label": "Peraile-Huerta et al. (2026)",
+          "color": "#3B7A9E",
           "title": "Peraile-Huerta et al. (2026)｜Complementary Therapies in Medicine",
           "P": "12 項跨國研究，共 408 位思覺失調譜系與精神病性疾患個案",
           "I": "犬類（9 篇）、馬匹（2 篇）與犬馬混合（1 篇）動物輔助治療",
@@ -366,8 +366,8 @@
         },
         {
           "id": "ozturk2025",
-          "tab_label": "🐴 土耳其馬術 (2025)",
-          "color": "#d97706",
+          "tab_label": "Öztürk et al. (2025)",
+          "color": "#D97706",
           "title": "Öztürk et al. (2025)｜Journal of Psychosocial Nursing",
           "P": "61 位社區心理衛生中心穩定期思覺失調個案",
           "I": "8 週哈芙林格馬介入（每週 2 次、40 分鐘：地面照護＋安全騎乘）",
@@ -376,8 +376,8 @@
         },
         {
           "id": "tyssedal2023",
-          "tab_label": "🔍 挪威回顧 (2023)",
-          "color": "#7c3aed",
+          "tab_label": "Tyssedal et al. (2023)",
+          "color": "#7C5EA8",
           "title": "Tyssedal et al. (2023)｜Frontiers in Psychiatry",
           "P": "11 項量化研究，共 375 位成人思覺失調譜系個案",
           "I": "專門針對犬類輔助介入（治療犬互動與結構化團體活動）",
@@ -386,8 +386,8 @@
         },
         {
           "id": "hawkins2019",
-          "tab_label": "📖 愛丁堡回顧 (2019)",
-          "color": "#0891b2",
+          "tab_label": "Hawkins et al. (2019)",
+          "color": "#2E8B99",
           "title": "Hawkins et al. (2019)｜Journal of Psychiatric Research",
           "P": "早期 7 項隨機對照試驗，共 390 位思覺失調譜系個案",
           "I": "多元動物介入（涵蓋犬、貓、馬、農場動物與倉鼠）",
@@ -396,8 +396,8 @@
         },
         {
           "id": "calvo2016",
-          "tab_label": "🐕 西班牙RCT (2016)",
-          "color": "#e11d48",
+          "tab_label": "Calvo et al. (2016)",
+          "color": "#C95B6B",
           "title": "Calvo et al. (2016)｜Frontiers in Psychology",
           "P": "24 位公立精神醫院長期住院慢性思覺失調個案",
           "I": "6 個月犬類輔助復健（每週 2 次、60 分鐘），搭配唾液檢體採集",

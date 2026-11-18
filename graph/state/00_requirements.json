@@ -11,6 +11,20 @@
     "gate_6_final_acceptance": "mandatory_pause",
     "max_retries_before_escalation": 3
   },
+  "visual_and_typography": {
+    "art_theme": "warm_storybook_healing",
+    "palette": {
+      "canvas_bg": "#FAF7F2",
+      "sage_green": "#2F6F5E",
+      "warm_apricot": "#D97706",
+      "soft_cream_card": "#FFFDF9"
+    },
+    "illustration_style": "rich_lively_large_animals",
+    "general_title_min_px": 50,
+    "general_body_min_px": 30,
+    "literature_pages_font_exempt_but_enlarged": true,
+    "pico_tab_format": "Author (Year)"
+  },
   "audience_and_tone": {
     "style": "balanced_academic_and_public",
     "language": "zh-TW",

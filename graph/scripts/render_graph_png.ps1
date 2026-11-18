@@ -117,9 +117,9 @@ Draw-RoundRect 75 120 890 36 10 "#27272a" "#3f3f46" 1.0 255
 Draw-LeftText "第一階段：知識庫萃取與規格確立" 96 128 15 "#e2e8f0" $true
 
 # Node 0 & Node 1
-Draw-RoundRect 140 176 320 68 8 "#27272a" "#52525b" 1.4
-Draw-CenteredText "Node 0：需求規格化" 300 198 16 "#f8fafc" $true
-Draw-CenteredText "輸出：00_requirements.json" 300 223 13 "#a1a1aa" $false
+Draw-RoundRect 125 176 345 68 8 "#27272a" "#52525b" 1.4
+Draw-CenteredText "Node 0：需求、美術風格與字級規格化" 297 198 15.5 "#f8fafc" $true
+Draw-CenteredText "輸出：00_requirements.json（暖陽繪本風）" 297 223 12.5 "#a1a1aa" $false
 
 Draw-RoundRect 580 176 320 68 8 "#27272a" "#52525b" 1.4
 Draw-CenteredText "Node 1：Wiki 原始知識源" 740 198 16 "#f8fafc" $true
@@ -245,30 +245,31 @@ Draw-RoundRect 75 1946 890 36 10 "#27272a" "#3f3f46" 1.0 255
 Draw-LeftText "第四階段：互動網頁封裝與最終驗收" 96 1954 15 "#e2e8f0" $true
 
 # Node 5
-Draw-RoundRect 245 1990 550 70 8 "#27272a" "#52525b" 1.4
-Draw-CenteredText "Node 5：互動式網頁簡報 HTML 編譯" $CX 2013 16 "#f8fafc" $true
-Draw-CenteredText "輸入：03_slides_content.json ＋ assets/*.svg → 輸出：slides.html" $CX 2038 13 "#a1a1aa" $false
+Draw-RoundRect 215 1990 610 70 8 "#27272a" "#52525b" 1.4
+Draw-CenteredText "Node 5：暖陽繪本風互動網頁簡報 HTML 編譯" $CX 2013 16 "#f8fafc" $true
+Draw-CenteredText "輸入：03 + assets/*.svg（大字級＋活潑插圖）→ 輸出：slides.html" $CX 2038 12.5 "#a1a1aa" $false
 
-Draw-ArrowPath @(@($CX,2060), @($CX,2090)) "#94a3b8" 1.8
+Draw-ArrowPath @(@($CX,2060), @($CX,2086)) "#94a3b8" 1.8
 
 # Gate 6 (Dark Charcoal Diamond)
-Draw-Diamond $CX 2178 205 86 "#27272a" "#71717a" 2.0
-Draw-CenteredText "Gate 6：程式與瀏覽器互動驗收" $CX 2154 15.5 "#f8fafc" $true
-Draw-CenteredText "標楷體 / SVG 路徑 / 3 頁互動 / 鍵盤翻頁" $CX 2179 13 "#d4d4d8" $false
-Draw-CenteredText "輸出：05_build_check.json" $CX 2202 12.5 "#a1a1aa" $false
+Draw-Diamond $CX 2178 242 92 "#27272a" "#71717a" 2.0
+Draw-CenteredText "Gate 6：美術、字級與互動驗收" $CX 2144 15.5 "#f8fafc" $true
+Draw-CenteredText "1. 標題 ≥ 50px、一般內文 ≥ 30px (文獻頁放大)" $CX 2168 12.5 "#d4d4d8" $false
+Draw-CenteredText "2. 暖陽繪本風 / 標楷體 / PICO 作者(年份)" $CX 2190 12.5 "#d4d4d8" $false
+Draw-CenteredText "輸出：05_build_check.json" $CX 2213 12 "#a1a1aa" $false
 
 # G6 Fail -> N5
-Draw-ArrowPath @(@(315,2178), @(150,2178), @(150,2025), @(243,2025)) "#94a3b8" 1.8
-Draw-EdgeBadge "破版/互動異常" 150 2100 118 "#18181b" "#52525b" "#e2e8f0"
+Draw-ArrowPath @(@(278,2178), @(145,2178), @(145,2025), @(213,2025)) "#94a3b8" 1.8
+Draw-EdgeBadge "字級/版面未過" 145 2100 122 "#18181b" "#52525b" "#e2e8f0"
 
 # G6 Pass -> N6
-Draw-ArrowPath @(@($CX,2264), @($CX,2376)) "#34d399" 2.2
-Draw-EdgeBadge "驗收通過" $CX 2318 88 "#064e3b" "#10b981" "#ecfdf5"
+Draw-ArrowPath @(@($CX,2270), @($CX,2376)) "#34d399" 2.2
+Draw-EdgeBadge "驗收通過" $CX 2322 88 "#064e3b" "#10b981" "#ecfdf5"
 
 # Node 6 (Final Delivery)
-Draw-RoundRect 265 2378 510 82 10 "#134e4a" "#14b8a6" 2.2
-Draw-CenteredText "Node 6：最終交付與同步 GitHub" $CX 2407 17 "#f0fdfa" $true
-Draw-CenteredText "更新 index.html 簡報入口、提交並推送至 main 分支" $CX 2436 13.5 "#99f6e4" $false
+Draw-RoundRect 245 2378 550 82 10 "#134e4a" "#14b8a6" 2.2
+Draw-CenteredText "Node 6：最終交付與獨立網頁同步 GitHub" $CX 2407 17 "#f0fdfa" $true
+Draw-CenteredText "獨立部署 slides.html 與 graph.html，保持 LLM Wiki 純淨" $CX 2436 13 "#99f6e4" $false
 
 # ==================== FOOTER LEGEND & ESCALATION ====================
 Draw-RoundRect 75 2530 890 104 10 "#27272a" "#3f3f46" 1.4

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>動物輔助治療如何幫助思覺失調個案找回生活動機與人際連結</title>
   <style>
+    /* 全域標楷體 */
     *, *::before, *::after, html, body, h1, h2, h3, h4, p, span, div, a, button, li {
       font-family: "標楷體", "BiauKai", "DFKai-SB", "TW-Kai", "KaiTi", serif !important;
       box-sizing: border-box;
@@ -13,33 +14,40 @@
     }
 
     :root {
-      --primary: #0d9488;
-      --bg: #0f172a;
-      --slide-bg: #ffffff;
-      --text-main: #0f172a;
-      --text-muted: #475569;
-      --border: #e2e8f0;
+      --oat-canvas: #FAF7F2;
+      --cream-card: #FFFDF9;
+      --sage-dark: #2F6F5E;
+      --sage-mid: #4B8B77;
+      --sage-soft: #E3F1EC;
+      --apricot: #D97706;
+      --apricot-soft: #FEF3C7;
+      --apricot-border: #F59E0B;
+      --ink-main: #2C241E;
+      --ink-body: #3E352F;
+      --ink-muted: #786B61;
+      --warm-border: #E6DDD0;
     }
 
     body {
-      background: radial-gradient(circle at 50% 15%, #334155 0%, #0f172a 100%);
-      color: var(--text-main);
+      background: linear-gradient(155deg, #EAE0D2 0%, #DFD2C0 100%);
+      color: var(--ink-main);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 0.9rem 1rem;
+      padding: 0.75rem 1rem 1rem 1rem;
       overflow-x: hidden;
     }
 
+    /* 頂部控制列 */
     .top-toolbar {
       width: 100%;
-      max-width: 1180px;
+      max-width: 1500px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.4rem 0.6rem;
+      padding: 0.35rem 0.5rem;
       margin-bottom: 0.45rem;
       gap: 0.6rem;
       flex-wrap: wrap;
@@ -52,129 +60,148 @@
     }
 
     .btn-toolbar {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      color: #f8fafc;
-      padding: 0.35rem 0.85rem;
-      border-radius: 8px;
-      font-size: 0.92rem;
+      background: rgba(255, 253, 249, 0.9);
+      border: 1.5px solid #D5C8B7;
+      color: #3E352F;
+      padding: 0.4rem 0.95rem;
+      border-radius: 999px;
+      font-size: 20px;
+      font-weight: bold;
       cursor: pointer;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
       transition: all 0.2s;
+      box-shadow: 0 2px 6px rgba(62, 53, 47, 0.08);
     }
 
     .btn-toolbar:hover {
-      background: rgba(56, 189, 248, 0.2);
-      border-color: #38bdf8;
-      color: #7dd3fc;
+      background: var(--sage-dark);
+      border-color: var(--sage-dark);
+      color: #ffffff;
     }
 
     .progress-bar-container {
       width: 100%;
-      max-width: 1180px;
-      height: 6px;
-      background: rgba(255, 255, 255, 0.16);
+      max-width: 1500px;
+      height: 8px;
+      background: rgba(120, 107, 97, 0.22);
       border-radius: 999px;
       overflow: hidden;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.7rem;
     }
 
     .progress-bar-fill {
       height: 100%;
       width: 6.67%;
-      background: linear-gradient(90deg, #14b8a6 0%, #38bdf8 100%);
+      background: linear-gradient(90deg, #4B8B77 0%, #E08E45 100%);
       transition: width 0.3s ease;
     }
 
+    /* 暖陽療癒繪本風主畫布 (大字級專屬寬敞比例) */
     .presentation-viewport {
       width: 100%;
-      max-width: 1180px;
-      height: 685px;
-      background: var(--slide-bg);
-      border-radius: 24px;
-      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+      max-width: 1500px;
+      min-height: 780px;
+      background: var(--oat-canvas);
+      background-image:
+        radial-gradient(circle at 92% 10%, rgba(254, 243, 199, 0.75) 0%, transparent 32%),
+        radial-gradient(circle at 6% 92%, rgba(227, 241, 236, 0.8) 0%, transparent 34%);
+      border: 3px solid #E5DCCB;
+      border-radius: 30px;
+      box-shadow: 0 22px 48px rgba(74, 58, 43, 0.16);
       position: relative;
       overflow: hidden;
     }
 
     .slide {
-      position: absolute;
-      inset: 0;
-      padding: 2.3rem 2.9rem 1.9rem 2.9rem;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateX(28px);
-      transition: opacity 0.32s ease, transform 0.32s ease;
-      display: flex;
+      display: none;
+      width: 100%;
+      min-height: 780px;
+      padding: 2.2rem 3rem 2rem 3rem;
       flex-direction: column;
-      overflow-y: auto;
+      animation: fadeSlideIn 0.3s ease;
     }
 
     .slide.active {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateX(0);
-      z-index: 2;
+      display: flex;
     }
 
-    /* 頁首 */
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 頁首：標題 >= 50px + 顯眼大萌寵徽章 */
     .slide-header {
-      border-bottom: 2px solid #f1f5f9;
-      padding-bottom: 0.75rem;
-      margin-bottom: 1.15rem;
+      border-bottom: 2.5px dashed #DFD4C4;
+      padding-bottom: 0.85rem;
+      margin-bottom: 1.35rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 1rem;
+      gap: 1.2rem;
     }
 
     .slide-title-wrap {
       display: flex;
       flex-direction: column;
-      gap: 0.32rem;
+      gap: 0.35rem;
     }
 
     .slide-unit-badge {
-      font-size: 0.88rem;
+      font-size: 22px;
       font-weight: bold;
-      color: #0f766e;
-      background: #ccfbf1;
-      padding: 0.2rem 0.65rem;
-      border-radius: 6px;
+      color: var(--sage-dark);
+      background: var(--sage-soft);
+      border: 1.5px solid #B7DDD0;
+      padding: 0.2rem 0.85rem;
+      border-radius: 999px;
       width: fit-content;
     }
 
     .badge-interactive {
-      color: #0369a1;
-      background: #e0f2fe;
+      color: #9A3412;
+      background: #FFEDD5;
+      border-color: #FDBA74;
     }
 
+    /* 一般頁標題強制 >= 50px */
     .slide-title {
-      font-size: 1.85rem;
-      color: #0f172a;
+      font-size: 52px;
+      color: var(--ink-main);
       font-weight: bold;
-      line-height: 1.3;
+      line-height: 1.25;
+      letter-spacing: 0.5px;
     }
 
     .slide-subtitle {
-      font-size: 1rem;
-      color: #64748b;
+      font-size: 26px;
+      color: var(--ink-muted);
+      line-height: 1.4;
+    }
+
+    .header-animal-badge {
+      background: #FFFDF9;
+      border: 3px solid #F3DFC1;
+      border-radius: 50%;
+      padding: 10px;
+      box-shadow: 0 6px 16px rgba(180, 83, 9, 0.12);
+      flex-shrink: 0;
     }
 
     .slide-header-animal {
-      width: 60px;
-      height: 60px;
-      flex-shrink: 0;
+      width: 104px;
+      height: 104px;
+      display: block;
     }
 
     .slide-body {
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 1.05rem;
+      gap: 1.25rem;
     }
 
     /* 封面 & 結語 */
@@ -182,52 +209,65 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      gap: 1.7rem;
-      background: linear-gradient(160deg, #ffffff 0%, #f0fdfa 100%);
+      gap: 2rem;
     }
 
     .cover-animals-row {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 1.4rem;
+      gap: 1.6rem;
       flex-wrap: wrap;
     }
 
+    .animal-medallion {
+      background: #FFFDF9;
+      border: 3.5px solid #F3DFC1;
+      border-radius: 50%;
+      padding: 14px;
+      box-shadow: 0 10px 22px rgba(146, 64, 14, 0.12);
+      transition: transform 0.25s ease;
+    }
+
+    .animal-medallion:hover {
+      transform: translateY(-6px) rotate(-3deg);
+    }
+
     .cover-title {
-      font-size: 2.55rem;
-      color: #0f172a;
+      font-size: 62px;
+      color: var(--ink-main);
       font-weight: bold;
-      line-height: 1.45;
-      max-width: 900px;
+      line-height: 1.38;
+      max-width: 1180px;
     }
 
     .cover-footer-note {
-      font-size: 1.08rem;
-      color: #0f766e;
-      background: #ccfbf1;
-      padding: 0.55rem 1.5rem;
+      font-size: 30px;
+      color: var(--sage-dark);
+      background: var(--sage-soft);
+      border: 2px solid #A7D7C5;
+      padding: 0.65rem 2rem;
       border-radius: 999px;
       font-weight: bold;
     }
 
     .ending-quote {
-      font-size: 1.55rem;
+      font-size: 36px;
       font-weight: bold;
-      color: #0f172a;
-      max-width: 860px;
-      line-height: 1.75;
-      background: #fffbeb;
-      border-left: 5px solid #f59e0b;
-      padding: 1rem 1.5rem;
-      border-radius: 0 14px 14px 0;
+      color: #5C2D0C;
+      max-width: 1150px;
+      line-height: 1.6;
+      background: var(--apricot-soft);
+      border-left: 8px solid var(--apricot-border);
+      padding: 1.2rem 1.8rem;
+      border-radius: 0 20px 20px 0;
     }
 
     .ending-vision {
-      font-size: 1.15rem;
-      color: #475569;
-      max-width: 780px;
-      line-height: 1.7;
+      font-size: 31px;
+      color: var(--ink-body);
+      max-width: 1080px;
+      line-height: 1.6;
     }
 
     /* 極簡目錄頁 */
@@ -235,189 +275,198 @@
       flex-direction: row !important;
       align-items: center;
       gap: 2.5rem;
-      padding: 0.5rem 0;
     }
 
     .toc-list {
-      flex: 1.4;
+      flex: 1.5;
       display: flex;
       flex-direction: column;
-      gap: 0.9rem;
+      gap: 1rem;
     }
 
     .toc-item {
-      background: #f8fafc;
-      border: 1.8px solid #cbd5e1;
-      border-radius: 14px;
-      padding: 1rem 1.4rem;
-      font-size: 1.32rem;
+      background: var(--cream-card);
+      border: 2.5px solid var(--warm-border);
+      border-radius: 18px;
+      padding: 1.05rem 1.6rem;
+      font-size: 34px;
       font-weight: bold;
-      color: #0f172a;
+      color: var(--ink-main);
       display: flex;
       justify-content: space-between;
       align-items: center;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.22s;
       text-align: left;
+      box-shadow: 0 4px 12px rgba(62, 53, 47, 0.05);
     }
 
     .toc-item:hover {
-      background: #f0fdfa;
-      border-color: #0d9488;
-      color: #0f766e;
-      transform: translateX(6px);
-      box-shadow: 0 6px 16px rgba(13, 148, 136, 0.14);
+      background: var(--sage-soft);
+      border-color: var(--sage-dark);
+      color: var(--sage-dark);
+      transform: translateX(8px);
     }
 
     .toc-arrow {
-      font-size: 0.98rem;
-      color: #0d9488;
+      font-size: 26px;
+      color: var(--apricot);
     }
 
     .toc-visual {
       flex: 0.7;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
     }
 
-    /* 網格與內容卡片 */
+    .toc-animal-frame {
+      background: #FFFDF9;
+      border: 4px solid #F3DFC1;
+      border-radius: 50%;
+      padding: 26px;
+      box-shadow: 0 12px 28px rgba(146, 64, 14, 0.14);
+    }
+
+    /* 網格與內容卡片 (一般內文 >= 30px) */
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
+      gap: 1.4rem;
     }
 
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.1rem;
+      gap: 1.25rem;
     }
 
     .content-box {
-      background: #f8fafc;
-      border: 1.5px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 1.2rem 1.3rem;
+      background: var(--cream-card);
+      border: 2px solid var(--warm-border);
+      border-radius: 22px;
+      padding: 1.45rem 1.6rem;
       display: flex;
       flex-direction: column;
-      gap: 0.55rem;
+      gap: 0.75rem;
+      box-shadow: 0 6px 18px rgba(74, 58, 43, 0.06);
     }
 
     .box-title {
-      font-size: 1.22rem;
+      font-size: 34px;
       font-weight: bold;
-      color: #0f172a;
+      color: var(--sage-dark);
+      line-height: 1.3;
     }
 
     .box-tag {
-      font-size: 0.86rem;
-      color: #64748b;
+      font-size: 22px;
+      color: var(--ink-muted);
       font-weight: bold;
-      margin-bottom: 0.15rem;
     }
 
+    /* 一般頁正文 >= 30px */
     .box-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
-      font-size: 1.05rem;
-      color: #334155;
-      line-height: 1.7;
+      gap: 0.65rem;
+      font-size: 31px;
+      color: var(--ink-body);
+      line-height: 1.55;
     }
 
     .box-list li::before {
       content: "• ";
-      color: #0d9488;
+      color: var(--apricot);
       font-weight: bold;
     }
 
-    /* 文獻完整版微調（第 10、11 頁） */
-    .lit-dense .content-box {
-      padding: 0.95rem 1.05rem;
-      gap: 0.4rem;
-    }
-    .lit-dense .box-title { font-size: 1.12rem; }
-    .lit-dense .box-list { font-size: 0.93rem; line-height: 1.58; gap: 0.35rem; }
-    .lit-dense .public-quote-box { font-size: 0.96rem; padding: 0.7rem 1.1rem; }
-
     .public-quote-box {
-      background: #fffbeb;
-      border-left: 5px solid #f59e0b;
-      border-radius: 0 12px 12px 0;
-      padding: 0.85rem 1.2rem;
-      color: #78350f;
-      font-size: 1.05rem;
-      line-height: 1.65;
+      background: var(--apricot-soft);
+      border-left: 7px solid var(--apricot-border);
+      border-radius: 0 16px 16px 0;
+      padding: 1rem 1.4rem;
+      color: #6B3409;
+      font-size: 30px;
+      line-height: 1.5;
     }
 
-    /* 互動翻牌與配對卡 (Slide 4 & Slide 9) */
+    /* 文獻頁（第 10、11 頁）：免受 30px 強制下限，但依然盡量放大字體 */
+    .lit-dense .slide-title { font-size: 50px; }
+    .lit-dense .slide-subtitle { font-size: 24px; }
+    .lit-dense .content-box { padding: 1.15rem 1.25rem; gap: 0.5rem; }
+    .lit-dense .box-title { font-size: 29px; }
+    .lit-dense .box-tag { font-size: 19px; }
+    .lit-dense .box-list { font-size: 23px; line-height: 1.55; gap: 0.45rem; }
+    .lit-dense .public-quote-box { font-size: 25px; padding: 0.85rem 1.25rem; }
+
+    /* 互動翻牌與配對卡 (Slide 4 & Slide 9 — 大字 >= 30px) */
     .interactive-card {
-      background: #ffffff;
-      border: 2px solid #cbd5e1;
-      border-radius: 18px;
-      padding: 1.25rem;
+      background: var(--cream-card);
+      border: 2.5px solid #DCCEB9;
+      border-radius: 22px;
+      padding: 1.4rem 1.5rem;
       cursor: pointer;
       transition: all 0.22s ease;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 0.8rem;
+      gap: 0.9rem;
+      box-shadow: 0 6px 16px rgba(74, 58, 43, 0.06);
     }
 
     .interactive-card:hover {
-      border-color: #0284c7;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(2, 132, 199, 0.14);
+      border-color: var(--apricot);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 22px rgba(217, 119, 6, 0.16);
     }
 
     .interactive-card.revealed {
-      border-color: #0d9488;
-      background: #f0fdf4;
+      border-color: var(--sage-dark);
+      background: #F1F8F5;
     }
 
     .quiz-q-badge {
-      background: #e0f2fe;
-      color: #0369a1;
-      padding: 0.2rem 0.65rem;
-      border-radius: 6px;
-      font-size: 0.88rem;
+      background: #FFEDD5;
+      color: #9A3412;
+      padding: 0.2rem 0.75rem;
+      border-radius: 999px;
+      font-size: 22px;
       font-weight: bold;
       display: inline-block;
-      margin-bottom: 0.45rem;
+      margin-bottom: 0.5rem;
     }
 
     .quiz-question {
-      font-size: 1.16rem;
+      font-size: 32px;
       font-weight: bold;
-      color: #0f172a;
-      line-height: 1.55;
+      color: var(--ink-main);
+      line-height: 1.45;
     }
 
     .quiz-action-btn {
-      background: #0284c7;
+      background: var(--apricot);
       color: #ffffff;
       border: none;
-      padding: 0.5rem 0.9rem;
-      border-radius: 8px;
-      font-size: 0.95rem;
+      padding: 0.55rem 1.15rem;
+      border-radius: 12px;
+      font-size: 26px;
       font-weight: bold;
       cursor: pointer;
     }
 
     .interactive-card.revealed .quiz-action-btn {
-      background: #16a34a;
+      background: var(--sage-dark);
     }
 
     .quiz-answer-content {
       display: none;
-      padding-top: 0.75rem;
-      border-top: 1.5px dashed #86efac;
-      font-size: 1rem;
-      color: #14532d;
-      line-height: 1.65;
+      padding-top: 0.8rem;
+      border-top: 2px dashed #99C9B8;
+      font-size: 30px;
+      color: #1F4E42;
+      line-height: 1.5;
     }
 
     .interactive-card.revealed .quiz-answer-content {
@@ -425,168 +474,168 @@
     }
 
     .btn-soft-action {
-      background: #f1f5f9;
-      border: 1.5px solid #cbd5e1;
-      color: #334155;
-      padding: 0.45rem 1.2rem;
+      background: #EFE7DA;
+      border: 2px solid #D6C7B2;
+      color: #4A3E35;
+      padding: 0.5rem 1.5rem;
       border-radius: 999px;
-      font-size: 0.94rem;
+      font-size: 24px;
       font-weight: bold;
       cursor: pointer;
     }
 
     .btn-soft-action:hover {
-      background: #e2e8f0;
-      color: #0f172a;
+      background: #E2D5C1;
+      color: var(--ink-main);
     }
 
-    /* PICO 互動展廳 (Slide 12) */
+    /* PICO 互動展廳 (Slide 12：3x2 寬敞作者(年份)按鈕 ＋ 放大 PICO 四格) */
     .pico-tabs {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 0.5rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.7rem;
     }
 
     .pico-tab-btn {
-      background: #f8fafc;
-      border: 1.8px solid #cbd5e1;
-      border-radius: 10px;
-      padding: 0.6rem 0.35rem;
-      font-size: 0.88rem;
+      background: var(--cream-card);
+      border: 2px solid #D8CBB8;
+      border-radius: 14px;
+      padding: 0.65rem 0.8rem;
+      font-size: 24px;
       font-weight: bold;
-      color: #475569;
+      color: var(--ink-body);
       cursor: pointer;
       transition: all 0.2s;
     }
 
     .pico-tab-btn:hover {
-      background: #e2e8f0;
-      color: #0f172a;
+      background: #F4EDE2;
+      color: var(--ink-main);
     }
 
     .pico-tab-btn.active {
       color: #ffffff;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+      box-shadow: 0 5px 14px rgba(44, 36, 30, 0.18);
     }
 
     .pico-panel {
       flex: 1;
-      background: #ffffff;
-      border: 2px solid #0d9488;
-      border-radius: 18px;
-      padding: 1.25rem 1.4rem;
+      background: var(--cream-card);
+      border: 3px solid var(--sage-dark);
+      border-radius: 22px;
+      padding: 1.35rem 1.6rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 0.9rem;
+      gap: 1rem;
     }
 
     .pico-header-title {
-      font-size: 1.32rem;
+      font-size: 32px;
       font-weight: bold;
-      color: #0f172a;
     }
 
     .pico-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 0.95rem;
+      gap: 1rem;
       flex: 1;
     }
 
     .pico-cell {
-      background: #f8fafc;
-      border: 1.5px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 0.9rem 1.05rem;
+      background: #FAF6EE;
+      border: 2px solid #E6DDD0;
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
       display: flex;
       flex-direction: column;
-      gap: 0.35rem;
+      gap: 0.45rem;
     }
 
     .pico-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      font-size: 1rem;
+      gap: 0.5rem;
+      font-size: 26px;
       font-weight: bold;
+      color: var(--ink-main);
     }
 
     .pico-letter {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 26px;
-      height: 26px;
-      border-radius: 6px;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
       color: #ffffff;
-      font-size: 0.95rem;
+      font-size: 24px;
     }
 
     .pico-text {
-      font-size: 1.02rem;
-      color: #334155;
-      line-height: 1.65;
+      font-size: 27px;
+      color: var(--ink-body);
+      line-height: 1.5;
     }
 
-    /* 底部操作列 */
+    /* 底部導覽列 */
     .bottom-nav {
       width: 100%;
-      max-width: 1180px;
+      max-width: 1500px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.65rem 0.6rem;
-      margin-top: 0.45rem;
+      padding: 0.65rem 0.5rem;
+      margin-top: 0.4rem;
     }
 
     .nav-btn {
-      background: #38bdf8;
-      color: #0f172a;
+      background: var(--sage-dark);
+      color: #ffffff;
       border: none;
-      padding: 0.58rem 1.35rem;
-      border-radius: 12px;
-      font-size: 1.02rem;
+      padding: 0.6rem 1.6rem;
+      border-radius: 999px;
+      font-size: 24px;
       font-weight: bold;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
       transition: all 0.2s;
+      box-shadow: 0 5px 14px rgba(47, 111, 94, 0.25);
     }
 
-    .nav-btn:hover { background: #7dd3fc; transform: translateY(-1px); }
-    .nav-btn:disabled { background: #475569; color: #94a3b8; cursor: not-allowed; transform: none; }
+    .nav-btn:hover { background: #235749; transform: translateY(-2px); }
+    .nav-btn:disabled { background: #BEB3A4; color: #F5EFE6; cursor: not-allowed; transform: none; box-shadow: none; }
 
     .dots-indicator {
       display: flex;
-      gap: 0.4rem;
+      gap: 0.45rem;
       align-items: center;
       flex-wrap: wrap;
       justify-content: center;
     }
 
     .dot {
-      width: 10px;
-      height: 10px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.28);
+      background: rgba(120, 107, 97, 0.35);
       cursor: pointer;
       transition: all 0.2s;
     }
 
     .dot.active {
-      width: 26px;
+      width: 30px;
       border-radius: 999px;
-      background: #38bdf8;
+      background: var(--apricot);
     }
 
-    @media (max-width: 960px) {
-      .presentation-viewport { height: auto; min-height: 620px; }
-      .slide { padding: 1.5rem; position: relative; display: none; }
-      .slide.active { display: flex; }
-      .grid-2, .grid-3, .pico-grid { grid-template-columns: 1fr; }
-      .pico-tabs { grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 1100px) {
+      .slide { padding: 1.6rem; }
+      .cover-title { font-size: 46px; }
+      .slide-title { font-size: 38px; }
+      .grid-2, .grid-3, .pico-grid, .pico-tabs { grid-template-columns: 1fr; }
       .toc-layout { flex-direction: column !important; }
     }
   </style>
@@ -597,10 +646,10 @@
     <div class="top-toolbar-left">
       <a href="index.html" class="btn-toolbar">🏠 返回知識庫</a>
       <button type="button" class="btn-toolbar" onclick="goToSlide(2)">📋 目錄</button>
-      <span id="slideCounterText" style="color: #e2e8f0; font-weight: bold; font-size: 0.98rem;">第 1 / 15 頁</span>
+      <span id="slideCounterText" style="color: #3E352F; font-weight: bold; font-size: 22px;">第 1 / 15 頁</span>
     </div>
     <div class="top-toolbar-right">
-      <span style="color: #94a3b8; font-size: 0.88rem;">支援鍵盤 ← → 鍵翻頁</span>
+      <span style="color: #6B5E53; font-size: 19px;">支援鍵盤 ← → 鍵翻頁</span>
       <button type="button" class="btn-toolbar" onclick="toggleFullScreen()">⛶ 全螢幕簡報</button>
     </div>
   </div>
@@ -613,10 +662,10 @@
     <!-- SLIDE 1 : COVER -->
     <div class="slide cover-slide active" data-index="1">
       <div class="cover-animals-row">
-        <img src="assets/cute-dog.svg" width="92" height="92" alt="治療動物" />
-        <img src="assets/cute-horse.svg" width="92" height="92" alt="治療動物" />
-        <img src="assets/cute-cat.svg" width="92" height="92" alt="治療動物" />
-        <img src="assets/cute-bunny.svg" width="92" height="92" alt="治療動物" />
+        <div class="animal-medallion"><img src="assets/cute-dog.svg" width="126" height="126" alt="治療動物" /></div>
+        <div class="animal-medallion"><img src="assets/cute-horse.svg" width="126" height="126" alt="治療動物" /></div>
+        <div class="animal-medallion"><img src="assets/cute-cat.svg" width="126" height="126" alt="治療動物" /></div>
+        <div class="animal-medallion"><img src="assets/cute-bunny.svg" width="126" height="126" alt="治療動物" /></div>
       </div>
       <h1 class="cover-title">動物輔助治療如何幫助思覺失調個案找回生活動機與人際連結</h1>
       <div class="cover-footer-note">🐾 點擊下方「下一頁」或按鍵盤右鍵開始 &rarr;</div>
@@ -625,9 +674,9 @@
     <div class="slide" data-index="2">
       <div class="slide-header">
         <div class="slide-title-wrap">
-          <h2 class="slide-title" style="font-size: 2.15rem;">目錄</h2>
+          <h2 class="slide-title" style="font-size: 56px;">目錄</h2>
         </div>
-        <img src="assets/cute-dog-study.svg" class="slide-header-animal" alt="導覽犬" />
+        <div class="header-animal-badge"><img src="assets/cute-paw.svg" class="slide-header-animal" alt="爪印" /></div>
       </div>
       <div class="slide-body toc-layout">
         <div class="toc-list">
@@ -653,8 +702,7 @@
           </button>
         </div>
         <div class="toc-visual">
-          <img src="assets/cute-dog-study.svg" width="190" height="190" alt="研究小犬" />
-          <div style="color: #64748b; font-size: 0.98rem; margin-top: 0.6rem;">點擊任一章節快速跳轉</div>
+          <div class="toc-animal-frame"><img src="assets/cute-dog-study.svg" width="240" height="240" alt="研究小犬" /></div>
         </div>
       </div>
     </div>
@@ -665,7 +713,7 @@
           <span class="slide-unit-badge">01. 臨床困境與破冰</span>
           <h2 class="slide-title">被誤解的「隱形重擔」：負性症狀</h2>
         </div>
-        <img src="assets/cute-dog-study.svg" class="slide-header-animal" alt="動物插圖" />
+        <div class="header-animal-badge"><img src="assets/cute-dog-study.svg" class="slide-header-animal" alt="動物插圖" /></div>
       </div>
       <div class="slide-body">
         <div class="grid-2" style="flex: 1; align-content: center;">
@@ -696,7 +744,7 @@
           <span class="slide-unit-badge badge-interactive">🎮 01. 互動體驗站一</span>
           <h2 class="slide-title">破冰迷思測驗：點擊卡片揭曉真相</h2>
         </div>
-        <img src="assets/cute-cat.svg" class="slide-header-animal" alt="陪伴貓" />
+        <div class="header-animal-badge"><img src="assets/cute-cat.svg" class="slide-header-animal" alt="陪伴貓" /></div>
       </div>
       <div class="slide-body" style="justify-content: center;">
         <div class="grid-3">
@@ -707,7 +755,7 @@
             </div>
             <button class="quiz-action-btn" type="button">點擊翻牌看解答 💡</button>
             <div class="quiz-answer-content">
-              <div style="font-weight: bold; color: #15803d; margin-bottom: 0.35rem;">✅ 錯！不是偷懶</div>
+              <div style="font-weight: bold; color: #2F6F5E; margin-bottom: 0.3rem;">✅ 錯！不是偷懶</div>
               <div>動機缺乏源自神經受損，責備只會推高焦慮，需低壓力正向啟動。</div>
             </div>
           </div>
@@ -718,7 +766,7 @@
             </div>
             <button class="quiz-action-btn" type="button">點擊翻牌看解答 💡</button>
             <div class="quiz-answer-content">
-              <div style="font-weight: bold; color: #15803d; margin-bottom: 0.35rem;">✅ 錯！不等於專業治療</div>
+              <div style="font-weight: bold; color: #2F6F5E; margin-bottom: 0.3rem;">✅ 錯！不等於專業治療</div>
               <div>未經評估飼養反增負擔，專業動輔須由醫療與動輔團隊全程守護。</div>
             </div>
           </div>
@@ -729,13 +777,13 @@
             </div>
             <button class="quiz-action-btn" type="button">點擊翻牌看解答 💡</button>
             <div class="quiz-answer-content">
-              <div style="font-weight: bold; color: #15803d; margin-bottom: 0.35rem;">✅ 錯！須雙軌並行</div>
+              <div style="font-weight: bold; color: #2F6F5E; margin-bottom: 0.3rem;">✅ 錯！須雙軌並行</div>
               <div>藥物穩症狀，仍須結合職能與動物輔助復健重建動機。</div>
             </div>
           </div>
         </div>
-        <div style="text-align: center; margin-top: 0.6rem;">
-          <button type="button" class="btn-soft-action" onclick="toggleAllCards('myth')">一次展開／收合全部迷思解答</button>
+        <div style="text-align: center; margin-top: 0.5rem;">
+          <button type="button" class="btn-soft-action" onclick="toggleAllCards('myth')">一次展開／收合全部解答</button>
         </div>
       </div>
     </div>
@@ -746,7 +794,7 @@
           <span class="slide-unit-badge">02. 認識動物輔助治療</span>
           <h2 class="slide-title">什麼是動物輔助治療 (AAT)？</h2>
         </div>
-        <img src="assets/cute-dog.svg" class="slide-header-animal" alt="動物插圖" />
+        <div class="header-animal-badge"><img src="assets/cute-dog.svg" class="slide-header-animal" alt="動物插圖" /></div>
       </div>
       <div class="slide-body">
         <div class="grid-3" style="flex: 1; align-content: center;">
@@ -780,7 +828,7 @@
           <span class="slide-unit-badge">02. 核心機轉（一）</span>
           <h2 class="slide-title">大腦「愛的荷爾蒙」：催產素凝視迴路</h2>
         </div>
-        <img src="assets/cute-dog-heart.svg" class="slide-header-animal" alt="動物插圖" />
+        <div class="header-animal-badge"><img src="assets/cute-dog-heart.svg" class="slide-header-animal" alt="動物插圖" /></div>
       </div>
       <div class="slide-body">
         <div class="grid-2" style="flex: 1; align-content: center;">
@@ -809,7 +857,7 @@
           <span class="slide-unit-badge">02. 核心機轉（二）</span>
           <h2 class="slide-title">大腦警報靜音鍵：皮質醇壓力調節</h2>
         </div>
-        <img src="assets/cute-cat.svg" class="slide-header-animal" alt="動物插圖" />
+        <div class="header-animal-badge"><img src="assets/cute-cat.svg" class="slide-header-animal" alt="動物插圖" /></div>
       </div>
       <div class="slide-body">
         <div class="grid-2" style="flex: 1; align-content: center;">
@@ -838,7 +886,7 @@
           <span class="slide-unit-badge">02. 核心實務模組</span>
           <h2 class="slide-title">結構化四大活動模組：走向生活自理</h2>
         </div>
-        <img src="assets/cute-paw.svg" class="slide-header-animal" alt="動物插圖" />
+        <div class="header-animal-badge"><img src="assets/cute-paw.svg" class="slide-header-animal" alt="動物插圖" /></div>
       </div>
       <div class="slide-body">
         <div class="grid-2" style="flex: 1; align-content: center;">
@@ -877,60 +925,60 @@
           <span class="slide-unit-badge badge-interactive">🎮 02. 互動體驗站二</span>
           <h2 class="slide-title">機制與生活功能配對：點擊卡片看解答</h2>
         </div>
-        <img src="assets/cute-bunny.svg" class="slide-header-animal" alt="長耳兔" />
+        <div class="header-animal-badge"><img src="assets/cute-bunny.svg" class="slide-header-animal" alt="長耳兔" /></div>
       </div>
       <div class="slide-body" style="justify-content: center;">
         <div class="grid-2">
-          <div class="interactive-card match-card" id="match1" onclick="toggleMatchCard('match1')">
+          <div class="interactive-card" id="match1" onclick="toggleMatchCard('match1')">
             <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.8rem;">
               <div>
                 <span class="quiz-q-badge">情境 1</span>
-                <div class="quiz-question" style="margin-bottom: 0;">安靜撫摸狗狗背毛 15 分鐘</div>
+                <div class="quiz-question">安靜撫摸狗狗背毛 15 分鐘</div>
               </div>
               <button class="quiz-action-btn" style="flex-shrink: 0;" type="button">看配對 💡</button>
             </div>
             <div class="quiz-answer-content">
-              <div><strong>🧬 對應機轉</strong>：催產素上升 ＋ 皮質醇下降</div>
-              <div style="margin-top: 0.3rem;"><strong>🏠 日常能力</strong>：焦慮降低，願意走出房間陪伴家人。</div>
+              <div><strong>🧬 機轉</strong>：催產素上升 ＋ 皮質醇下降</div>
+              <div style="margin-top: 0.25rem;"><strong>🏠 生活</strong>：焦慮降低，願意走出房間陪伴家人。</div>
             </div>
           </div>
-          <div class="interactive-card match-card" id="match2" onclick="toggleMatchCard('match2')">
+          <div class="interactive-card" id="match2" onclick="toggleMatchCard('match2')">
             <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.8rem;">
               <div>
                 <span class="quiz-q-badge">情境 2</span>
-                <div class="quiz-question" style="margin-bottom: 0;">握梳子幫狗狗梳毛與扣胸背帶</div>
+                <div class="quiz-question">握梳子幫狗狗梳毛與扣胸背帶</div>
               </div>
               <button class="quiz-action-btn" style="flex-shrink: 0;" type="button">看配對 💡</button>
             </div>
             <div class="quiz-answer-content">
-              <div><strong>🧬 對應機轉</strong>：正向情緒與體能・精細協調</div>
-              <div style="margin-top: 0.3rem;"><strong>🏠 日常能力</strong>：對接穿衣扣鈕扣、拿筷子與梳洗自理。</div>
+              <div><strong>🧬 機轉</strong>：正向情緒與體能・精細協調</div>
+              <div style="margin-top: 0.25rem;"><strong>🏠 生活</strong>：對接穿衣扣鈕扣、拿筷子與梳洗自理。</div>
             </div>
           </div>
-          <div class="interactive-card match-card" id="match3" onclick="toggleMatchCard('match3')">
+          <div class="interactive-card" id="match3" onclick="toggleMatchCard('match3')">
             <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.8rem;">
               <div>
                 <span class="quiz-q-badge">情境 3</span>
-                <div class="quiz-question" style="margin-bottom: 0;">喊「坐下」，狗狗乖乖坐好</div>
+                <div class="quiz-question">喊「坐下」，狗狗乖乖坐好</div>
               </div>
               <button class="quiz-action-btn" style="flex-shrink: 0;" type="button">看配對 💡</button>
             </div>
             <div class="quiz-answer-content">
-              <div><strong>🧬 對應機轉</strong>：認知模組・自我效能感重建</div>
-              <div style="margin-top: 0.3rem;"><strong>🏠 日常能力</strong>：打破無助感，體會「我有能力做好」。</div>
+              <div><strong>🧬 機轉</strong>：認知模組・自我效能感重建</div>
+              <div style="margin-top: 0.25rem;"><strong>🏠 生活</strong>：打破無助感，體會「我有能力做好」。</div>
             </div>
           </div>
-          <div class="interactive-card match-card" id="match4" onclick="toggleMatchCard('match4')">
+          <div class="interactive-card" id="match4" onclick="toggleMatchCard('match4')">
             <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.8rem;">
               <div>
                 <span class="quiz-q-badge">情境 4</span>
-                <div class="quiz-question" style="margin-bottom: 0;">牽繩散步並和病友聊狗狗喜好</div>
+                <div class="quiz-question">牽繩散步並和病友聊狗狗喜好</div>
               </div>
               <button class="quiz-action-btn" style="flex-shrink: 0;" type="button">看配對 💡</button>
             </div>
             <div class="quiz-answer-content">
-              <div><strong>🧬 對應機轉</strong>：外接動機 ＋ 社交活動泛化</div>
-              <div style="margin-top: 0.3rem;"><strong>🏠 日常能力</strong>：克服外出恐懼，回家主動與家人對話。</div>
+              <div><strong>🧬 機轉</strong>：外接動機 ＋ 社交活動泛化</div>
+              <div style="margin-top: 0.25rem;"><strong>🏠 生活</strong>：克服外出恐懼，回家主動與家人對話。</div>
             </div>
           </div>
         </div>
@@ -947,11 +995,11 @@
           <h2 class="slide-title">實證全景（一）：全球大型統合分析與系統性回顧</h2>
           <p class="slide-subtitle">匯聚跨國數百位個案的長期追蹤，證實動物輔助治療絕非心理安慰劑</p>
         </div>
-        <img src="assets/cute-dog-study.svg" class="slide-header-animal" alt="動物插圖" />
+        <div class="header-animal-badge"><img src="assets/cute-dog-study.svg" class="slide-header-animal" alt="動物插圖" /></div>
       </div>
       <div class="slide-body">
         <div class="grid-3" style="flex: 1; align-content: center;">
-          <div class="content-box" style="border-top: 5px solid #2563eb;">
+          <div class="content-box" style="border-top: 7px solid #2563eb;">
             <div class="box-title" style="color: #2563eb;">Peraile-Huerta et al. (2026)</div>
             <div class="box-tag">全球最新統合分析｜Complementary Therapies in Medicine</div>
             <ul class="box-list">
@@ -960,7 +1008,7 @@
               <li>展現動物對於打破慢性退縮具有專一且穩健的臨床復健價值。</li>
             </ul>
           </div>
-          <div class="content-box" style="border-top: 5px solid #7c3aed;">
+          <div class="content-box" style="border-top: 7px solid #7c3aed;">
             <div class="box-title" style="color: #7c3aed;">Tyssedal et al. (2023)</div>
             <div class="box-tag">挪威卑爾根大學系統回顧｜Frontiers in Psychiatry</div>
             <ul class="box-list">
@@ -969,7 +1017,7 @@
               <li>強調治療關鍵在於透過動物引路，把個案帶入溫暖規律的社會互動。</li>
             </ul>
           </div>
-          <div class="content-box" style="border-top: 5px solid #0891b2;">
+          <div class="content-box" style="border-top: 7px solid #0891b2;">
             <div class="box-title" style="color: #0891b2;">Hawkins et al. (2019)</div>
             <div class="box-tag">英國愛丁堡大學系統回顧｜Journal of Psychiatric Research</div>
             <ul class="box-list">
@@ -990,11 +1038,11 @@
           <h2 class="slide-title">實證全景（二）：三大臨床隨機對照試驗成果</h2>
           <p class="slide-subtitle">走進台灣、土耳其與西班牙的臨床現場，見證客觀評估下的身心變化</p>
         </div>
-        <img src="assets/cute-horse.svg" class="slide-header-animal" alt="動物插圖" />
+        <div class="header-animal-badge"><img src="assets/cute-horse.svg" class="slide-header-animal" alt="動物插圖" /></div>
       </div>
       <div class="slide-body">
         <div class="grid-3" style="flex: 1; align-content: center;">
-          <div class="content-box" style="border-top: 5px solid #0d9488;">
+          <div class="content-box" style="border-top: 7px solid #0d9488;">
             <div class="box-title" style="color: #0d9488;">Chen et al. (2021) 台灣團隊</div>
             <div class="box-tag">高雄長庚與台大職能治療｜Frontiers in Psychiatry</div>
             <ul class="box-list">
@@ -1003,7 +1051,7 @@
               <li>全體 40 位個案皆完成 12 週課程、未有人中途退出，客觀顯示高度可行性與參與度。</li>
             </ul>
           </div>
-          <div class="content-box" style="border-top: 5px solid #d97706;">
+          <div class="content-box" style="border-top: 7px solid #d97706;">
             <div class="box-title" style="color: #d97706;">&#214;zt&#252;rk et al. (2025) 土耳其團隊</div>
             <div class="box-tag">社區馬術治療試驗｜Journal of Psychosocial Nursing</div>
             <ul class="box-list">
@@ -1012,7 +1060,7 @@
               <li>跨上馬背的視野轉換與身體掌控經驗，協助個案重新建立自我效能。</li>
             </ul>
           </div>
-          <div class="content-box" style="border-top: 5px solid #e11d48;">
+          <div class="content-box" style="border-top: 7px solid #e11d48;">
             <div class="box-title" style="color: #e11d48;">Calvo et al. (2016) 西班牙團隊</div>
             <div class="box-tag">巴塞隆納長週期試驗｜Frontiers in Psychology</div>
             <ul class="box-list">
@@ -1032,16 +1080,16 @@
           <span class="slide-unit-badge badge-interactive">🎮 03. 互動體驗站三（PICO）</span>
           <h2 class="slide-title">6 篇核心文獻 PICO 互動展廳</h2>
         </div>
-        <img src="assets/cute-dog-study.svg" class="slide-header-animal" alt="研究博士犬" />
+        <div class="header-animal-badge"><img src="assets/cute-dog-study.svg" class="slide-header-animal" alt="研究博士犬" /></div>
       </div>
       <div class="slide-body">
         <div class="pico-tabs">
-          <button type="button" class="pico-tab-btn active" data-color="#0d9488" onclick="switchPicoTab(0)">🐕 台灣長庚 (2021)</button>
-          <button type="button" class="pico-tab-btn" data-color="#2563eb" onclick="switchPicoTab(1)">🌐 全球統合 (2026)</button>
-          <button type="button" class="pico-tab-btn" data-color="#d97706" onclick="switchPicoTab(2)">🐴 土耳其馬術 (2025)</button>
-          <button type="button" class="pico-tab-btn" data-color="#7c3aed" onclick="switchPicoTab(3)">🔍 挪威回顧 (2023)</button>
-          <button type="button" class="pico-tab-btn" data-color="#0891b2" onclick="switchPicoTab(4)">📖 愛丁堡回顧 (2019)</button>
-          <button type="button" class="pico-tab-btn" data-color="#e11d48" onclick="switchPicoTab(5)">🐕 西班牙RCT (2016)</button>
+          <button type="button" class="pico-tab-btn active" data-color="#2F6F5E" onclick="switchPicoTab(0)">Chen et al. (2021)</button>
+          <button type="button" class="pico-tab-btn" data-color="#3B7A9E" onclick="switchPicoTab(1)">Peraile-Huerta et al. (2026)</button>
+          <button type="button" class="pico-tab-btn" data-color="#D97706" onclick="switchPicoTab(2)">&#214;zt&#252;rk et al. (2025)</button>
+          <button type="button" class="pico-tab-btn" data-color="#7C5EA8" onclick="switchPicoTab(3)">Tyssedal et al. (2023)</button>
+          <button type="button" class="pico-tab-btn" data-color="#2E8B99" onclick="switchPicoTab(4)">Hawkins et al. (2019)</button>
+          <button type="button" class="pico-tab-btn" data-color="#C95B6B" onclick="switchPicoTab(5)">Calvo et al. (2016)</button>
         </div>
         <div class="pico-panel" id="picoDisplayPanel"></div>
       </div>
@@ -1053,7 +1101,7 @@
           <span class="slide-unit-badge">04. 雙向療癒倫理</span>
           <h2 class="slide-title">雙向尊重倫理：動物福祉 (One Welfare)</h2>
         </div>
-        <img src="assets/cute-bunny.svg" class="slide-header-animal" alt="動物插圖" />
+        <div class="header-animal-badge"><img src="assets/cute-bunny.svg" class="slide-header-animal" alt="動物插圖" /></div>
       </div>
       <div class="slide-body">
         <div class="grid-2" style="flex: 1; align-content: center;">
@@ -1082,7 +1130,7 @@
           <span class="slide-unit-badge">05. 去污名化專題</span>
           <h2 class="slide-title">給家屬的一封信：《從封閉孤立到溫柔破冰》</h2>
         </div>
-        <img src="assets/cute-dog-heart.svg" class="slide-header-animal" alt="動物插圖" />
+        <div class="header-animal-badge"><img src="assets/cute-dog-heart.svg" class="slide-header-animal" alt="動物插圖" /></div>
       </div>
       <div class="slide-body">
         <div class="grid-3" style="flex: 1; align-content: center;">
@@ -1111,18 +1159,18 @@
     <!-- SLIDE 15 : ENDING -->
     <div class="slide cover-slide" data-index="15">
       <div class="cover-animals-row">
-        <img src="assets/cute-dog.svg" width="74" height="74" alt="治療動物" />
-        <img src="assets/cute-horse.svg" width="74" height="74" alt="治療動物" />
-        <img src="assets/cute-dog-study.svg" width="74" height="74" alt="治療動物" />
-        <img src="assets/cute-cat.svg" width="74" height="74" alt="治療動物" />
-        <img src="assets/cute-bunny.svg" width="74" height="74" alt="治療動物" />
+        <div class="animal-medallion"><img src="assets/cute-dog.svg" width="108" height="108" alt="治療動物" /></div>
+        <div class="animal-medallion"><img src="assets/cute-horse.svg" width="108" height="108" alt="治療動物" /></div>
+        <div class="animal-medallion"><img src="assets/cute-dog-study.svg" width="108" height="108" alt="治療動物" /></div>
+        <div class="animal-medallion"><img src="assets/cute-cat.svg" width="108" height="108" alt="治療動物" /></div>
+        <div class="animal-medallion"><img src="assets/cute-bunny.svg" width="108" height="108" alt="治療動物" /></div>
       </div>
-      <h2 class="slide-title" style="font-size: 2rem; color: #0d9488;">結語：無聲的接納，點亮回家的路</h2>
+      <h2 class="slide-title" style="color: #2F6F5E;">結語：無聲的接納，點亮回家的路</h2>
       <div class="ending-quote">「動物沒有語言，卻能聽懂最深沉的沉默；不帶評價的凝視，接住了跋涉中的心靈。」</div>
       <p class="ending-vision">期待醫療與社區動輔團隊攜手合作，讓溫暖陪伴成為常態復健選項。</p>
-      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 0.4rem;">
+      <div style="display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; margin-top: 0.4rem;">
         <button type="button" class="nav-btn" onclick="goToSlide(1)">🔄 重新播放簡報</button>
-        <a href="index.html" class="nav-btn" style="background: #0d9488; color: #ffffff; text-decoration: none;">📖 返回知識庫首頁查看完整論文</a>
+        <a href="index.html" class="nav-btn" style="background: #2F6F5E; color: #ffffff; text-decoration: none;">📖 返回知識庫查看完整論文</a>
       </div>
     </div>
 
@@ -1137,7 +1185,7 @@
   <script>
     const totalSlides = 15;
     let currentSlide = 1;
-    const picoPapers = [{"id":"chen2021","tab_label":"🐕 台灣長庚 (2021)","color":"#0d9488","title":"Chen et al. (2021)｜Frontiers in Psychiatry","P":"40 位年齡 40 歲以上慢性思覺失調個案（日間與復健病房）","I":"4 隻認證治療犬，12 週跨專業四模組介入（每週 1 次、60 分鐘）","C":"常規治療加上每週 1 小時非動物團體復健（積極對照）","O":"負性症狀與自覺壓力顯著減輕；40 位個案全數完成，無人中途退出"},{"id":"peraile2026","tab_label":"🌐 全球統合 (2026)","color":"#2563eb","title":"Peraile-Huerta et al. (2026)｜Complementary Therapies in Medicine","P":"12 項跨國研究，共 408 位思覺失調譜系與精神病性疾患個案","I":"犬類（9 篇）、馬匹（2 篇）與犬馬混合（1 篇）動物輔助治療","C":"常規精神醫療照護或等時數非動物復健活動","O":"負性症狀具明確實質改善，焦慮呈減輕趨勢；正性症狀無明顯組間差異"},{"id":"ozturk2025","tab_label":"🐴 土耳其馬術 (2025)","color":"#d97706","title":"Öztürk et al. (2025)｜Journal of Psychosocial Nursing","P":"61 位社區心理衛生中心穩定期思覺失調個案","I":"8 週哈芙林格馬介入（每週 2 次、40 分鐘：地面照護＋安全騎乘）","C":"社區中心常規復健服務（衛教、運動、音樂與職能治療）","O":"孤獨感與特質焦慮明顯降低，生活品質與正性症狀顯著改善"},{"id":"tyssedal2023","tab_label":"🔍 挪威回顧 (2023)","color":"#7c3aed","title":"Tyssedal et al. (2023)｜Frontiers in Psychiatry","P":"11 項量化研究，共 375 位成人思覺失調譜系個案","I":"專門針對犬類輔助介入（治療犬互動與結構化團體活動）","C":"純常規治療或高互動性休閒復健（藝術、音樂、桌遊）","O":"多數研究見溝通、生活技能與正性症狀進步；負性成效受對照組影響"},{"id":"hawkins2019","tab_label":"📖 愛丁堡回顧 (2019)","color":"#0891b2","title":"Hawkins et al. (2019)｜Journal of Psychiatric Research","P":"早期 7 項隨機對照試驗，共 390 位思覺失調譜系個案","I":"多元動物介入（涵蓋犬、貓、馬、農場動物與倉鼠）","C":"常規精神照護或非動物替代活動","O":"早期證據尚屬混合，部分見自尊提升；率先點出強化動物福祉審查之必要"},{"id":"calvo2016","tab_label":"🐕 西班牙RCT (2016)","color":"#e11d48","title":"Calvo et al. (2016)｜Frontiers in Psychology","P":"24 位公立精神醫院長期住院慢性思覺失調個案","I":"6 個月犬類輔助復健（每週 2 次、60 分鐘），搭配唾液檢體採集","C":"等時數院內常規功能活動（美術、體能與體操）","O":"互動 1 小時後唾液皮質醇下降；出席率逾九成，高於常規組六成"}];
+    const picoPapers = [{"id":"chen2021","tab_label":"Chen et al. (2021)","color":"#2F6F5E","title":"Chen et al. (2021)｜Frontiers in Psychiatry","P":"40 位年齡 40 歲以上慢性思覺失調個案（日間與復健病房）","I":"4 隻認證治療犬，12 週跨專業四模組介入（每週 1 次、60 分鐘）","C":"常規治療加上每週 1 小時非動物團體復健（積極對照）","O":"負性症狀與自覺壓力顯著減輕；40 位個案全數完成，無人中途退出"},{"id":"peraile2026","tab_label":"Peraile-Huerta et al. (2026)","color":"#3B7A9E","title":"Peraile-Huerta et al. (2026)｜Complementary Therapies in Medicine","P":"12 項跨國研究，共 408 位思覺失調譜系與精神病性疾患個案","I":"犬類（9 篇）、馬匹（2 篇）與犬馬混合（1 篇）動物輔助治療","C":"常規精神醫療照護或等時數非動物復健活動","O":"負性症狀具明確實質改善，焦慮呈減輕趨勢；正性症狀無明顯組間差異"},{"id":"ozturk2025","tab_label":"Öztürk et al. (2025)","color":"#D97706","title":"Öztürk et al. (2025)｜Journal of Psychosocial Nursing","P":"61 位社區心理衛生中心穩定期思覺失調個案","I":"8 週哈芙林格馬介入（每週 2 次、40 分鐘：地面照護＋安全騎乘）","C":"社區中心常規復健服務（衛教、運動、音樂與職能治療）","O":"孤獨感與特質焦慮明顯降低，生活品質與正性症狀顯著改善"},{"id":"tyssedal2023","tab_label":"Tyssedal et al. (2023)","color":"#7C5EA8","title":"Tyssedal et al. (2023)｜Frontiers in Psychiatry","P":"11 項量化研究，共 375 位成人思覺失調譜系個案","I":"專門針對犬類輔助介入（治療犬互動與結構化團體活動）","C":"純常規治療或高互動性休閒復健（藝術、音樂、桌遊）","O":"多數研究見溝通、生活技能與正性症狀進步；負性成效受對照組影響"},{"id":"hawkins2019","tab_label":"Hawkins et al. (2019)","color":"#2E8B99","title":"Hawkins et al. (2019)｜Journal of Psychiatric Research","P":"早期 7 項隨機對照試驗，共 390 位思覺失調譜系個案","I":"多元動物介入（涵蓋犬、貓、馬、農場動物與倉鼠）","C":"常規精神照護或非動物替代活動","O":"早期證據尚屬混合，部分見自尊提升；率先點出強化動物福祉審查之必要"},{"id":"calvo2016","tab_label":"Calvo et al. (2016)","color":"#C95B6B","title":"Calvo et al. (2016)｜Frontiers in Psychology","P":"24 位公立精神醫院長期住院慢性思覺失調個案","I":"6 個月犬類輔助復健（每週 2 次、60 分鐘），搭配唾液檢體採集","C":"等時數院內常規功能活動（美術、體能與體操）","O":"互動 1 小時後唾液皮質醇下降；出席率逾九成，高於常規組六成"}];
 
     const dotsContainer = document.getElementById('dotsContainer');
     for (let i = 1; i <= totalSlides; i++) {
@@ -1159,6 +1207,7 @@
       document.getElementById('prevBtn').disabled = (currentSlide === 1);
       document.getElementById('nextBtn').disabled = (currentSlide === totalSlides);
       document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i + 1 === currentSlide));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function nextSlide() { if (currentSlide < totalSlides) goToSlide(currentSlide + 1); }
@@ -1208,8 +1257,8 @@
           btn.style.background = paper.color;
           btn.style.borderColor = paper.color;
         } else {
-          btn.style.background = '#f8fafc';
-          btn.style.borderColor = '#cbd5e1';
+          btn.style.background = '#FFFDF9';
+          btn.style.borderColor = '#D8CBB8';
         }
       });
 
@@ -1218,13 +1267,13 @@
       panel.innerHTML =
         '<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">' +
           '<div class="pico-header-title" style="color:' + paper.color + ';">' + paper.title + '</div>' +
-          '<a href="index.html" target="_blank" style="font-size:0.92rem; color:' + paper.color + '; font-weight:bold; text-decoration:underline;">前往 Wiki 查閱全文 ↗</a>' +
+          '<a href="index.html" target="_blank" style="font-size:22px; color:' + paper.color + '; font-weight:bold; text-decoration:underline;">前往 Wiki 查閱全文 ↗</a>' +
         '</div>' +
         '<div class="pico-grid">' +
-          '<div class="pico-cell"><div class="pico-badge"><span class="pico-letter" style="background:#0d9488;">P</span>研究對象 (Population)</div><div class="pico-text">' + paper.P + '</div></div>' +
-          '<div class="pico-cell"><div class="pico-badge"><span class="pico-letter" style="background:#2563eb;">I</span>介入方式 (Intervention)</div><div class="pico-text">' + paper.I + '</div></div>' +
-          '<div class="pico-cell"><div class="pico-badge"><span class="pico-letter" style="background:#d97706;">C</span>對照組 (Comparison)</div><div class="pico-text">' + paper.C + '</div></div>' +
-          '<div class="pico-cell"><div class="pico-badge"><span class="pico-letter" style="background:#e11d48;">O</span>主要結果 (Outcome)</div><div class="pico-text">' + paper.O + '</div></div>' +
+          '<div class="pico-cell"><div class="pico-badge"><span class="pico-letter" style="background:#2F6F5E;">P</span>研究對象 (Population)</div><div class="pico-text">' + paper.P + '</div></div>' +
+          '<div class="pico-cell"><div class="pico-badge"><span class="pico-letter" style="background:#3B7A9E;">I</span>介入方式 (Intervention)</div><div class="pico-text">' + paper.I + '</div></div>' +
+          '<div class="pico-cell"><div class="pico-badge"><span class="pico-letter" style="background:#D97706;">C</span>對照組 (Comparison)</div><div class="pico-text">' + paper.C + '</div></div>' +
+          '<div class="pico-cell"><div class="pico-badge"><span class="pico-letter" style="background:#C95B6B;">O</span>主要結果 (Outcome)</div><div class="pico-text">' + paper.O + '</div></div>' +
         '</div>';
     }
 

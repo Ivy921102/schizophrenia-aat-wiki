@@ -201,37 +201,37 @@
 - **版面配置**：頂部 6 色文獻切換按鈕列 ＋ 中央研究標頭 ＋ 下方 2×2 PICO 四格卡片（P 對象｜I 介入｜C 對照｜O 結果）
 - **可見字數**：約 **125 字**（文獻頁放寬 ✅）
 
-### 🐕 台灣長庚 (2021) — Chen et al. (2021)｜Frontiers in Psychiatry（PICO 約 111 字）
+### Chen et al. (2021) — Chen et al. (2021)｜Frontiers in Psychiatry（PICO 約 111 字）
 - **P（對象）**：40 位年齡 40 歲以上慢性思覺失調個案（日間與復健病房）
 - **I（介入）**：4 隻認證治療犬，12 週跨專業四模組介入（每週 1 次、60 分鐘）
 - **C（對照）**：常規治療加上每週 1 小時非動物團體復健（積極對照）
 - **O（結果）**：負性症狀與自覺壓力顯著減輕；40 位個案全數完成，無人中途退出
 
-### 🌐 全球統合 (2026) — Peraile-Huerta et al. (2026)｜Complementary Therapies in Medicine（PICO 約 106 字）
+### Peraile-Huerta et al. (2026) — Peraile-Huerta et al. (2026)｜Complementary Therapies in Medicine（PICO 約 106 字）
 - **P（對象）**：12 項跨國研究，共 408 位思覺失調譜系與精神病性疾患個案
 - **I（介入）**：犬類（9 篇）、馬匹（2 篇）與犬馬混合（1 篇）動物輔助治療
 - **C（對照）**：常規精神醫療照護或等時數非動物復健活動
 - **O（結果）**：負性症狀具明確實質改善，焦慮呈減輕趨勢；正性症狀無明顯組間差異
 
-### 🐴 土耳其馬術 (2025) — Öztürk et al. (2025)｜Journal of Psychosocial Nursing（PICO 約 101 字）
+### Öztürk et al. (2025) — Öztürk et al. (2025)｜Journal of Psychosocial Nursing（PICO 約 101 字）
 - **P（對象）**：61 位社區心理衛生中心穩定期思覺失調個案
 - **I（介入）**：8 週哈芙林格馬介入（每週 2 次、40 分鐘：地面照護＋安全騎乘）
 - **C（對照）**：社區中心常規復健服務（衛教、運動、音樂與職能治療）
 - **O（結果）**：孤獨感與特質焦慮明顯降低，生活品質與正性症狀顯著改善
 
-### 🔍 挪威回顧 (2023) — Tyssedal et al. (2023)｜Frontiers in Psychiatry（PICO 約 102 字）
+### Tyssedal et al. (2023) — Tyssedal et al. (2023)｜Frontiers in Psychiatry（PICO 約 102 字）
 - **P（對象）**：11 項量化研究，共 375 位成人思覺失調譜系個案
 - **I（介入）**：專門針對犬類輔助介入（治療犬互動與結構化團體活動）
 - **C（對照）**：純常規治療或高互動性休閒復健（藝術、音樂、桌遊）
 - **O（結果）**：多數研究見溝通、生活技能與正性症狀進步；負性成效受對照組影響
 
-### 📖 愛丁堡回顧 (2019) — Hawkins et al. (2019)｜Journal of Psychiatric Research（PICO 約 93 字）
+### Hawkins et al. (2019) — Hawkins et al. (2019)｜Journal of Psychiatric Research（PICO 約 93 字）
 - **P（對象）**：早期 7 項隨機對照試驗，共 390 位思覺失調譜系個案
 - **I（介入）**：多元動物介入（涵蓋犬、貓、馬、農場動物與倉鼠）
 - **C（對照）**：常規精神照護或非動物替代活動
 - **O（結果）**：早期證據尚屬混合，部分見自尊提升；率先點出強化動物福祉審查之必要
 
-### 🐕 西班牙RCT (2016) — Calvo et al. (2016)｜Frontiers in Psychology（PICO 約 99 字）
+### Calvo et al. (2016) — Calvo et al. (2016)｜Frontiers in Psychology（PICO 約 99 字）
 - **P（對象）**：24 位公立精神醫院長期住院慢性思覺失調個案
 - **I（介入）**：6 個月犬類輔助復健（每週 2 次、60 分鐘），搭配唾液檢體採集
 - **C（對照）**：等時數院內常規功能活動（美術、體能與體操）

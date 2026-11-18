@@ -1,5 +1,5 @@
 ﻿# graph/scripts/node5_build_slides.ps1
-# Node 5: Deterministic Interactive Web Presentation Compiler
+# Node 5 (v2): Warm Storybook Healing Theme + Giant Typography (Title >= 50px, Body >= 30px) + Lively Large Animals + Author(Year) PICO
 # Input:  graph/state/03_slides_content.json + assets/*.svg
 # Output: slides.html
 
@@ -24,7 +24,7 @@ foreach ($s in $data.slides) {
         [void]$slidesMarkup.AppendLine("    <div class=`"slide cover-slide$activeCls`" data-index=`"$idx`">")
         [void]$slidesMarkup.AppendLine("      <div class=`"cover-animals-row`">")
         foreach ($a in $s.assets) {
-            [void]$slidesMarkup.AppendLine("        <img src=`"$a`" width=`"92`" height=`"92`" alt=`"治療動物`" />")
+            [void]$slidesMarkup.AppendLine("        <div class=`"animal-medallion`"><img src=`"$a`" width=`"126`" height=`"126`" alt=`"治療動物`" /></div>")
         }
         [void]$slidesMarkup.AppendLine("      </div>")
         [void]$slidesMarkup.AppendLine("      <h1 class=`"cover-title`">$(Esc $s.title)</h1>")
@@ -36,9 +36,9 @@ foreach ($s in $data.slides) {
         [void]$slidesMarkup.AppendLine("    <div class=`"slide$activeCls`" data-index=`"$idx`">")
         [void]$slidesMarkup.AppendLine("      <div class=`"slide-header`">")
         [void]$slidesMarkup.AppendLine("        <div class=`"slide-title-wrap`">")
-        [void]$slidesMarkup.AppendLine("          <h2 class=`"slide-title`" style=`"font-size: 2.15rem;`">$(Esc $s.title)</h2>")
+        [void]$slidesMarkup.AppendLine("          <h2 class=`"slide-title`" style=`"font-size: 56px;`">$(Esc $s.title)</h2>")
         [void]$slidesMarkup.AppendLine("        </div>")
-        [void]$slidesMarkup.AppendLine("        <img src=`"$($s.header_asset)`" class=`"slide-header-animal`" alt=`"導覽犬`" />")
+        [void]$slidesMarkup.AppendLine("        <div class=`"header-animal-badge`"><img src=`"assets/cute-paw.svg`" class=`"slide-header-animal`" alt=`"爪印`" /></div>")
         [void]$slidesMarkup.AppendLine("      </div>")
         [void]$slidesMarkup.AppendLine("      <div class=`"slide-body toc-layout`">")
         [void]$slidesMarkup.AppendLine("        <div class=`"toc-list`">")
@@ -50,8 +50,7 @@ foreach ($s in $data.slides) {
         }
         [void]$slidesMarkup.AppendLine("        </div>")
         [void]$slidesMarkup.AppendLine("        <div class=`"toc-visual`">")
-        [void]$slidesMarkup.AppendLine("          <img src=`"assets/cute-dog-study.svg`" width=`"190`" height=`"190`" alt=`"研究小犬`" />")
-        [void]$slidesMarkup.AppendLine("          <div style=`"color: #64748b; font-size: 0.98rem; margin-top: 0.6rem;`">點擊任一章節快速跳轉</div>")
+        [void]$slidesMarkup.AppendLine("          <div class=`"toc-animal-frame`"><img src=`"assets/cute-dog-study.svg`" width=`"240`" height=`"240`" alt=`"研究小犬`" /></div>")
         [void]$slidesMarkup.AppendLine("        </div>")
         [void]$slidesMarkup.AppendLine("      </div>")
         [void]$slidesMarkup.AppendLine("    </div>")
@@ -74,12 +73,12 @@ foreach ($s in $data.slides) {
             [void]$slidesMarkup.AppendLine("          <p class=`"slide-subtitle`">$(Esc $s.subtitle)</p>")
         }
         [void]$slidesMarkup.AppendLine("        </div>")
-        [void]$slidesMarkup.AppendLine("        <img src=`"$($s.header_asset)`" class=`"slide-header-animal`" alt=`"動物插圖`" />")
+        [void]$slidesMarkup.AppendLine("        <div class=`"header-animal-badge`"><img src=`"$($s.header_asset)`" class=`"slide-header-animal`" alt=`"動物插圖`" /></div>")
         [void]$slidesMarkup.AppendLine("      </div>")
         [void]$slidesMarkup.AppendLine("      <div class=`"slide-body`">")
         [void]$slidesMarkup.AppendLine("        <div class=`"$gridCls`" style=`"flex: 1; align-content: center;`">")
         foreach ($c in $s.cards) {
-            $accentStyle = if ($c.accent) { " style=`"border-top: 5px solid $($c.accent);`"" } else { "" }
+            $accentStyle = if ($c.accent) { " style=`"border-top: 7px solid $($c.accent);`"" } else { "" }
             $titleStyle  = if ($c.accent) { " style=`"color: $($c.accent);`"" } else { "" }
             [void]$slidesMarkup.AppendLine("          <div class=`"content-box`"$accentStyle>")
             [void]$slidesMarkup.AppendLine("            <div class=`"box-title`"$titleStyle>$(Esc $c.title)</div>")
@@ -108,7 +107,7 @@ foreach ($s in $data.slides) {
         [void]$slidesMarkup.AppendLine("          <span class=`"slide-unit-badge badge-interactive`">🎮 $(Esc $s.unit)</span>")
         [void]$slidesMarkup.AppendLine("          <h2 class=`"slide-title`">$(Esc $s.title)</h2>")
         [void]$slidesMarkup.AppendLine("        </div>")
-        [void]$slidesMarkup.AppendLine("        <img src=`"$($s.header_asset)`" class=`"slide-header-animal`" alt=`"陪伴貓`" />")
+        [void]$slidesMarkup.AppendLine("        <div class=`"header-animal-badge`"><img src=`"$($s.header_asset)`" class=`"slide-header-animal`" alt=`"陪伴貓`" /></div>")
         [void]$slidesMarkup.AppendLine("      </div>")
         [void]$slidesMarkup.AppendLine("      <div class=`"slide-body`" style=`"justify-content: center;`">")
         [void]$slidesMarkup.AppendLine("        <div class=`"grid-3`">")
@@ -120,14 +119,14 @@ foreach ($s in $data.slides) {
             [void]$slidesMarkup.AppendLine("            </div>")
             [void]$slidesMarkup.AppendLine("            <button class=`"quiz-action-btn`" type=`"button`">點擊翻牌看解答 💡</button>")
             [void]$slidesMarkup.AppendLine("            <div class=`"quiz-answer-content`">")
-            [void]$slidesMarkup.AppendLine("              <div style=`"font-weight: bold; color: #15803d; margin-bottom: 0.35rem;`">✅ $(Esc $it.verdict)</div>")
+            [void]$slidesMarkup.AppendLine("              <div style=`"font-weight: bold; color: #2F6F5E; margin-bottom: 0.3rem;`">✅ $(Esc $it.verdict)</div>")
             [void]$slidesMarkup.AppendLine("              <div>$(Esc $it.explanation)</div>")
             [void]$slidesMarkup.AppendLine("            </div>")
             [void]$slidesMarkup.AppendLine("          </div>")
         }
         [void]$slidesMarkup.AppendLine("        </div>")
-        [void]$slidesMarkup.AppendLine("        <div style=`"text-align: center; margin-top: 0.6rem;`">")
-        [void]$slidesMarkup.AppendLine("          <button type=`"button`" class=`"btn-soft-action`" onclick=`"toggleAllCards('myth')`">一次展開／收合全部迷思解答</button>")
+        [void]$slidesMarkup.AppendLine("        <div style=`"text-align: center; margin-top: 0.5rem;`">")
+        [void]$slidesMarkup.AppendLine("          <button type=`"button`" class=`"btn-soft-action`" onclick=`"toggleAllCards('myth')`">一次展開／收合全部解答</button>")
         [void]$slidesMarkup.AppendLine("        </div>")
         [void]$slidesMarkup.AppendLine("      </div>")
         [void]$slidesMarkup.AppendLine("    </div>")
@@ -140,22 +139,22 @@ foreach ($s in $data.slides) {
         [void]$slidesMarkup.AppendLine("          <span class=`"slide-unit-badge badge-interactive`">🎮 $(Esc $s.unit)</span>")
         [void]$slidesMarkup.AppendLine("          <h2 class=`"slide-title`">$(Esc $s.title)</h2>")
         [void]$slidesMarkup.AppendLine("        </div>")
-        [void]$slidesMarkup.AppendLine("        <img src=`"$($s.header_asset)`" class=`"slide-header-animal`" alt=`"長耳兔`" />")
+        [void]$slidesMarkup.AppendLine("        <div class=`"header-animal-badge`"><img src=`"$($s.header_asset)`" class=`"slide-header-animal`" alt=`"長耳兔`" /></div>")
         [void]$slidesMarkup.AppendLine("      </div>")
         [void]$slidesMarkup.AppendLine("      <div class=`"slide-body`" style=`"justify-content: center;`">")
         [void]$slidesMarkup.AppendLine("        <div class=`"grid-2`">")
         foreach ($it in $s.items) {
-            [void]$slidesMarkup.AppendLine("          <div class=`"interactive-card match-card`" id=`"$($it.id)`" onclick=`"toggleMatchCard('$($it.id)')`">")
+            [void]$slidesMarkup.AppendLine("          <div class=`"interactive-card`" id=`"$($it.id)`" onclick=`"toggleMatchCard('$($it.id)')`">")
             [void]$slidesMarkup.AppendLine("            <div style=`"display: flex; justify-content: space-between; align-items: center; gap: 0.8rem;`">")
             [void]$slidesMarkup.AppendLine("              <div>")
             [void]$slidesMarkup.AppendLine("                <span class=`"quiz-q-badge`">$(Esc $it.badge)</span>")
-            [void]$slidesMarkup.AppendLine("                <div class=`"quiz-question`" style=`"margin-bottom: 0;`">$(Esc $it.scenario)</div>")
+            [void]$slidesMarkup.AppendLine("                <div class=`"quiz-question`">$(Esc $it.scenario)</div>")
             [void]$slidesMarkup.AppendLine("              </div>")
             [void]$slidesMarkup.AppendLine("              <button class=`"quiz-action-btn`" style=`"flex-shrink: 0;`" type=`"button`">看配對 💡</button>")
             [void]$slidesMarkup.AppendLine("            </div>")
             [void]$slidesMarkup.AppendLine("            <div class=`"quiz-answer-content`">")
-            [void]$slidesMarkup.AppendLine("              <div><strong>🧬 對應機轉</strong>：$(Esc $it.mechanism)</div>")
-            [void]$slidesMarkup.AppendLine("              <div style=`"margin-top: 0.3rem;`"><strong>🏠 日常能力</strong>：$(Esc $it.daily_life)</div>")
+            [void]$slidesMarkup.AppendLine("              <div><strong>🧬 機轉</strong>：$(Esc $it.mechanism)</div>")
+            [void]$slidesMarkup.AppendLine("              <div style=`"margin-top: 0.25rem;`"><strong>🏠 生活</strong>：$(Esc $it.daily_life)</div>")
             [void]$slidesMarkup.AppendLine("            </div>")
             [void]$slidesMarkup.AppendLine("          </div>")
         }
@@ -174,14 +173,14 @@ foreach ($s in $data.slides) {
         [void]$slidesMarkup.AppendLine("          <span class=`"slide-unit-badge badge-interactive`">🎮 $(Esc $s.unit)</span>")
         [void]$slidesMarkup.AppendLine("          <h2 class=`"slide-title`">$(Esc $s.title)</h2>")
         [void]$slidesMarkup.AppendLine("        </div>")
-        [void]$slidesMarkup.AppendLine("        <img src=`"$($s.header_asset)`" class=`"slide-header-animal`" alt=`"研究博士犬`" />")
+        [void]$slidesMarkup.AppendLine("        <div class=`"header-animal-badge`"><img src=`"$($s.header_asset)`" class=`"slide-header-animal`" alt=`"研究博士犬`" /></div>")
         [void]$slidesMarkup.AppendLine("      </div>")
         [void]$slidesMarkup.AppendLine("      <div class=`"slide-body`">")
         [void]$slidesMarkup.AppendLine("        <div class=`"pico-tabs`">")
         for ($pi = 0; $pi -lt $s.papers.Count; $pi++) {
-            $p = $s.papers[$pi]
+            $paper = $s.papers[$pi]
             $act = if ($pi -eq 0) { " active" } else { "" }
-            [void]$slidesMarkup.AppendLine("          <button type=`"button`" class=`"pico-tab-btn$act`" data-color=`"$($p.color)`" onclick=`"switchPicoTab($pi)`">$(Esc $p.tab_label)</button>")
+            [void]$slidesMarkup.AppendLine("          <button type=`"button`" class=`"pico-tab-btn$act`" data-color=`"$($paper.color)`" onclick=`"switchPicoTab($pi)`">$(Esc $paper.tab_label)</button>")
         }
         [void]$slidesMarkup.AppendLine("        </div>")
         [void]$slidesMarkup.AppendLine("        <div class=`"pico-panel`" id=`"picoDisplayPanel`"></div>")
@@ -193,15 +192,15 @@ foreach ($s in $data.slides) {
         [void]$slidesMarkup.AppendLine("    <div class=`"slide cover-slide$activeCls`" data-index=`"$idx`">")
         [void]$slidesMarkup.AppendLine("      <div class=`"cover-animals-row`">")
         foreach ($a in $s.assets) {
-            [void]$slidesMarkup.AppendLine("        <img src=`"$a`" width=`"74`" height=`"74`" alt=`"治療動物`" />")
+            [void]$slidesMarkup.AppendLine("        <div class=`"animal-medallion`"><img src=`"$a`" width=`"108`" height=`"108`" alt=`"治療動物`" /></div>")
         }
         [void]$slidesMarkup.AppendLine("      </div>")
-        [void]$slidesMarkup.AppendLine("      <h2 class=`"slide-title`" style=`"font-size: 2rem; color: #0d9488;`">$(Esc $s.title)</h2>")
+        [void]$slidesMarkup.AppendLine("      <h2 class=`"slide-title`" style=`"color: #2F6F5E;`">$(Esc $s.title)</h2>")
         [void]$slidesMarkup.AppendLine("      <div class=`"ending-quote`">$(Esc $s.quote)</div>")
         [void]$slidesMarkup.AppendLine("      <p class=`"ending-vision`">$(Esc $s.vision)</p>")
-        [void]$slidesMarkup.AppendLine("      <div style=`"display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 0.4rem;`">")
+        [void]$slidesMarkup.AppendLine("      <div style=`"display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; margin-top: 0.4rem;`">")
         [void]$slidesMarkup.AppendLine("        <button type=`"button`" class=`"nav-btn`" onclick=`"goToSlide(1)`">🔄 重新播放簡報</button>")
-        [void]$slidesMarkup.AppendLine("        <a href=`"index.html`" class=`"nav-btn`" style=`"background: #0d9488; color: #ffffff; text-decoration: none;`">📖 返回知識庫首頁查看完整論文</a>")
+        [void]$slidesMarkup.AppendLine("        <a href=`"index.html`" class=`"nav-btn`" style=`"background: #2F6F5E; color: #ffffff; text-decoration: none;`">📖 返回知識庫查看完整論文</a>")
         [void]$slidesMarkup.AppendLine("      </div>")
         [void]$slidesMarkup.AppendLine("    </div>")
     }
@@ -220,6 +219,7 @@ $html = @"
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>$(Esc $data.deck_meta.title)</title>
   <style>
+    /* 全域標楷體 */
     *, *::before, *::after, html, body, h1, h2, h3, h4, p, span, div, a, button, li {
       font-family: "標楷體", "BiauKai", "DFKai-SB", "TW-Kai", "KaiTi", serif !important;
       box-sizing: border-box;
@@ -228,33 +228,40 @@ $html = @"
     }
 
     :root {
-      --primary: #0d9488;
-      --bg: #0f172a;
-      --slide-bg: #ffffff;
-      --text-main: #0f172a;
-      --text-muted: #475569;
-      --border: #e2e8f0;
+      --oat-canvas: #FAF7F2;
+      --cream-card: #FFFDF9;
+      --sage-dark: #2F6F5E;
+      --sage-mid: #4B8B77;
+      --sage-soft: #E3F1EC;
+      --apricot: #D97706;
+      --apricot-soft: #FEF3C7;
+      --apricot-border: #F59E0B;
+      --ink-main: #2C241E;
+      --ink-body: #3E352F;
+      --ink-muted: #786B61;
+      --warm-border: #E6DDD0;
     }
 
     body {
-      background: radial-gradient(circle at 50% 15%, #334155 0%, #0f172a 100%);
-      color: var(--text-main);
+      background: linear-gradient(155deg, #EAE0D2 0%, #DFD2C0 100%);
+      color: var(--ink-main);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 0.9rem 1rem;
+      padding: 0.75rem 1rem 1rem 1rem;
       overflow-x: hidden;
     }
 
+    /* 頂部控制列 */
     .top-toolbar {
       width: 100%;
-      max-width: 1180px;
+      max-width: 1500px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.4rem 0.6rem;
+      padding: 0.35rem 0.5rem;
       margin-bottom: 0.45rem;
       gap: 0.6rem;
       flex-wrap: wrap;
@@ -267,129 +274,148 @@ $html = @"
     }
 
     .btn-toolbar {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      color: #f8fafc;
-      padding: 0.35rem 0.85rem;
-      border-radius: 8px;
-      font-size: 0.92rem;
+      background: rgba(255, 253, 249, 0.9);
+      border: 1.5px solid #D5C8B7;
+      color: #3E352F;
+      padding: 0.4rem 0.95rem;
+      border-radius: 999px;
+      font-size: 20px;
+      font-weight: bold;
       cursor: pointer;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
       transition: all 0.2s;
+      box-shadow: 0 2px 6px rgba(62, 53, 47, 0.08);
     }
 
     .btn-toolbar:hover {
-      background: rgba(56, 189, 248, 0.2);
-      border-color: #38bdf8;
-      color: #7dd3fc;
+      background: var(--sage-dark);
+      border-color: var(--sage-dark);
+      color: #ffffff;
     }
 
     .progress-bar-container {
       width: 100%;
-      max-width: 1180px;
-      height: 6px;
-      background: rgba(255, 255, 255, 0.16);
+      max-width: 1500px;
+      height: 8px;
+      background: rgba(120, 107, 97, 0.22);
       border-radius: 999px;
       overflow: hidden;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.7rem;
     }
 
     .progress-bar-fill {
       height: 100%;
       width: 6.67%;
-      background: linear-gradient(90deg, #14b8a6 0%, #38bdf8 100%);
+      background: linear-gradient(90deg, #4B8B77 0%, #E08E45 100%);
       transition: width 0.3s ease;
     }
 
+    /* 暖陽療癒繪本風主畫布 (大字級專屬寬敞比例) */
     .presentation-viewport {
       width: 100%;
-      max-width: 1180px;
-      height: 685px;
-      background: var(--slide-bg);
-      border-radius: 24px;
-      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+      max-width: 1500px;
+      min-height: 780px;
+      background: var(--oat-canvas);
+      background-image:
+        radial-gradient(circle at 92% 10%, rgba(254, 243, 199, 0.75) 0%, transparent 32%),
+        radial-gradient(circle at 6% 92%, rgba(227, 241, 236, 0.8) 0%, transparent 34%);
+      border: 3px solid #E5DCCB;
+      border-radius: 30px;
+      box-shadow: 0 22px 48px rgba(74, 58, 43, 0.16);
       position: relative;
       overflow: hidden;
     }
 
     .slide {
-      position: absolute;
-      inset: 0;
-      padding: 2.3rem 2.9rem 1.9rem 2.9rem;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateX(28px);
-      transition: opacity 0.32s ease, transform 0.32s ease;
-      display: flex;
+      display: none;
+      width: 100%;
+      min-height: 780px;
+      padding: 2.2rem 3rem 2rem 3rem;
       flex-direction: column;
-      overflow-y: auto;
+      animation: fadeSlideIn 0.3s ease;
     }
 
     .slide.active {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateX(0);
-      z-index: 2;
+      display: flex;
     }
 
-    /* 頁首 */
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 頁首：標題 >= 50px + 顯眼大萌寵徽章 */
     .slide-header {
-      border-bottom: 2px solid #f1f5f9;
-      padding-bottom: 0.75rem;
-      margin-bottom: 1.15rem;
+      border-bottom: 2.5px dashed #DFD4C4;
+      padding-bottom: 0.85rem;
+      margin-bottom: 1.35rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 1rem;
+      gap: 1.2rem;
     }
 
     .slide-title-wrap {
       display: flex;
       flex-direction: column;
-      gap: 0.32rem;
+      gap: 0.35rem;
     }
 
     .slide-unit-badge {
-      font-size: 0.88rem;
+      font-size: 22px;
       font-weight: bold;
-      color: #0f766e;
-      background: #ccfbf1;
-      padding: 0.2rem 0.65rem;
-      border-radius: 6px;
+      color: var(--sage-dark);
+      background: var(--sage-soft);
+      border: 1.5px solid #B7DDD0;
+      padding: 0.2rem 0.85rem;
+      border-radius: 999px;
       width: fit-content;
     }
 
     .badge-interactive {
-      color: #0369a1;
-      background: #e0f2fe;
+      color: #9A3412;
+      background: #FFEDD5;
+      border-color: #FDBA74;
     }
 
+    /* 一般頁標題強制 >= 50px */
     .slide-title {
-      font-size: 1.85rem;
-      color: #0f172a;
+      font-size: 52px;
+      color: var(--ink-main);
       font-weight: bold;
-      line-height: 1.3;
+      line-height: 1.25;
+      letter-spacing: 0.5px;
     }
 
     .slide-subtitle {
-      font-size: 1rem;
-      color: #64748b;
+      font-size: 26px;
+      color: var(--ink-muted);
+      line-height: 1.4;
+    }
+
+    .header-animal-badge {
+      background: #FFFDF9;
+      border: 3px solid #F3DFC1;
+      border-radius: 50%;
+      padding: 10px;
+      box-shadow: 0 6px 16px rgba(180, 83, 9, 0.12);
+      flex-shrink: 0;
     }
 
     .slide-header-animal {
-      width: 60px;
-      height: 60px;
-      flex-shrink: 0;
+      width: 104px;
+      height: 104px;
+      display: block;
     }
 
     .slide-body {
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 1.05rem;
+      gap: 1.25rem;
     }
 
     /* 封面 & 結語 */
@@ -397,52 +423,65 @@ $html = @"
       justify-content: center;
       align-items: center;
       text-align: center;
-      gap: 1.7rem;
-      background: linear-gradient(160deg, #ffffff 0%, #f0fdfa 100%);
+      gap: 2rem;
     }
 
     .cover-animals-row {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 1.4rem;
+      gap: 1.6rem;
       flex-wrap: wrap;
     }
 
+    .animal-medallion {
+      background: #FFFDF9;
+      border: 3.5px solid #F3DFC1;
+      border-radius: 50%;
+      padding: 14px;
+      box-shadow: 0 10px 22px rgba(146, 64, 14, 0.12);
+      transition: transform 0.25s ease;
+    }
+
+    .animal-medallion:hover {
+      transform: translateY(-6px) rotate(-3deg);
+    }
+
     .cover-title {
-      font-size: 2.55rem;
-      color: #0f172a;
+      font-size: 62px;
+      color: var(--ink-main);
       font-weight: bold;
-      line-height: 1.45;
-      max-width: 900px;
+      line-height: 1.38;
+      max-width: 1180px;
     }
 
     .cover-footer-note {
-      font-size: 1.08rem;
-      color: #0f766e;
-      background: #ccfbf1;
-      padding: 0.55rem 1.5rem;
+      font-size: 30px;
+      color: var(--sage-dark);
+      background: var(--sage-soft);
+      border: 2px solid #A7D7C5;
+      padding: 0.65rem 2rem;
       border-radius: 999px;
       font-weight: bold;
     }
 
     .ending-quote {
-      font-size: 1.55rem;
+      font-size: 36px;
       font-weight: bold;
-      color: #0f172a;
-      max-width: 860px;
-      line-height: 1.75;
-      background: #fffbeb;
-      border-left: 5px solid #f59e0b;
-      padding: 1rem 1.5rem;
-      border-radius: 0 14px 14px 0;
+      color: #5C2D0C;
+      max-width: 1150px;
+      line-height: 1.6;
+      background: var(--apricot-soft);
+      border-left: 8px solid var(--apricot-border);
+      padding: 1.2rem 1.8rem;
+      border-radius: 0 20px 20px 0;
     }
 
     .ending-vision {
-      font-size: 1.15rem;
-      color: #475569;
-      max-width: 780px;
-      line-height: 1.7;
+      font-size: 31px;
+      color: var(--ink-body);
+      max-width: 1080px;
+      line-height: 1.6;
     }
 
     /* 極簡目錄頁 */
@@ -450,189 +489,198 @@ $html = @"
       flex-direction: row !important;
       align-items: center;
       gap: 2.5rem;
-      padding: 0.5rem 0;
     }
 
     .toc-list {
-      flex: 1.4;
+      flex: 1.5;
       display: flex;
       flex-direction: column;
-      gap: 0.9rem;
+      gap: 1rem;
     }
 
     .toc-item {
-      background: #f8fafc;
-      border: 1.8px solid #cbd5e1;
-      border-radius: 14px;
-      padding: 1rem 1.4rem;
-      font-size: 1.32rem;
+      background: var(--cream-card);
+      border: 2.5px solid var(--warm-border);
+      border-radius: 18px;
+      padding: 1.05rem 1.6rem;
+      font-size: 34px;
       font-weight: bold;
-      color: #0f172a;
+      color: var(--ink-main);
       display: flex;
       justify-content: space-between;
       align-items: center;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.22s;
       text-align: left;
+      box-shadow: 0 4px 12px rgba(62, 53, 47, 0.05);
     }
 
     .toc-item:hover {
-      background: #f0fdfa;
-      border-color: #0d9488;
-      color: #0f766e;
-      transform: translateX(6px);
-      box-shadow: 0 6px 16px rgba(13, 148, 136, 0.14);
+      background: var(--sage-soft);
+      border-color: var(--sage-dark);
+      color: var(--sage-dark);
+      transform: translateX(8px);
     }
 
     .toc-arrow {
-      font-size: 0.98rem;
-      color: #0d9488;
+      font-size: 26px;
+      color: var(--apricot);
     }
 
     .toc-visual {
       flex: 0.7;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
     }
 
-    /* 網格與內容卡片 */
+    .toc-animal-frame {
+      background: #FFFDF9;
+      border: 4px solid #F3DFC1;
+      border-radius: 50%;
+      padding: 26px;
+      box-shadow: 0 12px 28px rgba(146, 64, 14, 0.14);
+    }
+
+    /* 網格與內容卡片 (一般內文 >= 30px) */
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
+      gap: 1.4rem;
     }
 
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.1rem;
+      gap: 1.25rem;
     }
 
     .content-box {
-      background: #f8fafc;
-      border: 1.5px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 1.2rem 1.3rem;
+      background: var(--cream-card);
+      border: 2px solid var(--warm-border);
+      border-radius: 22px;
+      padding: 1.45rem 1.6rem;
       display: flex;
       flex-direction: column;
-      gap: 0.55rem;
+      gap: 0.75rem;
+      box-shadow: 0 6px 18px rgba(74, 58, 43, 0.06);
     }
 
     .box-title {
-      font-size: 1.22rem;
+      font-size: 34px;
       font-weight: bold;
-      color: #0f172a;
+      color: var(--sage-dark);
+      line-height: 1.3;
     }
 
     .box-tag {
-      font-size: 0.86rem;
-      color: #64748b;
+      font-size: 22px;
+      color: var(--ink-muted);
       font-weight: bold;
-      margin-bottom: 0.15rem;
     }
 
+    /* 一般頁正文 >= 30px */
     .box-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
-      font-size: 1.05rem;
-      color: #334155;
-      line-height: 1.7;
+      gap: 0.65rem;
+      font-size: 31px;
+      color: var(--ink-body);
+      line-height: 1.55;
     }
 
     .box-list li::before {
       content: "• ";
-      color: #0d9488;
+      color: var(--apricot);
       font-weight: bold;
     }
 
-    /* 文獻完整版微調（第 10、11 頁） */
-    .lit-dense .content-box {
-      padding: 0.95rem 1.05rem;
-      gap: 0.4rem;
-    }
-    .lit-dense .box-title { font-size: 1.12rem; }
-    .lit-dense .box-list { font-size: 0.93rem; line-height: 1.58; gap: 0.35rem; }
-    .lit-dense .public-quote-box { font-size: 0.96rem; padding: 0.7rem 1.1rem; }
-
     .public-quote-box {
-      background: #fffbeb;
-      border-left: 5px solid #f59e0b;
-      border-radius: 0 12px 12px 0;
-      padding: 0.85rem 1.2rem;
-      color: #78350f;
-      font-size: 1.05rem;
-      line-height: 1.65;
+      background: var(--apricot-soft);
+      border-left: 7px solid var(--apricot-border);
+      border-radius: 0 16px 16px 0;
+      padding: 1rem 1.4rem;
+      color: #6B3409;
+      font-size: 30px;
+      line-height: 1.5;
     }
 
-    /* 互動翻牌與配對卡 (Slide 4 & Slide 9) */
+    /* 文獻頁（第 10、11 頁）：免受 30px 強制下限，但依然盡量放大字體 */
+    .lit-dense .slide-title { font-size: 50px; }
+    .lit-dense .slide-subtitle { font-size: 24px; }
+    .lit-dense .content-box { padding: 1.15rem 1.25rem; gap: 0.5rem; }
+    .lit-dense .box-title { font-size: 29px; }
+    .lit-dense .box-tag { font-size: 19px; }
+    .lit-dense .box-list { font-size: 23px; line-height: 1.55; gap: 0.45rem; }
+    .lit-dense .public-quote-box { font-size: 25px; padding: 0.85rem 1.25rem; }
+
+    /* 互動翻牌與配對卡 (Slide 4 & Slide 9 — 大字 >= 30px) */
     .interactive-card {
-      background: #ffffff;
-      border: 2px solid #cbd5e1;
-      border-radius: 18px;
-      padding: 1.25rem;
+      background: var(--cream-card);
+      border: 2.5px solid #DCCEB9;
+      border-radius: 22px;
+      padding: 1.4rem 1.5rem;
       cursor: pointer;
       transition: all 0.22s ease;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 0.8rem;
+      gap: 0.9rem;
+      box-shadow: 0 6px 16px rgba(74, 58, 43, 0.06);
     }
 
     .interactive-card:hover {
-      border-color: #0284c7;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(2, 132, 199, 0.14);
+      border-color: var(--apricot);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 22px rgba(217, 119, 6, 0.16);
     }
 
     .interactive-card.revealed {
-      border-color: #0d9488;
-      background: #f0fdf4;
+      border-color: var(--sage-dark);
+      background: #F1F8F5;
     }
 
     .quiz-q-badge {
-      background: #e0f2fe;
-      color: #0369a1;
-      padding: 0.2rem 0.65rem;
-      border-radius: 6px;
-      font-size: 0.88rem;
+      background: #FFEDD5;
+      color: #9A3412;
+      padding: 0.2rem 0.75rem;
+      border-radius: 999px;
+      font-size: 22px;
       font-weight: bold;
       display: inline-block;
-      margin-bottom: 0.45rem;
+      margin-bottom: 0.5rem;
     }
 
     .quiz-question {
-      font-size: 1.16rem;
+      font-size: 32px;
       font-weight: bold;
-      color: #0f172a;
-      line-height: 1.55;
+      color: var(--ink-main);
+      line-height: 1.45;
     }
 
     .quiz-action-btn {
-      background: #0284c7;
+      background: var(--apricot);
       color: #ffffff;
       border: none;
-      padding: 0.5rem 0.9rem;
-      border-radius: 8px;
-      font-size: 0.95rem;
+      padding: 0.55rem 1.15rem;
+      border-radius: 12px;
+      font-size: 26px;
       font-weight: bold;
       cursor: pointer;
     }
 
     .interactive-card.revealed .quiz-action-btn {
-      background: #16a34a;
+      background: var(--sage-dark);
     }
 
     .quiz-answer-content {
       display: none;
-      padding-top: 0.75rem;
-      border-top: 1.5px dashed #86efac;
-      font-size: 1rem;
-      color: #14532d;
-      line-height: 1.65;
+      padding-top: 0.8rem;
+      border-top: 2px dashed #99C9B8;
+      font-size: 30px;
+      color: #1F4E42;
+      line-height: 1.5;
     }
 
     .interactive-card.revealed .quiz-answer-content {
@@ -640,168 +688,168 @@ $html = @"
     }
 
     .btn-soft-action {
-      background: #f1f5f9;
-      border: 1.5px solid #cbd5e1;
-      color: #334155;
-      padding: 0.45rem 1.2rem;
+      background: #EFE7DA;
+      border: 2px solid #D6C7B2;
+      color: #4A3E35;
+      padding: 0.5rem 1.5rem;
       border-radius: 999px;
-      font-size: 0.94rem;
+      font-size: 24px;
       font-weight: bold;
       cursor: pointer;
     }
 
     .btn-soft-action:hover {
-      background: #e2e8f0;
-      color: #0f172a;
+      background: #E2D5C1;
+      color: var(--ink-main);
     }
 
-    /* PICO 互動展廳 (Slide 12) */
+    /* PICO 互動展廳 (Slide 12：3x2 寬敞作者(年份)按鈕 ＋ 放大 PICO 四格) */
     .pico-tabs {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 0.5rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.7rem;
     }
 
     .pico-tab-btn {
-      background: #f8fafc;
-      border: 1.8px solid #cbd5e1;
-      border-radius: 10px;
-      padding: 0.6rem 0.35rem;
-      font-size: 0.88rem;
+      background: var(--cream-card);
+      border: 2px solid #D8CBB8;
+      border-radius: 14px;
+      padding: 0.65rem 0.8rem;
+      font-size: 24px;
       font-weight: bold;
-      color: #475569;
+      color: var(--ink-body);
       cursor: pointer;
       transition: all 0.2s;
     }
 
     .pico-tab-btn:hover {
-      background: #e2e8f0;
-      color: #0f172a;
+      background: #F4EDE2;
+      color: var(--ink-main);
     }
 
     .pico-tab-btn.active {
       color: #ffffff;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+      box-shadow: 0 5px 14px rgba(44, 36, 30, 0.18);
     }
 
     .pico-panel {
       flex: 1;
-      background: #ffffff;
-      border: 2px solid #0d9488;
-      border-radius: 18px;
-      padding: 1.25rem 1.4rem;
+      background: var(--cream-card);
+      border: 3px solid var(--sage-dark);
+      border-radius: 22px;
+      padding: 1.35rem 1.6rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 0.9rem;
+      gap: 1rem;
     }
 
     .pico-header-title {
-      font-size: 1.32rem;
+      font-size: 32px;
       font-weight: bold;
-      color: #0f172a;
     }
 
     .pico-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 0.95rem;
+      gap: 1rem;
       flex: 1;
     }
 
     .pico-cell {
-      background: #f8fafc;
-      border: 1.5px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 0.9rem 1.05rem;
+      background: #FAF6EE;
+      border: 2px solid #E6DDD0;
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
       display: flex;
       flex-direction: column;
-      gap: 0.35rem;
+      gap: 0.45rem;
     }
 
     .pico-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      font-size: 1rem;
+      gap: 0.5rem;
+      font-size: 26px;
       font-weight: bold;
+      color: var(--ink-main);
     }
 
     .pico-letter {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 26px;
-      height: 26px;
-      border-radius: 6px;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
       color: #ffffff;
-      font-size: 0.95rem;
+      font-size: 24px;
     }
 
     .pico-text {
-      font-size: 1.02rem;
-      color: #334155;
-      line-height: 1.65;
+      font-size: 27px;
+      color: var(--ink-body);
+      line-height: 1.5;
     }
 
-    /* 底部操作列 */
+    /* 底部導覽列 */
     .bottom-nav {
       width: 100%;
-      max-width: 1180px;
+      max-width: 1500px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.65rem 0.6rem;
-      margin-top: 0.45rem;
+      padding: 0.65rem 0.5rem;
+      margin-top: 0.4rem;
     }
 
     .nav-btn {
-      background: #38bdf8;
-      color: #0f172a;
+      background: var(--sage-dark);
+      color: #ffffff;
       border: none;
-      padding: 0.58rem 1.35rem;
-      border-radius: 12px;
-      font-size: 1.02rem;
+      padding: 0.6rem 1.6rem;
+      border-radius: 999px;
+      font-size: 24px;
       font-weight: bold;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
       transition: all 0.2s;
+      box-shadow: 0 5px 14px rgba(47, 111, 94, 0.25);
     }
 
-    .nav-btn:hover { background: #7dd3fc; transform: translateY(-1px); }
-    .nav-btn:disabled { background: #475569; color: #94a3b8; cursor: not-allowed; transform: none; }
+    .nav-btn:hover { background: #235749; transform: translateY(-2px); }
+    .nav-btn:disabled { background: #BEB3A4; color: #F5EFE6; cursor: not-allowed; transform: none; box-shadow: none; }
 
     .dots-indicator {
       display: flex;
-      gap: 0.4rem;
+      gap: 0.45rem;
       align-items: center;
       flex-wrap: wrap;
       justify-content: center;
     }
 
     .dot {
-      width: 10px;
-      height: 10px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.28);
+      background: rgba(120, 107, 97, 0.35);
       cursor: pointer;
       transition: all 0.2s;
     }
 
     .dot.active {
-      width: 26px;
+      width: 30px;
       border-radius: 999px;
-      background: #38bdf8;
+      background: var(--apricot);
     }
 
-    @media (max-width: 960px) {
-      .presentation-viewport { height: auto; min-height: 620px; }
-      .slide { padding: 1.5rem; position: relative; display: none; }
-      .slide.active { display: flex; }
-      .grid-2, .grid-3, .pico-grid { grid-template-columns: 1fr; }
-      .pico-tabs { grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 1100px) {
+      .slide { padding: 1.6rem; }
+      .cover-title { font-size: 46px; }
+      .slide-title { font-size: 38px; }
+      .grid-2, .grid-3, .pico-grid, .pico-tabs { grid-template-columns: 1fr; }
       .toc-layout { flex-direction: column !important; }
     }
   </style>
@@ -812,10 +860,10 @@ $html = @"
     <div class="top-toolbar-left">
       <a href="index.html" class="btn-toolbar">🏠 返回知識庫</a>
       <button type="button" class="btn-toolbar" onclick="goToSlide(2)">📋 目錄</button>
-      <span id="slideCounterText" style="color: #e2e8f0; font-weight: bold; font-size: 0.98rem;">第 1 / $totalPages 頁</span>
+      <span id="slideCounterText" style="color: #3E352F; font-weight: bold; font-size: 22px;">第 1 / $totalPages 頁</span>
     </div>
     <div class="top-toolbar-right">
-      <span style="color: #94a3b8; font-size: 0.88rem;">支援鍵盤 ← → 鍵翻頁</span>
+      <span style="color: #6B5E53; font-size: 19px;">支援鍵盤 ← → 鍵翻頁</span>
       <button type="button" class="btn-toolbar" onclick="toggleFullScreen()">⛶ 全螢幕簡報</button>
     </div>
   </div>
@@ -859,6 +907,7 @@ $allSlidesHtml
       document.getElementById('prevBtn').disabled = (currentSlide === 1);
       document.getElementById('nextBtn').disabled = (currentSlide === totalSlides);
       document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i + 1 === currentSlide));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function nextSlide() { if (currentSlide < totalSlides) goToSlide(currentSlide + 1); }
@@ -908,8 +957,8 @@ $allSlidesHtml
           btn.style.background = paper.color;
           btn.style.borderColor = paper.color;
         } else {
-          btn.style.background = '#f8fafc';
-          btn.style.borderColor = '#cbd5e1';
+          btn.style.background = '#FFFDF9';
+          btn.style.borderColor = '#D8CBB8';
         }
       });
 
@@ -918,13 +967,13 @@ $allSlidesHtml
       panel.innerHTML =
         '<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">' +
           '<div class="pico-header-title" style="color:' + paper.color + ';">' + paper.title + '</div>' +
-          '<a href="index.html" target="_blank" style="font-size:0.92rem; color:' + paper.color + '; font-weight:bold; text-decoration:underline;">前往 Wiki 查閱全文 ↗</a>' +
+          '<a href="index.html" target="_blank" style="font-size:22px; color:' + paper.color + '; font-weight:bold; text-decoration:underline;">前往 Wiki 查閱全文 ↗</a>' +
         '</div>' +
         '<div class="pico-grid">' +
-          '<div class="pico-cell"><div class="pico-badge"><span class="pico-letter" style="background:#0d9488;">P</span>研究對象 (Population)</div><div class="pico-text">' + paper.P + '</div></div>' +
-          '<div class="pico-cell"><div class="pico-badge"><span class="pico-letter" style="background:#2563eb;">I</span>介入方式 (Intervention)</div><div class="pico-text">' + paper.I + '</div></div>' +
-          '<div class="pico-cell"><div class="pico-badge"><span class="pico-letter" style="background:#d97706;">C</span>對照組 (Comparison)</div><div class="pico-text">' + paper.C + '</div></div>' +
-          '<div class="pico-cell"><div class="pico-badge"><span class="pico-letter" style="background:#e11d48;">O</span>主要結果 (Outcome)</div><div class="pico-text">' + paper.O + '</div></div>' +
+          '<div class="pico-cell"><div class="pico-badge"><span class="pico-letter" style="background:#2F6F5E;">P</span>研究對象 (Population)</div><div class="pico-text">' + paper.P + '</div></div>' +
+          '<div class="pico-cell"><div class="pico-badge"><span class="pico-letter" style="background:#3B7A9E;">I</span>介入方式 (Intervention)</div><div class="pico-text">' + paper.I + '</div></div>' +
+          '<div class="pico-cell"><div class="pico-badge"><span class="pico-letter" style="background:#D97706;">C</span>對照組 (Comparison)</div><div class="pico-text">' + paper.C + '</div></div>' +
+          '<div class="pico-cell"><div class="pico-badge"><span class="pico-letter" style="background:#C95B6B;">O</span>主要結果 (Outcome)</div><div class="pico-text">' + paper.O + '</div></div>' +
         '</div>';
     }
 
@@ -936,4 +985,4 @@ $allSlidesHtml
 "@
 
 [System.IO.File]::WriteAllText("slides.html", $html, [System.Text.Encoding]::UTF8)
-Write-Host "[Node 5] Compiled interactive 15-page Web Slide Deck -> slides.html"
+Write-Host "[Node 5 v2] Compiled Warm Storybook Giant-Font 15-page Web Slide Deck -> slides.html"

@@ -1,15 +1,18 @@
 ﻿{
-    "verified_at":  "2026-11-18T20:34:02+08:00",
-    "validator":  "Gate 6: HTML Build, SVG Asset \u0026 Interactive Handler Verification",
+    "verified_at":  "2026-11-19T00:01:39+08:00",
+    "revision":  "v2 (Warm Storybook + Title\u003e=50px + Body\u003e=30px + Author(Year) PICO)",
+    "validator":  "Gate 6: Theme, Typography, PICO Format \u0026 Interactive QA",
     "status":  "PASS",
     "routing_decision":  "Node 6: Final Delivery \u0026 Sync GitHub",
     "metrics":  {
                     "rendered_slides":  15,
+                    "art_theme":  "warm_storybook_healing (#FAF7F2)",
+                    "general_title_px":  52,
+                    "general_body_px":  31,
+                    "general_quote_px":  30,
+                    "pico_tabs_author_year":  true,
                     "verified_svg_assets":  7,
-                    "file_size_bytes":  51256,
-                    "interactive_handlers":  3,
-                    "pico_ready":  true,
-                    "font_biaukai":  true
+                    "file_size_bytes":  53874
                 },
     "errors":  [
 
