@@ -16,9 +16,19 @@ if ($slideMatches.Count -ne 15) {
     $errors += "Expected 15 rendered slides in slides.html, found $($slideMatches.Count)"
 }
 
-# 2. Verify Warm Storybook theme (#FAF7F2) & BiauKai font-family
+# 2. Verify Warm Storybook theme (#FAF7F2) & Times New Roman -> 標楷體 font stack
 if (-not $html.Contains("#FAF7F2")) { $errors += "Missing Warm Storybook canvas color (#FAF7F2)" }
-if (-not $html.Contains("標楷體")) { $errors += "Missing 標楷體 global font rule" }
+if (-not ($html -match 'font-family:\s*"Times New Roman",\s*"標楷體"')) {
+    $errors += "Missing 'Times New Roman' before '標楷體' in font-family stack"
+}
+
+# 2b. Verify Fullscreen ArrowRight keyboard navigation is NOT blocked by focused buttons
+if (-not $html.Contains("function clearFocus()") -or -not $html.Contains("fullscreenchange")) {
+    $errors += "Missing fullscreen focus-blur safeguard (clearFocus / fullscreenchange)"
+}
+if ($html -match "ArrowRight.*?\r?\n\s*if\s*\(document\.activeElement\.tagName\s*!==\s*'BUTTON'\)") {
+    $errors += "ArrowRight is still incorrectly blocked when a button has focus"
+}
 
 # 3. Verify Typography minimums: .slide-title >= 50px, .box-list >= 30px, .public-quote-box >= 30px
 $titlePx = 0

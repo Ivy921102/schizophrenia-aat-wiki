@@ -13,6 +13,8 @@
   },
   "visual_and_typography": {
     "art_theme": "warm_storybook_healing",
+    "latin_and_digit_font": "Times New Roman",
+    "cjk_font": "標楷體",
     "palette": {
       "canvas_bg": "#FAF7F2",
       "sage_green": "#2F6F5E",
@@ -23,7 +25,8 @@
     "general_title_min_px": 50,
     "general_body_min_px": 30,
     "literature_pages_font_exempt_but_enlarged": true,
-    "pico_tab_format": "Author (Year)"
+    "pico_tab_format": "Author (Year)",
+    "fullscreen_keyboard_focus_safe": true
   },
   "audience_and_tone": {
     "style": "balanced_academic_and_public",

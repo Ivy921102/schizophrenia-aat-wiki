@@ -219,9 +219,9 @@ $html = @"
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>$(Esc $data.deck_meta.title)</title>
   <style>
-    /* 全域標楷體 */
+    /* 英數採用 Times New Roman，中文回退至標楷體 */
     *, *::before, *::after, html, body, h1, h2, h3, h4, p, span, div, a, button, li {
-      font-family: "標楷體", "BiauKai", "DFKai-SB", "TW-Kai", "KaiTi", serif !important;
+      font-family: "Times New Roman", "標楷體", "BiauKai", "DFKai-SB", "TW-Kai", "KaiTi", serif !important;
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -896,6 +896,12 @@ $allSlidesHtml
       dotsContainer.appendChild(dot);
     }
 
+    function clearFocus() {
+      if (document.activeElement && typeof document.activeElement.blur === 'function') {
+        document.activeElement.blur();
+      }
+    }
+
     function goToSlide(n) {
       if (n < 1 || n > totalSlides) return;
       currentSlide = n;
@@ -907,28 +913,50 @@ $allSlidesHtml
       document.getElementById('prevBtn').disabled = (currentSlide === 1);
       document.getElementById('nextBtn').disabled = (currentSlide === totalSlides);
       document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i + 1 === currentSlide));
+      clearFocus();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function nextSlide() { if (currentSlide < totalSlides) goToSlide(currentSlide + 1); }
     function prevSlide() { if (currentSlide > 1) goToSlide(currentSlide - 1); }
 
+    /* 全螢幕與任何點擊後，左右方向鍵與 PageUp/PageDown 永遠有效 */
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
-        if (document.activeElement.tagName !== 'BUTTON') { e.preventDefault(); nextSlide(); }
+      if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+        e.preventDefault();
+        nextSlide();
       } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
         prevSlide();
-      } else if (e.key === 'Home') { goToSlide(1); }
-      else if (e.key === 'End') { goToSlide(totalSlides); }
+      } else if (e.key === ' ') {
+        if (!document.activeElement || document.activeElement.tagName !== 'BUTTON') {
+          e.preventDefault();
+          nextSlide();
+        }
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        goToSlide(1);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        goToSlide(totalSlides);
+      }
     });
 
     function toggleFullScreen() {
+      clearFocus();
       if (!document.fullscreenElement) {
-        if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen();
+        const el = document.documentElement;
+        if (el.requestFullscreen) {
+          el.requestFullscreen().then(clearFocus).catch(() => {});
+        }
       } else {
-        if (document.exitFullscreen) document.exitFullscreen();
+        if (document.exitFullscreen) {
+          document.exitFullscreen().then(clearFocus).catch(() => {});
+        }
       }
     }
+
+    document.addEventListener('fullscreenchange', clearFocus);
 
     function toggleMythCard(id) {
       const el = document.getElementById(id);

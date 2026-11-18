@@ -1,5 +1,5 @@
 ﻿{
-    "verified_at":  "2026-11-19T00:01:39+08:00",
+    "verified_at":  "2026-11-19T00:10:26+08:00",
     "revision":  "v2 (Warm Storybook + Title\u003e=50px + Body\u003e=30px + Author(Year) PICO)",
     "validator":  "Gate 6: Theme, Typography, PICO Format \u0026 Interactive QA",
     "status":  "PASS",
@@ -12,7 +12,7 @@
                     "general_quote_px":  30,
                     "pico_tabs_author_year":  true,
                     "verified_svg_assets":  7,
-                    "file_size_bytes":  53874
+                    "file_size_bytes":  54634
                 },
     "errors":  [
 

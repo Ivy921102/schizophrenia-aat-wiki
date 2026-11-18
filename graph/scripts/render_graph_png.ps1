@@ -5,7 +5,7 @@
 Add-Type -AssemblyName System.Drawing
 
 $W = 1040
-$H = 2660
+$H = 2920
 $bmp = New-Object System.Drawing.Bitmap($W, $H)
 $g = [System.Drawing.Graphics]::FromImage($bmp)
 $g.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::AntiAlias
@@ -240,60 +240,74 @@ Draw-ArrowPath @(@($CX,1868), @($CX,1988)) "#34d399" 2.2
 Draw-EdgeBadge "核准逐頁稿 OK" $CX 1922 132 "#064e3b" "#10b981" "#ecfdf5"
 
 # ==================== STAGE 4 ====================
-Draw-RoundRect 75 1946 890 562 14 "#1f1f23" "#3f3f46" 1.4 220
+Draw-RoundRect 75 1946 890 818 14 "#1f1f23" "#3f3f46" 1.4 220
 Draw-RoundRect 75 1946 890 36 10 "#27272a" "#3f3f46" 1.0 255
-Draw-LeftText "第四階段：互動網頁封裝與最終驗收" 96 1954 15 "#e2e8f0" $true
+Draw-LeftText "第四階段：互動網頁封裝、程式與實機雙層驗收" 96 1954 15 "#e2e8f0" $true
 
 # Node 5
 Draw-RoundRect 215 1990 610 70 8 "#27272a" "#52525b" 1.4
 Draw-CenteredText "Node 5：暖陽繪本風互動網頁簡報 HTML 編譯" $CX 2013 16 "#f8fafc" $true
-Draw-CenteredText "輸入：03 + assets/*.svg（大字級＋活潑插圖）→ 輸出：slides.html" $CX 2038 12.5 "#a1a1aa" $false
+Draw-CenteredText "英數 Times New Roman＋中文標楷體｜大字級＋活潑插圖 → slides.html" $CX 2038 12.5 "#a1a1aa" $false
 
 Draw-ArrowPath @(@($CX,2060), @($CX,2086)) "#94a3b8" 1.8
 
-# Gate 6 (Dark Charcoal Diamond)
-Draw-Diamond $CX 2178 242 92 "#27272a" "#71717a" 2.0
-Draw-CenteredText "Gate 6：美術、字級與互動驗收" $CX 2144 15.5 "#f8fafc" $true
-Draw-CenteredText "1. 標題 ≥ 50px、一般內文 ≥ 30px (文獻頁放大)" $CX 2168 12.5 "#d4d4d8" $false
-Draw-CenteredText "2. 暖陽繪本風 / 標楷體 / PICO 作者(年份)" $CX 2190 12.5 "#d4d4d8" $false
-Draw-CenteredText "輸出：05_build_check.json" $CX 2213 12 "#a1a1aa" $false
+# Gate 6a (Dark Charcoal Diamond - Static Automated QA)
+Draw-Diamond $CX 2180 252 94 "#27272a" "#71717a" 2.0
+Draw-CenteredText "Gate 6a：程式靜態驗收 (check_node5)" $CX 2142 15.5 "#f8fafc" $true
+Draw-CenteredText "1. 標題 ≥ 50px、一般內文 ≥ 30px (文獻頁放大)" $CX 2166 12.5 "#d4d4d8" $false
+Draw-CenteredText "2. Times New Roman＋標楷體 / PICO 作者(年份)" $CX 2188 12.5 "#d4d4d8" $false
+Draw-CenteredText "3. 全螢幕鍵盤防焦點鎖死 (05_build_check)" $CX 2210 12 "#a1a1aa" $false
 
-# G6 Fail -> N5
-Draw-ArrowPath @(@(278,2178), @(145,2178), @(145,2025), @(213,2025)) "#94a3b8" 1.8
-Draw-EdgeBadge "字級/版面未過" 145 2100 122 "#18181b" "#52525b" "#e2e8f0"
+# G6a Fail -> N5
+Draw-ArrowPath @(@(268,2180), @(145,2180), @(145,2025), @(213,2025)) "#94a3b8" 1.8
+Draw-EdgeBadge "字級/程式未過" 145 2102 122 "#18181b" "#52525b" "#e2e8f0"
 
-# G6 Pass -> N6
-Draw-ArrowPath @(@($CX,2270), @($CX,2376)) "#34d399" 2.2
-Draw-EdgeBadge "驗收通過" $CX 2322 88 "#064e3b" "#10b981" "#ecfdf5"
+# G6a Pass -> G6b
+Draw-ArrowPath @(@($CX,2274), @($CX,2336)) "#34d399" 2.2
+Draw-EdgeBadge "靜態通過" $CX 2304 88 "#064e3b" "#10b981" "#ecfdf5"
+
+# Gate 6b (Bright Amber/Orange Diamond - HITL 3: Live Browser QA)
+Draw-Diamond $CX 2426 216 88 "#fbbf24" "#f59e0b" 2.2
+Draw-CenteredText "Gate 6b：人類介入關卡 3 (HITL)" $CX 2402 16 "#451a03" $true
+Draw-CenteredText "實機瀏覽器全螢幕、翻頁與視覺驗收" $CX 2427 13 "#78350f" $false
+Draw-CenteredText "【互動體驗把關】" $CX 2452 14.5 "#451a03" $true
+
+# G6b Feedback -> N5
+Draw-ArrowPath @(@(736,2426), @(890,2426), @(890,2025), @(827,2025)) "#f59e0b" 2.0
+Draw-EdgeBadge "實機互動微調" 890 2220 116 "#18181b" "#d97706" "#fde68a"
+
+# G6b Pass -> N6
+Draw-ArrowPath @(@($CX,2514), @($CX,2632)) "#34d399" 2.2
+Draw-EdgeBadge "實機驗收 OK" $CX 2570 114 "#064e3b" "#10b981" "#ecfdf5"
 
 # Node 6 (Final Delivery)
-Draw-RoundRect 245 2378 550 82 10 "#134e4a" "#14b8a6" 2.2
-Draw-CenteredText "Node 6：最終交付與獨立網頁同步 GitHub" $CX 2407 17 "#f0fdfa" $true
-Draw-CenteredText "獨立部署 slides.html 與 graph.html，保持 LLM Wiki 純淨" $CX 2436 13 "#99f6e4" $false
+Draw-RoundRect 245 2634 550 82 10 "#134e4a" "#14b8a6" 2.2
+Draw-CenteredText "Node 6：最終交付與獨立網頁同步 GitHub" $CX 2663 17 "#f0fdfa" $true
+Draw-CenteredText "獨立部署 slides.html 與 graph.html，保持 LLM Wiki 純淨" $CX 2692 13 "#99f6e4" $false
 
 # ==================== FOOTER LEGEND & ESCALATION ====================
-Draw-RoundRect 75 2530 890 104 10 "#27272a" "#3f3f46" 1.4
+Draw-RoundRect 75 2790 890 104 10 "#27272a" "#3f3f46" 1.4
 
 # Legend row
-Draw-RoundRect 108 2548 16 16 3 "#a7f3d0" "#10b981" 1.2
-Draw-LeftText "大綱自動審查" 132 2546 13.5 "#e2e8f0" $false
+Draw-RoundRect 108 2808 16 16 3 "#a7f3d0" "#10b981" 1.2
+Draw-LeftText "大綱自動審查" 132 2806 13.5 "#e2e8f0" $false
 
-Draw-RoundRect 258 2548 16 16 3 "#fbbf24" "#f59e0b" 1.2
-Draw-LeftText "人類介入關卡 (HITL)" 282 2546 13.5 "#e2e8f0" $false
+Draw-RoundRect 258 2808 16 16 3 "#fbbf24" "#f59e0b" 1.2
+Draw-LeftText "人類介入關卡 (HITL)" 282 2806 13.5 "#e2e8f0" $false
 
-Draw-RoundRect 452 2548 16 16 3 "#fda4af" "#f43f5e" 1.2
-Draw-LeftText "逐頁雙重品管" 476 2546 13.5 "#e2e8f0" $false
+Draw-RoundRect 452 2808 16 16 3 "#fda4af" "#f43f5e" 1.2
+Draw-LeftText "逐頁雙重品管" 476 2806 13.5 "#e2e8f0" $false
 
-Draw-RoundRect 604 2548 16 16 3 "#27272a" "#71717a" 1.2
-Draw-LeftText "程式與瀏覽器驗收" 628 2546 13.5 "#e2e8f0" $false
+Draw-RoundRect 604 2808 16 16 3 "#27272a" "#71717a" 1.2
+Draw-LeftText "程式靜態驗收" 628 2806 13.5 "#e2e8f0" $false
 
 $dashPen = New-Object System.Drawing.Pen((HexColor "#f59e0b"), 2.0)
 $dashPen.DashStyle = [System.Drawing.Drawing2D.DashStyle]::Dash
-$g.DrawLine($dashPen, 778, 2556, 814, 2556)
+$g.DrawLine($dashPen, 765, 2816, 801, 2816)
 $dashPen.Dispose()
-Draw-LeftText "跨階段退回" 822 2546 13.5 "#fde68a" $false
+Draw-LeftText "跨階段退回" 809 2806 13.5 "#fde68a" $false
 
-Draw-CenteredText "防死迴圈保護機制：任一自動檢核關卡 (Gate 1 / 2 / 4 / 6) 連續失敗超過 3 次，自動暫停並升級交由人工裁決" $CX 2604 13.5 "#fde68a" $true
+Draw-CenteredText "防死迴圈保護機制：任一自動檢核關卡 (Gate 1 / 2 / 4 / 6a) 連續失敗超過 3 次，自動暫停並升級交由人工裁決" $CX 2864 13.5 "#fde68a" $true
 
 # Save PNG to graph folder & artifacts folder
 $outWorkspace = "graph/slide_generation_graph.png"
