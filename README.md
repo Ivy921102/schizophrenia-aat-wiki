@@ -19,7 +19,30 @@
   <img src="https://img.shields.io/badge/目標症狀-負性症狀改善_(Negative_Symptoms)-ec4899?style=flat-square" />
 </p>
 
+<p>
+  <a href="https://ivy921102.github.io/schizophrenia-aat-wiki/"><img src="https://img.shields.io/badge/📚_線上知識庫-LLM_Wiki_首頁-0d9488?style=for-the-badge" alt="LLM Wiki" /></a>
+  &nbsp;
+  <a href="https://ivy921102.github.io/schizophrenia-aat-wiki/slides.html"><img src="https://img.shields.io/badge/📽️_線上簡報-15頁互動投影片-d97706?style=for-the-badge" alt="Interactive Slides" /></a>
+  &nbsp;
+  <a href="https://ivy921102.github.io/schizophrenia-aat-wiki/graph.html"><img src="https://img.shields.io/badge/🗺️_狀態圖-State_Graph_長圖-6366f1?style=for-the-badge" alt="State Graph" /></a>
+</p>
+
 </div>
+
+---
+
+### 🌐 線上展示與成果雙平台入口 (Live Web Access)
+
+> 💡 **平台架構說明**：
+> 本專案採**雙平台獨立並存**設計，「**LLM Wiki 醫學知識庫**」與「**15 頁互動式投影片簡報**」各自具備專屬線上網址與完整互動介面，互不覆蓋、互不取代。您可透過以下連結自由瀏覽：
+
+| 平台入口 | 線上直達網址 | 介面定位與核心功能 |
+| :--- | :--- | :--- |
+| 📚 **LLM Wiki 醫學知識庫** | [🔗 點此前往 LLM Wiki 首頁](https://ivy921102.github.io/schizophrenia-aat-wiki/) | **知識庫本體核心**：收錄 6 篇標竿文獻深度結構化萃取、4 大核心概念網絡（症狀、介入媒介、量表、神經機轉）、橫向比較矩陣、方法學限制與大眾生活去污名化轉譯。 |
+| 📽️ **15 頁互動式投影片簡報** | [🔗 點此觀看 15 頁互動簡報 (Slides)](https://ivy921102.github.io/schizophrenia-aat-wiki/slides.html) | **暖陽繪本風教學簡報**：Times New Roman 英數字 ＋ 大字級（標題 $\ge 50\text{px}$、內文 $\ge 30\text{px}$）標楷體排版，支援全螢幕、鍵盤無障礙翻頁、目錄導航與 3 大互動展廳（含 6 篇文獻 PICO 展廳）。 |
+| 🗺️ **State Graph 生成流程長圖** | [🔗 點此查閱 State Graph 網頁](https://ivy921102.github.io/schizophrenia-aat-wiki/graph.html) | **狀態機自動化架構**：展示從文獻檢索、PICO 萃取、大綱排版、大字級優化到 Human-in-the-Loop（HITL）人工驗收的四階段全自動化生成演進長圖與原始 PNG 下載。 |
+
+---
 
 思覺失調症及相關譜系障礙（Schizophrenia Spectrum Disorders）的負性症狀——涵蓋動機缺乏（Avolition）、社交退縮（Asociality）、情感平淡（Blunted Affect）與無快感症（Anhedonia）——長期以來為臨床精神醫療與常規抗精神病藥物反應最有限的核心挑戰。
 

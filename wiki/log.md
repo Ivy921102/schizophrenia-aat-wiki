@@ -79,3 +79,11 @@
 ## [2026-11-17] synthesis | from-isolation-to-connection
 - **動作**：生成大眾科普與去污名化旗艦專文。
 - **產出**：[[from-isolation-to-connection]]（《從封閉孤立到溫柔破冰：動物如何走入思覺失調個案的日常》），全方位轉譯負性症狀病理、犬馬媒介抉擇與家庭照護指引。
+
+## [2026-11-21] docs | GitHub 雙平台入口導航與簡報連結整合
+- **動作**：
+  - 於專案首頁 `README.md` 頂端整合「雙平台獨立並存入口導航（Live Web Access）」。
+  - 保留 `index.html` 作為純淨且獨立運作的 LLM Wiki 知識庫本體介面，不被簡報覆蓋或干擾。
+  - 明確提供「LLM Wiki 知識庫線上首頁」與「15 頁互動簡報 (Slides)」兩組獨立網址與徽章連結。
+  - 同步維護 `graph.html`（State Graph 四階段生成長圖）獨立瀏覽頁面。
+- **影響範圍**：`README.md`、`wiki/log.md`。
